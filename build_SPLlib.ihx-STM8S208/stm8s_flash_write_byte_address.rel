@@ -1,0 +1,31 @@
+XH3
+H B areas 4 global symbols
+M stm8s_flash_write_byte_address
+O -mstm8
+S _asm_val Ref000000
+S _asm_addr Ref000000
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 1C flags 0 addr 0
+S _write_byte_address Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 1E 05 16 03 CF 00 02 90 CF 00 00 7B 07
+R 00 00 00 09 12 08 00 01 12 0C 00 01
+T 00 00 0D C7 00 00 C6 00 00 92 BD
+R 00 00 00 09 12 04 00 00 12 07 00 00
+T 00 00 15 00 01
+R 00 00 00 09 12 03 00 01
+T 00 00 17
+R 00 00 00 09
+T 00 00 17 1E 01 5B 07 FC
+R 00 00 00 09

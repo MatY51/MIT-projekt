@@ -1,0 +1,41 @@
+XH3
+H B areas 2 global symbols
+M stm8s_tim3_TIM3_GetITStatus
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 24 flags 0 addr 0
+S _TIM3_GetITStatus Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 89 6B 02 C6 53 22 14 02 6B 01 C6 53 21
+R 00 00 00 09
+T 00 00 0D 14 02 0D 01 26 03 CC 00 21
+R 00 00 00 09 00 0A 00 09
+T 00 00 16
+R 00 00 00 09
+T 00 00 16 4D 26 03 CC 00 21
+R 00 00 00 09 00 07 00 09
+T 00 00 1C
+R 00 00 00 09
+T 00 00 1C A6 01 CC 00 22
+R 00 00 00 09 00 06 00 09
+T 00 00 21
+R 00 00 00 09
+T 00 00 21 4F
+R 00 00 00 09
+T 00 00 22
+R 00 00 00 09
+T 00 00 22
+R 00 00 00 09
+T 00 00 22 85 81
+R 00 00 00 09

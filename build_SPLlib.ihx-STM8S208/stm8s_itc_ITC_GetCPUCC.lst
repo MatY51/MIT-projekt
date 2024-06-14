@@ -1,0 +1,71 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_itc_ITC_GetCPUCC
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _ITC_GetCPUCC
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_itc_ITC_GetCPUCC.c: 36: uint8_t ITC_GetCPUCC(void)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function ITC_GetCPUCC
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment is optimal.
+                                     55 ;	Stack space usage: 0 bytes.
+      000000                         56 _ITC_GetCPUCC:
+                                     57 ;	../SPLSPL/src/stm8s_itc_ITC_GetCPUCC.c: 45: __asm__("push cc");
+                                     58 ;	genInline
+      000000 8A               [ 1]   59 	push	cc
+                                     60 ;	../SPLSPL/src/stm8s_itc_ITC_GetCPUCC.c: 46: __asm__("pop a");
+                                     61 ;	genInline
+      000001 84               [ 1]   62 	pop	a
+                                     63 ; genLabel
+      000002                         64 00101$:
+                                     65 ;	../SPLSPL/src/stm8s_itc_ITC_GetCPUCC.c: 51: }
+                                     66 ; genEndFunction
+      000002 81               [ 4]   67 	ret
+                                     68 	.area CODE
+                                     69 	.area CONST
+                                     70 	.area INITIALIZER
+                                     71 	.area CABS (ABS)

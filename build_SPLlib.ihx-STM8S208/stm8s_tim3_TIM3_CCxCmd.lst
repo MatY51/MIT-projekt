@@ -1,0 +1,124 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_tim3_TIM3_CCxCmd
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TIM3_CCxCmd
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_tim3_TIM3_CCxCmd.c: 41: void TIM3_CCxCmd(TIM3_Channel_TypeDef TIM3_Channel, FunctionalState NewState)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function TIM3_CCxCmd
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment is optimal.
+                                     55 ;	Stack space usage: 1 bytes.
+      000000                         56 _TIM3_CCxCmd:
+      000000 88               [ 1]   57 	push	a
+                                     58 ; genReceive
+      000001 6B 01            [ 1]   59 	ld	(0x01, sp), a
+                                     60 ;	../SPLSPL/src/stm8s_tim3_TIM3_CCxCmd.c: 52: TIM3->CCER1 |= TIM3_CCER1_CC1E;
+                                     61 ; genPointerGet
+      000003 C6 53 27         [ 1]   62 	ld	a, 0x5327
+                                     63 ;	../SPLSPL/src/stm8s_tim3_TIM3_CCxCmd.c: 47: if (TIM3_Channel == TIM3_CHANNEL_1)
+                                     64 ; genIfx
+      000006 0D 01            [ 1]   65 	tnz	(0x01, sp)
+      000008 27 03            [ 1]   66 	jreq	00133$
+      00000A CCr00r24         [ 2]   67 	jp	00108$
+      00000D                         68 00133$:
+                                     69 ;	../SPLSPL/src/stm8s_tim3_TIM3_CCxCmd.c: 50: if (NewState != DISABLE)
+                                     70 ; genIfx
+      00000D 0D 04            [ 1]   71 	tnz	(0x04, sp)
+      00000F 26 03            [ 1]   72 	jrne	00134$
+      000011 CCr00r1C         [ 2]   73 	jp	00102$
+      000014                         74 00134$:
+                                     75 ;	../SPLSPL/src/stm8s_tim3_TIM3_CCxCmd.c: 52: TIM3->CCER1 |= TIM3_CCER1_CC1E;
+                                     76 ; genOr
+      000014 AA 01            [ 1]   77 	or	a, #0x01
+                                     78 ; genPointerSet
+      000016 C7 53 27         [ 1]   79 	ld	0x5327, a
+                                     80 ; genGoto
+      000019 CCr00r38         [ 2]   81 	jp	00110$
+                                     82 ; genLabel
+      00001C                         83 00102$:
+                                     84 ;	../SPLSPL/src/stm8s_tim3_TIM3_CCxCmd.c: 56: TIM3->CCER1 &= (uint8_t)(~TIM3_CCER1_CC1E);
+                                     85 ; genAnd
+      00001C A4 FE            [ 1]   86 	and	a, #0xfe
+                                     87 ; genPointerSet
+      00001E C7 53 27         [ 1]   88 	ld	0x5327, a
+                                     89 ; genGoto
+      000021 CCr00r38         [ 2]   90 	jp	00110$
+                                     91 ; genLabel
+      000024                         92 00108$:
+                                     93 ;	../SPLSPL/src/stm8s_tim3_TIM3_CCxCmd.c: 63: if (NewState != DISABLE)
+                                     94 ; genIfx
+      000024 0D 04            [ 1]   95 	tnz	(0x04, sp)
+      000026 26 03            [ 1]   96 	jrne	00135$
+      000028 CCr00r33         [ 2]   97 	jp	00105$
+      00002B                         98 00135$:
+                                     99 ;	../SPLSPL/src/stm8s_tim3_TIM3_CCxCmd.c: 65: TIM3->CCER1 |= TIM3_CCER1_CC2E;
+                                    100 ; genOr
+      00002B AA 10            [ 1]  101 	or	a, #0x10
+                                    102 ; genPointerSet
+      00002D C7 53 27         [ 1]  103 	ld	0x5327, a
+                                    104 ; genGoto
+      000030 CCr00r38         [ 2]  105 	jp	00110$
+                                    106 ; genLabel
+      000033                        107 00105$:
+                                    108 ;	../SPLSPL/src/stm8s_tim3_TIM3_CCxCmd.c: 69: TIM3->CCER1 &= (uint8_t)(~TIM3_CCER1_CC2E);
+                                    109 ; genAnd
+      000033 A4 EF            [ 1]  110 	and	a, #0xef
+                                    111 ; genPointerSet
+      000035 C7 53 27         [ 1]  112 	ld	0x5327, a
+                                    113 ; genLabel
+      000038                        114 00110$:
+                                    115 ;	../SPLSPL/src/stm8s_tim3_TIM3_CCxCmd.c: 72: }
+                                    116 ; genEndFunction
+      000038 84               [ 1]  117 	pop	a
+      000039 85               [ 2]  118 	popw	x
+      00003A 84               [ 1]  119 	pop	a
+      00003B FC               [ 2]  120 	jp	(x)
+                                    121 	.area CODE
+                                    122 	.area CONST
+                                    123 	.area INITIALIZER
+                                    124 	.area CABS (ABS)

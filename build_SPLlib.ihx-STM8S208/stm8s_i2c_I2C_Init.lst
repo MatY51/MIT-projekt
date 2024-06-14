@@ -1,0 +1,366 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_i2c_I2C_Init
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _I2C_AcknowledgeConfig
+                                     12 	.globl _I2C_Init
+                                     13 ;--------------------------------------------------------
+                                     14 ; ram data
+                                     15 ;--------------------------------------------------------
+                                     16 	.area DATA
+                                     17 ;--------------------------------------------------------
+                                     18 ; ram data
+                                     19 ;--------------------------------------------------------
+                                     20 	.area INITIALIZED
+                                     21 ;--------------------------------------------------------
+                                     22 ; absolute external ram data
+                                     23 ;--------------------------------------------------------
+                                     24 	.area DABS (ABS)
+                                     25 
+                                     26 ; default segment ordering for linker
+                                     27 	.area HOME
+                                     28 	.area GSINIT
+                                     29 	.area GSFINAL
+                                     30 	.area CONST
+                                     31 	.area INITIALIZER
+                                     32 	.area CODE
+                                     33 
+                                     34 ;--------------------------------------------------------
+                                     35 ; global & static initialisations
+                                     36 ;--------------------------------------------------------
+                                     37 	.area HOME
+                                     38 	.area GSINIT
+                                     39 	.area GSFINAL
+                                     40 	.area GSINIT
+                                     41 ;--------------------------------------------------------
+                                     42 ; Home
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area HOME
+                                     46 ;--------------------------------------------------------
+                                     47 ; code
+                                     48 ;--------------------------------------------------------
+                                     49 	.area CODE
+                                     50 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 47: void I2C_Init(uint32_t OutputClockFrequencyHz, uint16_t OwnAddress, 
+                                     51 ; genLabel
+                                     52 ;	-----------------------------------------
+                                     53 ;	 function I2C_Init
+                                     54 ;	-----------------------------------------
+                                     55 ;	Register assignment might be sub-optimal.
+                                     56 ;	Stack space usage: 7 bytes.
+      000000                         57 _I2C_Init:
+      000000 52 07            [ 2]   58 	sub	sp, #7
+                                     59 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 53: uint8_t tmpccrh = 0;
+                                     60 ; genAssign
+      000002 0F 05            [ 1]   61 	clr	(0x05, sp)
+                                     62 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 66: I2C->FREQR &= (uint8_t)(~I2C_FREQR_FREQ);
+                                     63 ; genPointerGet
+      000004 C6 52 12         [ 1]   64 	ld	a, 0x5212
+                                     65 ; genAnd
+      000007 A4 C0            [ 1]   66 	and	a, #0xc0
+                                     67 ; genPointerSet
+      000009 C7 52 12         [ 1]   68 	ld	0x5212, a
+                                     69 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 68: I2C->FREQR |= InputClockFrequencyMHz;
+                                     70 ; genPointerGet
+      00000C C6 52 12         [ 1]   71 	ld	a, 0x5212
+                                     72 ; genOr
+      00000F 1A 13            [ 1]   73 	or	a, (0x13, sp)
+                                     74 ; genPointerSet
+      000011 C7 52 12         [ 1]   75 	ld	0x5212, a
+                                     76 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 72: I2C->CR1 &= (uint8_t)(~I2C_CR1_PE);
+                                     77 ; genPointerGet
+      000014 C6 52 10         [ 1]   78 	ld	a, 0x5210
+                                     79 ; genAnd
+      000017 A4 FE            [ 1]   80 	and	a, #0xfe
+                                     81 ; genPointerSet
+      000019 C7 52 10         [ 1]   82 	ld	0x5210, a
+                                     83 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 75: I2C->CCRH &= (uint8_t)(~(I2C_CCRH_FS | I2C_CCRH_DUTY | I2C_CCRH_CCR));
+                                     84 ; genPointerGet
+      00001C C6 52 1C         [ 1]   85 	ld	a, 0x521c
+                                     86 ; genAnd
+      00001F A4 30            [ 1]   87 	and	a, #0x30
+                                     88 ; genPointerSet
+      000021 C7 52 1C         [ 1]   89 	ld	0x521c, a
+                                     90 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 76: I2C->CCRL &= (uint8_t)(~I2C_CCRL_CCR);
+                                     91 ; genPointerGet
+                                     92 ; Dummy read
+      000024 C6 52 1B         [ 1]   93 	ld	a, 0x521b
+                                     94 ; genPointerSet
+      000027 35 00 52 1B      [ 1]   95 	mov	0x521b+0, #0x00
+                                     96 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 87: result = (uint16_t) ((InputClockFrequencyMHz * 1000000) / (OutputClockFrequencyHz * 3));
+                                     97 ; genCast
+                                     98 ; genAssign
+      00002B 7B 13            [ 1]   99 	ld	a, (0x13, sp)
+      00002D 5F               [ 1]  100 	clrw	x
+      00002E 0F 01            [ 1]  101 	clr	(0x01, sp)
+                                    102 ; genIPush
+      000030 88               [ 1]  103 	push	a
+      000031 89               [ 2]  104 	pushw	x
+      000032 4F               [ 1]  105 	clr	a
+      000033 88               [ 1]  106 	push	a
+                                    107 ; genIPush
+      000034 4B 40            [ 1]  108 	push	#0x40
+      000036 4B 42            [ 1]  109 	push	#0x42
+      000038 4B 0F            [ 1]  110 	push	#0x0f
+      00003A 4B 00            [ 1]  111 	push	#0x00
+                                    112 ; genCall
+      00003C CDr00r00         [ 4]  113 	call	__mullong
+      00003F 5B 08            [ 2]  114 	addw	sp, #8
+                                    115 ; genCast
+                                    116 ; genAssign
+      000041 1F 03            [ 2]  117 	ldw	(0x03, sp), x
+      000043 17 01            [ 2]  118 	ldw	(0x01, sp), y
+                                    119 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 79: if (OutputClockFrequencyHz > I2C_MAX_STANDARD_FREQ) /* FAST MODE */
+                                    120 ; genCmp
+                                    121 ; genCmpTnz
+      000045 AE 86 A0         [ 2]  122 	ldw	x, #0x86a0
+      000048 13 0C            [ 2]  123 	cpw	x, (0x0c, sp)
+      00004A A6 01            [ 1]  124 	ld	a, #0x01
+      00004C 12 0B            [ 1]  125 	sbc	a, (0x0b, sp)
+      00004E 4F               [ 1]  126 	clr	a
+      00004F 12 0A            [ 1]  127 	sbc	a, (0x0a, sp)
+      000051 25 03            [ 1]  128 	jrc	00141$
+      000053 CCr00rD6         [ 2]  129 	jp	00109$
+      000056                        130 00141$:
+                                    131 ; skipping generated iCode
+                                    132 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 82: tmpccrh = I2C_CCRH_FS;
+                                    133 ; genAssign
+      000056 A6 80            [ 1]  134 	ld	a, #0x80
+      000058 6B 05            [ 1]  135 	ld	(0x05, sp), a
+                                    136 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 84: if (I2C_DutyCycle == I2C_DUTYCYCLE_2)
+                                    137 ; genIfx
+      00005A 0D 10            [ 1]  138 	tnz	(0x10, sp)
+      00005C 27 03            [ 1]  139 	jreq	00142$
+      00005E CCr00r83         [ 2]  140 	jp	00102$
+      000061                        141 00142$:
+                                    142 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 87: result = (uint16_t) ((InputClockFrequencyMHz * 1000000) / (OutputClockFrequencyHz * 3));
+                                    143 ; genIPush
+      000061 1E 0C            [ 2]  144 	ldw	x, (0x0c, sp)
+      000063 89               [ 2]  145 	pushw	x
+      000064 1E 0C            [ 2]  146 	ldw	x, (0x0c, sp)
+      000066 89               [ 2]  147 	pushw	x
+                                    148 ; genIPush
+      000067 4B 03            [ 1]  149 	push	#0x03
+      000069 5F               [ 1]  150 	clrw	x
+      00006A 89               [ 2]  151 	pushw	x
+      00006B 4B 00            [ 1]  152 	push	#0x00
+                                    153 ; genCall
+      00006D CDr00r00         [ 4]  154 	call	__mullong
+      000070 5B 08            [ 2]  155 	addw	sp, #8
+                                    156 ; genIPush
+      000072 89               [ 2]  157 	pushw	x
+      000073 90 89            [ 2]  158 	pushw	y
+                                    159 ; genIPush
+      000075 1E 07            [ 2]  160 	ldw	x, (0x07, sp)
+      000077 89               [ 2]  161 	pushw	x
+      000078 1E 07            [ 2]  162 	ldw	x, (0x07, sp)
+      00007A 89               [ 2]  163 	pushw	x
+                                    164 ; genCall
+      00007B CDr00r00         [ 4]  165 	call	__divulong
+      00007E 5B 08            [ 2]  166 	addw	sp, #8
+                                    167 ; genCast
+                                    168 ; genAssign
+                                    169 ; genGoto
+      000080 CCr00rA9         [ 2]  170 	jp	00103$
+                                    171 ; genLabel
+      000083                        172 00102$:
+                                    173 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 92: result = (uint16_t) ((InputClockFrequencyMHz * 1000000) / (OutputClockFrequencyHz * 25));
+                                    174 ; genIPush
+      000083 1E 0C            [ 2]  175 	ldw	x, (0x0c, sp)
+      000085 89               [ 2]  176 	pushw	x
+      000086 1E 0C            [ 2]  177 	ldw	x, (0x0c, sp)
+      000088 89               [ 2]  178 	pushw	x
+                                    179 ; genIPush
+      000089 4B 19            [ 1]  180 	push	#0x19
+      00008B 5F               [ 1]  181 	clrw	x
+      00008C 89               [ 2]  182 	pushw	x
+      00008D 4B 00            [ 1]  183 	push	#0x00
+                                    184 ; genCall
+      00008F CDr00r00         [ 4]  185 	call	__mullong
+      000092 5B 08            [ 2]  186 	addw	sp, #8
+      000094 9F               [ 1]  187 	ld	a, xl
+                                    188 ; genIPush
+      000095 88               [ 1]  189 	push	a
+      000096 9E               [ 1]  190 	ld	a, xh
+      000097 88               [ 1]  191 	push	a
+      000098 90 89            [ 2]  192 	pushw	y
+                                    193 ; genIPush
+      00009A 1E 07            [ 2]  194 	ldw	x, (0x07, sp)
+      00009C 89               [ 2]  195 	pushw	x
+      00009D 1E 07            [ 2]  196 	ldw	x, (0x07, sp)
+      00009F 89               [ 2]  197 	pushw	x
+                                    198 ; genCall
+      0000A0 CDr00r00         [ 4]  199 	call	__divulong
+      0000A3 5B 08            [ 2]  200 	addw	sp, #8
+                                    201 ; genCast
+                                    202 ; genAssign
+                                    203 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 94: tmpccrh |= I2C_CCRH_DUTY;
+                                    204 ; genAssign
+      0000A5 A6 C0            [ 1]  205 	ld	a, #0xc0
+      0000A7 6B 05            [ 1]  206 	ld	(0x05, sp), a
+                                    207 ; genLabel
+      0000A9                        208 00103$:
+                                    209 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 98: if (result < (uint16_t)0x01)
+                                    210 ; genCmp
+                                    211 ; genCmpTnz
+      0000A9 A3 00 01         [ 2]  212 	cpw	x, #0x0001
+      0000AC 25 03            [ 1]  213 	jrc	00143$
+      0000AE CCr00rB3         [ 2]  214 	jp	00105$
+      0000B1                        215 00143$:
+                                    216 ; skipping generated iCode
+                                    217 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 101: result = (uint16_t)0x0001;
+                                    218 ; genAssign
+      0000B1 5F               [ 1]  219 	clrw	x
+      0000B2 5C               [ 1]  220 	incw	x
+                                    221 ; genLabel
+      0000B3                        222 00105$:
+                                    223 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 107: tmpval = ((InputClockFrequencyMHz * 3) / 10) + 1;
+                                    224 ; genCast
+                                    225 ; genAssign
+      0000B3 7B 13            [ 1]  226 	ld	a, (0x13, sp)
+      0000B5 6B 07            [ 1]  227 	ld	(0x07, sp), a
+      0000B7 0F 06            [ 1]  228 	clr	(0x06, sp)
+                                    229 ; genMult
+                                    230 ; genMultLit
+      0000B9 89               [ 2]  231 	pushw	x
+      0000BA 1E 08            [ 2]  232 	ldw	x, (0x08, sp)
+      0000BC 58               [ 2]  233 	sllw	x
+      0000BD 72 FB 08         [ 2]  234 	addw	x, (0x08, sp)
+      0000C0 51               [ 1]  235 	exgw	x, y
+      0000C1 85               [ 2]  236 	popw	x
+                                    237 ; genIPush
+      0000C2 89               [ 2]  238 	pushw	x
+      0000C3 4B 0A            [ 1]  239 	push	#0x0a
+      0000C5 4B 00            [ 1]  240 	push	#0x00
+                                    241 ; genSend
+      0000C7 93               [ 1]  242 	ldw	x, y
+                                    243 ; genCall
+      0000C8 CDr00r00         [ 4]  244 	call	__divsint
+      0000CB 90 93            [ 1]  245 	ldw	y, x
+      0000CD 9F               [ 1]  246 	ld	a, xl
+      0000CE 85               [ 2]  247 	popw	x
+                                    248 ; genCast
+                                    249 ; genAssign
+                                    250 ; genPlus
+      0000CF 4C               [ 1]  251 	inc	a
+                                    252 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 108: I2C->TRISER = (uint8_t)tmpval;
+                                    253 ; genCast
+                                    254 ; genAssign
+                                    255 ; genPointerSet
+      0000D0 C7 52 1D         [ 1]  256 	ld	0x521d, a
+                                    257 ; genGoto
+      0000D3 CCr00rFC         [ 2]  258 	jp	00110$
+                                    259 ; genLabel
+      0000D6                        260 00109$:
+                                    261 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 115: result = (uint16_t)((InputClockFrequencyMHz * 1000000) / (OutputClockFrequencyHz << (uint8_t)1));
+                                    262 ; genLeftShiftLiteral
+      0000D6 1E 0C            [ 2]  263 	ldw	x, (0x0c, sp)
+      0000D8 16 0A            [ 2]  264 	ldw	y, (0x0a, sp)
+      0000DA 58               [ 2]  265 	sllw	x
+      0000DB 90 59            [ 2]  266 	rlcw	y
+                                    267 ; genIPush
+      0000DD 89               [ 2]  268 	pushw	x
+      0000DE 90 89            [ 2]  269 	pushw	y
+                                    270 ; genIPush
+      0000E0 1E 07            [ 2]  271 	ldw	x, (0x07, sp)
+      0000E2 89               [ 2]  272 	pushw	x
+      0000E3 1E 07            [ 2]  273 	ldw	x, (0x07, sp)
+      0000E5 89               [ 2]  274 	pushw	x
+                                    275 ; genCall
+      0000E6 CDr00r00         [ 4]  276 	call	__divulong
+      0000E9 5B 08            [ 2]  277 	addw	sp, #8
+                                    278 ; genCast
+                                    279 ; genAssign
+                                    280 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 118: if (result < (uint16_t)0x0004)
+                                    281 ; genCmp
+                                    282 ; genCmpTnz
+      0000EB A3 00 04         [ 2]  283 	cpw	x, #0x0004
+      0000EE 25 03            [ 1]  284 	jrc	00144$
+      0000F0 CCr00rF6         [ 2]  285 	jp	00107$
+      0000F3                        286 00144$:
+                                    287 ; skipping generated iCode
+                                    288 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 121: result = (uint16_t)0x0004;
+                                    289 ; genAssign
+      0000F3 AE 00 04         [ 2]  290 	ldw	x, #0x0004
+                                    291 ; genLabel
+      0000F6                        292 00107$:
+                                    293 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 127: I2C->TRISER = (uint8_t)(InputClockFrequencyMHz + (uint8_t)1);
+                                    294 ; genPlus
+      0000F6 7B 13            [ 1]  295 	ld	a, (0x13, sp)
+      0000F8 4C               [ 1]  296 	inc	a
+                                    297 ; genPointerSet
+      0000F9 C7 52 1D         [ 1]  298 	ld	0x521d, a
+                                    299 ; genLabel
+      0000FC                        300 00110$:
+                                    301 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 132: I2C->CCRL = (uint8_t)result;
+                                    302 ; genCast
+                                    303 ; genAssign
+      0000FC 9F               [ 1]  304 	ld	a, xl
+                                    305 ; genPointerSet
+      0000FD C7 52 1B         [ 1]  306 	ld	0x521b, a
+                                    307 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 133: I2C->CCRH = (uint8_t)((uint8_t)((uint8_t)(result >> 8) & I2C_CCRH_CCR) | tmpccrh);
+                                    308 ; genGetByte
+      000100 9E               [ 1]  309 	ld	a, xh
+                                    310 ; genAnd
+      000101 A4 0F            [ 1]  311 	and	a, #0x0f
+                                    312 ; genOr
+      000103 1A 05            [ 1]  313 	or	a, (0x05, sp)
+                                    314 ; genPointerSet
+      000105 C7 52 1C         [ 1]  315 	ld	0x521c, a
+                                    316 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 136: I2C->CR1 |= I2C_CR1_PE;
+                                    317 ; genPointerGet
+      000108 C6 52 10         [ 1]  318 	ld	a, 0x5210
+                                    319 ; genOr
+      00010B AA 01            [ 1]  320 	or	a, #0x01
+                                    321 ; genPointerSet
+      00010D C7 52 10         [ 1]  322 	ld	0x5210, a
+                                    323 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 139: I2C_AcknowledgeConfig(Ack);
+                                    324 ; genSend
+      000110 7B 11            [ 1]  325 	ld	a, (0x11, sp)
+                                    326 ; genCall
+      000112 CDr00r00         [ 4]  327 	call	_I2C_AcknowledgeConfig
+                                    328 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 142: I2C->OARL = (uint8_t)(OwnAddress);
+                                    329 ; genCast
+                                    330 ; genAssign
+      000115 7B 0F            [ 1]  331 	ld	a, (0x0f, sp)
+                                    332 ; genPointerSet
+      000117 C7 52 13         [ 1]  333 	ld	0x5213, a
+                                    334 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 143: I2C->OARH = (uint8_t)((uint8_t)(AddMode | I2C_OARH_ADDCONF) |
+                                    335 ; genOr
+      00011A 7B 12            [ 1]  336 	ld	a, (0x12, sp)
+      00011C AA 40            [ 1]  337 	or	a, #0x40
+      00011E 6B 07            [ 1]  338 	ld	(0x07, sp), a
+                                    339 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 144: (uint8_t)((OwnAddress & (uint16_t)0x0300) >> (uint8_t)7));
+                                    340 ; genAnd
+      000120 4F               [ 1]  341 	clr	a
+      000121 97               [ 1]  342 	ld	xl, a
+      000122 7B 0E            [ 1]  343 	ld	a, (0x0e, sp)
+      000124 A4 03            [ 1]  344 	and	a, #0x03
+      000126 95               [ 1]  345 	ld	xh, a
+                                    346 ; genRightShiftLiteral
+      000127 A6 80            [ 1]  347 	ld	a, #0x80
+      000129 62               [ 2]  348 	div	x, a
+                                    349 ; genCast
+                                    350 ; genAssign
+      00012A 9F               [ 1]  351 	ld	a, xl
+                                    352 ; genOr
+      00012B 1A 07            [ 1]  353 	or	a, (0x07, sp)
+                                    354 ; genPointerSet
+      00012D C7 52 14         [ 1]  355 	ld	0x5214, a
+                                    356 ; genLabel
+      000130                        357 00111$:
+                                    358 ;	../SPLSPL/src/stm8s_i2c_I2C_Init.c: 145: }
+                                    359 ; genEndFunction
+      000130 1E 08            [ 2]  360 	ldw	x, (8, sp)
+      000132 5B 13            [ 2]  361 	addw	sp, #19
+      000134 FC               [ 2]  362 	jp	(x)
+                                    363 	.area CODE
+                                    364 	.area CONST
+                                    365 	.area INITIALIZER
+                                    366 	.area CABS (ABS)

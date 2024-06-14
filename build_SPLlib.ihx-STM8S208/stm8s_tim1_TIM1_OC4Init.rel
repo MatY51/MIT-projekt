@@ -1,0 +1,45 @@
+XH3
+H B areas 2 global symbols
+M stm8s_tim1_TIM1_OC4Init
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 52 flags 0 addr 0
+S _TIM1_OC4Init Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 52 03 6B 03 C6 52 5D A4 CF C7 52 5D C6
+R 00 00 00 09
+T 00 00 0D 52 5D 6B 01 7B 06 A4 10 6B 02 7B 09 A4
+R 00 00 00 09
+T 00 00 1A 20 1A 02 1A 01 C7 52 5D C6 52 5B A4 8F
+R 00 00 00 09
+T 00 00 27 1A 03 C7 52 5B C6 52 6F 0D 0A 26 03 CC
+R 00 00 00 09
+T 00 00 34 00 3E
+R 00 00 00 09 00 03 00 09
+T 00 00 36
+R 00 00 00 09
+T 00 00 36 AA DF C7 52 6F CC 00 43
+R 00 00 00 09 00 09 00 09
+T 00 00 3E
+R 00 00 00 09
+T 00 00 3E A4 BF C7 52 6F
+R 00 00 00 09
+T 00 00 43
+R 00 00 00 09
+T 00 00 43 7B 07 C7 52 6B 7B 08 C7 52 6C
+R 00 00 00 09
+T 00 00 4D
+R 00 00 00 09
+T 00 00 4D 1E 04 5B 0A FC
+R 00 00 00 09

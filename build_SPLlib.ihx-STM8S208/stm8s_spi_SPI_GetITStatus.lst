@@ -1,0 +1,139 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_spi_SPI_GetITStatus
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _SPI_GetITStatus
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_spi_SPI_GetITStatus.c: 44: ITStatus SPI_GetITStatus(SPI_IT_TypeDef SPI_IT)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function SPI_GetITStatus
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 2 bytes.
+      000000                         56 _SPI_GetITStatus:
+      000000 89               [ 2]   57 	pushw	x
+                                     58 ; genReceive
+      000001 97               [ 1]   59 	ld	xl, a
+                                     60 ;	../SPLSPL/src/stm8s_spi_SPI_GetITStatus.c: 53: itpos = (uint8_t)((uint8_t)1 << ((uint8_t)SPI_IT & (uint8_t)0x0F));
+                                     61 ; genAnd
+      000002 9F               [ 1]   62 	ld	a, xl
+      000003 A4 0F            [ 1]   63 	and	a, #0x0f
+                                     64 ; genLeftShift
+      000005 88               [ 1]   65 	push	a
+      000006 A6 01            [ 1]   66 	ld	a, #0x01
+      000008 6B 02            [ 1]   67 	ld	(0x02, sp), a
+      00000A 84               [ 1]   68 	pop	a
+      00000B 4D               [ 1]   69 	tnz	a
+      00000C 27 05            [ 1]   70 	jreq	00122$
+      00000E                         71 00121$:
+      00000E 08 01            [ 1]   72 	sll	(0x01, sp)
+      000010 4A               [ 1]   73 	dec	a
+      000011 26 FB            [ 1]   74 	jrne	00121$
+      000013                         75 00122$:
+                                     76 ;	../SPLSPL/src/stm8s_spi_SPI_GetITStatus.c: 56: itmask1 = (uint8_t)((uint8_t)SPI_IT >> (uint8_t)4);
+                                     77 ; genRightShiftLiteral
+      000013 9F               [ 1]   78 	ld	a, xl
+      000014 4E               [ 1]   79 	swap	a
+      000015 A4 0F            [ 1]   80 	and	a, #0x0f
+                                     81 ;	../SPLSPL/src/stm8s_spi_SPI_GetITStatus.c: 58: itmask2 = (uint8_t)((uint8_t)1 << itmask1);
+                                     82 ; genLeftShift
+      000017 88               [ 1]   83 	push	a
+      000018 A6 01            [ 1]   84 	ld	a, #0x01
+      00001A 6B 03            [ 1]   85 	ld	(0x03, sp), a
+      00001C 84               [ 1]   86 	pop	a
+      00001D 4D               [ 1]   87 	tnz	a
+      00001E 27 05            [ 1]   88 	jreq	00124$
+      000020                         89 00123$:
+      000020 08 02            [ 1]   90 	sll	(0x02, sp)
+      000022 4A               [ 1]   91 	dec	a
+      000023 26 FB            [ 1]   92 	jrne	00123$
+      000025                         93 00124$:
+                                     94 ;	../SPLSPL/src/stm8s_spi_SPI_GetITStatus.c: 60: enablestatus = (uint8_t)((uint8_t)SPI->SR & itmask2);
+                                     95 ; genPointerGet
+      000025 C6 52 03         [ 1]   96 	ld	a, 0x5203
+                                     97 ; genAnd
+      000028 14 02            [ 1]   98 	and	a, (0x02, sp)
+      00002A 97               [ 1]   99 	ld	xl, a
+                                    100 ;	../SPLSPL/src/stm8s_spi_SPI_GetITStatus.c: 62: if (((SPI->ICR & itpos) != RESET) && enablestatus)
+                                    101 ; genPointerGet
+      00002B C6 52 02         [ 1]  102 	ld	a, 0x5202
+                                    103 ; genAnd
+      00002E 14 01            [ 1]  104 	and	a, (0x01, sp)
+                                    105 ; genIfx
+      000030 4D               [ 1]  106 	tnz	a
+      000031 26 03            [ 1]  107 	jrne	00125$
+      000033 CCr00r42         [ 2]  108 	jp	00102$
+      000036                        109 00125$:
+                                    110 ; genIfx
+      000036 9F               [ 1]  111 	ld	a, xl
+      000037 4D               [ 1]  112 	tnz	a
+      000038 26 03            [ 1]  113 	jrne	00126$
+      00003A CCr00r42         [ 2]  114 	jp	00102$
+      00003D                        115 00126$:
+                                    116 ;	../SPLSPL/src/stm8s_spi_SPI_GetITStatus.c: 65: pendingbitstatus = SET;
+                                    117 ; genAssign
+      00003D A6 01            [ 1]  118 	ld	a, #0x01
+                                    119 ; genGoto
+      00003F CCr00r43         [ 2]  120 	jp	00103$
+                                    121 ; genLabel
+      000042                        122 00102$:
+                                    123 ;	../SPLSPL/src/stm8s_spi_SPI_GetITStatus.c: 70: pendingbitstatus = RESET;
+                                    124 ; genAssign
+      000042 4F               [ 1]  125 	clr	a
+                                    126 ; genLabel
+      000043                        127 00103$:
+                                    128 ;	../SPLSPL/src/stm8s_spi_SPI_GetITStatus.c: 73: return  pendingbitstatus;
+                                    129 ; genReturn
+                                    130 ; genLabel
+      000043                        131 00105$:
+                                    132 ;	../SPLSPL/src/stm8s_spi_SPI_GetITStatus.c: 74: }
+                                    133 ; genEndFunction
+      000043 85               [ 2]  134 	popw	x
+      000044 81               [ 4]  135 	ret
+                                    136 	.area CODE
+                                    137 	.area CONST
+                                    138 	.area INITIALIZER
+                                    139 	.area CABS (ABS)

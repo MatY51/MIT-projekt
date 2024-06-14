@@ -1,0 +1,26 @@
+XH3
+H B areas 3 global symbols
+M stm8s_itc_ITC_GetSoftIntStatus
+O -mstm8
+S .__.ABS. Def000000
+S _ITC_GetCPUCC Ref000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 6 flags 0 addr 0
+S _ITC_GetSoftIntStatus Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 CD 00 00 A4 28
+R 00 00 00 09 02 04 00 01
+T 00 00 05
+R 00 00 00 09
+T 00 00 05 81
+R 00 00 00 09

@@ -1,0 +1,365 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_can_CAN_Transmit
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CAN_SelectPage
+                                     12 	.globl _CAN_GetSelectedPage
+                                     13 	.globl _CAN_Transmit
+                                     14 ;--------------------------------------------------------
+                                     15 ; ram data
+                                     16 ;--------------------------------------------------------
+                                     17 	.area DATA
+                                     18 ;--------------------------------------------------------
+                                     19 ; ram data
+                                     20 ;--------------------------------------------------------
+                                     21 	.area INITIALIZED
+                                     22 ;--------------------------------------------------------
+                                     23 ; absolute external ram data
+                                     24 ;--------------------------------------------------------
+                                     25 	.area DABS (ABS)
+                                     26 
+                                     27 ; default segment ordering for linker
+                                     28 	.area HOME
+                                     29 	.area GSINIT
+                                     30 	.area GSFINAL
+                                     31 	.area CONST
+                                     32 	.area INITIALIZER
+                                     33 	.area CODE
+                                     34 
+                                     35 ;--------------------------------------------------------
+                                     36 ; global & static initialisations
+                                     37 ;--------------------------------------------------------
+                                     38 	.area HOME
+                                     39 	.area GSINIT
+                                     40 	.area GSFINAL
+                                     41 	.area GSINIT
+                                     42 ;--------------------------------------------------------
+                                     43 ; Home
+                                     44 ;--------------------------------------------------------
+                                     45 	.area HOME
+                                     46 	.area HOME
+                                     47 ;--------------------------------------------------------
+                                     48 ; code
+                                     49 ;--------------------------------------------------------
+                                     50 	.area CODE
+                                     51 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 41: CAN_TxStatus_TypeDef CAN_Transmit(uint32_t CAN_Id,
+                                     52 ; genLabel
+                                     53 ;	-----------------------------------------
+                                     54 ;	 function CAN_Transmit
+                                     55 ;	-----------------------------------------
+                                     56 ;	Register assignment might be sub-optimal.
+                                     57 ;	Stack space usage: 4 bytes.
+      000000                         58 _CAN_Transmit:
+      000000 52 04            [ 2]   59 	sub	sp, #4
+                                     60 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 48: CAN_Page_TypeDef can_page = CAN_GetSelectedPage();
+                                     61 ; genCall
+      000002 CDr00r00         [ 4]   62 	call	_CAN_GetSelectedPage
+      000005 6B 01            [ 1]   63 	ld	(0x01, sp), a
+                                     64 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 62: if ((CAN->TPR & CAN_TPR_TME0) == CAN_TPR_TME0)
+                                     65 ; genPointerGet
+      000007 C6 54 23         [ 1]   66 	ld	a, 0x5423
+                                     67 ; genAnd
+      00000A A4 04            [ 1]   68 	and	a, #0x04
+                                     69 ; genCmpEQorNE
+      00000C A1 04            [ 1]   70 	cp	a, #0x04
+      00000E 26 03            [ 1]   71 	jrne	00156$
+      000010 CCr00r16         [ 2]   72 	jp	00157$
+      000013                         73 00156$:
+      000013 CCr00r1B         [ 2]   74 	jp	00111$
+      000016                         75 00157$:
+                                     76 ; skipping generated iCode
+                                     77 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 64: CAN_TxStatus = CAN_TxStatus_MailBox0Ok;
+                                     78 ; genAssign
+      000016 0F 02            [ 1]   79 	clr	(0x02, sp)
+                                     80 ; genGoto
+      000018 CCr00r4B         [ 2]   81 	jp	00112$
+                                     82 ; genLabel
+      00001B                         83 00111$:
+                                     84 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 66: else if ((CAN->TPR & CAN_TPR_TME1) == CAN_TPR_TME1)
+                                     85 ; genPointerGet
+      00001B C6 54 23         [ 1]   86 	ld	a, 0x5423
+                                     87 ; genAnd
+      00001E A4 08            [ 1]   88 	and	a, #0x08
+                                     89 ; genCmpEQorNE
+      000020 A1 08            [ 1]   90 	cp	a, #0x08
+      000022 26 03            [ 1]   91 	jrne	00159$
+      000024 CCr00r2A         [ 2]   92 	jp	00160$
+      000027                         93 00159$:
+      000027 CCr00r31         [ 2]   94 	jp	00108$
+      00002A                         95 00160$:
+                                     96 ; skipping generated iCode
+                                     97 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 68: CAN_TxStatus = CAN_TxStatus_MailBox1Ok;
+                                     98 ; genAssign
+      00002A A6 01            [ 1]   99 	ld	a, #0x01
+      00002C 6B 02            [ 1]  100 	ld	(0x02, sp), a
+                                    101 ; genGoto
+      00002E CCr00r4B         [ 2]  102 	jp	00112$
+                                    103 ; genLabel
+      000031                        104 00108$:
+                                    105 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 70: else if ((CAN->TPR & CAN_TPR_TME2) == CAN_TPR_TME2)
+                                    106 ; genPointerGet
+      000031 C6 54 23         [ 1]  107 	ld	a, 0x5423
+                                    108 ; genAnd
+      000034 A4 10            [ 1]  109 	and	a, #0x10
+                                    110 ; genCmpEQorNE
+      000036 A1 10            [ 1]  111 	cp	a, #0x10
+      000038 26 03            [ 1]  112 	jrne	00162$
+      00003A CCr00r40         [ 2]  113 	jp	00163$
+      00003D                        114 00162$:
+      00003D CCr00r47         [ 2]  115 	jp	00105$
+      000040                        116 00163$:
+                                    117 ; skipping generated iCode
+                                    118 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 72: CAN_TxStatus = CAN_TxStatus_MailBox2Ok;
+                                    119 ; genAssign
+      000040 A6 05            [ 1]  120 	ld	a, #0x05
+      000042 6B 02            [ 1]  121 	ld	(0x02, sp), a
+                                    122 ; genGoto
+      000044 CCr00r4B         [ 2]  123 	jp	00112$
+                                    124 ; genLabel
+      000047                        125 00105$:
+                                    126 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 76: CAN_TxStatus = CAN_TxStatus_NoMailBox;
+                                    127 ; genAssign
+      000047 A6 F4            [ 1]  128 	ld	a, #0xf4
+      000049 6B 02            [ 1]  129 	ld	(0x02, sp), a
+                                    130 ; genLabel
+      00004B                        131 00112$:
+                                    132 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 78: if (CAN_TxStatus != CAN_TxStatus_NoMailBox)
+                                    133 ; genCmpEQorNE
+      00004B 7B 02            [ 1]  134 	ld	a, (0x02, sp)
+      00004D A1 F4            [ 1]  135 	cp	a, #0xf4
+      00004F 26 03            [ 1]  136 	jrne	00165$
+      000051 CCr01r1C         [ 2]  137 	jp	00117$
+      000054                        138 00165$:
+                                    139 ; skipping generated iCode
+                                    140 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 80: CAN->PSR = (uint8_t)CAN_TxStatus;
+                                    141 ; genPointerSet
+      000054 AE 54 27         [ 2]  142 	ldw	x, #0x5427
+      000057 7B 02            [ 1]  143 	ld	a, (0x02, sp)
+      000059 F7               [ 1]  144 	ld	(x), a
+                                    145 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 91: CAN->Page.TxMailbox.MIDR1 = (uint8_t)(CAN_Id |CAN_IDE | CAN_RTR);
+                                    146 ; genAssign
+      00005A 7B 0C            [ 1]  147 	ld	a, (0x0c, sp)
+      00005C 6B 03            [ 1]  148 	ld	(0x03, sp), a
+                                    149 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 82: if (CAN_IDE != CAN_Id_Standard)
+                                    150 ; genIfx
+      00005E 0D 0B            [ 1]  151 	tnz	(0x0b, sp)
+      000060 26 03            [ 1]  152 	jrne	00167$
+      000062 CCr00rB3         [ 2]  153 	jp	00114$
+      000065                        154 00167$:
+                                    155 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 84: CAN_Id &= (uint32_t)CAN_EXTID_SIZE;
+                                    156 ; genAnd
+      000065 16 09            [ 2]  157 	ldw	y, (0x09, sp)
+      000067 7B 08            [ 1]  158 	ld	a, (0x08, sp)
+      000069 97               [ 1]  159 	ld	xl, a
+      00006A 7B 07            [ 1]  160 	ld	a, (0x07, sp)
+      00006C A4 1F            [ 1]  161 	and	a, #0x1f
+      00006E 95               [ 1]  162 	ld	xh, a
+                                    163 ; genAssign
+      00006F 17 09            [ 2]  164 	ldw	(0x09, sp), y
+      000071 1F 07            [ 2]  165 	ldw	(0x07, sp), x
+                                    166 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 85: CAN->Page.TxMailbox.MIDR4 = (uint8_t)(CAN_Id);
+                                    167 ; genCast
+                                    168 ; genAssign
+      000073 7B 0A            [ 1]  169 	ld	a, (0x0a, sp)
+                                    170 ; genPointerSet
+      000075 C7 54 2D         [ 1]  171 	ld	0x542d, a
+                                    172 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 86: CAN_Id = CAN_Id>>8;
+                                    173 ; genRightShiftLiteral
+      000078 16 08            [ 2]  174 	ldw	y, (0x08, sp)
+      00007A 7B 07            [ 1]  175 	ld	a, (0x07, sp)
+      00007C 97               [ 1]  176 	ld	xl, a
+      00007D 4F               [ 1]  177 	clr	a
+      00007E 95               [ 1]  178 	ld	xh, a
+                                    179 ; genAssign
+      00007F 17 09            [ 2]  180 	ldw	(0x09, sp), y
+      000081 1F 07            [ 2]  181 	ldw	(0x07, sp), x
+                                    182 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 87: CAN->Page.TxMailbox.MIDR3 = (uint8_t)(CAN_Id);
+                                    183 ; genCast
+                                    184 ; genAssign
+      000083 7B 0A            [ 1]  185 	ld	a, (0x0a, sp)
+                                    186 ; genPointerSet
+      000085 C7 54 2C         [ 1]  187 	ld	0x542c, a
+                                    188 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 88: CAN_Id = CAN_Id>>8;
+                                    189 ; genRightShiftLiteral
+      000088 16 08            [ 2]  190 	ldw	y, (0x08, sp)
+      00008A 7B 07            [ 1]  191 	ld	a, (0x07, sp)
+      00008C 97               [ 1]  192 	ld	xl, a
+      00008D 4F               [ 1]  193 	clr	a
+      00008E 95               [ 1]  194 	ld	xh, a
+                                    195 ; genAssign
+      00008F 17 09            [ 2]  196 	ldw	(0x09, sp), y
+      000091 1F 07            [ 2]  197 	ldw	(0x07, sp), x
+                                    198 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 89: CAN->Page.TxMailbox.MIDR2 = (uint8_t)(CAN_Id);
+                                    199 ; genCast
+                                    200 ; genAssign
+      000093 7B 0A            [ 1]  201 	ld	a, (0x0a, sp)
+                                    202 ; genPointerSet
+      000095 C7 54 2B         [ 1]  203 	ld	0x542b, a
+                                    204 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 90: CAN_Id = CAN_Id>>8;
+                                    205 ; genRightShiftLiteral
+      000098 16 08            [ 2]  206 	ldw	y, (0x08, sp)
+      00009A 7B 07            [ 1]  207 	ld	a, (0x07, sp)
+      00009C 97               [ 1]  208 	ld	xl, a
+      00009D 4F               [ 1]  209 	clr	a
+      00009E 95               [ 1]  210 	ld	xh, a
+                                    211 ; genAssign
+      00009F 17 09            [ 2]  212 	ldw	(0x09, sp), y
+      0000A1 1F 07            [ 2]  213 	ldw	(0x07, sp), x
+                                    214 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 91: CAN->Page.TxMailbox.MIDR1 = (uint8_t)(CAN_Id |CAN_IDE | CAN_RTR);
+                                    215 ; genAssign
+      0000A3 7B 0B            [ 1]  216 	ld	a, (0x0b, sp)
+      0000A5 6B 04            [ 1]  217 	ld	(0x04, sp), a
+                                    218 ; genCast
+                                    219 ; genAssign
+      0000A7 7B 0A            [ 1]  220 	ld	a, (0x0a, sp)
+                                    221 ; genOr
+      0000A9 1A 04            [ 1]  222 	or	a, (0x04, sp)
+                                    223 ; genOr
+      0000AB 1A 03            [ 1]  224 	or	a, (0x03, sp)
+                                    225 ; genPointerSet
+      0000AD C7 54 2A         [ 1]  226 	ld	0x542a, a
+                                    227 ; genGoto
+      0000B0 CCr00rD3         [ 2]  228 	jp	00115$
+                                    229 ; genLabel
+      0000B3                        230 00114$:
+                                    231 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 95: CAN_Id &= (uint16_t)CAN_STDID_SIZE;
+                                    232 ; genAnd
+      0000B3 7B 0A            [ 1]  233 	ld	a, (0x0a, sp)
+      0000B5 97               [ 1]  234 	ld	xl, a
+      0000B6 7B 09            [ 1]  235 	ld	a, (0x09, sp)
+      0000B8 A4 07            [ 1]  236 	and	a, #0x07
+      0000BA 95               [ 1]  237 	ld	xh, a
+      0000BB 90 5F            [ 1]  238 	clrw	y
+                                    239 ; genAssign
+      0000BD 1F 09            [ 2]  240 	ldw	(0x09, sp), x
+      0000BF 17 07            [ 2]  241 	ldw	(0x07, sp), y
+                                    242 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 96: CAN->Page.TxMailbox.MIDR1 = (uint8_t)((CAN_Id>>6) | (CAN_RTR)) ;
+                                    243 ; genCast
+                                    244 ; genAssign
+      0000C1 1E 09            [ 2]  245 	ldw	x, (0x09, sp)
+                                    246 ; genRightShiftLiteral
+      0000C3 A6 40            [ 1]  247 	ld	a, #0x40
+      0000C5 62               [ 2]  248 	div	x, a
+                                    249 ; genCast
+                                    250 ; genAssign
+      0000C6 9F               [ 1]  251 	ld	a, xl
+                                    252 ; genOr
+      0000C7 1A 03            [ 1]  253 	or	a, (0x03, sp)
+                                    254 ; genPointerSet
+      0000C9 C7 54 2A         [ 1]  255 	ld	0x542a, a
+                                    256 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 97: CAN->Page.TxMailbox.MIDR2 = (uint8_t)(CAN_Id<<2);
+                                    257 ; genCast
+                                    258 ; genAssign
+      0000CC 7B 0A            [ 1]  259 	ld	a, (0x0a, sp)
+                                    260 ; genCast
+                                    261 ; genAssign
+                                    262 ; genLeftShiftLiteral
+      0000CE 48               [ 1]  263 	sll	a
+      0000CF 48               [ 1]  264 	sll	a
+                                    265 ; genPointerSet
+      0000D0 C7 54 2B         [ 1]  266 	ld	0x542b, a
+                                    267 ; genLabel
+      0000D3                        268 00115$:
+                                    269 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 101: CAN->Page.TxMailbox.MDLCR &= (uint8_t)0xF0;
+                                    270 ; genPointerGet
+      0000D3 C6 54 29         [ 1]  271 	ld	a, 0x5429
+                                    272 ; genAnd
+      0000D6 A4 F0            [ 1]  273 	and	a, #0xf0
+                                    274 ; genPointerSet
+      0000D8 C7 54 29         [ 1]  275 	ld	0x5429, a
+                                    276 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 103: CAN->Page.TxMailbox.MDLCR |= CAN_DLC;
+                                    277 ; genPointerGet
+      0000DB C6 54 29         [ 1]  278 	ld	a, 0x5429
+                                    279 ; genOr
+      0000DE 1A 0D            [ 1]  280 	or	a, (0x0d, sp)
+                                    281 ; genPointerSet
+      0000E0 C7 54 29         [ 1]  282 	ld	0x5429, a
+                                    283 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 105: CAN->Page.TxMailbox.MDAR1 = CAN_Data[0];
+                                    284 ; genAssign
+      0000E3 16 0E            [ 2]  285 	ldw	y, (0x0e, sp)
+                                    286 ; genPointerGet
+      0000E5 90 F6            [ 1]  287 	ld	a, (y)
+                                    288 ; genPointerSet
+      0000E7 C7 54 2E         [ 1]  289 	ld	0x542e, a
+                                    290 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 106: CAN->Page.TxMailbox.MDAR2 = CAN_Data[1];
+                                    291 ; genAssign
+      0000EA 93               [ 1]  292 	ldw	x, y
+                                    293 ; genPointerGet
+      0000EB E6 01            [ 1]  294 	ld	a, (0x1, x)
+                                    295 ; genPointerSet
+      0000ED C7 54 2F         [ 1]  296 	ld	0x542f, a
+                                    297 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 107: CAN->Page.TxMailbox.MDAR3 = CAN_Data[2];
+                                    298 ; genAssign
+      0000F0 93               [ 1]  299 	ldw	x, y
+                                    300 ; genPointerGet
+      0000F1 E6 02            [ 1]  301 	ld	a, (0x2, x)
+                                    302 ; genPointerSet
+      0000F3 C7 54 30         [ 1]  303 	ld	0x5430, a
+                                    304 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 108: CAN->Page.TxMailbox.MDAR4 = CAN_Data[3];
+                                    305 ; genAssign
+      0000F6 93               [ 1]  306 	ldw	x, y
+                                    307 ; genPointerGet
+      0000F7 E6 03            [ 1]  308 	ld	a, (0x3, x)
+                                    309 ; genPointerSet
+      0000F9 C7 54 31         [ 1]  310 	ld	0x5431, a
+                                    311 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 109: CAN->Page.TxMailbox.MDAR5 = CAN_Data[4];
+                                    312 ; genAssign
+      0000FC 93               [ 1]  313 	ldw	x, y
+                                    314 ; genPointerGet
+      0000FD E6 04            [ 1]  315 	ld	a, (0x4, x)
+                                    316 ; genPointerSet
+      0000FF C7 54 32         [ 1]  317 	ld	0x5432, a
+                                    318 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 110: CAN->Page.TxMailbox.MDAR6 = CAN_Data[5];
+                                    319 ; genAssign
+      000102 93               [ 1]  320 	ldw	x, y
+                                    321 ; genPointerGet
+      000103 E6 05            [ 1]  322 	ld	a, (0x5, x)
+                                    323 ; genPointerSet
+      000105 C7 54 33         [ 1]  324 	ld	0x5433, a
+                                    325 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 111: CAN->Page.TxMailbox.MDAR7 = CAN_Data[6];
+                                    326 ; genAssign
+      000108 93               [ 1]  327 	ldw	x, y
+                                    328 ; genPointerGet
+      000109 E6 06            [ 1]  329 	ld	a, (0x6, x)
+                                    330 ; genPointerSet
+      00010B C7 54 34         [ 1]  331 	ld	0x5434, a
+                                    332 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 112: CAN->Page.TxMailbox.MDAR8 = CAN_Data[7];
+                                    333 ; genAssign
+                                    334 ; genPointerGet
+      00010E 90 E6 07         [ 1]  335 	ld	a, (0x7, y)
+                                    336 ; genPointerSet
+      000111 C7 54 35         [ 1]  337 	ld	0x5435, a
+                                    338 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 114: CAN->Page.TxMailbox.MCSR |= CAN_MCSR_TXRQ;
+                                    339 ; genPointerGet
+      000114 C6 54 28         [ 1]  340 	ld	a, 0x5428
+                                    341 ; genOr
+      000117 AA 01            [ 1]  342 	or	a, #0x01
+                                    343 ; genPointerSet
+      000119 C7 54 28         [ 1]  344 	ld	0x5428, a
+                                    345 ; genLabel
+      00011C                        346 00117$:
+                                    347 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 117: CAN_SelectPage(can_page);
+                                    348 ; genSend
+      00011C 7B 01            [ 1]  349 	ld	a, (0x01, sp)
+                                    350 ; genCall
+      00011E CDr00r00         [ 4]  351 	call	_CAN_SelectPage
+                                    352 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 118: return (CAN_TxStatus_TypeDef)CAN_TxStatus;
+                                    353 ; genReturn
+      000121 7B 02            [ 1]  354 	ld	a, (0x02, sp)
+                                    355 ; genLabel
+      000123                        356 00118$:
+                                    357 ;	../SPLSPL/src/stm8s_can_CAN_Transmit.c: 119: }
+                                    358 ; genEndFunction
+      000123 1E 05            [ 2]  359 	ldw	x, (5, sp)
+      000125 5B 0F            [ 2]  360 	addw	sp, #15
+      000127 FC               [ 2]  361 	jp	(x)
+                                    362 	.area CODE
+                                    363 	.area CONST
+                                    364 	.area INITIALIZER
+                                    365 	.area CABS (ABS)

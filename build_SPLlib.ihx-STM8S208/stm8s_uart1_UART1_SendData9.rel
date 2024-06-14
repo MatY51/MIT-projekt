@@ -1,0 +1,29 @@
+XH3
+H B areas 2 global symbols
+M stm8s_uart1_UART1_SendData9
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 21 flags 0 addr 0
+S _UART1_SendData9 Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 88 51 C6 52 34 A4 BF C7 52 34 C6 52 34
+R 00 00 00 09
+T 00 00 0D 6B 01 93 54 54 9F A4 40 1A 01 C7 52 34
+R 00 00 00 09
+T 00 00 1A 90 9F C7 52 31
+R 00 00 00 09
+T 00 00 1F
+R 00 00 00 09
+T 00 00 1F 84 81
+R 00 00 00 09

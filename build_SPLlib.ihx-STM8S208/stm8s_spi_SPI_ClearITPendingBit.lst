@@ -1,0 +1,90 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_spi_SPI_ClearITPendingBit
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _SPI_ClearITPendingBit
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_spi_SPI_ClearITPendingBit.c: 45: void SPI_ClearITPendingBit(SPI_IT_TypeDef SPI_IT)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function SPI_ClearITPendingBit
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment is optimal.
+                                     55 ;	Stack space usage: 0 bytes.
+      000000                         56 _SPI_ClearITPendingBit:
+                                     57 ; genReceive
+                                     58 ;	../SPLSPL/src/stm8s_spi_SPI_ClearITPendingBit.c: 53: itpos = (uint8_t)((uint8_t)1 << (uint8_t)((uint8_t)(SPI_IT & (uint8_t)0xF0) >> 4));
+                                     59 ; genAnd
+      000000 A4 F0            [ 1]   60 	and	a, #0xf0
+                                     61 ; genRightShiftLiteral
+      000002 4E               [ 1]   62 	swap	a
+      000003 A4 0F            [ 1]   63 	and	a, #0x0f
+      000005 97               [ 1]   64 	ld	xl, a
+                                     65 ; genLeftShift
+      000006 A6 01            [ 1]   66 	ld	a, #0x01
+      000008 88               [ 1]   67 	push	a
+      000009 9F               [ 1]   68 	ld	a, xl
+      00000A 4D               [ 1]   69 	tnz	a
+      00000B 27 05            [ 1]   70 	jreq	00104$
+      00000D                         71 00103$:
+      00000D 08 01            [ 1]   72 	sll	(1, sp)
+      00000F 4A               [ 1]   73 	dec	a
+      000010 26 FB            [ 1]   74 	jrne	00103$
+      000012                         75 00104$:
+      000012 84               [ 1]   76 	pop	a
+                                     77 ;	../SPLSPL/src/stm8s_spi_SPI_ClearITPendingBit.c: 55: SPI->SR = (uint8_t)(~itpos);
+                                     78 ; genCpl
+      000013 43               [ 1]   79 	cpl	a
+                                     80 ; genPointerSet
+      000014 C7 52 03         [ 1]   81 	ld	0x5203, a
+                                     82 ; genLabel
+      000017                         83 00101$:
+                                     84 ;	../SPLSPL/src/stm8s_spi_SPI_ClearITPendingBit.c: 57: }
+                                     85 ; genEndFunction
+      000017 81               [ 4]   86 	ret
+                                     87 	.area CODE
+                                     88 	.area CONST
+                                     89 	.area INITIALIZER
+                                     90 	.area CABS (ABS)

@@ -1,0 +1,35 @@
+XH3
+H B areas 6 global symbols
+M stm8s_adc2_ADC2_Init
+O -mstm8
+S .__.ABS. Def000000
+S _ADC2_ExternalTriggerConfig Ref000000
+S _ADC2_PrescalerConfig Ref000000
+S _ADC2_ConversionConfig Ref000000
+S _ADC2_SchmittTriggerConfig Ref000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 2D flags 0 addr 0
+S _ADC2_Init Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 97 7B 07 88 7B 04 88 9F CD 00 00 7B 04
+R 00 00 00 09 02 0C 00 03
+T 00 00 0D CD 00 00 7B 06 88 7B 06 CD 00 00 7B 09
+R 00 00 00 09 02 04 00 02 02 0C 00 01
+T 00 00 1A 88 7B 09 CD 00 00 C6 54 01 AA 01 C7
+R 00 00 00 09 02 07 00 04
+T 00 00 26 54 01
+R 00 00 00 09
+T 00 00 28
+R 00 00 00 09
+T 00 00 28 1E 01 5B 09 FC
+R 00 00 00 09

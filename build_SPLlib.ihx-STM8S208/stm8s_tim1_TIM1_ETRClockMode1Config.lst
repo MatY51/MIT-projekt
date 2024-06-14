@@ -1,0 +1,90 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_tim1_TIM1_ETRClockMode1Config
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TIM1_ETRConfig
+                                     12 	.globl _TIM1_ETRClockMode1Config
+                                     13 ;--------------------------------------------------------
+                                     14 ; ram data
+                                     15 ;--------------------------------------------------------
+                                     16 	.area DATA
+                                     17 ;--------------------------------------------------------
+                                     18 ; ram data
+                                     19 ;--------------------------------------------------------
+                                     20 	.area INITIALIZED
+                                     21 ;--------------------------------------------------------
+                                     22 ; absolute external ram data
+                                     23 ;--------------------------------------------------------
+                                     24 	.area DABS (ABS)
+                                     25 
+                                     26 ; default segment ordering for linker
+                                     27 	.area HOME
+                                     28 	.area GSINIT
+                                     29 	.area GSFINAL
+                                     30 	.area CONST
+                                     31 	.area INITIALIZER
+                                     32 	.area CODE
+                                     33 
+                                     34 ;--------------------------------------------------------
+                                     35 ; global & static initialisations
+                                     36 ;--------------------------------------------------------
+                                     37 	.area HOME
+                                     38 	.area GSINIT
+                                     39 	.area GSFINAL
+                                     40 	.area GSINIT
+                                     41 ;--------------------------------------------------------
+                                     42 ; Home
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area HOME
+                                     46 ;--------------------------------------------------------
+                                     47 ; code
+                                     48 ;--------------------------------------------------------
+                                     49 	.area CODE
+                                     50 ;	../SPLSPL/src/stm8s_tim1_TIM1_ETRClockMode1Config.c: 47: void TIM1_ETRClockMode1Config(TIM1_ExtTRGPSC_TypeDef TIM1_ExtTRGPrescaler,
+                                     51 ; genLabel
+                                     52 ;	-----------------------------------------
+                                     53 ;	 function TIM1_ETRClockMode1Config
+                                     54 ;	-----------------------------------------
+                                     55 ;	Register assignment is optimal.
+                                     56 ;	Stack space usage: 0 bytes.
+      000000                         57 _TIM1_ETRClockMode1Config:
+                                     58 ; genReceive
+      000000 97               [ 1]   59 	ld	xl, a
+                                     60 ;	../SPLSPL/src/stm8s_tim1_TIM1_ETRClockMode1Config.c: 56: TIM1_ETRConfig(TIM1_ExtTRGPrescaler, TIM1_ExtTRGPolarity, ExtTRGFilter);
+                                     61 ; genIPush
+      000001 7B 04            [ 1]   62 	ld	a, (0x04, sp)
+      000003 88               [ 1]   63 	push	a
+                                     64 ; genIPush
+      000004 7B 04            [ 1]   65 	ld	a, (0x04, sp)
+      000006 88               [ 1]   66 	push	a
+                                     67 ; genSend
+      000007 9F               [ 1]   68 	ld	a, xl
+                                     69 ; genCall
+      000008 CDr00r00         [ 4]   70 	call	_TIM1_ETRConfig
+                                     71 ;	../SPLSPL/src/stm8s_tim1_TIM1_ETRClockMode1Config.c: 59: TIM1->SMCR = (uint8_t)((uint8_t)(TIM1->SMCR & (uint8_t)(~(uint8_t)(TIM1_SMCR_SMS | TIM1_SMCR_TS )))
+                                     72 ; genPointerGet
+      00000B C6 52 52         [ 1]   73 	ld	a, 0x5252
+                                     74 ; genAnd
+      00000E A4 88            [ 1]   75 	and	a, #0x88
+                                     76 ; genOr
+      000010 AA 77            [ 1]   77 	or	a, #0x77
+                                     78 ; genPointerSet
+      000012 C7 52 52         [ 1]   79 	ld	0x5252, a
+                                     80 ; genLabel
+      000015                         81 00101$:
+                                     82 ;	../SPLSPL/src/stm8s_tim1_TIM1_ETRClockMode1Config.c: 61: }
+                                     83 ; genEndFunction
+      000015 1E 01            [ 2]   84 	ldw	x, (1, sp)
+      000017 5B 04            [ 2]   85 	addw	sp, #4
+      000019 FC               [ 2]   86 	jp	(x)
+                                     87 	.area CODE
+                                     88 	.area CONST
+                                     89 	.area INITIALIZER
+                                     90 	.area CABS (ABS)

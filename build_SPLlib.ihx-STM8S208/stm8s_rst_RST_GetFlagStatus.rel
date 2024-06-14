@@ -1,0 +1,27 @@
+XH3
+H B areas 2 global symbols
+M stm8s_rst_RST_GetFlagStatus
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 11 flags 0 addr 0
+S _RST_GetFlagStatus Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 88 6B 01 C6 50 B3 14 01 A0 01 4F 49 A8
+R 00 00 00 09
+T 00 00 0D 01
+R 00 00 00 09
+T 00 00 0E
+R 00 00 00 09
+T 00 00 0E 5B 01 81
+R 00 00 00 09

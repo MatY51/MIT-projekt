@@ -1,0 +1,131 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_tim2_TIM2_DeInit
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TIM2_DeInit
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 36: void TIM2_DeInit(void)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function TIM2_DeInit
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment is optimal.
+                                     55 ;	Stack space usage: 0 bytes.
+      000000                         56 _TIM2_DeInit:
+                                     57 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 38: TIM2->CR1 = (uint8_t)TIM2_CR1_RESET_VALUE;
+                                     58 ; genPointerSet
+      000000 35 00 53 00      [ 1]   59 	mov	0x5300+0, #0x00
+                                     60 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 39: TIM2->IER = (uint8_t)TIM2_IER_RESET_VALUE;
+                                     61 ; genPointerSet
+      000004 35 00 53 01      [ 1]   62 	mov	0x5301+0, #0x00
+                                     63 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 40: TIM2->SR2 = (uint8_t)TIM2_SR2_RESET_VALUE;
+                                     64 ; genPointerSet
+      000008 35 00 53 03      [ 1]   65 	mov	0x5303+0, #0x00
+                                     66 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 43: TIM2->CCER1 = (uint8_t)TIM2_CCER1_RESET_VALUE;
+                                     67 ; genPointerSet
+      00000C 35 00 53 08      [ 1]   68 	mov	0x5308+0, #0x00
+                                     69 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 44: TIM2->CCER2 = (uint8_t)TIM2_CCER2_RESET_VALUE;
+                                     70 ; genPointerSet
+      000010 35 00 53 09      [ 1]   71 	mov	0x5309+0, #0x00
+                                     72 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 48: TIM2->CCER1 = (uint8_t)TIM2_CCER1_RESET_VALUE;
+                                     73 ; genPointerSet
+      000014 35 00 53 08      [ 1]   74 	mov	0x5308+0, #0x00
+                                     75 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 49: TIM2->CCER2 = (uint8_t)TIM2_CCER2_RESET_VALUE;
+                                     76 ; genPointerSet
+      000018 35 00 53 09      [ 1]   77 	mov	0x5309+0, #0x00
+                                     78 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 50: TIM2->CCMR1 = (uint8_t)TIM2_CCMR1_RESET_VALUE;
+                                     79 ; genPointerSet
+      00001C 35 00 53 05      [ 1]   80 	mov	0x5305+0, #0x00
+                                     81 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 51: TIM2->CCMR2 = (uint8_t)TIM2_CCMR2_RESET_VALUE;
+                                     82 ; genPointerSet
+      000020 35 00 53 06      [ 1]   83 	mov	0x5306+0, #0x00
+                                     84 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 52: TIM2->CCMR3 = (uint8_t)TIM2_CCMR3_RESET_VALUE;
+                                     85 ; genPointerSet
+      000024 35 00 53 07      [ 1]   86 	mov	0x5307+0, #0x00
+                                     87 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 53: TIM2->CNTRH = (uint8_t)TIM2_CNTRH_RESET_VALUE;
+                                     88 ; genPointerSet
+      000028 35 00 53 0A      [ 1]   89 	mov	0x530a+0, #0x00
+                                     90 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 54: TIM2->CNTRL = (uint8_t)TIM2_CNTRL_RESET_VALUE;
+                                     91 ; genPointerSet
+      00002C 35 00 53 0B      [ 1]   92 	mov	0x530b+0, #0x00
+                                     93 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 55: TIM2->PSCR = (uint8_t)TIM2_PSCR_RESET_VALUE;
+                                     94 ; genPointerSet
+      000030 35 00 53 0C      [ 1]   95 	mov	0x530c+0, #0x00
+                                     96 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 56: TIM2->ARRH  = (uint8_t)TIM2_ARRH_RESET_VALUE;
+                                     97 ; genPointerSet
+      000034 35 FF 53 0D      [ 1]   98 	mov	0x530d+0, #0xff
+                                     99 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 57: TIM2->ARRL  = (uint8_t)TIM2_ARRL_RESET_VALUE;
+                                    100 ; genPointerSet
+      000038 35 FF 53 0E      [ 1]  101 	mov	0x530e+0, #0xff
+                                    102 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 58: TIM2->CCR1H = (uint8_t)TIM2_CCR1H_RESET_VALUE;
+                                    103 ; genPointerSet
+      00003C 35 00 53 0F      [ 1]  104 	mov	0x530f+0, #0x00
+                                    105 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 59: TIM2->CCR1L = (uint8_t)TIM2_CCR1L_RESET_VALUE;
+                                    106 ; genPointerSet
+      000040 35 00 53 10      [ 1]  107 	mov	0x5310+0, #0x00
+                                    108 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 60: TIM2->CCR2H = (uint8_t)TIM2_CCR2H_RESET_VALUE;
+                                    109 ; genPointerSet
+      000044 35 00 53 11      [ 1]  110 	mov	0x5311+0, #0x00
+                                    111 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 61: TIM2->CCR2L = (uint8_t)TIM2_CCR2L_RESET_VALUE;
+                                    112 ; genPointerSet
+      000048 35 00 53 12      [ 1]  113 	mov	0x5312+0, #0x00
+                                    114 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 62: TIM2->CCR3H = (uint8_t)TIM2_CCR3H_RESET_VALUE;
+                                    115 ; genPointerSet
+      00004C 35 00 53 13      [ 1]  116 	mov	0x5313+0, #0x00
+                                    117 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 63: TIM2->CCR3L = (uint8_t)TIM2_CCR3L_RESET_VALUE;
+                                    118 ; genPointerSet
+      000050 35 00 53 14      [ 1]  119 	mov	0x5314+0, #0x00
+                                    120 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 64: TIM2->SR1 = (uint8_t)TIM2_SR1_RESET_VALUE;
+                                    121 ; genPointerSet
+      000054 35 00 53 02      [ 1]  122 	mov	0x5302+0, #0x00
+                                    123 ; genLabel
+      000058                        124 00101$:
+                                    125 ;	../SPLSPL/src/stm8s_tim2_TIM2_DeInit.c: 65: }
+                                    126 ; genEndFunction
+      000058 81               [ 4]  127 	ret
+                                    128 	.area CODE
+                                    129 	.area CONST
+                                    130 	.area INITIALIZER
+                                    131 	.area CABS (ABS)

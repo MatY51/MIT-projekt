@@ -1,0 +1,323 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_uart3_UART3_Init
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CLK_GetClockFreq
+                                     12 	.globl _UART3_Init
+                                     13 ;--------------------------------------------------------
+                                     14 ; ram data
+                                     15 ;--------------------------------------------------------
+                                     16 	.area DATA
+                                     17 ;--------------------------------------------------------
+                                     18 ; ram data
+                                     19 ;--------------------------------------------------------
+                                     20 	.area INITIALIZED
+                                     21 ;--------------------------------------------------------
+                                     22 ; absolute external ram data
+                                     23 ;--------------------------------------------------------
+                                     24 	.area DABS (ABS)
+                                     25 
+                                     26 ; default segment ordering for linker
+                                     27 	.area HOME
+                                     28 	.area GSINIT
+                                     29 	.area GSFINAL
+                                     30 	.area CONST
+                                     31 	.area INITIALIZER
+                                     32 	.area CODE
+                                     33 
+                                     34 ;--------------------------------------------------------
+                                     35 ; global & static initialisations
+                                     36 ;--------------------------------------------------------
+                                     37 	.area HOME
+                                     38 	.area GSINIT
+                                     39 	.area GSFINAL
+                                     40 	.area GSINIT
+                                     41 ;--------------------------------------------------------
+                                     42 ; Home
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area HOME
+                                     46 ;--------------------------------------------------------
+                                     47 ; code
+                                     48 ;--------------------------------------------------------
+                                     49 	.area CODE
+                                     50 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 43: void UART3_Init(uint32_t BaudRate, UART3_WordLength_TypeDef WordLength, 
+                                     51 ; genLabel
+                                     52 ;	-----------------------------------------
+                                     53 ;	 function UART3_Init
+                                     54 ;	-----------------------------------------
+                                     55 ;	Register assignment might be sub-optimal.
+                                     56 ;	Stack space usage: 16 bytes.
+      000000                         57 _UART3_Init:
+      000000 52 10            [ 2]   58 	sub	sp, #16
+                                     59 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 58: UART3->CR1 &= (uint8_t)(~UART3_CR1_M);     
+                                     60 ; genPointerGet
+      000002 C6 52 44         [ 1]   61 	ld	a, 0x5244
+                                     62 ; genAnd
+      000005 A4 EF            [ 1]   63 	and	a, #0xef
+                                     64 ; genPointerSet
+      000007 C7 52 44         [ 1]   65 	ld	0x5244, a
+                                     66 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 60: UART3->CR1 |= (uint8_t)WordLength; 
+                                     67 ; genPointerGet
+      00000A C6 52 44         [ 1]   68 	ld	a, 0x5244
+                                     69 ; genOr
+      00000D 1A 17            [ 1]   70 	or	a, (0x17, sp)
+                                     71 ; genPointerSet
+      00000F C7 52 44         [ 1]   72 	ld	0x5244, a
+                                     73 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 63: UART3->CR3 &= (uint8_t)(~UART3_CR3_STOP);  
+                                     74 ; genPointerGet
+      000012 C6 52 46         [ 1]   75 	ld	a, 0x5246
+                                     76 ; genAnd
+      000015 A4 CF            [ 1]   77 	and	a, #0xcf
+                                     78 ; genPointerSet
+      000017 C7 52 46         [ 1]   79 	ld	0x5246, a
+                                     80 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 65: UART3->CR3 |= (uint8_t)StopBits;  
+                                     81 ; genPointerGet
+      00001A C6 52 46         [ 1]   82 	ld	a, 0x5246
+                                     83 ; genOr
+      00001D 1A 18            [ 1]   84 	or	a, (0x18, sp)
+                                     85 ; genPointerSet
+      00001F C7 52 46         [ 1]   86 	ld	0x5246, a
+                                     87 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 68: UART3->CR1 &= (uint8_t)(~(UART3_CR1_PCEN | UART3_CR1_PS));  
+                                     88 ; genPointerGet
+      000022 C6 52 44         [ 1]   89 	ld	a, 0x5244
+                                     90 ; genAnd
+      000025 A4 F9            [ 1]   91 	and	a, #0xf9
+                                     92 ; genPointerSet
+      000027 C7 52 44         [ 1]   93 	ld	0x5244, a
+                                     94 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 70: UART3->CR1 |= (uint8_t)Parity;     
+                                     95 ; genPointerGet
+      00002A C6 52 44         [ 1]   96 	ld	a, 0x5244
+                                     97 ; genOr
+      00002D 1A 19            [ 1]   98 	or	a, (0x19, sp)
+                                     99 ; genPointerSet
+      00002F C7 52 44         [ 1]  100 	ld	0x5244, a
+                                    101 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 73: UART3->BRR1 &= (uint8_t)(~UART3_BRR1_DIVM);  
+                                    102 ; genPointerGet
+                                    103 ; Dummy read
+      000032 C6 52 42         [ 1]  104 	ld	a, 0x5242
+                                    105 ; genPointerSet
+      000035 35 00 52 42      [ 1]  106 	mov	0x5242+0, #0x00
+                                    107 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 75: UART3->BRR2 &= (uint8_t)(~UART3_BRR2_DIVM);  
+                                    108 ; genPointerGet
+      000039 C6 52 43         [ 1]  109 	ld	a, 0x5243
+                                    110 ; genAnd
+      00003C A4 0F            [ 1]  111 	and	a, #0x0f
+                                    112 ; genPointerSet
+      00003E C7 52 43         [ 1]  113 	ld	0x5243, a
+                                    114 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 77: UART3->BRR2 &= (uint8_t)(~UART3_BRR2_DIVF);  
+                                    115 ; genPointerGet
+      000041 C6 52 43         [ 1]  116 	ld	a, 0x5243
+                                    117 ; genAnd
+      000044 A4 F0            [ 1]  118 	and	a, #0xf0
+                                    119 ; genPointerSet
+      000046 C7 52 43         [ 1]  120 	ld	0x5243, a
+                                    121 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 80: BaudRate_Mantissa    = ((uint32_t)CLK_GetClockFreq() / (BaudRate << 4));
+                                    122 ; genCall
+      000049 CDr00r00         [ 4]  123 	call	_CLK_GetClockFreq
+      00004C 1F 0F            [ 2]  124 	ldw	(0x0f, sp), x
+                                    125 ; genLeftShift
+      00004E 1E 13            [ 2]  126 	ldw	x, (0x13, sp)
+      000050 1F 09            [ 2]  127 	ldw	(0x09, sp), x
+      000052 1E 15            [ 2]  128 	ldw	x, (0x15, sp)
+      000054 A6 04            [ 1]  129 	ld	a, #0x04
+      000056                        130 00123$:
+      000056 58               [ 2]  131 	sllw	x
+      000057 09 0A            [ 1]  132 	rlc	(0x0a, sp)
+      000059 09 09            [ 1]  133 	rlc	(0x09, sp)
+      00005B 4A               [ 1]  134 	dec	a
+      00005C 26 F8            [ 1]  135 	jrne	00123$
+      00005E                        136 00124$:
+      00005E 1F 0B            [ 2]  137 	ldw	(0x0b, sp), x
+                                    138 ; genIPush
+      000060 1E 0B            [ 2]  139 	ldw	x, (0x0b, sp)
+      000062 89               [ 2]  140 	pushw	x
+      000063 1E 0B            [ 2]  141 	ldw	x, (0x0b, sp)
+      000065 89               [ 2]  142 	pushw	x
+                                    143 ; genIPush
+      000066 1E 13            [ 2]  144 	ldw	x, (0x13, sp)
+      000068 89               [ 2]  145 	pushw	x
+      000069 90 89            [ 2]  146 	pushw	y
+                                    147 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 81: BaudRate_Mantissa100 = (((uint32_t)CLK_GetClockFreq() * 100) / (BaudRate << 4));
+                                    148 ; genCall
+      00006B CDr00r00         [ 4]  149 	call	__divulong
+      00006E 5B 08            [ 2]  150 	addw	sp, #8
+      000070 1F 03            [ 2]  151 	ldw	(0x03, sp), x
+      000072 17 01            [ 2]  152 	ldw	(0x01, sp), y
+                                    153 ; genCall
+      000074 CDr00r00         [ 4]  154 	call	_CLK_GetClockFreq
+                                    155 ; genIPush
+      000077 89               [ 2]  156 	pushw	x
+      000078 90 89            [ 2]  157 	pushw	y
+                                    158 ; genIPush
+      00007A 4B 64            [ 1]  159 	push	#0x64
+      00007C 5F               [ 1]  160 	clrw	x
+      00007D 89               [ 2]  161 	pushw	x
+      00007E 4B 00            [ 1]  162 	push	#0x00
+                                    163 ; genCall
+      000080 CDr00r00         [ 4]  164 	call	__mullong
+      000083 5B 08            [ 2]  165 	addw	sp, #8
+      000085 1F 0F            [ 2]  166 	ldw	(0x0f, sp), x
+                                    167 ; genIPush
+      000087 1E 0B            [ 2]  168 	ldw	x, (0x0b, sp)
+      000089 89               [ 2]  169 	pushw	x
+      00008A 1E 0B            [ 2]  170 	ldw	x, (0x0b, sp)
+      00008C 89               [ 2]  171 	pushw	x
+                                    172 ; genIPush
+      00008D 1E 13            [ 2]  173 	ldw	x, (0x13, sp)
+      00008F 89               [ 2]  174 	pushw	x
+      000090 90 89            [ 2]  175 	pushw	y
+                                    176 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 84: BRR2_1 = (uint8_t)((uint8_t)(((BaudRate_Mantissa100 - (BaudRate_Mantissa * 100))
+                                    177 ; genCall
+      000092 CDr00r00         [ 4]  178 	call	__divulong
+      000095 5B 08            [ 2]  179 	addw	sp, #8
+      000097 1F 07            [ 2]  180 	ldw	(0x07, sp), x
+      000099 17 05            [ 2]  181 	ldw	(0x05, sp), y
+                                    182 ; genIPush
+      00009B 1E 03            [ 2]  183 	ldw	x, (0x03, sp)
+      00009D 89               [ 2]  184 	pushw	x
+      00009E 1E 03            [ 2]  185 	ldw	x, (0x03, sp)
+      0000A0 89               [ 2]  186 	pushw	x
+                                    187 ; genIPush
+      0000A1 4B 64            [ 1]  188 	push	#0x64
+      0000A3 5F               [ 1]  189 	clrw	x
+      0000A4 89               [ 2]  190 	pushw	x
+      0000A5 4B 00            [ 1]  191 	push	#0x00
+                                    192 ; genCall
+      0000A7 CDr00r00         [ 4]  193 	call	__mullong
+      0000AA 5B 08            [ 2]  194 	addw	sp, #8
+      0000AC 1F 0B            [ 2]  195 	ldw	(0x0b, sp), x
+      0000AE 17 09            [ 2]  196 	ldw	(0x09, sp), y
+                                    197 ; genMinus
+      0000B0 1E 07            [ 2]  198 	ldw	x, (0x07, sp)
+      0000B2 72 F0 0B         [ 2]  199 	subw	x, (0x0b, sp)
+      0000B5 1F 0F            [ 2]  200 	ldw	(0x0f, sp), x
+      0000B7 7B 06            [ 1]  201 	ld	a, (0x06, sp)
+      0000B9 12 0A            [ 1]  202 	sbc	a, (0x0a, sp)
+      0000BB 6B 0E            [ 1]  203 	ld	(0x0e, sp), a
+      0000BD 7B 05            [ 1]  204 	ld	a, (0x05, sp)
+      0000BF 12 09            [ 1]  205 	sbc	a, (0x09, sp)
+      0000C1 6B 0D            [ 1]  206 	ld	(0x0d, sp), a
+                                    207 ; genLeftShift
+      0000C3 1E 0F            [ 2]  208 	ldw	x, (0x0f, sp)
+      0000C5 16 0D            [ 2]  209 	ldw	y, (0x0d, sp)
+      0000C7 A6 04            [ 1]  210 	ld	a, #0x04
+      0000C9                        211 00125$:
+      0000C9 58               [ 2]  212 	sllw	x
+      0000CA 90 59            [ 2]  213 	rlcw	y
+      0000CC 4A               [ 1]  214 	dec	a
+      0000CD 26 FA            [ 1]  215 	jrne	00125$
+      0000CF                        216 00126$:
+                                    217 ; genIPush
+      0000CF 4B 64            [ 1]  218 	push	#0x64
+      0000D1 4B 00            [ 1]  219 	push	#0x00
+      0000D3 4B 00            [ 1]  220 	push	#0x00
+      0000D5 4B 00            [ 1]  221 	push	#0x00
+                                    222 ; genIPush
+      0000D7 89               [ 2]  223 	pushw	x
+      0000D8 90 89            [ 2]  224 	pushw	y
+                                    225 ; genCall
+      0000DA CDr00r00         [ 4]  226 	call	__divulong
+      0000DD 5B 08            [ 2]  227 	addw	sp, #8
+      0000DF 9F               [ 1]  228 	ld	a, xl
+                                    229 ; genCast
+                                    230 ; genAssign
+                                    231 ; genAnd
+      0000E0 A4 0F            [ 1]  232 	and	a, #0x0f
+      0000E2 6B 10            [ 1]  233 	ld	(0x10, sp), a
+                                    234 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 86: BRR2_2 = (uint8_t)((BaudRate_Mantissa >> 4) & (uint8_t)0xF0);
+                                    235 ; genCast
+                                    236 ; genAssign
+      0000E4 1E 03            [ 2]  237 	ldw	x, (0x03, sp)
+                                    238 ; genRightShiftLiteral
+      0000E6 A6 10            [ 1]  239 	ld	a, #0x10
+      0000E8 62               [ 2]  240 	div	x, a
+                                    241 ; genCast
+                                    242 ; genAssign
+      0000E9 9F               [ 1]  243 	ld	a, xl
+                                    244 ; genAnd
+      0000EA A4 F0            [ 1]  245 	and	a, #0xf0
+                                    246 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 88: UART3->BRR2 = (uint8_t)(BRR2_1 | BRR2_2);
+                                    247 ; genOr
+      0000EC 1A 10            [ 1]  248 	or	a, (0x10, sp)
+                                    249 ; genPointerSet
+      0000EE C7 52 43         [ 1]  250 	ld	0x5243, a
+                                    251 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 90: UART3->BRR1 = (uint8_t)BaudRate_Mantissa;           
+                                    252 ; genCast
+                                    253 ; genAssign
+      0000F1 7B 04            [ 1]  254 	ld	a, (0x04, sp)
+                                    255 ; genPointerSet
+      0000F3 C7 52 42         [ 1]  256 	ld	0x5242, a
+                                    257 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 95: UART3->CR2 |= UART3_CR2_TEN;  
+                                    258 ; genPointerGet
+      0000F6 C6 52 45         [ 1]  259 	ld	a, 0x5245
+                                    260 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 92: if ((uint8_t)(Mode & UART3_MODE_TX_ENABLE))
+                                    261 ; genAnd
+      0000F9 88               [ 1]  262 	push	a
+      0000FA 7B 1B            [ 1]  263 	ld	a, (0x1b, sp)
+      0000FC A5 04            [ 1]  264 	bcp	a, #0x04
+      0000FE 84               [ 1]  265 	pop	a
+      0000FF 26 03            [ 1]  266 	jrne	00127$
+      000101 CCr01r0C         [ 2]  267 	jp	00102$
+      000104                        268 00127$:
+                                    269 ; skipping generated iCode
+                                    270 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 95: UART3->CR2 |= UART3_CR2_TEN;  
+                                    271 ; genOr
+      000104 AA 08            [ 1]  272 	or	a, #0x08
+                                    273 ; genPointerSet
+      000106 C7 52 45         [ 1]  274 	ld	0x5245, a
+                                    275 ; genGoto
+      000109 CCr01r11         [ 2]  276 	jp	00103$
+                                    277 ; genLabel
+      00010C                        278 00102$:
+                                    279 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 100: UART3->CR2 &= (uint8_t)(~UART3_CR2_TEN);  
+                                    280 ; genAnd
+      00010C A4 F7            [ 1]  281 	and	a, #0xf7
+                                    282 ; genPointerSet
+      00010E C7 52 45         [ 1]  283 	ld	0x5245, a
+                                    284 ; genLabel
+      000111                        285 00103$:
+                                    286 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 95: UART3->CR2 |= UART3_CR2_TEN;  
+                                    287 ; genPointerGet
+      000111 C6 52 45         [ 1]  288 	ld	a, 0x5245
+                                    289 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 102: if ((uint8_t)(Mode & UART3_MODE_RX_ENABLE))
+                                    290 ; genAnd
+      000114 88               [ 1]  291 	push	a
+      000115 7B 1B            [ 1]  292 	ld	a, (0x1b, sp)
+      000117 A5 08            [ 1]  293 	bcp	a, #0x08
+      000119 84               [ 1]  294 	pop	a
+      00011A 26 03            [ 1]  295 	jrne	00128$
+      00011C CCr01r27         [ 2]  296 	jp	00105$
+      00011F                        297 00128$:
+                                    298 ; skipping generated iCode
+                                    299 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 105: UART3->CR2 |= UART3_CR2_REN;  
+                                    300 ; genOr
+      00011F AA 04            [ 1]  301 	or	a, #0x04
+                                    302 ; genPointerSet
+      000121 C7 52 45         [ 1]  303 	ld	0x5245, a
+                                    304 ; genGoto
+      000124 CCr01r2C         [ 2]  305 	jp	00107$
+                                    306 ; genLabel
+      000127                        307 00105$:
+                                    308 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 110: UART3->CR2 &= (uint8_t)(~UART3_CR2_REN);  
+                                    309 ; genAnd
+      000127 A4 FB            [ 1]  310 	and	a, #0xfb
+                                    311 ; genPointerSet
+      000129 C7 52 45         [ 1]  312 	ld	0x5245, a
+                                    313 ; genLabel
+      00012C                        314 00107$:
+                                    315 ;	../SPLSPL/src/stm8s_uart3_UART3_Init.c: 112: }
+                                    316 ; genEndFunction
+      00012C 1E 11            [ 2]  317 	ldw	x, (17, sp)
+      00012E 5B 1A            [ 2]  318 	addw	sp, #26
+      000130 FC               [ 2]  319 	jp	(x)
+                                    320 	.area CODE
+                                    321 	.area CONST
+                                    322 	.area INITIALIZER
+                                    323 	.area CABS (ABS)

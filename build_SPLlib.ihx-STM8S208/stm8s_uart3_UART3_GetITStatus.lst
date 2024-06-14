@@ -1,0 +1,283 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_uart3_UART3_GetITStatus
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _UART3_GetITStatus
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 44: ITStatus UART3_GetITStatus(UART3_IT_TypeDef UART3_IT)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function UART3_GetITStatus
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 4 bytes.
+      000000                         56 _UART3_GetITStatus:
+      000000 52 04            [ 2]   57 	sub	sp, #4
+                                     58 ; genReceive
+      000002 51               [ 1]   59 	exgw	x, y
+                                     60 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 56: itpos = (uint8_t)((uint8_t)1 << (uint8_t)((uint8_t)UART3_IT & (uint8_t)0x0F));
+                                     61 ; genCast
+                                     62 ; genAssign
+      000003 93               [ 1]   63 	ldw	x, y
+                                     64 ; genAnd
+      000004 9F               [ 1]   65 	ld	a, xl
+      000005 A4 0F            [ 1]   66 	and	a, #0x0f
+                                     67 ; genLeftShift
+      000007 88               [ 1]   68 	push	a
+      000008 A6 01            [ 1]   69 	ld	a, #0x01
+      00000A 6B 02            [ 1]   70 	ld	(0x02, sp), a
+      00000C 84               [ 1]   71 	pop	a
+      00000D 4D               [ 1]   72 	tnz	a
+      00000E 27 05            [ 1]   73 	jreq	00206$
+      000010                         74 00205$:
+      000010 08 01            [ 1]   75 	sll	(0x01, sp)
+      000012 4A               [ 1]   76 	dec	a
+      000013 26 FB            [ 1]   77 	jrne	00205$
+      000015                         78 00206$:
+                                     79 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 58: itmask1 = (uint8_t)((uint8_t)UART3_IT >> (uint8_t)4);
+                                     80 ; genRightShiftLiteral
+      000015 9F               [ 1]   81 	ld	a, xl
+      000016 4E               [ 1]   82 	swap	a
+      000017 A4 0F            [ 1]   83 	and	a, #0x0f
+                                     84 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 60: itmask2 = (uint8_t)((uint8_t)1 << itmask1);
+                                     85 ; genLeftShift
+      000019 88               [ 1]   86 	push	a
+      00001A A6 01            [ 1]   87 	ld	a, #0x01
+      00001C 6B 03            [ 1]   88 	ld	(0x03, sp), a
+      00001E 84               [ 1]   89 	pop	a
+      00001F 4D               [ 1]   90 	tnz	a
+      000020 27 05            [ 1]   91 	jreq	00208$
+      000022                         92 00207$:
+      000022 08 02            [ 1]   93 	sll	(0x02, sp)
+      000024 4A               [ 1]   94 	dec	a
+      000025 26 FB            [ 1]   95 	jrne	00207$
+      000027                         96 00208$:
+                                     97 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 63: if (UART3_IT == UART3_IT_PE)
+                                     98 ; genCast
+                                     99 ; genAssign
+      000027 17 03            [ 2]  100 	ldw	(0x03, sp), y
+                                    101 ; genCmpEQorNE
+      000029 1E 03            [ 2]  102 	ldw	x, (0x03, sp)
+      00002B A3 01 00         [ 2]  103 	cpw	x, #0x0100
+      00002E 26 03            [ 1]  104 	jrne	00210$
+      000030 CCr00r36         [ 2]  105 	jp	00211$
+      000033                        106 00210$:
+      000033 CCr00r57         [ 2]  107 	jp	00124$
+      000036                        108 00211$:
+                                    109 ; skipping generated iCode
+                                    110 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 66: enablestatus = (uint8_t)((uint8_t)UART3->CR1 & itmask2);
+                                    111 ; genPointerGet
+      000036 C6 52 44         [ 1]  112 	ld	a, 0x5244
+                                    113 ; genAnd
+      000039 14 02            [ 1]  114 	and	a, (0x02, sp)
+      00003B 97               [ 1]  115 	ld	xl, a
+                                    116 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 69: if (((UART3->SR & itpos) != (uint8_t)0x00) && enablestatus)
+                                    117 ; genPointerGet
+      00003C C6 52 40         [ 1]  118 	ld	a, 0x5240
+                                    119 ; genAnd
+      00003F 14 01            [ 1]  120 	and	a, (0x01, sp)
+                                    121 ; genIfx
+      000041 4D               [ 1]  122 	tnz	a
+      000042 26 03            [ 1]  123 	jrne	00212$
+      000044 CCr00r53         [ 2]  124 	jp	00102$
+      000047                        125 00212$:
+                                    126 ; genIfx
+      000047 9F               [ 1]  127 	ld	a, xl
+      000048 4D               [ 1]  128 	tnz	a
+      000049 26 03            [ 1]  129 	jrne	00213$
+      00004B CCr00r53         [ 2]  130 	jp	00102$
+      00004E                        131 00213$:
+                                    132 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 72: pendingbitstatus = SET;
+                                    133 ; genAssign
+      00004E A6 01            [ 1]  134 	ld	a, #0x01
+                                    135 ; genGoto
+      000050 CCr00rD1         [ 2]  136 	jp	00125$
+                                    137 ; genLabel
+      000053                        138 00102$:
+                                    139 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 77: pendingbitstatus = RESET;
+                                    140 ; genAssign
+      000053 4F               [ 1]  141 	clr	a
+                                    142 ; genGoto
+      000054 CCr00rD1         [ 2]  143 	jp	00125$
+                                    144 ; genLabel
+      000057                        145 00124$:
+                                    146 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 80: else if (UART3_IT == UART3_IT_LBDF)
+                                    147 ; genCmpEQorNE
+      000057 1E 03            [ 2]  148 	ldw	x, (0x03, sp)
+      000059 A3 03 46         [ 2]  149 	cpw	x, #0x0346
+      00005C 26 03            [ 1]  150 	jrne	00215$
+      00005E CCr00r64         [ 2]  151 	jp	00216$
+      000061                        152 00215$:
+      000061 CCr00r85         [ 2]  153 	jp	00121$
+      000064                        154 00216$:
+                                    155 ; skipping generated iCode
+                                    156 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 83: enablestatus = (uint8_t)((uint8_t)UART3->CR4 & itmask2);
+                                    157 ; genPointerGet
+      000064 C6 52 47         [ 1]  158 	ld	a, 0x5247
+                                    159 ; genAnd
+      000067 14 02            [ 1]  160 	and	a, (0x02, sp)
+      000069 97               [ 1]  161 	ld	xl, a
+                                    162 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 85: if (((UART3->CR4 & itpos) != (uint8_t)0x00) && enablestatus)
+                                    163 ; genPointerGet
+      00006A C6 52 47         [ 1]  164 	ld	a, 0x5247
+                                    165 ; genAnd
+      00006D 14 01            [ 1]  166 	and	a, (0x01, sp)
+                                    167 ; genIfx
+      00006F 4D               [ 1]  168 	tnz	a
+      000070 26 03            [ 1]  169 	jrne	00217$
+      000072 CCr00r81         [ 2]  170 	jp	00106$
+      000075                        171 00217$:
+                                    172 ; genIfx
+      000075 9F               [ 1]  173 	ld	a, xl
+      000076 4D               [ 1]  174 	tnz	a
+      000077 26 03            [ 1]  175 	jrne	00218$
+      000079 CCr00r81         [ 2]  176 	jp	00106$
+      00007C                        177 00218$:
+                                    178 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 88: pendingbitstatus = SET;
+                                    179 ; genAssign
+      00007C A6 01            [ 1]  180 	ld	a, #0x01
+                                    181 ; genGoto
+      00007E CCr00rD1         [ 2]  182 	jp	00125$
+                                    183 ; genLabel
+      000081                        184 00106$:
+                                    185 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 93: pendingbitstatus = RESET;
+                                    186 ; genAssign
+      000081 4F               [ 1]  187 	clr	a
+                                    188 ; genGoto
+      000082 CCr00rD1         [ 2]  189 	jp	00125$
+                                    190 ; genLabel
+      000085                        191 00121$:
+                                    192 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 96: else if (UART3_IT == UART3_IT_LHDF)
+                                    193 ; genCmpEQorNE
+      000085 1E 03            [ 2]  194 	ldw	x, (0x03, sp)
+      000087 A3 04 12         [ 2]  195 	cpw	x, #0x0412
+      00008A 26 03            [ 1]  196 	jrne	00220$
+      00008C CCr00r92         [ 2]  197 	jp	00221$
+      00008F                        198 00220$:
+      00008F CCr00rB3         [ 2]  199 	jp	00118$
+      000092                        200 00221$:
+                                    201 ; skipping generated iCode
+                                    202 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 99: enablestatus = (uint8_t)((uint8_t)UART3->CR6 & itmask2);
+                                    203 ; genPointerGet
+      000092 C6 52 49         [ 1]  204 	ld	a, 0x5249
+                                    205 ; genAnd
+      000095 14 02            [ 1]  206 	and	a, (0x02, sp)
+      000097 97               [ 1]  207 	ld	xl, a
+                                    208 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 101: if (((UART3->CR6 & itpos) != (uint8_t)0x00) && enablestatus)
+                                    209 ; genPointerGet
+      000098 C6 52 49         [ 1]  210 	ld	a, 0x5249
+                                    211 ; genAnd
+      00009B 14 01            [ 1]  212 	and	a, (0x01, sp)
+                                    213 ; genIfx
+      00009D 4D               [ 1]  214 	tnz	a
+      00009E 26 03            [ 1]  215 	jrne	00222$
+      0000A0 CCr00rAF         [ 2]  216 	jp	00110$
+      0000A3                        217 00222$:
+                                    218 ; genIfx
+      0000A3 9F               [ 1]  219 	ld	a, xl
+      0000A4 4D               [ 1]  220 	tnz	a
+      0000A5 26 03            [ 1]  221 	jrne	00223$
+      0000A7 CCr00rAF         [ 2]  222 	jp	00110$
+      0000AA                        223 00223$:
+                                    224 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 104: pendingbitstatus = SET;
+                                    225 ; genAssign
+      0000AA A6 01            [ 1]  226 	ld	a, #0x01
+                                    227 ; genGoto
+      0000AC CCr00rD1         [ 2]  228 	jp	00125$
+                                    229 ; genLabel
+      0000AF                        230 00110$:
+                                    231 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 109: pendingbitstatus = RESET;
+                                    232 ; genAssign
+      0000AF 4F               [ 1]  233 	clr	a
+                                    234 ; genGoto
+      0000B0 CCr00rD1         [ 2]  235 	jp	00125$
+                                    236 ; genLabel
+      0000B3                        237 00118$:
+                                    238 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 115: enablestatus = (uint8_t)((uint8_t)UART3->CR2 & itmask2);
+                                    239 ; genPointerGet
+      0000B3 C6 52 45         [ 1]  240 	ld	a, 0x5245
+                                    241 ; genAnd
+      0000B6 14 02            [ 1]  242 	and	a, (0x02, sp)
+      0000B8 97               [ 1]  243 	ld	xl, a
+                                    244 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 117: if (((UART3->SR & itpos) != (uint8_t)0x00) && enablestatus)
+                                    245 ; genPointerGet
+      0000B9 C6 52 40         [ 1]  246 	ld	a, 0x5240
+                                    247 ; genAnd
+      0000BC 14 01            [ 1]  248 	and	a, (0x01, sp)
+                                    249 ; genIfx
+      0000BE 4D               [ 1]  250 	tnz	a
+      0000BF 26 03            [ 1]  251 	jrne	00224$
+      0000C1 CCr00rD0         [ 2]  252 	jp	00114$
+      0000C4                        253 00224$:
+                                    254 ; genIfx
+      0000C4 9F               [ 1]  255 	ld	a, xl
+      0000C5 4D               [ 1]  256 	tnz	a
+      0000C6 26 03            [ 1]  257 	jrne	00225$
+      0000C8 CCr00rD0         [ 2]  258 	jp	00114$
+      0000CB                        259 00225$:
+                                    260 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 120: pendingbitstatus = SET;
+                                    261 ; genAssign
+      0000CB A6 01            [ 1]  262 	ld	a, #0x01
+                                    263 ; genGoto
+      0000CD CCr00rD1         [ 2]  264 	jp	00125$
+                                    265 ; genLabel
+      0000D0                        266 00114$:
+                                    267 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 125: pendingbitstatus = RESET;
+                                    268 ; genAssign
+      0000D0 4F               [ 1]  269 	clr	a
+                                    270 ; genLabel
+      0000D1                        271 00125$:
+                                    272 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 129: return  pendingbitstatus;
+                                    273 ; genReturn
+                                    274 ; genLabel
+      0000D1                        275 00126$:
+                                    276 ;	../SPLSPL/src/stm8s_uart3_UART3_GetITStatus.c: 130: }
+                                    277 ; genEndFunction
+      0000D1 5B 04            [ 2]  278 	addw	sp, #4
+      0000D3 81               [ 4]  279 	ret
+                                    280 	.area CODE
+                                    281 	.area CONST
+                                    282 	.area INITIALIZER
+                                    283 	.area CABS (ABS)

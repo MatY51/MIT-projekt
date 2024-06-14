@@ -1,0 +1,53 @@
+XH3
+H B areas 2 global symbols
+M stm8s_flash_FLASH_ReadOptionByte
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 3C flags 0 addr 0
+S _FLASH_ReadOptionByte Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 89 51 93 F6 6B 01 E6 01 6B 02 5F 7B 01
+R 00 00 00 09
+T 00 00 0D 97 90 A3 48 00 26 03 CC 00 1A
+R 00 00 00 09 00 0B 00 09
+T 00 00 17
+R 00 00 00 09
+T 00 00 17 CC 00 1D
+R 00 00 00 09 00 04 00 09
+T 00 00 1A
+R 00 00 00 09
+T 00 00 1A CC 00 39
+R 00 00 00 09 00 04 00 09
+T 00 00 1D
+R 00 00 00 09
+T 00 00 1D 7B 02 43 11 01 26 03 CC 00 2A
+R 00 00 00 09 00 0B 00 09
+T 00 00 27
+R 00 00 00 09
+T 00 00 27 CC 00 36
+R 00 00 00 09 00 04 00 09
+T 00 00 2A
+R 00 00 00 09
+T 00 00 2A 4F 02 7B 02 0F 01 89 85 97 CC 00 39
+R 00 00 00 09 00 0D 00 09
+T 00 00 36
+R 00 00 00 09
+T 00 00 36 AE 55 55
+R 00 00 00 09
+T 00 00 39
+R 00 00 00 09
+T 00 00 39
+R 00 00 00 09
+T 00 00 39 5B 02 81
+R 00 00 00 09

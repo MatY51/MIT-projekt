@@ -1,0 +1,103 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_flash_FLASH_GetBootSize
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _FLASH_GetBootSize
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_flash_FLASH_GetBootSize.c: 36: uint32_t FLASH_GetBootSize(void)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function FLASH_GetBootSize
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 0 bytes.
+      000000                         56 _FLASH_GetBootSize:
+                                     57 ;	../SPLSPL/src/stm8s_flash_FLASH_GetBootSize.c: 41: temp = (uint32_t)((uint32_t)FLASH->FPR * (uint32_t)512);
+                                     58 ; genPointerGet
+      000000 C6 50 5D         [ 1]   59 	ld	a, 0x505d
+                                     60 ; genCast
+                                     61 ; genAssign
+      000003 90 5F            [ 1]   62 	clrw	y
+      000005 5F               [ 1]   63 	clrw	x
+                                     64 ; genLeftShiftLiteral
+      000006 90 5E            [ 1]   65 	swapw	y
+      000008 95               [ 1]   66 	ld	xh, a
+      000009 4F               [ 1]   67 	clr	a
+      00000A 97               [ 1]   68 	ld	xl, a
+      00000B 58               [ 2]   69 	sllw	x
+      00000C 90 59            [ 2]   70 	rlcw	y
+                                     71 ;	../SPLSPL/src/stm8s_flash_FLASH_GetBootSize.c: 44: if(FLASH->FPR == 0xFF)
+                                     72 ; genPointerGet
+      00000E C6 50 5D         [ 1]   73 	ld	a, 0x505d
+                                     74 ; genCmpEQorNE
+      000011 4C               [ 1]   75 	inc	a
+      000012 26 03            [ 1]   76 	jrne	00113$
+      000014 CCr00r1A         [ 2]   77 	jp	00114$
+      000017                         78 00113$:
+      000017 CCr00r28         [ 2]   79 	jp	00102$
+      00001A                         80 00114$:
+                                     81 ; skipping generated iCode
+                                     82 ;	../SPLSPL/src/stm8s_flash_FLASH_GetBootSize.c: 46: temp += 512;
+                                     83 ; genPlus
+      00001A 1C 02 00         [ 2]   84 	addw	x, #0x0200
+      00001D 90 9F            [ 1]   85 	ld	a, yl
+      00001F A9 00            [ 1]   86 	adc	a, #0x00
+      000021 90 97            [ 1]   87 	ld	yl, a
+      000023 4F               [ 1]   88 	clr	a
+      000024 A9 00            [ 1]   89 	adc	a, #0x00
+      000026 90 95            [ 1]   90 	ld	yh, a
+                                     91 ; genLabel
+      000028                         92 00102$:
+                                     93 ;	../SPLSPL/src/stm8s_flash_FLASH_GetBootSize.c: 50: return(temp);
+                                     94 ; genReturn
+                                     95 ; genLabel
+      000028                         96 00103$:
+                                     97 ;	../SPLSPL/src/stm8s_flash_FLASH_GetBootSize.c: 51: }
+                                     98 ; genEndFunction
+      000028 81               [ 4]   99 	ret
+                                    100 	.area CODE
+                                    101 	.area CONST
+                                    102 	.area INITIALIZER
+                                    103 	.area CABS (ABS)

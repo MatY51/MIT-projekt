@@ -1,0 +1,26 @@
+XH3
+H B areas 3 global symbols
+M stm8s_clk
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size C flags 0 addr 0
+S _HSIDivFactor Def000000
+S _CLKPrescTable Def000004
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 0 flags 0 addr 0
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 07
+T 00 00 00 01 02 04 08
+R 00 00 00 07
+T 00 00 04
+R 00 00 00 07
+T 00 00 04 01 02 04 08 0A 10 14 28
+R 00 00 00 07

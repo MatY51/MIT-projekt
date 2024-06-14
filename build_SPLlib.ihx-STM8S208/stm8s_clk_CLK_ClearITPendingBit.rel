@@ -1,0 +1,37 @@
+XH3
+H B areas 2 global symbols
+M stm8s_clk_CLK_ClearITPendingBit
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 1E flags 0 addr 0
+S _CLK_ClearITPendingBit Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 A1 0C 26 03 CC 00 0A
+R 00 00 00 09 00 08 00 09
+T 00 00 07
+R 00 00 00 09
+T 00 00 07 CC 00 15
+R 00 00 00 09 00 04 00 09
+T 00 00 0A
+R 00 00 00 09
+T 00 00 0A C6 50 C8 A4 F7 C7 50 C8 CC 00 1D
+R 00 00 00 09 00 0C 00 09
+T 00 00 15
+R 00 00 00 09
+T 00 00 15 C6 50 C5 A4 F7 C7 50 C5
+R 00 00 00 09
+T 00 00 1D
+R 00 00 00 09
+T 00 00 1D 81
+R 00 00 00 09

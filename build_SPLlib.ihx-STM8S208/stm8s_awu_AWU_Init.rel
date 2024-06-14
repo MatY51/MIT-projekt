@@ -1,0 +1,35 @@
+XH3
+H B areas 4 global symbols
+M stm8s_awu_AWU_Init
+O -mstm8
+S .__.ABS. Def000000
+S _APR_Array Ref000000
+S _TBR_Array Ref000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 41 flags 0 addr 0
+S _AWU_Init Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 88 97 C6 50 F0 AA 10 C7 50 F0 C6 50 F2
+R 00 00 00 09
+T 00 00 0D A4 F0 C7 50 F2 C6 50 F2 6B 01 90 5F 61
+R 00 00 00 09
+T 00 00 1A 9F 61 72 A9 00 00 90 F6 1A 01 C7 50 F2
+R 00 00 00 09 02 07 00 02
+T 00 00 27 C6 50 F1 A4 C0 C7 50 F1 C6 50 F1 6B 01
+R 00 00 00 09
+T 00 00 34 4F 95 1C 00 00 F6 1A 01 C7 50 F1
+R 00 00 00 09 02 06 00 01
+T 00 00 3F
+R 00 00 00 09
+T 00 00 3F 84 81
+R 00 00 00 09

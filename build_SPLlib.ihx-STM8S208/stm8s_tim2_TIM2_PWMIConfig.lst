@@ -1,0 +1,194 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_tim2_TIM2_PWMIConfig
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TIM2_TI2_Config
+                                     12 	.globl _TIM2_TI1_Config
+                                     13 	.globl _TIM2_SetIC2Prescaler
+                                     14 	.globl _TIM2_SetIC1Prescaler
+                                     15 	.globl _TIM2_PWMIConfig
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area DATA
+                                     20 ;--------------------------------------------------------
+                                     21 ; ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area INITIALIZED
+                                     24 ;--------------------------------------------------------
+                                     25 ; absolute external ram data
+                                     26 ;--------------------------------------------------------
+                                     27 	.area DABS (ABS)
+                                     28 
+                                     29 ; default segment ordering for linker
+                                     30 	.area HOME
+                                     31 	.area GSINIT
+                                     32 	.area GSFINAL
+                                     33 	.area CONST
+                                     34 	.area INITIALIZER
+                                     35 	.area CODE
+                                     36 
+                                     37 ;--------------------------------------------------------
+                                     38 ; global & static initialisations
+                                     39 ;--------------------------------------------------------
+                                     40 	.area HOME
+                                     41 	.area GSINIT
+                                     42 	.area GSFINAL
+                                     43 	.area GSINIT
+                                     44 ;--------------------------------------------------------
+                                     45 ; Home
+                                     46 ;--------------------------------------------------------
+                                     47 	.area HOME
+                                     48 	.area HOME
+                                     49 ;--------------------------------------------------------
+                                     50 ; code
+                                     51 ;--------------------------------------------------------
+                                     52 	.area CODE
+                                     53 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 41: void TIM2_PWMIConfig(TIM2_Channel_TypeDef TIM2_Channel,
+                                     54 ; genLabel
+                                     55 ;	-----------------------------------------
+                                     56 ;	 function TIM2_PWMIConfig
+                                     57 ;	-----------------------------------------
+                                     58 ;	Register assignment is optimal.
+                                     59 ;	Stack space usage: 2 bytes.
+      000000                         60 _TIM2_PWMIConfig:
+      000000 89               [ 2]   61 	pushw	x
+                                     62 ; genReceive
+      000001 97               [ 1]   63 	ld	xl, a
+                                     64 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 57: if (TIM2_ICPolarity != TIM2_ICPOLARITY_FALLING)
+                                     65 ; genCmpEQorNE
+      000002 7B 05            [ 1]   66 	ld	a, (0x05, sp)
+      000004 A1 44            [ 1]   67 	cp	a, #0x44
+      000006 26 03            [ 1]   68 	jrne	00134$
+      000008 CCr00r12         [ 2]   69 	jp	00102$
+      00000B                         70 00134$:
+                                     71 ; skipping generated iCode
+                                     72 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 59: icpolarity = (uint8_t)TIM2_ICPOLARITY_FALLING;
+                                     73 ; genAssign
+      00000B A6 44            [ 1]   74 	ld	a, #0x44
+      00000D 6B 01            [ 1]   75 	ld	(0x01, sp), a
+                                     76 ; genGoto
+      00000F CCr00r14         [ 2]   77 	jp	00103$
+                                     78 ; genLabel
+      000012                         79 00102$:
+                                     80 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 63: icpolarity = (uint8_t)TIM2_ICPOLARITY_RISING;
+                                     81 ; genAssign
+      000012 0F 01            [ 1]   82 	clr	(0x01, sp)
+                                     83 ; genLabel
+      000014                         84 00103$:
+                                     85 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 67: if (TIM2_ICSelection == TIM2_ICSELECTION_DIRECTTI)
+                                     86 ; genCmpEQorNE
+      000014 7B 06            [ 1]   87 	ld	a, (0x06, sp)
+      000016 4A               [ 1]   88 	dec	a
+      000017 26 03            [ 1]   89 	jrne	00137$
+      000019 CCr00r1F         [ 2]   90 	jp	00138$
+      00001C                         91 00137$:
+      00001C CCr00r26         [ 2]   92 	jp	00105$
+      00001F                         93 00138$:
+                                     94 ; skipping generated iCode
+                                     95 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 69: icselection = (uint8_t)TIM2_ICSELECTION_INDIRECTTI;
+                                     96 ; genAssign
+      00001F A6 02            [ 1]   97 	ld	a, #0x02
+      000021 6B 02            [ 1]   98 	ld	(0x02, sp), a
+                                     99 ; genGoto
+      000023 CCr00r2A         [ 2]  100 	jp	00106$
+                                    101 ; genLabel
+      000026                        102 00105$:
+                                    103 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 73: icselection = (uint8_t)TIM2_ICSELECTION_DIRECTTI;
+                                    104 ; genAssign
+      000026 A6 01            [ 1]  105 	ld	a, #0x01
+      000028 6B 02            [ 1]  106 	ld	(0x02, sp), a
+                                    107 ; genLabel
+      00002A                        108 00106$:
+                                    109 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 76: if (TIM2_Channel == TIM2_CHANNEL_1)
+                                    110 ; genIfx
+      00002A 9F               [ 1]  111 	ld	a, xl
+      00002B 4D               [ 1]  112 	tnz	a
+      00002C 27 03            [ 1]  113 	jreq	00139$
+      00002E CCr00r54         [ 2]  114 	jp	00108$
+      000031                        115 00139$:
+                                    116 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 79: TIM2_TI1_Config((uint8_t)TIM2_ICPolarity, (uint8_t)TIM2_ICSelection,
+                                    117 ; genIPush
+      000031 7B 08            [ 1]  118 	ld	a, (0x08, sp)
+      000033 88               [ 1]  119 	push	a
+                                    120 ; genIPush
+      000034 7B 07            [ 1]  121 	ld	a, (0x07, sp)
+      000036 88               [ 1]  122 	push	a
+                                    123 ; genSend
+      000037 7B 07            [ 1]  124 	ld	a, (0x07, sp)
+                                    125 ; genCall
+      000039 CDr00r00         [ 4]  126 	call	_TIM2_TI1_Config
+                                    127 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 83: TIM2_SetIC1Prescaler(TIM2_ICPrescaler);
+                                    128 ; genSend
+      00003C 7B 07            [ 1]  129 	ld	a, (0x07, sp)
+                                    130 ; genCall
+      00003E CDr00r00         [ 4]  131 	call	_TIM2_SetIC1Prescaler
+                                    132 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 86: TIM2_TI2_Config(icpolarity, icselection, TIM2_ICFilter);
+                                    133 ; genIPush
+      000041 7B 08            [ 1]  134 	ld	a, (0x08, sp)
+      000043 88               [ 1]  135 	push	a
+                                    136 ; genIPush
+      000044 7B 03            [ 1]  137 	ld	a, (0x03, sp)
+      000046 88               [ 1]  138 	push	a
+                                    139 ; genSend
+      000047 7B 03            [ 1]  140 	ld	a, (0x03, sp)
+                                    141 ; genCall
+      000049 CDr00r00         [ 4]  142 	call	_TIM2_TI2_Config
+                                    143 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 89: TIM2_SetIC2Prescaler(TIM2_ICPrescaler);
+                                    144 ; genSend
+      00004C 7B 07            [ 1]  145 	ld	a, (0x07, sp)
+                                    146 ; genCall
+      00004E CDr00r00         [ 4]  147 	call	_TIM2_SetIC2Prescaler
+                                    148 ; genGoto
+      000051 CCr00r74         [ 2]  149 	jp	00110$
+                                    150 ; genLabel
+      000054                        151 00108$:
+                                    152 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 94: TIM2_TI2_Config((uint8_t)TIM2_ICPolarity, (uint8_t)TIM2_ICSelection,
+                                    153 ; genIPush
+      000054 7B 08            [ 1]  154 	ld	a, (0x08, sp)
+      000056 88               [ 1]  155 	push	a
+                                    156 ; genIPush
+      000057 7B 07            [ 1]  157 	ld	a, (0x07, sp)
+      000059 88               [ 1]  158 	push	a
+                                    159 ; genSend
+      00005A 7B 07            [ 1]  160 	ld	a, (0x07, sp)
+                                    161 ; genCall
+      00005C CDr00r00         [ 4]  162 	call	_TIM2_TI2_Config
+                                    163 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 98: TIM2_SetIC2Prescaler(TIM2_ICPrescaler);
+                                    164 ; genSend
+      00005F 7B 07            [ 1]  165 	ld	a, (0x07, sp)
+                                    166 ; genCall
+      000061 CDr00r00         [ 4]  167 	call	_TIM2_SetIC2Prescaler
+                                    168 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 101: TIM2_TI1_Config((uint8_t)icpolarity, icselection, (uint8_t)TIM2_ICFilter);
+                                    169 ; genIPush
+      000064 7B 08            [ 1]  170 	ld	a, (0x08, sp)
+      000066 88               [ 1]  171 	push	a
+                                    172 ; genIPush
+      000067 7B 03            [ 1]  173 	ld	a, (0x03, sp)
+      000069 88               [ 1]  174 	push	a
+                                    175 ; genSend
+      00006A 7B 03            [ 1]  176 	ld	a, (0x03, sp)
+                                    177 ; genCall
+      00006C CDr00r00         [ 4]  178 	call	_TIM2_TI1_Config
+                                    179 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 104: TIM2_SetIC1Prescaler(TIM2_ICPrescaler);
+                                    180 ; genSend
+      00006F 7B 07            [ 1]  181 	ld	a, (0x07, sp)
+                                    182 ; genCall
+      000071 CDr00r00         [ 4]  183 	call	_TIM2_SetIC1Prescaler
+                                    184 ; genLabel
+      000074                        185 00110$:
+                                    186 ;	../SPLSPL/src/stm8s_tim2_TIM2_PWMIConfig.c: 106: }
+                                    187 ; genEndFunction
+      000074 1E 03            [ 2]  188 	ldw	x, (3, sp)
+      000076 5B 08            [ 2]  189 	addw	sp, #8
+      000078 FC               [ 2]  190 	jp	(x)
+                                    191 	.area CODE
+                                    192 	.area CONST
+                                    193 	.area INITIALIZER
+                                    194 	.area CABS (ABS)

@@ -1,0 +1,43 @@
+XH3
+H B areas 4 global symbols
+M stm8s_awu_AWU_LSICalibrationConfig
+O -mstm8
+S __mulint Ref000000
+S .__.ABS. Def000000
+S __divulong Ref000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 51 flags 0 addr 0
+S _AWU_LSICalibrationConfig Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 52 06 4B E8 4B 03 5F 89 1E 0F 89 1E 0F
+R 00 00 00 09
+T 00 00 0D 89 CD 00 00 5B 08 1F 05 1E 05 54 54 1F
+R 00 00 00 09 02 05 00 02
+T 00 00 1A 01 1E 01 1F 03 08 04 09 03 08 04 09 03
+R 00 00 00 09
+T 00 00 27 16 05 72 F2 03 58 5C 89 93 CD 00 00 1F
+R 00 00 00 09 02 0D 00 00
+T 00 00 34 05 7B 02 1E 03 13 05 24 03 CC 00 48
+R 00 00 00 09 00 0D 00 09
+T 00 00 40
+R 00 00 00 09
+T 00 00 40 A0 02 C7 50 F1 CC 00 4C
+R 00 00 00 09 00 09 00 09
+T 00 00 48
+R 00 00 00 09
+T 00 00 48 4A C7 50 F1
+R 00 00 00 09
+T 00 00 4C
+R 00 00 00 09
+T 00 00 4C 1E 07 5B 0C FC
+R 00 00 00 09

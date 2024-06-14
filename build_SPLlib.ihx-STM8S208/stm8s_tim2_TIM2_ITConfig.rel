@@ -1,0 +1,35 @@
+XH3
+H B areas 2 global symbols
+M stm8s_tim2_TIM2_ITConfig
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 22 flags 0 addr 0
+S _TIM2_ITConfig Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 88 AE 53 01 88 F6 6B 02 84 0D 04 26 03
+R 00 00 00 09
+T 00 00 0D CC 00 18
+R 00 00 00 09 00 04 00 09
+T 00 00 10
+R 00 00 00 09
+T 00 00 10 1A 01 C7 53 01 CC 00 1E
+R 00 00 00 09 00 09 00 09
+T 00 00 18
+R 00 00 00 09
+T 00 00 18 43 14 01 C7 53 01
+R 00 00 00 09
+T 00 00 1E
+R 00 00 00 09
+T 00 00 1E 84 85 84 FC
+R 00 00 00 09

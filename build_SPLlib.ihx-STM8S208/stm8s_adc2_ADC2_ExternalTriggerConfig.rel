@@ -1,0 +1,39 @@
+XH3
+H B areas 2 global symbols
+M stm8s_adc2_ADC2_ExternalTriggerConfig
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 2D flags 0 addr 0
+S _ADC2_ExternalTriggerConfig Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 97 C6 54 02 A4 CF C7 54 02 C6 54 02 0D
+R 00 00 00 09
+T 00 00 0D 03 26 03 CC 00 1B
+R 00 00 00 09 00 07 00 09
+T 00 00 13
+R 00 00 00 09
+T 00 00 13 AA 40 C7 54 02 CC 00 20
+R 00 00 00 09 00 09 00 09
+T 00 00 1B
+R 00 00 00 09
+T 00 00 1B A4 BF C7 54 02
+R 00 00 00 09
+T 00 00 20
+R 00 00 00 09
+T 00 00 20 C6 54 02 89 1A 02 85 C7 54 02
+R 00 00 00 09
+T 00 00 2A
+R 00 00 00 09
+T 00 00 2A 85 84 FC
+R 00 00 00 09

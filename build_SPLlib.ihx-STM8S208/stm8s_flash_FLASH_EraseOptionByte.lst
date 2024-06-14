@@ -1,0 +1,143 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_flash_FLASH_EraseOptionByte
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _FLASH_WaitForLastOperation
+                                     12 	.globl _FLASH_EraseOptionByte
+                                     13 ;--------------------------------------------------------
+                                     14 ; ram data
+                                     15 ;--------------------------------------------------------
+                                     16 	.area DATA
+                                     17 ;--------------------------------------------------------
+                                     18 ; ram data
+                                     19 ;--------------------------------------------------------
+                                     20 	.area INITIALIZED
+                                     21 ;--------------------------------------------------------
+                                     22 ; absolute external ram data
+                                     23 ;--------------------------------------------------------
+                                     24 	.area DABS (ABS)
+                                     25 
+                                     26 ; default segment ordering for linker
+                                     27 	.area HOME
+                                     28 	.area GSINIT
+                                     29 	.area GSFINAL
+                                     30 	.area CONST
+                                     31 	.area INITIALIZER
+                                     32 	.area CODE
+                                     33 
+                                     34 ;--------------------------------------------------------
+                                     35 ; global & static initialisations
+                                     36 ;--------------------------------------------------------
+                                     37 	.area HOME
+                                     38 	.area GSINIT
+                                     39 	.area GSFINAL
+                                     40 	.area GSINIT
+                                     41 ;--------------------------------------------------------
+                                     42 ; Home
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area HOME
+                                     46 ;--------------------------------------------------------
+                                     47 ; code
+                                     48 ;--------------------------------------------------------
+                                     49 	.area CODE
+                                     50 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseOptionByte.c: 37: void FLASH_EraseOptionByte(uint16_t Address)
+                                     51 ; genLabel
+                                     52 ;	-----------------------------------------
+                                     53 ;	 function FLASH_EraseOptionByte
+                                     54 ;	-----------------------------------------
+                                     55 ;	Register assignment might be sub-optimal.
+                                     56 ;	Stack space usage: 2 bytes.
+      000000                         57 _FLASH_EraseOptionByte:
+      000000 89               [ 2]   58 	pushw	x
+                                     59 ; genReceive
+      000001 51               [ 1]   60 	exgw	x, y
+                                     61 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseOptionByte.c: 43: FLASH->CR2 |= FLASH_CR2_OPT;
+                                     62 ; genPointerGet
+      000002 C6 50 5B         [ 1]   63 	ld	a, 0x505b
+                                     64 ; genOr
+      000005 AA 80            [ 1]   65 	or	a, #0x80
+                                     66 ; genPointerSet
+      000007 C7 50 5B         [ 1]   67 	ld	0x505b, a
+                                     68 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseOptionByte.c: 44: FLASH->NCR2 &= (uint8_t)(~FLASH_NCR2_NOPT);
+                                     69 ; genPointerGet
+      00000A C6 50 5C         [ 1]   70 	ld	a, 0x505c
+                                     71 ; genAnd
+      00000D A4 7F            [ 1]   72 	and	a, #0x7f
+                                     73 ; genPointerSet
+      00000F C7 50 5C         [ 1]   74 	ld	0x505c, a
+                                     75 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseOptionByte.c: 47: if(Address == 0x4800)
+                                     76 ; genCast
+                                     77 ; genAssign
+      000012 93               [ 1]   78 	ldw	x, y
+                                     79 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseOptionByte.c: 50: *((NEAR uint8_t*)Address) = FLASH_CLEAR_BYTE;
+                                     80 ; genCast
+                                     81 ; genAssign
+      000013 17 01            [ 2]   82 	ldw	(0x01, sp), y
+                                     83 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseOptionByte.c: 47: if(Address == 0x4800)
+                                     84 ; genCmpEQorNE
+      000015 A3 48 00         [ 2]   85 	cpw	x, #0x4800
+      000018 26 03            [ 1]   86 	jrne	00114$
+      00001A CCr00r20         [ 2]   87 	jp	00115$
+      00001D                         88 00114$:
+      00001D CCr00r26         [ 2]   89 	jp	00102$
+      000020                         90 00115$:
+                                     91 ; skipping generated iCode
+                                     92 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseOptionByte.c: 50: *((NEAR uint8_t*)Address) = FLASH_CLEAR_BYTE;
+                                     93 ; genPointerSet
+      000020 1E 01            [ 2]   94 	ldw	x, (0x01, sp)
+      000022 7F               [ 1]   95 	clr	(x)
+                                     96 ; genGoto
+      000023 CCr00r2E         [ 2]   97 	jp	00103$
+                                     98 ; genLabel
+      000026                         99 00102$:
+                                    100 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseOptionByte.c: 55: *((NEAR uint8_t*)Address) = FLASH_CLEAR_BYTE;
+                                    101 ; genPointerSet
+      000026 1E 01            [ 2]  102 	ldw	x, (0x01, sp)
+      000028 7F               [ 1]  103 	clr	(x)
+                                    104 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseOptionByte.c: 56: *((NEAR uint8_t*)((uint16_t)(Address + (uint16_t)1 ))) = FLASH_SET_BYTE;
+                                    105 ; genPlus
+      000029 93               [ 1]  106 	ldw	x, y
+      00002A 5C               [ 1]  107 	incw	x
+                                    108 ; genCast
+                                    109 ; genAssign
+                                    110 ; genPointerSet
+      00002B A6 FF            [ 1]  111 	ld	a, #0xff
+      00002D F7               [ 1]  112 	ld	(x), a
+                                    113 ; genLabel
+      00002E                        114 00103$:
+                                    115 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseOptionByte.c: 58: FLASH_WaitForLastOperation(FLASH_MEMTYPE_PROG);
+                                    116 ; genSend
+      00002E A6 FD            [ 1]  117 	ld	a, #0xfd
+                                    118 ; genCall
+      000030 CDr00r00         [ 4]  119 	call	_FLASH_WaitForLastOperation
+                                    120 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseOptionByte.c: 61: FLASH->CR2 &= (uint8_t)(~FLASH_CR2_OPT);
+                                    121 ; genPointerGet
+      000033 C6 50 5B         [ 1]  122 	ld	a, 0x505b
+                                    123 ; genAnd
+      000036 A4 7F            [ 1]  124 	and	a, #0x7f
+                                    125 ; genPointerSet
+      000038 C7 50 5B         [ 1]  126 	ld	0x505b, a
+                                    127 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseOptionByte.c: 62: FLASH->NCR2 |= FLASH_NCR2_NOPT;
+                                    128 ; genPointerGet
+      00003B C6 50 5C         [ 1]  129 	ld	a, 0x505c
+                                    130 ; genOr
+      00003E AA 80            [ 1]  131 	or	a, #0x80
+                                    132 ; genPointerSet
+      000040 C7 50 5C         [ 1]  133 	ld	0x505c, a
+                                    134 ; genLabel
+      000043                        135 00104$:
+                                    136 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseOptionByte.c: 63: }
+                                    137 ; genEndFunction
+      000043 85               [ 2]  138 	popw	x
+      000044 81               [ 4]  139 	ret
+                                    140 	.area CODE
+                                    141 	.area CONST
+                                    142 	.area INITIALIZER
+                                    143 	.area CABS (ABS)

@@ -1,0 +1,290 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_itc_ITC_SetSoftwarePriority
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _ITC_SetSoftwarePriority
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 44: void ITC_SetSoftwarePriority(ITC_Irq_TypeDef IrqNum, ITC_PriorityLevel_TypeDef PriorityValue)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function ITC_SetSoftwarePriority
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 2 bytes.
+      000000                         56 _ITC_SetSoftwarePriority:
+      000000 89               [ 2]   57 	pushw	x
+                                     58 ; genReceive
+      000001 97               [ 1]   59 	ld	xl, a
+                                     60 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 58: Mask = (uint8_t)(~(uint8_t)(0x03U << (((uint8_t)IrqNum % 4U) * 2U)));
+                                     61 ; genCast
+                                     62 ; genAssign
+      000002 9F               [ 1]   63 	ld	a, xl
+                                     64 ; genAnd
+      000003 A4 03            [ 1]   65 	and	a, #0x03
+                                     66 ; genCast
+                                     67 ; genAssign
+                                     68 ; genLeftShiftLiteral
+      000005 48               [ 1]   69 	sll	a
+      000006 95               [ 1]   70 	ld	xh, a
+                                     71 ; genLeftShift
+      000007 A6 03            [ 1]   72 	ld	a, #0x03
+      000009 88               [ 1]   73 	push	a
+      00000A 9E               [ 1]   74 	ld	a, xh
+      00000B 4D               [ 1]   75 	tnz	a
+      00000C 27 05            [ 1]   76 	jreq	00138$
+      00000E                         77 00137$:
+      00000E 08 01            [ 1]   78 	sll	(1, sp)
+      000010 4A               [ 1]   79 	dec	a
+      000011 26 FB            [ 1]   80 	jrne	00137$
+      000013                         81 00138$:
+      000013 84               [ 1]   82 	pop	a
+                                     83 ; genCpl
+      000014 43               [ 1]   84 	cpl	a
+      000015 6B 01            [ 1]   85 	ld	(0x01, sp), a
+                                     86 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 61: NewPriority = (uint8_t)((uint8_t)(PriorityValue) << (((uint8_t)IrqNum % 4U) * 2U));
+                                     87 ; genLeftShift
+      000017 7B 05            [ 1]   88 	ld	a, (0x05, sp)
+      000019 88               [ 1]   89 	push	a
+      00001A 9E               [ 1]   90 	ld	a, xh
+      00001B 4D               [ 1]   91 	tnz	a
+      00001C 27 05            [ 1]   92 	jreq	00140$
+      00001E                         93 00139$:
+      00001E 08 01            [ 1]   94 	sll	(1, sp)
+      000020 4A               [ 1]   95 	dec	a
+      000021 26 FB            [ 1]   96 	jrne	00139$
+      000023                         97 00140$:
+      000023 84               [ 1]   98 	pop	a
+      000024 6B 02            [ 1]   99 	ld	(0x02, sp), a
+                                    100 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 63: switch (IrqNum)
+                                    101 ; genCmp
+                                    102 ; genCmpTnz
+      000026 9F               [ 1]  103 	ld	a, xl
+      000027 A1 18            [ 1]  104 	cp	a, #0x18
+      000029 23 03            [ 2]  105 	jrule	00141$
+      00002B CCr00rE9         [ 2]  106 	jp	00128$
+      00002E                        107 00141$:
+                                    108 ; skipping generated iCode
+                                    109 ; genJumpTab
+      00002E 4F               [ 1]  110 	clr	a
+      00002F 95               [ 1]  111 	ld	xh, a
+      000030 58               [ 2]  112 	sllw	x
+      000031 DEu00u35         [ 2]  113 	ldw	x, (#00142$, x)
+      000034 FC               [ 2]  114 	jp	(x)
+      000035                        115 00142$:
+      000035r00r67                  116 	.dw	#00104$
+      000037r00r67                  117 	.dw	#00104$
+      000039r00r67                  118 	.dw	#00104$
+      00003Br00r67                  119 	.dw	#00104$
+      00003Dr00r7A                  120 	.dw	#00108$
+      00003Fr00r7A                  121 	.dw	#00108$
+      000041r00r7A                  122 	.dw	#00108$
+      000043r00r7A                  123 	.dw	#00108$
+      000045r00r8D                  124 	.dw	#00112$
+      000047r00r8D                  125 	.dw	#00112$
+      000049r00r8D                  126 	.dw	#00112$
+      00004Br00r8D                  127 	.dw	#00112$
+      00004Dr00rA0                  128 	.dw	#00116$
+      00004Fr00rA0                  129 	.dw	#00116$
+      000051r00rA0                  130 	.dw	#00116$
+      000053r00rA0                  131 	.dw	#00116$
+      000055r00rB3                  132 	.dw	#00120$
+      000057r00rB3                  133 	.dw	#00120$
+      000059r00rB3                  134 	.dw	#00120$
+      00005Br00rB3                  135 	.dw	#00120$
+      00005Dr00rC6                  136 	.dw	#00124$
+      00005Fr00rC6                  137 	.dw	#00124$
+      000061r00rC6                  138 	.dw	#00124$
+      000063r00rC6                  139 	.dw	#00124$
+      000065r00rD9                  140 	.dw	#00125$
+                                    141 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 68: case ITC_IRQ_PORTA:
+                                    142 ; genLabel
+      000067                        143 00104$:
+                                    144 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 69: ITC->ISPR1 &= Mask;
+                                    145 ; genPointerGet
+      000067 C6 7F 70         [ 1]  146 	ld	a, 0x7f70
+                                    147 ; genAnd
+      00006A 14 01            [ 1]  148 	and	a, (0x01, sp)
+                                    149 ; genPointerSet
+      00006C C7 7F 70         [ 1]  150 	ld	0x7f70, a
+                                    151 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 70: ITC->ISPR1 |= NewPriority;
+                                    152 ; genPointerGet
+      00006F C6 7F 70         [ 1]  153 	ld	a, 0x7f70
+                                    154 ; genOr
+      000072 1A 02            [ 1]  155 	or	a, (0x02, sp)
+                                    156 ; genPointerSet
+      000074 C7 7F 70         [ 1]  157 	ld	0x7f70, a
+                                    158 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 71: break;
+                                    159 ; genGoto
+      000077 CCr00rE9         [ 2]  160 	jp	00128$
+                                    161 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 76: case ITC_IRQ_PORTE:
+                                    162 ; genLabel
+      00007A                        163 00108$:
+                                    164 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 77: ITC->ISPR2 &= Mask;
+                                    165 ; genPointerGet
+      00007A C6 7F 71         [ 1]  166 	ld	a, 0x7f71
+                                    167 ; genAnd
+      00007D 14 01            [ 1]  168 	and	a, (0x01, sp)
+                                    169 ; genPointerSet
+      00007F C7 7F 71         [ 1]  170 	ld	0x7f71, a
+                                    171 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 78: ITC->ISPR2 |= NewPriority;
+                                    172 ; genPointerGet
+      000082 C6 7F 71         [ 1]  173 	ld	a, 0x7f71
+                                    174 ; genOr
+      000085 1A 02            [ 1]  175 	or	a, (0x02, sp)
+                                    176 ; genPointerSet
+      000087 C7 7F 71         [ 1]  177 	ld	0x7f71, a
+                                    178 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 79: break;
+                                    179 ; genGoto
+      00008A CCr00rE9         [ 2]  180 	jp	00128$
+                                    181 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 89: case ITC_IRQ_TIM1_OVF:
+                                    182 ; genLabel
+      00008D                        183 00112$:
+                                    184 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 90: ITC->ISPR3 &= Mask;
+                                    185 ; genPointerGet
+      00008D C6 7F 72         [ 1]  186 	ld	a, 0x7f72
+                                    187 ; genAnd
+      000090 14 01            [ 1]  188 	and	a, (0x01, sp)
+                                    189 ; genPointerSet
+      000092 C7 7F 72         [ 1]  190 	ld	0x7f72, a
+                                    191 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 91: ITC->ISPR3 |= NewPriority;
+                                    192 ; genPointerGet
+      000095 C6 7F 72         [ 1]  193 	ld	a, 0x7f72
+                                    194 ; genOr
+      000098 1A 02            [ 1]  195 	or	a, (0x02, sp)
+                                    196 ; genPointerSet
+      00009A C7 7F 72         [ 1]  197 	ld	0x7f72, a
+                                    198 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 92: break;
+                                    199 ; genGoto
+      00009D CCr00rE9         [ 2]  200 	jp	00128$
+                                    201 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 102: case ITC_IRQ_TIM3_OVF:
+                                    202 ; genLabel
+      0000A0                        203 00116$:
+                                    204 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 103: ITC->ISPR4 &= Mask;
+                                    205 ; genPointerGet
+      0000A0 C6 7F 73         [ 1]  206 	ld	a, 0x7f73
+                                    207 ; genAnd
+      0000A3 14 01            [ 1]  208 	and	a, (0x01, sp)
+                                    209 ; genPointerSet
+      0000A5 C7 7F 73         [ 1]  210 	ld	0x7f73, a
+                                    211 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 104: ITC->ISPR4 |= NewPriority;
+                                    212 ; genPointerGet
+      0000A8 C6 7F 73         [ 1]  213 	ld	a, 0x7f73
+                                    214 ; genOr
+      0000AB 1A 02            [ 1]  215 	or	a, (0x02, sp)
+                                    216 ; genPointerSet
+      0000AD C7 7F 73         [ 1]  217 	ld	0x7f73, a
+                                    218 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 105: break;
+                                    219 ; genGoto
+      0000B0 CCr00rE9         [ 2]  220 	jp	00128$
+                                    221 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 117: case ITC_IRQ_I2C:
+                                    222 ; genLabel
+      0000B3                        223 00120$:
+                                    224 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 118: ITC->ISPR5 &= Mask;
+                                    225 ; genPointerGet
+      0000B3 C6 7F 74         [ 1]  226 	ld	a, 0x7f74
+                                    227 ; genAnd
+      0000B6 14 01            [ 1]  228 	and	a, (0x01, sp)
+                                    229 ; genPointerSet
+      0000B8 C7 7F 74         [ 1]  230 	ld	0x7f74, a
+                                    231 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 119: ITC->ISPR5 |= NewPriority;
+                                    232 ; genPointerGet
+      0000BB C6 7F 74         [ 1]  233 	ld	a, 0x7f74
+                                    234 ; genOr
+      0000BE 1A 02            [ 1]  235 	or	a, (0x02, sp)
+                                    236 ; genPointerSet
+      0000C0 C7 7F 74         [ 1]  237 	ld	0x7f74, a
+                                    238 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 120: break;
+                                    239 ; genGoto
+      0000C3 CCr00rE9         [ 2]  240 	jp	00128$
+                                    241 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 142: case ITC_IRQ_TIM4_OVF:
+                                    242 ; genLabel
+      0000C6                        243 00124$:
+                                    244 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 144: ITC->ISPR6 &= Mask;
+                                    245 ; genPointerGet
+      0000C6 C6 7F 75         [ 1]  246 	ld	a, 0x7f75
+                                    247 ; genAnd
+      0000C9 14 01            [ 1]  248 	and	a, (0x01, sp)
+                                    249 ; genPointerSet
+      0000CB C7 7F 75         [ 1]  250 	ld	0x7f75, a
+                                    251 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 145: ITC->ISPR6 |= NewPriority;
+                                    252 ; genPointerGet
+      0000CE C6 7F 75         [ 1]  253 	ld	a, 0x7f75
+                                    254 ; genOr
+      0000D1 1A 02            [ 1]  255 	or	a, (0x02, sp)
+                                    256 ; genPointerSet
+      0000D3 C7 7F 75         [ 1]  257 	ld	0x7f75, a
+                                    258 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 146: break;
+                                    259 ; genGoto
+      0000D6 CCr00rE9         [ 2]  260 	jp	00128$
+                                    261 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 148: case ITC_IRQ_EEPROM_EEC:
+                                    262 ; genLabel
+      0000D9                        263 00125$:
+                                    264 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 149: ITC->ISPR7 &= Mask;
+                                    265 ; genPointerGet
+      0000D9 C6 7F 76         [ 1]  266 	ld	a, 0x7f76
+                                    267 ; genAnd
+      0000DC 14 01            [ 1]  268 	and	a, (0x01, sp)
+                                    269 ; genPointerSet
+      0000DE C7 7F 76         [ 1]  270 	ld	0x7f76, a
+                                    271 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 150: ITC->ISPR7 |= NewPriority;
+                                    272 ; genPointerGet
+      0000E1 C6 7F 76         [ 1]  273 	ld	a, 0x7f76
+                                    274 ; genOr
+      0000E4 1A 02            [ 1]  275 	or	a, (0x02, sp)
+                                    276 ; genPointerSet
+      0000E6 C7 7F 76         [ 1]  277 	ld	0x7f76, a
+                                    278 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 155: }
+                                    279 ; genLabel
+      0000E9                        280 00128$:
+                                    281 ;	../SPLSPL/src/stm8s_itc_ITC_SetSoftwarePriority.c: 156: }
+                                    282 ; genEndFunction
+      0000E9 85               [ 2]  283 	popw	x
+      0000EA 85               [ 2]  284 	popw	x
+      0000EB 84               [ 1]  285 	pop	a
+      0000EC FC               [ 2]  286 	jp	(x)
+                                    287 	.area CODE
+                                    288 	.area CONST
+                                    289 	.area INITIALIZER
+                                    290 	.area CABS (ABS)

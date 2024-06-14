@@ -1,0 +1,26 @@
+XH3
+H B areas 3 global symbols
+M stm8s_can_CAN_GetReceivedIDE
+O -mstm8
+S __IDE Ref000000
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 4 flags 0 addr 0
+S _CAN_GetReceivedIDE Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 C6 00 00
+R 00 00 00 09 12 04 00 00
+T 00 00 03
+R 00 00 00 09
+T 00 00 03 81
+R 00 00 00 09

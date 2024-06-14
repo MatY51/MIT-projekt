@@ -1,0 +1,143 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_uart3_UART3_LINConfig
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _UART3_LINConfig
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_uart3_UART3_LINConfig.c: 41: void UART3_LINConfig(UART3_LinMode_TypeDef UART3_Mode,
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function UART3_LINConfig
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment is optimal.
+                                     55 ;	Stack space usage: 1 bytes.
+      000000                         56 _UART3_LINConfig:
+      000000 88               [ 1]   57 	push	a
+                                     58 ; genReceive
+      000001 6B 01            [ 1]   59 	ld	(0x01, sp), a
+                                     60 ;	../SPLSPL/src/stm8s_uart3_UART3_LINConfig.c: 52: UART3->CR6 |=  UART3_CR6_LSLV;
+                                     61 ; genPointerGet
+      000003 C6 52 49         [ 1]   62 	ld	a, 0x5249
+                                     63 ;	../SPLSPL/src/stm8s_uart3_UART3_LINConfig.c: 50: if (UART3_Mode != UART3_LIN_MODE_MASTER)
+                                     64 ; genIfx
+      000006 0D 01            [ 1]   65 	tnz	(0x01, sp)
+      000008 26 03            [ 1]   66 	jrne	00133$
+      00000A CCr00r15         [ 2]   67 	jp	00102$
+      00000D                         68 00133$:
+                                     69 ;	../SPLSPL/src/stm8s_uart3_UART3_LINConfig.c: 52: UART3->CR6 |=  UART3_CR6_LSLV;
+                                     70 ; genOr
+      00000D AA 20            [ 1]   71 	or	a, #0x20
+                                     72 ; genPointerSet
+      00000F C7 52 49         [ 1]   73 	ld	0x5249, a
+                                     74 ; genGoto
+      000012 CCr00r1A         [ 2]   75 	jp	00103$
+                                     76 ; genLabel
+      000015                         77 00102$:
+                                     78 ;	../SPLSPL/src/stm8s_uart3_UART3_LINConfig.c: 56: UART3->CR6 &= ((uint8_t)~UART3_CR6_LSLV);
+                                     79 ; genAnd
+      000015 A4 DF            [ 1]   80 	and	a, #0xdf
+                                     81 ; genPointerSet
+      000017 C7 52 49         [ 1]   82 	ld	0x5249, a
+                                     83 ; genLabel
+      00001A                         84 00103$:
+                                     85 ;	../SPLSPL/src/stm8s_uart3_UART3_LINConfig.c: 52: UART3->CR6 |=  UART3_CR6_LSLV;
+                                     86 ; genPointerGet
+      00001A C6 52 49         [ 1]   87 	ld	a, 0x5249
+                                     88 ;	../SPLSPL/src/stm8s_uart3_UART3_LINConfig.c: 59: if (UART3_Autosync != UART3_LIN_AUTOSYNC_DISABLE)
+                                     89 ; genIfx
+      00001D 0D 04            [ 1]   90 	tnz	(0x04, sp)
+      00001F 26 03            [ 1]   91 	jrne	00134$
+      000021 CCr00r2C         [ 2]   92 	jp	00105$
+      000024                         93 00134$:
+                                     94 ;	../SPLSPL/src/stm8s_uart3_UART3_LINConfig.c: 61: UART3->CR6 |=  UART3_CR6_LASE ;
+                                     95 ; genOr
+      000024 AA 10            [ 1]   96 	or	a, #0x10
+                                     97 ; genPointerSet
+      000026 C7 52 49         [ 1]   98 	ld	0x5249, a
+                                     99 ; genGoto
+      000029 CCr00r31         [ 2]  100 	jp	00106$
+                                    101 ; genLabel
+      00002C                        102 00105$:
+                                    103 ;	../SPLSPL/src/stm8s_uart3_UART3_LINConfig.c: 65: UART3->CR6 &= ((uint8_t)~ UART3_CR6_LASE );
+                                    104 ; genAnd
+      00002C A4 EF            [ 1]  105 	and	a, #0xef
+                                    106 ; genPointerSet
+      00002E C7 52 49         [ 1]  107 	ld	0x5249, a
+                                    108 ; genLabel
+      000031                        109 00106$:
+                                    110 ;	../SPLSPL/src/stm8s_uart3_UART3_LINConfig.c: 52: UART3->CR6 |=  UART3_CR6_LSLV;
+                                    111 ; genPointerGet
+      000031 C6 52 49         [ 1]  112 	ld	a, 0x5249
+                                    113 ;	../SPLSPL/src/stm8s_uart3_UART3_LINConfig.c: 68: if (UART3_DivUp != UART3_LIN_DIVUP_LBRR1)
+                                    114 ; genIfx
+      000034 0D 05            [ 1]  115 	tnz	(0x05, sp)
+      000036 26 03            [ 1]  116 	jrne	00135$
+      000038 CCr00r43         [ 2]  117 	jp	00108$
+      00003B                        118 00135$:
+                                    119 ;	../SPLSPL/src/stm8s_uart3_UART3_LINConfig.c: 70: UART3->CR6 |=  UART3_CR6_LDUM;
+                                    120 ; genOr
+      00003B AA 80            [ 1]  121 	or	a, #0x80
+                                    122 ; genPointerSet
+      00003D C7 52 49         [ 1]  123 	ld	0x5249, a
+                                    124 ; genGoto
+      000040 CCr00r48         [ 2]  125 	jp	00110$
+                                    126 ; genLabel
+      000043                        127 00108$:
+                                    128 ;	../SPLSPL/src/stm8s_uart3_UART3_LINConfig.c: 74: UART3->CR6 &= ((uint8_t)~ UART3_CR6_LDUM);
+                                    129 ; genAnd
+      000043 A4 7F            [ 1]  130 	and	a, #0x7f
+                                    131 ; genPointerSet
+      000045 C7 52 49         [ 1]  132 	ld	0x5249, a
+                                    133 ; genLabel
+      000048                        134 00110$:
+                                    135 ;	../SPLSPL/src/stm8s_uart3_UART3_LINConfig.c: 76: }
+                                    136 ; genEndFunction
+      000048 1E 02            [ 2]  137 	ldw	x, (2, sp)
+      00004A 5B 05            [ 2]  138 	addw	sp, #5
+      00004C FC               [ 2]  139 	jp	(x)
+                                    140 	.area CODE
+                                    141 	.area CONST
+                                    142 	.area INITIALIZER
+                                    143 	.area CABS (ABS)

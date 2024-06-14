@@ -1,0 +1,250 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_can_CAN_GetFlagStatus
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CAN_SelectPage
+                                     12 	.globl _CAN_GetSelectedPage
+                                     13 	.globl _CAN_GetFlagStatus
+                                     14 ;--------------------------------------------------------
+                                     15 ; ram data
+                                     16 ;--------------------------------------------------------
+                                     17 	.area DATA
+                                     18 ;--------------------------------------------------------
+                                     19 ; ram data
+                                     20 ;--------------------------------------------------------
+                                     21 	.area INITIALIZED
+                                     22 ;--------------------------------------------------------
+                                     23 ; absolute external ram data
+                                     24 ;--------------------------------------------------------
+                                     25 	.area DABS (ABS)
+                                     26 
+                                     27 ; default segment ordering for linker
+                                     28 	.area HOME
+                                     29 	.area GSINIT
+                                     30 	.area GSFINAL
+                                     31 	.area CONST
+                                     32 	.area INITIALIZER
+                                     33 	.area CODE
+                                     34 
+                                     35 ;--------------------------------------------------------
+                                     36 ; global & static initialisations
+                                     37 ;--------------------------------------------------------
+                                     38 	.area HOME
+                                     39 	.area GSINIT
+                                     40 	.area GSFINAL
+                                     41 	.area GSINIT
+                                     42 ;--------------------------------------------------------
+                                     43 ; Home
+                                     44 ;--------------------------------------------------------
+                                     45 	.area HOME
+                                     46 	.area HOME
+                                     47 ;--------------------------------------------------------
+                                     48 ; code
+                                     49 ;--------------------------------------------------------
+                                     50 	.area CODE
+                                     51 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 36: FlagStatus CAN_GetFlagStatus(CAN_FLAG_TypeDef CAN_Flag)
+                                     52 ; genLabel
+                                     53 ;	-----------------------------------------
+                                     54 ;	 function CAN_GetFlagStatus
+                                     55 ;	-----------------------------------------
+                                     56 ;	Register assignment might be sub-optimal.
+                                     57 ;	Stack space usage: 5 bytes.
+      000000                         58 _CAN_GetFlagStatus:
+      000000 52 05            [ 2]   59 	sub	sp, #5
+                                     60 ; genReceive
+      000002 1F 04            [ 2]   61 	ldw	(0x04, sp), x
+                                     62 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 49: if ((CAN->RFR & (uint16_t)CAN_Flag )!= RESET)
+                                     63 ; genCast
+                                     64 ; genAssign
+      000004 16 04            [ 2]   65 	ldw	y, (0x04, sp)
+      000006 17 01            [ 2]   66 	ldw	(0x01, sp), y
+                                     67 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 44: if (((uint16_t)CAN_Flag & 0x0700)!= RESET)
+                                     68 ; genAnd
+      000008 7B 04            [ 1]   69 	ld	a, (0x04, sp)
+      00000A A5 07            [ 1]   70 	bcp	a, #0x07
+      00000C 26 03            [ 1]   71 	jrne	00173$
+      00000E CCr00r7F         [ 2]   72 	jp	00120$
+      000011                         73 00173$:
+                                     74 ; skipping generated iCode
+                                     75 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 46: if (((uint16_t)CAN_Flag & 0x020B)!= RESET)
+                                     76 ; genAnd
+      000011 7B 05            [ 1]   77 	ld	a, (0x05, sp)
+      000013 A4 0B            [ 1]   78 	and	a, #0x0b
+      000015 97               [ 1]   79 	ld	xl, a
+      000016 7B 04            [ 1]   80 	ld	a, (0x04, sp)
+      000018 A4 02            [ 1]   81 	and	a, #0x02
+      00001A 95               [ 1]   82 	ld	xh, a
+                                     83 ; genIfx
+      00001B 5D               [ 2]   84 	tnzw	x
+      00001C 26 03            [ 1]   85 	jrne	00174$
+      00001E CCr00r3B         [ 2]   86 	jp	00114$
+      000021                         87 00174$:
+                                     88 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 49: if ((CAN->RFR & (uint16_t)CAN_Flag )!= RESET)
+                                     89 ; genPointerGet
+      000021 C6 54 24         [ 1]   90 	ld	a, 0x5424
+                                     91 ; genCast
+                                     92 ; genAssign
+      000024 5F               [ 1]   93 	clrw	x
+                                     94 ; genAnd
+      000025 14 02            [ 1]   95 	and	a, (0x02, sp)
+      000027 97               [ 1]   96 	ld	xl, a
+      000028 4F               [ 1]   97 	clr	a
+      000029 14 01            [ 1]   98 	and	a, (0x01, sp)
+      00002B 95               [ 1]   99 	ld	xh, a
+                                    100 ; genIfx
+      00002C 5D               [ 2]  101 	tnzw	x
+      00002D 26 03            [ 1]  102 	jrne	00175$
+      00002F CCr00r37         [ 2]  103 	jp	00102$
+      000032                        104 00175$:
+                                    105 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 52: bitstatus = SET;
+                                    106 ; genAssign
+      000032 A6 01            [ 1]  107 	ld	a, #0x01
+                                    108 ; genGoto
+      000034 CCr00rA6         [ 2]  109 	jp	00121$
+                                    110 ; genLabel
+      000037                        111 00102$:
+                                    112 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 57: bitstatus = RESET;
+                                    113 ; genAssign
+      000037 4F               [ 1]  114 	clr	a
+                                    115 ; genGoto
+      000038 CCr00rA6         [ 2]  116 	jp	00121$
+                                    117 ; genLabel
+      00003B                        118 00114$:
+                                    119 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 61: else if (((uint16_t)CAN_Flag & 0x0403)!= RESET)
+                                    120 ; genAnd
+      00003B 7B 05            [ 1]  121 	ld	a, (0x05, sp)
+      00003D A4 03            [ 1]  122 	and	a, #0x03
+      00003F 97               [ 1]  123 	ld	xl, a
+      000040 7B 04            [ 1]  124 	ld	a, (0x04, sp)
+      000042 A4 04            [ 1]  125 	and	a, #0x04
+      000044 95               [ 1]  126 	ld	xh, a
+                                    127 ; genIfx
+      000045 5D               [ 2]  128 	tnzw	x
+      000046 26 03            [ 1]  129 	jrne	00176$
+      000048 CCr00r65         [ 2]  130 	jp	00111$
+      00004B                        131 00176$:
+                                    132 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 64: if ((CAN->TSR & (uint16_t)CAN_Flag )!= RESET)
+                                    133 ; genPointerGet
+      00004B C6 54 22         [ 1]  134 	ld	a, 0x5422
+                                    135 ; genCast
+                                    136 ; genAssign
+      00004E 5F               [ 1]  137 	clrw	x
+                                    138 ; genAnd
+      00004F 14 02            [ 1]  139 	and	a, (0x02, sp)
+      000051 97               [ 1]  140 	ld	xl, a
+      000052 4F               [ 1]  141 	clr	a
+      000053 14 01            [ 1]  142 	and	a, (0x01, sp)
+      000055 95               [ 1]  143 	ld	xh, a
+                                    144 ; genIfx
+      000056 5D               [ 2]  145 	tnzw	x
+      000057 26 03            [ 1]  146 	jrne	00177$
+      000059 CCr00r61         [ 2]  147 	jp	00105$
+      00005C                        148 00177$:
+                                    149 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 67: bitstatus = SET;
+                                    150 ; genAssign
+      00005C A6 01            [ 1]  151 	ld	a, #0x01
+                                    152 ; genGoto
+      00005E CCr00rA6         [ 2]  153 	jp	00121$
+                                    154 ; genLabel
+      000061                        155 00105$:
+                                    156 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 72: bitstatus = RESET;
+                                    157 ; genAssign
+      000061 4F               [ 1]  158 	clr	a
+                                    159 ; genGoto
+      000062 CCr00rA6         [ 2]  160 	jp	00121$
+                                    161 ; genLabel
+      000065                        162 00111$:
+                                    163 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 78: if ((CAN->MSR & (uint16_t)CAN_Flag )!= RESET)
+                                    164 ; genPointerGet
+      000065 C6 54 21         [ 1]  165 	ld	a, 0x5421
+                                    166 ; genCast
+                                    167 ; genAssign
+      000068 5F               [ 1]  168 	clrw	x
+                                    169 ; genAnd
+      000069 14 02            [ 1]  170 	and	a, (0x02, sp)
+      00006B 97               [ 1]  171 	ld	xl, a
+      00006C 4F               [ 1]  172 	clr	a
+      00006D 14 01            [ 1]  173 	and	a, (0x01, sp)
+      00006F 95               [ 1]  174 	ld	xh, a
+                                    175 ; genIfx
+      000070 5D               [ 2]  176 	tnzw	x
+      000071 26 03            [ 1]  177 	jrne	00178$
+      000073 CCr00r7B         [ 2]  178 	jp	00108$
+      000076                        179 00178$:
+                                    180 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 81: bitstatus = SET;
+                                    181 ; genAssign
+      000076 A6 01            [ 1]  182 	ld	a, #0x01
+                                    183 ; genGoto
+      000078 CCr00rA6         [ 2]  184 	jp	00121$
+                                    185 ; genLabel
+      00007B                        186 00108$:
+                                    187 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 86: bitstatus = RESET;
+                                    188 ; genAssign
+      00007B 4F               [ 1]  189 	clr	a
+                                    190 ; genGoto
+      00007C CCr00rA6         [ 2]  191 	jp	00121$
+                                    192 ; genLabel
+      00007F                        193 00120$:
+                                    194 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 93: can_page = CAN_GetSelectedPage();
+                                    195 ; genCall
+      00007F CDr00r00         [ 4]  196 	call	_CAN_GetSelectedPage
+      000082 6B 03            [ 1]  197 	ld	(0x03, sp), a
+                                    198 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 95: CAN->PSR = CAN_Page_Config;
+                                    199 ; genPointerSet
+      000084 35 06 54 27      [ 1]  200 	mov	0x5427+0, #0x06
+                                    201 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 96: if ((CAN->Page.Config.ESR & (uint16_t)CAN_Flag) != RESET)
+                                    202 ; genPointerGet
+      000088 C6 54 28         [ 1]  203 	ld	a, 0x5428
+                                    204 ; genCast
+                                    205 ; genAssign
+      00008B 5F               [ 1]  206 	clrw	x
+                                    207 ; genAnd
+      00008C 14 02            [ 1]  208 	and	a, (0x02, sp)
+      00008E 95               [ 1]  209 	ld	xh, a
+      00008F 4F               [ 1]  210 	clr	a
+      000090 14 01            [ 1]  211 	and	a, (0x01, sp)
+      000092 97               [ 1]  212 	ld	xl, a
+                                    213 ; genIfx
+      000093 5D               [ 2]  214 	tnzw	x
+      000094 26 03            [ 1]  215 	jrne	00179$
+      000096 CCr00r9E         [ 2]  216 	jp	00117$
+      000099                        217 00179$:
+                                    218 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 99: bitstatus = SET;
+                                    219 ; genAssign
+      000099 A6 01            [ 1]  220 	ld	a, #0x01
+                                    221 ; genGoto
+      00009B CCr00r9F         [ 2]  222 	jp	00118$
+                                    223 ; genLabel
+      00009E                        224 00117$:
+                                    225 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 104: bitstatus = RESET;
+                                    226 ; genAssign
+      00009E 4F               [ 1]  227 	clr	a
+                                    228 ; genLabel
+      00009F                        229 00118$:
+                                    230 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 107: CAN_SelectPage(can_page);
+                                    231 ; genSend
+      00009F 88               [ 1]  232 	push	a
+      0000A0 7B 04            [ 1]  233 	ld	a, (0x04, sp)
+                                    234 ; genCall
+      0000A2 CDr00r00         [ 4]  235 	call	_CAN_SelectPage
+      0000A5 84               [ 1]  236 	pop	a
+                                    237 ; genLabel
+      0000A6                        238 00121$:
+                                    239 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 112: return  (FlagStatus)bitstatus;
+                                    240 ; genReturn
+                                    241 ; genLabel
+      0000A6                        242 00122$:
+                                    243 ;	../SPLSPL/src/stm8s_can_CAN_GetFlagStatus.c: 113: }
+                                    244 ; genEndFunction
+      0000A6 5B 05            [ 2]  245 	addw	sp, #5
+      0000A8 81               [ 4]  246 	ret
+                                    247 	.area CODE
+                                    248 	.area CONST
+                                    249 	.area INITIALIZER
+                                    250 	.area CABS (ABS)

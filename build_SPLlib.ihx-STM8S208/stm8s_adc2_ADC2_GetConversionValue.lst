@@ -1,0 +1,137 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_adc2_ADC2_GetConversionValue
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _ADC2_GetConversionValue
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_adc2_ADC2_GetConversionValue.c: 38: uint16_t ADC2_GetConversionValue(void)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function ADC2_GetConversionValue
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 4 bytes.
+      000000                         56 _ADC2_GetConversionValue:
+      000000 52 04            [ 2]   57 	sub	sp, #4
+                                     58 ;	../SPLSPL/src/stm8s_adc2_ADC2_GetConversionValue.c: 43: if ((ADC2->CR2 & ADC2_CR2_ALIGN) != 0) /* Right alignment */
+                                     59 ; genPointerGet
+      000002 C6 54 02         [ 1]   60 	ld	a, 0x5402
+                                     61 ; genAnd
+      000005 A5 08            [ 1]   62 	bcp	a, #0x08
+      000007 26 03            [ 1]   63 	jrne	00113$
+      000009 CCr00r20         [ 2]   64 	jp	00102$
+      00000C                         65 00113$:
+                                     66 ; skipping generated iCode
+                                     67 ;	../SPLSPL/src/stm8s_adc2_ADC2_GetConversionValue.c: 46: templ = ADC2->DRL;
+                                     68 ; genPointerGet
+      00000C C6 54 05         [ 1]   69 	ld	a, 0x5405
+      00000F 97               [ 1]   70 	ld	xl, a
+                                     71 ;	../SPLSPL/src/stm8s_adc2_ADC2_GetConversionValue.c: 48: temph = ADC2->DRH;
+                                     72 ; genPointerGet
+      000010 C6 54 04         [ 1]   73 	ld	a, 0x5404
+                                     74 ; genCast
+                                     75 ; genAssign
+      000013 95               [ 1]   76 	ld	xh, a
+      000014 4F               [ 1]   77 	clr	a
+                                     78 ;	../SPLSPL/src/stm8s_adc2_ADC2_GetConversionValue.c: 50: temph = (uint16_t)(templ | (uint16_t)(temph << (uint8_t)8));
+                                     79 ; genLeftShiftLiteral
+      000015 4F               [ 1]   80 	clr	a
+                                     81 ; genCast
+                                     82 ; genAssign
+      000016 90 5F            [ 1]   83 	clrw	y
+                                     84 ; genOr
+      000018 89               [ 2]   85 	pushw	x
+      000019 1A 02            [ 1]   86 	or	a, (2, sp)
+      00001B 85               [ 2]   87 	popw	x
+      00001C 97               [ 1]   88 	ld	xl, a
+                                     89 ; genGoto
+      00001D CCr00r3E         [ 2]   90 	jp	00103$
+                                     91 ; genLabel
+      000020                         92 00102$:
+                                     93 ;	../SPLSPL/src/stm8s_adc2_ADC2_GetConversionValue.c: 55: temph = ADC2->DRH;
+                                     94 ; genPointerGet
+      000020 C6 54 04         [ 1]   95 	ld	a, 0x5404
+                                     96 ; genCast
+                                     97 ; genAssign
+      000023 90 5F            [ 1]   98 	clrw	y
+      000025 90 97            [ 1]   99 	ld	yl, a
+                                    100 ;	../SPLSPL/src/stm8s_adc2_ADC2_GetConversionValue.c: 57: templ = ADC2->DRL;
+                                    101 ; genPointerGet
+      000027 C6 54 05         [ 1]  102 	ld	a, 0x5405
+                                    103 ;	../SPLSPL/src/stm8s_adc2_ADC2_GetConversionValue.c: 59: temph = (uint16_t)((uint16_t)((uint16_t)templ << 6) | (uint16_t)((uint16_t)temph << 8));
+                                    104 ; genCast
+                                    105 ; genAssign
+      00002A 5F               [ 1]  106 	clrw	x
+      00002B 97               [ 1]  107 	ld	xl, a
+                                    108 ; genLeftShiftLiteral
+      00002C 58               [ 2]  109 	sllw	x
+      00002D 58               [ 2]  110 	sllw	x
+      00002E 58               [ 2]  111 	sllw	x
+      00002F 58               [ 2]  112 	sllw	x
+      000030 58               [ 2]  113 	sllw	x
+      000031 58               [ 2]  114 	sllw	x
+      000032 1F 01            [ 2]  115 	ldw	(0x01, sp), x
+                                    116 ; genLeftShiftLiteral
+      000034 90 9F            [ 1]  117 	ld	a, yl
+      000036 0F 04            [ 1]  118 	clr	(0x04, sp)
+                                    119 ; genOr
+      000038 1A 01            [ 1]  120 	or	a, (0x01, sp)
+      00003A 95               [ 1]  121 	ld	xh, a
+      00003B 7B 02            [ 1]  122 	ld	a, (0x02, sp)
+      00003D 97               [ 1]  123 	ld	xl, a
+                                    124 ; genLabel
+      00003E                        125 00103$:
+                                    126 ;	../SPLSPL/src/stm8s_adc2_ADC2_GetConversionValue.c: 62: return ((uint16_t)temph);
+                                    127 ; genReturn
+                                    128 ; genLabel
+      00003E                        129 00104$:
+                                    130 ;	../SPLSPL/src/stm8s_adc2_ADC2_GetConversionValue.c: 63: }
+                                    131 ; genEndFunction
+      00003E 5B 04            [ 2]  132 	addw	sp, #4
+      000040 81               [ 4]  133 	ret
+                                    134 	.area CODE
+                                    135 	.area CONST
+                                    136 	.area INITIALIZER
+                                    137 	.area CABS (ABS)

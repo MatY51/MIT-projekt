@@ -1,0 +1,281 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_can_CAN_OperatingModeRequest
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CAN_OperatingModeRequest
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 41: CAN_ModeStatus_TypeDef CAN_OperatingModeRequest(CAN_OperatingMode_TypeDef CAN_OperatingMode)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function CAN_OperatingModeRequest
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 0 bytes.
+      000000                         56 _CAN_OperatingModeRequest:
+                                     57 ; genReceive
+                                     58 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 48: if (CAN_OperatingMode == CAN_OperatingMode_Initialization)
+                                     59 ; genIfx
+      000000 4D               [ 1]   60 	tnz	a
+      000001 27 03            [ 1]   61 	jreq	00241$
+      000003 CCr00r3B         [ 2]   62 	jp	00129$
+      000006                         63 00241$:
+                                     64 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 51: CAN->MCR = (uint8_t)((uint8_t)(CAN->MCR & (uint8_t)(~CAN_MCR_SLEEP)) | CAN_MCR_INRQ);
+                                     65 ; genPointerGet
+      000006 C6 54 20         [ 1]   66 	ld	a, 0x5420
+                                     67 ; genAnd
+      000009 A4 FD            [ 1]   68 	and	a, #0xfd
+                                     69 ; genOr
+      00000B AA 01            [ 1]   70 	or	a, #0x01
+                                     71 ; genPointerSet
+      00000D C7 54 20         [ 1]   72 	ld	0x5420, a
+                                     73 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 54: while (((CAN->MSR & CAN_MODE_MASK) != CAN_MSR_INAK) && (timeout != 0))
+                                     74 ; genAssign
+      000010 5F               [ 1]   75 	clrw	x
+      000011 5A               [ 2]   76 	decw	x
+                                     77 ; genLabel
+      000012                         78 00102$:
+                                     79 ; genPointerGet
+      000012 C6 54 21         [ 1]   80 	ld	a, 0x5421
+                                     81 ; genAnd
+      000015 A4 03            [ 1]   82 	and	a, #0x03
+                                     83 ; genCmpEQorNE
+      000017 4A               [ 1]   84 	dec	a
+      000018 26 03            [ 1]   85 	jrne	00243$
+      00001A CCr00r27         [ 2]   86 	jp	00104$
+      00001D                         87 00243$:
+                                     88 ; skipping generated iCode
+                                     89 ; genIfx
+      00001D 5D               [ 2]   90 	tnzw	x
+      00001E 26 03            [ 1]   91 	jrne	00245$
+      000020 CCr00r27         [ 2]   92 	jp	00104$
+      000023                         93 00245$:
+                                     94 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 56: timeout--;
+                                     95 ; genMinus
+      000023 5A               [ 2]   96 	decw	x
+                                     97 ; genGoto
+      000024 CCr00r12         [ 2]   98 	jp	00102$
+                                     99 ; genLabel
+      000027                        100 00104$:
+                                    101 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 58: if ((CAN->MSR & CAN_MODE_MASK) != CAN_MSR_INAK)
+                                    102 ; genPointerGet
+      000027 C6 54 21         [ 1]  103 	ld	a, 0x5421
+                                    104 ; genAnd
+      00002A A4 03            [ 1]  105 	and	a, #0x03
+                                    106 ; genCmpEQorNE
+      00002C 4A               [ 1]  107 	dec	a
+      00002D 26 03            [ 1]  108 	jrne	00247$
+      00002F CCr00r36         [ 2]  109 	jp	00106$
+      000032                        110 00247$:
+                                    111 ; skipping generated iCode
+                                    112 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 60: modestatus = CAN_ModeStatus_Failed;
+                                    113 ; genAssign
+      000032 4F               [ 1]  114 	clr	a
+                                    115 ; genGoto
+      000033 CCr00rB8         [ 2]  116 	jp	00130$
+                                    117 ; genLabel
+      000036                        118 00106$:
+                                    119 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 64: modestatus = CAN_ModeStatus_Success;  
+                                    120 ; genAssign
+      000036 A6 01            [ 1]  121 	ld	a, #0x01
+                                    122 ; genGoto
+      000038 CCr00rB8         [ 2]  123 	jp	00130$
+                                    124 ; genLabel
+      00003B                        125 00129$:
+                                    126 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 68: else  if (CAN_OperatingMode == CAN_OperatingMode_Normal)
+                                    127 ; genCmpEQorNE
+      00003B A1 01            [ 1]  128 	cp	a, #0x01
+      00003D 26 03            [ 1]  129 	jrne	00250$
+      00003F CCr00r45         [ 2]  130 	jp	00251$
+      000042                        131 00250$:
+      000042 CCr00r76         [ 2]  132 	jp	00126$
+      000045                        133 00251$:
+                                    134 ; skipping generated iCode
+                                    135 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 71: CAN->MCR &= (uint8_t)(~(CAN_MCR_SLEEP|CAN_MCR_INRQ));
+                                    136 ; genPointerGet
+      000045 C6 54 20         [ 1]  137 	ld	a, 0x5420
+                                    138 ; genAnd
+      000048 A4 FC            [ 1]  139 	and	a, #0xfc
+                                    140 ; genPointerSet
+      00004A C7 54 20         [ 1]  141 	ld	0x5420, a
+                                    142 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 74: while (((CAN->MSR & CAN_MODE_MASK) != 0) && (timeout!=0))
+                                    143 ; genAssign
+      00004D 5F               [ 1]  144 	clrw	x
+      00004E 5A               [ 2]  145 	decw	x
+                                    146 ; genLabel
+      00004F                        147 00109$:
+                                    148 ; genPointerGet
+      00004F C6 54 21         [ 1]  149 	ld	a, 0x5421
+                                    150 ; genAnd
+      000052 A5 03            [ 1]  151 	bcp	a, #0x03
+      000054 26 03            [ 1]  152 	jrne	00252$
+      000056 CCr00r63         [ 2]  153 	jp	00111$
+      000059                        154 00252$:
+                                    155 ; skipping generated iCode
+                                    156 ; genIfx
+      000059 5D               [ 2]  157 	tnzw	x
+      00005A 26 03            [ 1]  158 	jrne	00253$
+      00005C CCr00r63         [ 2]  159 	jp	00111$
+      00005F                        160 00253$:
+                                    161 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 76: timeout--;
+                                    162 ; genMinus
+      00005F 5A               [ 2]  163 	decw	x
+                                    164 ; genGoto
+      000060 CCr00r4F         [ 2]  165 	jp	00109$
+                                    166 ; genLabel
+      000063                        167 00111$:
+                                    168 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 78: if ((CAN->MSR & CAN_MODE_MASK) != 0)
+                                    169 ; genPointerGet
+      000063 C6 54 21         [ 1]  170 	ld	a, 0x5421
+                                    171 ; genAnd
+      000066 A5 03            [ 1]  172 	bcp	a, #0x03
+      000068 26 03            [ 1]  173 	jrne	00254$
+      00006A CCr00r71         [ 2]  174 	jp	00113$
+      00006D                        175 00254$:
+                                    176 ; skipping generated iCode
+                                    177 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 80: modestatus = CAN_ModeStatus_Failed;
+                                    178 ; genAssign
+      00006D 4F               [ 1]  179 	clr	a
+                                    180 ; genGoto
+      00006E CCr00rB8         [ 2]  181 	jp	00130$
+                                    182 ; genLabel
+      000071                        183 00113$:
+                                    184 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 84: modestatus = CAN_ModeStatus_Success;  
+                                    185 ; genAssign
+      000071 A6 01            [ 1]  186 	ld	a, #0x01
+                                    187 ; genGoto
+      000073 CCr00rB8         [ 2]  188 	jp	00130$
+                                    189 ; genLabel
+      000076                        190 00126$:
+                                    191 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 87: else  if (CAN_OperatingMode == CAN_OperatingMode_Sleep)
+                                    192 ; genCmpEQorNE
+      000076 A1 02            [ 1]  193 	cp	a, #0x02
+      000078 26 03            [ 1]  194 	jrne	00256$
+      00007A CCr00r80         [ 2]  195 	jp	00257$
+      00007D                        196 00256$:
+      00007D CCr00rB7         [ 2]  197 	jp	00123$
+      000080                        198 00257$:
+                                    199 ; skipping generated iCode
+                                    200 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 90: CAN->MCR = (uint8_t)((uint8_t)(CAN->MCR & (uint8_t)(~CAN_MCR_INRQ)) | CAN_MCR_SLEEP);
+                                    201 ; genPointerGet
+      000080 C6 54 20         [ 1]  202 	ld	a, 0x5420
+                                    203 ; genAnd
+      000083 A4 FE            [ 1]  204 	and	a, #0xfe
+                                    205 ; genOr
+      000085 AA 02            [ 1]  206 	or	a, #0x02
+                                    207 ; genPointerSet
+      000087 C7 54 20         [ 1]  208 	ld	0x5420, a
+                                    209 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 93: while (((CAN->MSR & CAN_MODE_MASK) != CAN_MSR_SLAK) && (timeout!=0))
+                                    210 ; genAssign
+      00008A 5F               [ 1]  211 	clrw	x
+      00008B 5A               [ 2]  212 	decw	x
+                                    213 ; genLabel
+      00008C                        214 00116$:
+                                    215 ; genPointerGet
+      00008C C6 54 21         [ 1]  216 	ld	a, 0x5421
+                                    217 ; genAnd
+      00008F A4 03            [ 1]  218 	and	a, #0x03
+                                    219 ; genCmpEQorNE
+      000091 A1 02            [ 1]  220 	cp	a, #0x02
+      000093 26 03            [ 1]  221 	jrne	00259$
+      000095 CCr00rA2         [ 2]  222 	jp	00118$
+      000098                        223 00259$:
+                                    224 ; skipping generated iCode
+                                    225 ; genIfx
+      000098 5D               [ 2]  226 	tnzw	x
+      000099 26 03            [ 1]  227 	jrne	00261$
+      00009B CCr00rA2         [ 2]  228 	jp	00118$
+      00009E                        229 00261$:
+                                    230 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 95: timeout--;
+                                    231 ; genMinus
+      00009E 5A               [ 2]  232 	decw	x
+                                    233 ; genGoto
+      00009F CCr00r8C         [ 2]  234 	jp	00116$
+                                    235 ; genLabel
+      0000A2                        236 00118$:
+                                    237 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 97: if ((CAN->MSR & CAN_MODE_MASK) != CAN_MSR_SLAK)
+                                    238 ; genPointerGet
+      0000A2 C6 54 21         [ 1]  239 	ld	a, 0x5421
+                                    240 ; genAnd
+      0000A5 A4 03            [ 1]  241 	and	a, #0x03
+                                    242 ; genCmpEQorNE
+      0000A7 A1 02            [ 1]  243 	cp	a, #0x02
+      0000A9 26 03            [ 1]  244 	jrne	00263$
+      0000AB CCr00rB2         [ 2]  245 	jp	00120$
+      0000AE                        246 00263$:
+                                    247 ; skipping generated iCode
+                                    248 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 99: modestatus = CAN_ModeStatus_Failed;  
+                                    249 ; genAssign
+      0000AE 4F               [ 1]  250 	clr	a
+                                    251 ; genGoto
+      0000AF CCr00rB8         [ 2]  252 	jp	00130$
+                                    253 ; genLabel
+      0000B2                        254 00120$:
+                                    255 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 103: modestatus = CAN_ModeStatus_Success;  
+                                    256 ; genAssign
+      0000B2 A6 01            [ 1]  257 	ld	a, #0x01
+                                    258 ; genGoto
+      0000B4 CCr00rB8         [ 2]  259 	jp	00130$
+                                    260 ; genLabel
+      0000B7                        261 00123$:
+                                    262 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 108: modestatus = CAN_ModeStatus_Failed;
+                                    263 ; genAssign
+      0000B7 4F               [ 1]  264 	clr	a
+                                    265 ; genLabel
+      0000B8                        266 00130$:
+                                    267 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 110: return (CAN_ModeStatus_TypeDef)(modestatus);
+                                    268 ; genCast
+      0000B8 40               [ 1]  269 	neg	a
+      0000B9 4F               [ 1]  270 	clr	a
+      0000BA 49               [ 1]  271 	rlc	a
+                                    272 ; genReturn
+                                    273 ; genLabel
+      0000BB                        274 00131$:
+                                    275 ;	../SPLSPL/src/stm8s_can_CAN_OperatingModeRequest.c: 111: }
+                                    276 ; genEndFunction
+      0000BB 81               [ 4]  277 	ret
+                                    278 	.area CODE
+                                    279 	.area CONST
+                                    280 	.area INITIALIZER
+                                    281 	.area CABS (ABS)

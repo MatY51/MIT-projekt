@@ -1,0 +1,140 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_tim1_TIM1_OC4Init
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TIM1_OC4Init
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_tim1_TIM1_OC4Init.c: 44: void TIM1_OC4Init(TIM1_OCMode_TypeDef TIM1_OCMode,
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function TIM1_OC4Init
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 3 bytes.
+      000000                         56 _TIM1_OC4Init:
+      000000 52 03            [ 2]   57 	sub	sp, #3
+                                     58 ; genReceive
+      000002 6B 03            [ 1]   59 	ld	(0x03, sp), a
+                                     60 ;	../SPLSPL/src/stm8s_tim1_TIM1_OC4Init.c: 57: TIM1->CCER2 &= (uint8_t)(~(TIM1_CCER2_CC4E | TIM1_CCER2_CC4P));
+                                     61 ; genPointerGet
+      000004 C6 52 5D         [ 1]   62 	ld	a, 0x525d
+                                     63 ; genAnd
+      000007 A4 CF            [ 1]   64 	and	a, #0xcf
+                                     65 ; genPointerSet
+      000009 C7 52 5D         [ 1]   66 	ld	0x525d, a
+                                     67 ;	../SPLSPL/src/stm8s_tim1_TIM1_OC4Init.c: 59: TIM1->CCER2 |= (uint8_t)((uint8_t)(TIM1_OutputState & TIM1_CCER2_CC4E ) |  
+                                     68 ; genPointerGet
+      00000C C6 52 5D         [ 1]   69 	ld	a, 0x525d
+      00000F 6B 01            [ 1]   70 	ld	(0x01, sp), a
+                                     71 ; genAnd
+      000011 7B 06            [ 1]   72 	ld	a, (0x06, sp)
+      000013 A4 10            [ 1]   73 	and	a, #0x10
+      000015 6B 02            [ 1]   74 	ld	(0x02, sp), a
+                                     75 ;	../SPLSPL/src/stm8s_tim1_TIM1_OC4Init.c: 60: (uint8_t)(TIM1_OCPolarity  & TIM1_CCER2_CC4P ));
+                                     76 ; genAnd
+      000017 7B 09            [ 1]   77 	ld	a, (0x09, sp)
+      000019 A4 20            [ 1]   78 	and	a, #0x20
+                                     79 ; genOr
+      00001B 1A 02            [ 1]   80 	or	a, (0x02, sp)
+                                     81 ; genOr
+      00001D 1A 01            [ 1]   82 	or	a, (0x01, sp)
+                                     83 ; genPointerSet
+      00001F C7 52 5D         [ 1]   84 	ld	0x525d, a
+                                     85 ;	../SPLSPL/src/stm8s_tim1_TIM1_OC4Init.c: 63: TIM1->CCMR4 = (uint8_t)((uint8_t)(TIM1->CCMR4 & (uint8_t)(~TIM1_CCMR_OCM)) | 
+                                     86 ; genPointerGet
+      000022 C6 52 5B         [ 1]   87 	ld	a, 0x525b
+                                     88 ; genAnd
+      000025 A4 8F            [ 1]   89 	and	a, #0x8f
+                                     90 ; genOr
+      000027 1A 03            [ 1]   91 	or	a, (0x03, sp)
+                                     92 ; genPointerSet
+      000029 C7 52 5B         [ 1]   93 	ld	0x525b, a
+                                     94 ;	../SPLSPL/src/stm8s_tim1_TIM1_OC4Init.c: 69: TIM1->OISR |= (uint8_t)(~TIM1_CCER2_CC4P);
+                                     95 ; genPointerGet
+      00002C C6 52 6F         [ 1]   96 	ld	a, 0x526f
+                                     97 ;	../SPLSPL/src/stm8s_tim1_TIM1_OC4Init.c: 67: if (TIM1_OCIdleState != TIM1_OCIDLESTATE_RESET)
+                                     98 ; genIfx
+      00002F 0D 0A            [ 1]   99 	tnz	(0x0a, sp)
+      000031 26 03            [ 1]  100 	jrne	00113$
+      000033 CCr00r3E         [ 2]  101 	jp	00102$
+      000036                        102 00113$:
+                                    103 ;	../SPLSPL/src/stm8s_tim1_TIM1_OC4Init.c: 69: TIM1->OISR |= (uint8_t)(~TIM1_CCER2_CC4P);
+                                    104 ; genOr
+      000036 AA DF            [ 1]  105 	or	a, #0xdf
+                                    106 ; genPointerSet
+      000038 C7 52 6F         [ 1]  107 	ld	0x526f, a
+                                    108 ; genGoto
+      00003B CCr00r43         [ 2]  109 	jp	00103$
+                                    110 ; genLabel
+      00003E                        111 00102$:
+                                    112 ;	../SPLSPL/src/stm8s_tim1_TIM1_OC4Init.c: 73: TIM1->OISR &= (uint8_t)(~TIM1_OISR_OIS4);
+                                    113 ; genAnd
+      00003E A4 BF            [ 1]  114 	and	a, #0xbf
+                                    115 ; genPointerSet
+      000040 C7 52 6F         [ 1]  116 	ld	0x526f, a
+                                    117 ; genLabel
+      000043                        118 00103$:
+                                    119 ;	../SPLSPL/src/stm8s_tim1_TIM1_OC4Init.c: 77: TIM1->CCR4H = (uint8_t)(TIM1_Pulse >> 8);
+                                    120 ; genGetByte
+      000043 7B 07            [ 1]  121 	ld	a, (0x07, sp)
+                                    122 ; genPointerSet
+      000045 C7 52 6B         [ 1]  123 	ld	0x526b, a
+                                    124 ;	../SPLSPL/src/stm8s_tim1_TIM1_OC4Init.c: 78: TIM1->CCR4L = (uint8_t)(TIM1_Pulse);
+                                    125 ; genCast
+                                    126 ; genAssign
+      000048 7B 08            [ 1]  127 	ld	a, (0x08, sp)
+                                    128 ; genPointerSet
+      00004A C7 52 6C         [ 1]  129 	ld	0x526c, a
+                                    130 ; genLabel
+      00004D                        131 00104$:
+                                    132 ;	../SPLSPL/src/stm8s_tim1_TIM1_OC4Init.c: 79: }
+                                    133 ; genEndFunction
+      00004D 1E 04            [ 2]  134 	ldw	x, (4, sp)
+      00004F 5B 0A            [ 2]  135 	addw	sp, #10
+      000051 FC               [ 2]  136 	jp	(x)
+                                    137 	.area CODE
+                                    138 	.area CONST
+                                    139 	.area INITIALIZER
+                                    140 	.area CABS (ABS)

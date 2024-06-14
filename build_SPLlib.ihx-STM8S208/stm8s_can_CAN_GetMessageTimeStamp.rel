@@ -1,0 +1,31 @@
+XH3
+H B areas 4 global symbols
+M stm8s_can_CAN_GetMessageTimeStamp
+O -mstm8
+S _CAN_GetSelectedPage Ref000000
+S .__.ABS. Def000000
+S _CAN_SelectPage Ref000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 23 flags 0 addr 0
+S _CAN_GetMessageTimeStamp Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 52 06 CD 00 00 90 97 35 07 54 27 C6
+R 00 00 00 09 02 06 00 00
+T 00 00 0C 54 36 97 0F 01 C6 54 37 0F 03 0F 06 95
+R 00 00 00 09
+T 00 00 19 89 90 9F CD 00 00 85
+R 00 00 00 09 02 07 00 02
+T 00 00 20
+R 00 00 00 09
+T 00 00 20 5B 06 81
+R 00 00 00 09

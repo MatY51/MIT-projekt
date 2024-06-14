@@ -1,0 +1,233 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_can_CAN_TransmitStatus
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CAN_TransmitStatus
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 36: CAN_TxStatus_TypeDef CAN_TransmitStatus(CAN_TransmitMailBox_TypeDef CAN_TransmitMailbox)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function CAN_TransmitStatus
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 1 bytes.
+      000000                         56 _CAN_TransmitStatus:
+      000000 88               [ 1]   57 	push	a
+                                     58 ; genReceive
+                                     59 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 40: uint8_t tmpstate=0;
+                                     60 ; genAssign
+      000001 5F               [ 1]   61 	clrw	x
+                                     62 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 45: switch (CAN_TransmitMailbox)
+                                     63 ; genCmpEQorNE
+      000002 A1 00            [ 1]   64 	cp	a, #0x00
+      000004 26 03            [ 1]   65 	jrne	00171$
+      000006 CCr00r1A         [ 2]   66 	jp	00101$
+      000009                         67 00171$:
+                                     68 ; skipping generated iCode
+                                     69 ; genCmpEQorNE
+      000009 A1 01            [ 1]   70 	cp	a, #0x01
+      00000B 26 03            [ 1]   71 	jrne	00174$
+      00000D CCr00r2C         [ 2]   72 	jp	00102$
+      000010                         73 00174$:
+                                     74 ; skipping generated iCode
+                                     75 ; genCmpEQorNE
+      000010 A1 05            [ 1]   76 	cp	a, #0x05
+      000012 26 03            [ 1]   77 	jrne	00177$
+      000014 CCr00r40         [ 2]   78 	jp	00103$
+      000017                         79 00177$:
+                                     80 ; skipping generated iCode
+                                     81 ; genGoto
+      000017 CCr00r53         [ 2]   82 	jp	00105$
+                                     83 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 47: case (CAN_TransmitMailBox_0): tmpstate = (uint8_t)((CAN->TSR & (uint8_t)(CAN_TSR_RQCP0|CAN_TSR_TXOK0)));
+                                     84 ; genLabel
+      00001A                         85 00101$:
+                                     86 ; genPointerGet
+      00001A C6 54 22         [ 1]   87 	ld	a, 0x5422
+                                     88 ; genAnd
+      00001D A4 11            [ 1]   89 	and	a, #0x11
+      00001F 6B 01            [ 1]   90 	ld	(0x01, sp), a
+                                     91 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 48: tmpstate |= (uint8_t)((CAN->TPR & CAN_TPR_TME0));
+                                     92 ; genPointerGet
+      000021 C6 54 23         [ 1]   93 	ld	a, 0x5423
+                                     94 ; genAnd
+      000024 A4 04            [ 1]   95 	and	a, #0x04
+                                     96 ; genOr
+      000026 1A 01            [ 1]   97 	or	a, (0x01, sp)
+      000028 97               [ 1]   98 	ld	xl, a
+                                     99 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 49: break;
+                                    100 ; genGoto
+      000029 CCr00r53         [ 2]  101 	jp	00105$
+                                    102 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 50: case (CAN_TransmitMailBox_1): tmpstate = (uint8_t)((uint8_t)(CAN->TSR & (uint8_t)(CAN_TSR_RQCP1|CAN_TSR_TXOK1))>>1);
+                                    103 ; genLabel
+      00002C                        104 00102$:
+                                    105 ; genPointerGet
+      00002C C6 54 22         [ 1]  106 	ld	a, 0x5422
+                                    107 ; genAnd
+      00002F A4 22            [ 1]  108 	and	a, #0x22
+                                    109 ; genRightShiftLiteral
+      000031 44               [ 1]  110 	srl	a
+      000032 6B 01            [ 1]  111 	ld	(0x01, sp), a
+                                    112 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 51: tmpstate |= (uint8_t)((uint8_t)(CAN->TPR & CAN_TPR_TME1) >> 1);
+                                    113 ; genPointerGet
+      000034 C6 54 23         [ 1]  114 	ld	a, 0x5423
+                                    115 ; genAnd
+      000037 A4 08            [ 1]  116 	and	a, #0x08
+                                    117 ; genRightShiftLiteral
+      000039 44               [ 1]  118 	srl	a
+                                    119 ; genOr
+      00003A 1A 01            [ 1]  120 	or	a, (0x01, sp)
+      00003C 97               [ 1]  121 	ld	xl, a
+                                    122 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 52: break;
+                                    123 ; genGoto
+      00003D CCr00r53         [ 2]  124 	jp	00105$
+                                    125 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 53: case (CAN_TransmitMailBox_2): tmpstate = (uint8_t)((uint8_t)(CAN->TSR & (uint8_t)(CAN_TSR_RQCP2|CAN_TSR_TXOK2))>>2);
+                                    126 ; genLabel
+      000040                        127 00103$:
+                                    128 ; genPointerGet
+      000040 C6 54 22         [ 1]  129 	ld	a, 0x5422
+                                    130 ; genAnd
+      000043 A4 44            [ 1]  131 	and	a, #0x44
+                                    132 ; genRightShiftLiteral
+      000045 44               [ 1]  133 	srl	a
+      000046 44               [ 1]  134 	srl	a
+      000047 6B 01            [ 1]  135 	ld	(0x01, sp), a
+                                    136 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 54: tmpstate |= (uint8_t)((uint8_t)(CAN->TPR & CAN_TPR_TME2) >> 2);
+                                    137 ; genPointerGet
+      000049 C6 54 23         [ 1]  138 	ld	a, 0x5423
+                                    139 ; genAnd
+      00004C A4 10            [ 1]  140 	and	a, #0x10
+                                    141 ; genRightShiftLiteral
+      00004E 44               [ 1]  142 	srl	a
+      00004F 44               [ 1]  143 	srl	a
+                                    144 ; genOr
+      000050 1A 01            [ 1]  145 	or	a, (0x01, sp)
+      000052 97               [ 1]  146 	ld	xl, a
+                                    147 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 59: }
+                                    148 ; genLabel
+      000053                        149 00105$:
+                                    150 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 61: switch (tmpstate)
+                                    151 ; genCmpEQorNE
+      000053 9F               [ 1]  152 	ld	a, xl
+      000054 A1 00            [ 1]  153 	cp	a, #0x00
+      000056 26 03            [ 1]  154 	jrne	00180$
+      000058 CCr00r76         [ 2]  155 	jp	00106$
+      00005B                        156 00180$:
+                                    157 ; skipping generated iCode
+                                    158 ; genCmpEQorNE
+      00005B 9F               [ 1]  159 	ld	a, xl
+      00005C A1 04            [ 1]  160 	cp	a, #0x04
+      00005E 26 03            [ 1]  161 	jrne	00183$
+      000060 CCr00r85         [ 2]  162 	jp	00109$
+      000063                        163 00183$:
+                                    164 ; skipping generated iCode
+                                    165 ; genCmpEQorNE
+      000063 9F               [ 1]  166 	ld	a, xl
+      000064 A1 05            [ 1]  167 	cp	a, #0x05
+      000066 26 03            [ 1]  168 	jrne	00186$
+      000068 CCr00r7B         [ 2]  169 	jp	00107$
+      00006B                        170 00186$:
+                                    171 ; skipping generated iCode
+                                    172 ; genCmpEQorNE
+      00006B 9F               [ 1]  173 	ld	a, xl
+      00006C A1 15            [ 1]  174 	cp	a, #0x15
+      00006E 26 03            [ 1]  175 	jrne	00189$
+      000070 CCr00r80         [ 2]  176 	jp	00108$
+      000073                        177 00189$:
+                                    178 ; skipping generated iCode
+                                    179 ; genGoto
+      000073 CCr00r8A         [ 2]  180 	jp	00110$
+                                    181 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 64: case (0x00): tstate = CAN_TxStatus_Pending;
+                                    182 ; genLabel
+      000076                        183 00106$:
+                                    184 ; genAssign
+      000076 A6 F2            [ 1]  185 	ld	a, #0xf2
+                                    186 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 65: break;
+                                    187 ; genGoto
+      000078 CCr00r8C         [ 2]  188 	jp	00111$
+                                    189 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 67: case (0x05): tstate = CAN_TxStatus_Failed;
+                                    190 ; genLabel
+      00007B                        191 00107$:
+                                    192 ; genAssign
+      00007B A6 F0            [ 1]  193 	ld	a, #0xf0
+                                    194 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 68: break;
+                                    195 ; genGoto
+      00007D CCr00r8C         [ 2]  196 	jp	00111$
+                                    197 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 70: case (0x15): tstate = CAN_TxStatus_Ok;
+                                    198 ; genLabel
+      000080                        199 00108$:
+                                    200 ; genAssign
+      000080 A6 F1            [ 1]  201 	ld	a, #0xf1
+                                    202 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 71: break;
+                                    203 ; genGoto
+      000082 CCr00r8C         [ 2]  204 	jp	00111$
+                                    205 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 73: case (0x04): tstate = CAN_TxStatus_MailBoxEmpty;
+                                    206 ; genLabel
+      000085                        207 00109$:
+                                    208 ; genAssign
+      000085 A6 F5            [ 1]  209 	ld	a, #0xf5
+                                    210 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 74: break;
+                                    211 ; genGoto
+      000087 CCr00r8C         [ 2]  212 	jp	00111$
+                                    213 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 75: default:
+                                    214 ; genLabel
+      00008A                        215 00110$:
+                                    216 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 76: tstate = CAN_TxStatus_Failed;
+                                    217 ; genAssign
+      00008A A6 F0            [ 1]  218 	ld	a, #0xf0
+                                    219 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 78: }
+                                    220 ; genLabel
+      00008C                        221 00111$:
+                                    222 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 80: return (CAN_TxStatus_TypeDef)tstate;
+                                    223 ; genReturn
+                                    224 ; genLabel
+      00008C                        225 00112$:
+                                    226 ;	../SPLSPL/src/stm8s_can_CAN_TransmitStatus.c: 81: }
+                                    227 ; genEndFunction
+      00008C 5B 01            [ 2]  228 	addw	sp, #1
+      00008E 81               [ 4]  229 	ret
+                                    230 	.area CODE
+                                    231 	.area CONST
+                                    232 	.area INITIALIZER
+                                    233 	.area CABS (ABS)

@@ -1,0 +1,226 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_can_CAN_ClearITPendingBit
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CAN_SelectPage
+                                     12 	.globl _CAN_GetSelectedPage
+                                     13 	.globl _CAN_ClearITPendingBit
+                                     14 ;--------------------------------------------------------
+                                     15 ; ram data
+                                     16 ;--------------------------------------------------------
+                                     17 	.area DATA
+                                     18 ;--------------------------------------------------------
+                                     19 ; ram data
+                                     20 ;--------------------------------------------------------
+                                     21 	.area INITIALIZED
+                                     22 ;--------------------------------------------------------
+                                     23 ; absolute external ram data
+                                     24 ;--------------------------------------------------------
+                                     25 	.area DABS (ABS)
+                                     26 
+                                     27 ; default segment ordering for linker
+                                     28 	.area HOME
+                                     29 	.area GSINIT
+                                     30 	.area GSFINAL
+                                     31 	.area CONST
+                                     32 	.area INITIALIZER
+                                     33 	.area CODE
+                                     34 
+                                     35 ;--------------------------------------------------------
+                                     36 ; global & static initialisations
+                                     37 ;--------------------------------------------------------
+                                     38 	.area HOME
+                                     39 	.area GSINIT
+                                     40 	.area GSFINAL
+                                     41 	.area GSINIT
+                                     42 ;--------------------------------------------------------
+                                     43 ; Home
+                                     44 ;--------------------------------------------------------
+                                     45 	.area HOME
+                                     46 	.area HOME
+                                     47 ;--------------------------------------------------------
+                                     48 ; code
+                                     49 ;--------------------------------------------------------
+                                     50 	.area CODE
+                                     51 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 46: void CAN_ClearITPendingBit(CAN_IT_TypeDef CAN_IT)
+                                     52 ; genLabel
+                                     53 ;	-----------------------------------------
+                                     54 ;	 function CAN_ClearITPendingBit
+                                     55 ;	-----------------------------------------
+                                     56 ;	Register assignment might be sub-optimal.
+                                     57 ;	Stack space usage: 0 bytes.
+      000000                         58 _CAN_ClearITPendingBit:
+                                     59 ; genReceive
+                                     60 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 48: CAN_Page_TypeDef can_page = CAN_GetSelectedPage();
+                                     61 ; genCall
+      000000 89               [ 2]   62 	pushw	x
+      000001 CDr00r00         [ 4]   63 	call	_CAN_GetSelectedPage
+      000004 85               [ 2]   64 	popw	x
+                                     65 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 52: switch (CAN_IT)
+                                     66 ; genCast
+                                     67 ; genAssign
+                                     68 ; genCmpEQorNE
+      000005 A3 00 01         [ 2]   69 	cpw	x, #0x0001
+      000008 26 03            [ 1]   70 	jrne	00178$
+      00000A CCr00r50         [ 2]   71 	jp	00101$
+      00000D                         72 00178$:
+                                     73 ; skipping generated iCode
+                                     74 ; genCmpEQorNE
+      00000D A3 00 04         [ 2]   75 	cpw	x, #0x0004
+      000010 26 03            [ 1]   76 	jrne	00181$
+      000012 CCr00r57         [ 2]   77 	jp	00102$
+      000015                         78 00181$:
+                                     79 ; skipping generated iCode
+                                     80 ; genCmpEQorNE
+      000015 A3 00 08         [ 2]   81 	cpw	x, #0x0008
+      000018 26 03            [ 1]   82 	jrne	00184$
+      00001A CCr00r5E         [ 2]   83 	jp	00103$
+      00001D                         84 00184$:
+                                     85 ; skipping generated iCode
+                                     86 ; genCmpEQorNE
+      00001D A3 00 80         [ 2]   87 	cpw	x, #0x0080
+      000020 26 03            [ 1]   88 	jrne	00187$
+      000022 CCr00r65         [ 2]   89 	jp	00104$
+      000025                         90 00187$:
+                                     91 ; skipping generated iCode
+                                     92 ; genCmpEQorNE
+      000025 A3 01 00         [ 2]   93 	cpw	x, #0x0100
+      000028 26 03            [ 1]   94 	jrne	00190$
+      00002A CCr00r7B         [ 2]   95 	jp	00106$
+      00002D                         96 00190$:
+                                     97 ; skipping generated iCode
+                                     98 ; genCmpEQorNE
+      00002D A3 02 00         [ 2]   99 	cpw	x, #0x0200
+      000030 26 03            [ 1]  100 	jrne	00193$
+      000032 CCr00r82         [ 2]  101 	jp	00107$
+      000035                        102 00193$:
+                                    103 ; skipping generated iCode
+                                    104 ; genCmpEQorNE
+      000035 A3 04 00         [ 2]  105 	cpw	x, #0x0400
+      000038 26 03            [ 1]  106 	jrne	00196$
+      00003A CCr00r89         [ 2]  107 	jp	00108$
+      00003D                        108 00196$:
+                                    109 ; skipping generated iCode
+                                    110 ; genCmpEQorNE
+      00003D A3 08 00         [ 2]  111 	cpw	x, #0x0800
+      000040 26 03            [ 1]  112 	jrne	00199$
+      000042 CCr00r90         [ 2]  113 	jp	00109$
+      000045                        114 00199$:
+                                    115 ; skipping generated iCode
+                                    116 ; genCmpEQorNE
+      000045 A3 40 00         [ 2]  117 	cpw	x, #0x4000
+      000048 26 03            [ 1]  118 	jrne	00202$
+      00004A CCr00r6C         [ 2]  119 	jp	00105$
+      00004D                        120 00202$:
+                                    121 ; skipping generated iCode
+                                    122 ; genGoto
+      00004D CCr00r98         [ 2]  123 	jp	00111$
+                                    124 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 54: case CAN_IT_TME:
+                                    125 ; genLabel
+      000050                        126 00101$:
+                                    127 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 55: CAN->TSR = CAN_TSR_RQCP012;/* rc_w1*/
+                                    128 ; genPointerSet
+      000050 35 07 54 22      [ 1]  129 	mov	0x5422+0, #0x07
+                                    130 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 56: break;
+                                    131 ; genGoto
+      000054 CCr00r98         [ 2]  132 	jp	00111$
+                                    133 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 58: case CAN_IT_FF:
+                                    134 ; genLabel
+      000057                        135 00102$:
+                                    136 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 59: CAN->RFR = CAN_RFR_FULL; /* rc_w1*/
+                                    137 ; genPointerSet
+      000057 35 08 54 24      [ 1]  138 	mov	0x5424+0, #0x08
+                                    139 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 60: break;
+                                    140 ; genGoto
+      00005B CCr00r98         [ 2]  141 	jp	00111$
+                                    142 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 62: case CAN_IT_FOV:
+                                    143 ; genLabel
+      00005E                        144 00103$:
+                                    145 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 63: CAN->RFR = CAN_RFR_FOVR; /* rc_w1*/
+                                    146 ; genPointerSet
+      00005E 35 10 54 24      [ 1]  147 	mov	0x5424+0, #0x10
+                                    148 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 64: break;
+                                    149 ; genGoto
+      000062 CCr00r98         [ 2]  150 	jp	00111$
+                                    151 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 66: case CAN_IT_WKU:
+                                    152 ; genLabel
+      000065                        153 00104$:
+                                    154 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 67: CAN->MSR = CAN_MSR_WKUI;  /* rc_w1*/
+                                    155 ; genPointerSet
+      000065 35 08 54 21      [ 1]  156 	mov	0x5421+0, #0x08
+                                    157 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 68: break;
+                                    158 ; genGoto
+      000069 CCr00r98         [ 2]  159 	jp	00111$
+                                    160 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 70: case CAN_IT_ERR:
+                                    161 ; genLabel
+      00006C                        162 00105$:
+                                    163 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 71: CAN->PSR = CAN_Page_Config;
+                                    164 ; genPointerSet
+      00006C 35 06 54 27      [ 1]  165 	mov	0x5427+0, #0x06
+                                    166 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 72: CAN->Page.Config.ESR = (uint8_t)CAN_ESR_RESET_VALUE;
+                                    167 ; genPointerSet
+      000070 35 00 54 28      [ 1]  168 	mov	0x5428+0, #0x00
+                                    169 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 73: CAN->MSR = CAN_MSR_ERRI;
+                                    170 ; genPointerSet
+      000074 35 04 54 21      [ 1]  171 	mov	0x5421+0, #0x04
+                                    172 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 74: break;
+                                    173 ; genGoto
+      000078 CCr00r98         [ 2]  174 	jp	00111$
+                                    175 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 76: case CAN_IT_EWG:
+                                    176 ; genLabel
+      00007B                        177 00106$:
+                                    178 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 77: CAN->MSR = CAN_MSR_ERRI;
+                                    179 ; genPointerSet
+      00007B 35 04 54 21      [ 1]  180 	mov	0x5421+0, #0x04
+                                    181 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 78: break;
+                                    182 ; genGoto
+      00007F CCr00r98         [ 2]  183 	jp	00111$
+                                    184 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 80: case CAN_IT_EPV:
+                                    185 ; genLabel
+      000082                        186 00107$:
+                                    187 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 81: CAN->MSR = CAN_MSR_ERRI;
+                                    188 ; genPointerSet
+      000082 35 04 54 21      [ 1]  189 	mov	0x5421+0, #0x04
+                                    190 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 82: break;
+                                    191 ; genGoto
+      000086 CCr00r98         [ 2]  192 	jp	00111$
+                                    193 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 84: case CAN_IT_BOF:
+                                    194 ; genLabel
+      000089                        195 00108$:
+                                    196 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 85: CAN->MSR = CAN_MSR_ERRI;
+                                    197 ; genPointerSet
+      000089 35 04 54 21      [ 1]  198 	mov	0x5421+0, #0x04
+                                    199 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 86: break;
+                                    200 ; genGoto
+      00008D CCr00r98         [ 2]  201 	jp	00111$
+                                    202 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 88: case CAN_IT_LEC:
+                                    203 ; genLabel
+      000090                        204 00109$:
+                                    205 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 89: CAN->PSR = CAN_Page_Config;
+                                    206 ; genPointerSet
+      000090 35 06 54 27      [ 1]  207 	mov	0x5427+0, #0x06
+                                    208 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 90: CAN->Page.Config.ESR = (uint8_t)CAN_ESR_RESET_VALUE;
+                                    209 ; genPointerSet
+      000094 35 00 54 28      [ 1]  210 	mov	0x5428+0, #0x00
+                                    211 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 95: }
+                                    212 ; genLabel
+      000098                        213 00111$:
+                                    214 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 97: CAN_SelectPage(can_page);
+                                    215 ; genSend
+                                    216 ; genCall
+      000098 CCr00r00         [ 2]  217 	jp	_CAN_SelectPage
+                                    218 ; genLabel
+      00009B                        219 00112$:
+                                    220 ;	../SPLSPL/src/stm8s_can_CAN_ClearITPendingBit.c: 98: }
+                                    221 ; genEndFunction
+      00009B 81               [ 4]  222 	ret
+                                    223 	.area CODE
+                                    224 	.area CONST
+                                    225 	.area INITIALIZER
+                                    226 	.area CABS (ABS)

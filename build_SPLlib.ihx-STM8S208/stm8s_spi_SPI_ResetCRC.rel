@@ -1,0 +1,27 @@
+XH3
+H B areas 4 global symbols
+M stm8s_spi_SPI_ResetCRC
+O -mstm8
+S .__.ABS. Def000000
+S _SPI_CalculateCRCCmd Ref000000
+S _SPI_Cmd Ref000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size B flags 0 addr 0
+S _SPI_ResetCRC Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 A6 01 CD 00 00 A6 01 CC 00 00
+R 00 00 00 09 02 06 00 01 02 0B 00 02
+T 00 00 0A
+R 00 00 00 09
+T 00 00 0A 81
+R 00 00 00 09

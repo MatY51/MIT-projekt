@@ -1,0 +1,92 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_i2c_I2C_DeInit
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _I2C_DeInit
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_i2c_I2C_DeInit.c: 36: void I2C_DeInit(void)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function I2C_DeInit
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment is optimal.
+                                     55 ;	Stack space usage: 0 bytes.
+      000000                         56 _I2C_DeInit:
+                                     57 ;	../SPLSPL/src/stm8s_i2c_I2C_DeInit.c: 38: I2C->CR1 = I2C_CR1_RESET_VALUE;
+                                     58 ; genPointerSet
+      000000 35 00 52 10      [ 1]   59 	mov	0x5210+0, #0x00
+                                     60 ;	../SPLSPL/src/stm8s_i2c_I2C_DeInit.c: 39: I2C->CR2 = I2C_CR2_RESET_VALUE;
+                                     61 ; genPointerSet
+      000004 35 00 52 11      [ 1]   62 	mov	0x5211+0, #0x00
+                                     63 ;	../SPLSPL/src/stm8s_i2c_I2C_DeInit.c: 40: I2C->FREQR = I2C_FREQR_RESET_VALUE;
+                                     64 ; genPointerSet
+      000008 35 00 52 12      [ 1]   65 	mov	0x5212+0, #0x00
+                                     66 ;	../SPLSPL/src/stm8s_i2c_I2C_DeInit.c: 41: I2C->OARL = I2C_OARL_RESET_VALUE;
+                                     67 ; genPointerSet
+      00000C 35 00 52 13      [ 1]   68 	mov	0x5213+0, #0x00
+                                     69 ;	../SPLSPL/src/stm8s_i2c_I2C_DeInit.c: 42: I2C->OARH = I2C_OARH_RESET_VALUE;
+                                     70 ; genPointerSet
+      000010 35 00 52 14      [ 1]   71 	mov	0x5214+0, #0x00
+                                     72 ;	../SPLSPL/src/stm8s_i2c_I2C_DeInit.c: 43: I2C->ITR = I2C_ITR_RESET_VALUE;
+                                     73 ; genPointerSet
+      000014 35 00 52 1A      [ 1]   74 	mov	0x521a+0, #0x00
+                                     75 ;	../SPLSPL/src/stm8s_i2c_I2C_DeInit.c: 44: I2C->CCRL = I2C_CCRL_RESET_VALUE;
+                                     76 ; genPointerSet
+      000018 35 00 52 1B      [ 1]   77 	mov	0x521b+0, #0x00
+                                     78 ;	../SPLSPL/src/stm8s_i2c_I2C_DeInit.c: 45: I2C->CCRH = I2C_CCRH_RESET_VALUE;
+                                     79 ; genPointerSet
+      00001C 35 00 52 1C      [ 1]   80 	mov	0x521c+0, #0x00
+                                     81 ;	../SPLSPL/src/stm8s_i2c_I2C_DeInit.c: 46: I2C->TRISER = I2C_TRISER_RESET_VALUE;
+                                     82 ; genPointerSet
+      000020 35 02 52 1D      [ 1]   83 	mov	0x521d+0, #0x02
+                                     84 ; genLabel
+      000024                         85 00101$:
+                                     86 ;	../SPLSPL/src/stm8s_i2c_I2C_DeInit.c: 47: }
+                                     87 ; genEndFunction
+      000024 81               [ 4]   88 	ret
+                                     89 	.area CODE
+                                     90 	.area CONST
+                                     91 	.area INITIALIZER
+                                     92 	.area CABS (ABS)

@@ -1,0 +1,127 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_can
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl __FMI
+                                     12 	.globl __Data
+                                     13 	.globl __DLC
+                                     14 	.globl __RTR
+                                     15 	.globl __IDE
+                                     16 	.globl __Id
+                                     17 	.globl _CheckITStatus
+                                     18 ;--------------------------------------------------------
+                                     19 ; ram data
+                                     20 ;--------------------------------------------------------
+                                     21 	.area DATA
+                                     22 ;--------------------------------------------------------
+                                     23 ; ram data
+                                     24 ;--------------------------------------------------------
+                                     25 	.area INITIALIZED
+      000000                         26 __Id::
+      000000                         27 	.ds 4
+      000004                         28 __IDE::
+      000004                         29 	.ds 1
+      000005                         30 __RTR::
+      000005                         31 	.ds 1
+      000006                         32 __DLC::
+      000006                         33 	.ds 1
+      000007                         34 __Data::
+      000007                         35 	.ds 8
+      00000F                         36 __FMI::
+      00000F                         37 	.ds 1
+                                     38 ;--------------------------------------------------------
+                                     39 ; absolute external ram data
+                                     40 ;--------------------------------------------------------
+                                     41 	.area DABS (ABS)
+                                     42 
+                                     43 ; default segment ordering for linker
+                                     44 	.area HOME
+                                     45 	.area GSINIT
+                                     46 	.area GSFINAL
+                                     47 	.area CONST
+                                     48 	.area INITIALIZER
+                                     49 	.area CODE
+                                     50 
+                                     51 ;--------------------------------------------------------
+                                     52 ; global & static initialisations
+                                     53 ;--------------------------------------------------------
+                                     54 	.area HOME
+                                     55 	.area GSINIT
+                                     56 	.area GSFINAL
+                                     57 	.area GSINIT
+                                     58 ;--------------------------------------------------------
+                                     59 ; Home
+                                     60 ;--------------------------------------------------------
+                                     61 	.area HOME
+                                     62 	.area HOME
+                                     63 ;--------------------------------------------------------
+                                     64 ; code
+                                     65 ;--------------------------------------------------------
+                                     66 	.area CODE
+                                     67 ;	../SPLSPL/src/stm8s_can.c: 50: ITStatus CheckITStatus(uint8_t CAN_Reg, uint8_t It_Bit)
+                                     68 ; genLabel
+                                     69 ;	-----------------------------------------
+                                     70 ;	 function CheckITStatus
+                                     71 ;	-----------------------------------------
+                                     72 ;	Register assignment is optimal.
+                                     73 ;	Stack space usage: 0 bytes.
+      000000                         74 _CheckITStatus:
+                                     75 ; genReceive
+                                     76 ;	../SPLSPL/src/stm8s_can.c: 53: if ((CAN_Reg & It_Bit) != (uint8_t)RESET)
+                                     77 ; genAnd
+      000000 14 03            [ 1]   78 	and	a, (0x03, sp)
+                                     79 ; genIfx
+      000002 4D               [ 1]   80 	tnz	a
+      000003 26 03            [ 1]   81 	jrne	00113$
+      000005 CCr00r0D         [ 2]   82 	jp	00102$
+      000008                         83 00113$:
+                                     84 ;	../SPLSPL/src/stm8s_can.c: 56: pendingbitstatus = SET;
+                                     85 ; genAssign
+      000008 A6 01            [ 1]   86 	ld	a, #0x01
+                                     87 ; genGoto
+      00000A CCr00r0E         [ 2]   88 	jp	00103$
+                                     89 ; genLabel
+      00000D                         90 00102$:
+                                     91 ;	../SPLSPL/src/stm8s_can.c: 61: pendingbitstatus = RESET;
+                                     92 ; genAssign
+      00000D 4F               [ 1]   93 	clr	a
+                                     94 ; genLabel
+      00000E                         95 00103$:
+                                     96 ;	../SPLSPL/src/stm8s_can.c: 63: return (ITStatus)pendingbitstatus;
+                                     97 ; genReturn
+                                     98 ; genLabel
+      00000E                         99 00104$:
+                                    100 ;	../SPLSPL/src/stm8s_can.c: 64: }
+                                    101 ; genEndFunction
+      00000E 85               [ 2]  102 	popw	x
+      00000F 5B 01            [ 2]  103 	addw	sp, #1
+      000011 FC               [ 2]  104 	jp	(x)
+                                    105 	.area CODE
+                                    106 	.area CONST
+                                    107 	.area INITIALIZER
+      000000                        108 __xinit___Id:
+      000000 00 00 00 00            109 	.byte #0x00, #0x00, #0x00, #0x00	; 0
+      000004                        110 __xinit___IDE:
+      000004 00                     111 	.db #0x00	; 0
+      000005                        112 __xinit___RTR:
+      000005 00                     113 	.db #0x00	; 0
+      000006                        114 __xinit___DLC:
+      000006 00                     115 	.db #0x00	; 0
+      000007                        116 __xinit___Data:
+      000007 00                     117 	.db #0x00	; 0
+      000008 00                     118 	.db 0x00
+      000009 00                     119 	.db 0x00
+      00000A 00                     120 	.db 0x00
+      00000B 00                     121 	.db 0x00
+      00000C 00                     122 	.db 0x00
+      00000D 00                     123 	.db 0x00
+      00000E 00                     124 	.db 0x00
+      00000F                        125 __xinit___FMI:
+      00000F 00                     126 	.db #0x00	; 0
+                                    127 	.area CABS (ABS)

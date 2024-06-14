@@ -1,0 +1,49 @@
+XH3
+H B areas 4 global symbols
+M stm8s_can_CAN_ITConfig
+O -mstm8
+S _CAN_GetSelectedPage Ref000000
+S .__.ABS. Def000000
+S _CAN_SelectPage Ref000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 5E flags 0 addr 0
+S _CAN_ITConfig Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 52 05 1F 04 6B 03 CD 00 00 90 97 1E 04
+R 00 00 00 09 02 0A 00 00
+T 00 00 0D A6 80 62 9F A4 F0 6B 02 9F A4 0F 44 1A
+R 00 00 00 09
+T 00 00 1A 02 6B 01 35 06 54 27 C6 54 25 6B 02 0D
+R 00 00 00 09
+T 00 00 27 03 26 03 CC 00 3F
+R 00 00 00 09 00 07 00 09
+T 00 00 2D
+R 00 00 00 09
+T 00 00 2D 7B 05 1A 02 C7 54 25 C6 54 29 1A 01 C7
+R 00 00 00 09
+T 00 00 3A 54 29 CC 00 54
+R 00 00 00 09 00 06 00 09
+T 00 00 3F
+R 00 00 00 09
+T 00 00 3F 7B 05 43 14 02 C7 54 25 C6 54 29 6B 02
+R 00 00 00 09
+T 00 00 4C 7B 01 43 14 02 C7 54 29
+R 00 00 00 09
+T 00 00 54
+R 00 00 00 09
+T 00 00 54 90 9F 5B 05 CC 00 00
+R 00 00 00 09 02 08 00 02
+T 00 00 5B
+R 00 00 00 09
+T 00 00 5B 5B 05 81
+R 00 00 00 09

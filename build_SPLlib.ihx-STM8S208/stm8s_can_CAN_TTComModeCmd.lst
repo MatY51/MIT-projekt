@@ -1,0 +1,186 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_can_CAN_TTComModeCmd
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CAN_SelectPage
+                                     12 	.globl _CAN_GetSelectedPage
+                                     13 	.globl _CAN_TTComModeCmd
+                                     14 ;--------------------------------------------------------
+                                     15 ; ram data
+                                     16 ;--------------------------------------------------------
+                                     17 	.area DATA
+                                     18 ;--------------------------------------------------------
+                                     19 ; ram data
+                                     20 ;--------------------------------------------------------
+                                     21 	.area INITIALIZED
+                                     22 ;--------------------------------------------------------
+                                     23 ; absolute external ram data
+                                     24 ;--------------------------------------------------------
+                                     25 	.area DABS (ABS)
+                                     26 
+                                     27 ; default segment ordering for linker
+                                     28 	.area HOME
+                                     29 	.area GSINIT
+                                     30 	.area GSFINAL
+                                     31 	.area CONST
+                                     32 	.area INITIALIZER
+                                     33 	.area CODE
+                                     34 
+                                     35 ;--------------------------------------------------------
+                                     36 ; global & static initialisations
+                                     37 ;--------------------------------------------------------
+                                     38 	.area HOME
+                                     39 	.area GSINIT
+                                     40 	.area GSFINAL
+                                     41 	.area GSINIT
+                                     42 ;--------------------------------------------------------
+                                     43 ; Home
+                                     44 ;--------------------------------------------------------
+                                     45 	.area HOME
+                                     46 	.area HOME
+                                     47 ;--------------------------------------------------------
+                                     48 ; code
+                                     49 ;--------------------------------------------------------
+                                     50 	.area CODE
+                                     51 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 36: void CAN_TTComModeCmd(FunctionalState NewState)
+                                     52 ; genLabel
+                                     53 ;	-----------------------------------------
+                                     54 ;	 function CAN_TTComModeCmd
+                                     55 ;	-----------------------------------------
+                                     56 ;	Register assignment might be sub-optimal.
+                                     57 ;	Stack space usage: 1 bytes.
+      000000                         58 _CAN_TTComModeCmd:
+      000000 88               [ 1]   59 	push	a
+                                     60 ; genReceive
+      000001 6B 01            [ 1]   61 	ld	(0x01, sp), a
+                                     62 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 38: CAN_Page_TypeDef can_page = CAN_GetSelectedPage();
+                                     63 ; genCall
+      000003 CDr00r00         [ 4]   64 	call	_CAN_GetSelectedPage
+      000006 97               [ 1]   65 	ld	xl, a
+                                     66 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 44: CAN->MCR |= CAN_MCR_TTCM;
+                                     67 ; genPointerGet
+      000007 C6 54 20         [ 1]   68 	ld	a, 0x5420
+                                     69 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 41: if (NewState != DISABLE)
+                                     70 ; genIfx
+      00000A 0D 01            [ 1]   71 	tnz	(0x01, sp)
+      00000C 26 03            [ 1]   72 	jrne	00113$
+      00000E CCr00r49         [ 2]   73 	jp	00102$
+      000011                         74 00113$:
+                                     75 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 44: CAN->MCR |= CAN_MCR_TTCM;
+                                     76 ; genOr
+      000011 AA 80            [ 1]   77 	or	a, #0x80
+                                     78 ; genPointerSet
+      000013 C7 54 20         [ 1]   79 	ld	0x5420, a
+                                     80 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 46: CAN->PSR = CAN_Page_TxMailBox0;
+                                     81 ; genPointerSet
+      000016 35 00 54 27      [ 1]   82 	mov	0x5427+0, #0x00
+                                     83 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 47: CAN->Page.TxMailbox.MDLCR |= CAN_MDLCR_TGT;
+                                     84 ; genPointerGet
+      00001A C6 54 29         [ 1]   85 	ld	a, 0x5429
+                                     86 ; genOr
+      00001D AA 80            [ 1]   87 	or	a, #0x80
+                                     88 ; genPointerSet
+      00001F C7 54 29         [ 1]   89 	ld	0x5429, a
+                                     90 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 48: CAN->PSR = CAN_Page_TxMailBox1;
+                                     91 ; genPointerSet
+      000022 35 01 54 27      [ 1]   92 	mov	0x5427+0, #0x01
+                                     93 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 49: CAN->Page.TxMailbox.MDLCR |= CAN_MDLCR_TGT;
+                                     94 ; genPointerGet
+      000026 C6 54 29         [ 1]   95 	ld	a, 0x5429
+                                     96 ; genOr
+      000029 AA 80            [ 1]   97 	or	a, #0x80
+                                     98 ; genPointerSet
+      00002B C7 54 29         [ 1]   99 	ld	0x5429, a
+                                    100 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 50: CAN->PSR = CAN_Page_TxMailBox2;
+                                    101 ; genPointerSet
+      00002E 35 05 54 27      [ 1]  102 	mov	0x5427+0, #0x05
+                                    103 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 51: CAN->Page.TxMailbox.MDLCR |= CAN_MDLCR_TGT;
+                                    104 ; genPointerGet
+      000032 C6 54 29         [ 1]  105 	ld	a, 0x5429
+                                    106 ; genOr
+      000035 AA 80            [ 1]  107 	or	a, #0x80
+                                    108 ; genPointerSet
+      000037 C7 54 29         [ 1]  109 	ld	0x5429, a
+                                    110 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 52: CAN->PSR = CAN_Page_RxFifo;
+                                    111 ; genPointerSet
+      00003A 35 07 54 27      [ 1]  112 	mov	0x5427+0, #0x07
+                                    113 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 53: CAN->Page.RxFIFO.MDLCR |= CAN_MDLCR_TGT;
+                                    114 ; genPointerGet
+      00003E C6 54 29         [ 1]  115 	ld	a, 0x5429
+                                    116 ; genOr
+      000041 AA 80            [ 1]  117 	or	a, #0x80
+                                    118 ; genPointerSet
+      000043 C7 54 29         [ 1]  119 	ld	0x5429, a
+                                    120 ; genGoto
+      000046 CCr00r7E         [ 2]  121 	jp	00103$
+                                    122 ; genLabel
+      000049                        123 00102$:
+                                    124 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 58: CAN->MCR &= ((uint8_t)~CAN_MCR_TTCM);
+                                    125 ; genAnd
+      000049 A4 7F            [ 1]  126 	and	a, #0x7f
+                                    127 ; genPointerSet
+      00004B C7 54 20         [ 1]  128 	ld	0x5420, a
+                                    129 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 60: CAN->PSR = CAN_Page_TxMailBox0;
+                                    130 ; genPointerSet
+      00004E 35 00 54 27      [ 1]  131 	mov	0x5427+0, #0x00
+                                    132 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 61: CAN->Page.TxMailbox.MDLCR &= ((uint8_t)~CAN_MDLCR_TGT);
+                                    133 ; genPointerGet
+      000052 C6 54 29         [ 1]  134 	ld	a, 0x5429
+                                    135 ; genAnd
+      000055 A4 7F            [ 1]  136 	and	a, #0x7f
+                                    137 ; genPointerSet
+      000057 C7 54 29         [ 1]  138 	ld	0x5429, a
+                                    139 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 62: CAN->PSR = CAN_Page_TxMailBox1;
+                                    140 ; genPointerSet
+      00005A 35 01 54 27      [ 1]  141 	mov	0x5427+0, #0x01
+                                    142 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 63: CAN->Page.TxMailbox.MDLCR &= ((uint8_t)~CAN_MDLCR_TGT);
+                                    143 ; genPointerGet
+      00005E C6 54 29         [ 1]  144 	ld	a, 0x5429
+                                    145 ; genAnd
+      000061 A4 7F            [ 1]  146 	and	a, #0x7f
+                                    147 ; genPointerSet
+      000063 C7 54 29         [ 1]  148 	ld	0x5429, a
+                                    149 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 64: CAN->PSR = CAN_Page_TxMailBox2;
+                                    150 ; genPointerSet
+      000066 35 05 54 27      [ 1]  151 	mov	0x5427+0, #0x05
+                                    152 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 65: CAN->Page.TxMailbox.MDLCR &= ((uint8_t)~CAN_MDLCR_TGT);
+                                    153 ; genPointerGet
+      00006A C6 54 29         [ 1]  154 	ld	a, 0x5429
+                                    155 ; genAnd
+      00006D A4 7F            [ 1]  156 	and	a, #0x7f
+                                    157 ; genPointerSet
+      00006F C7 54 29         [ 1]  158 	ld	0x5429, a
+                                    159 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 66: CAN->PSR = CAN_Page_RxFifo;
+                                    160 ; genPointerSet
+      000072 35 07 54 27      [ 1]  161 	mov	0x5427+0, #0x07
+                                    162 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 67: CAN->Page.RxFIFO.MDLCR &= ((uint8_t)~CAN_MDLCR_TGT);
+                                    163 ; genPointerGet
+      000076 C6 54 29         [ 1]  164 	ld	a, 0x5429
+                                    165 ; genAnd
+      000079 A4 7F            [ 1]  166 	and	a, #0x7f
+                                    167 ; genPointerSet
+      00007B C7 54 29         [ 1]  168 	ld	0x5429, a
+                                    169 ; genLabel
+      00007E                        170 00103$:
+                                    171 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 70: CAN_SelectPage(can_page);
+                                    172 ; genSend
+      00007E 9F               [ 1]  173 	ld	a, xl
+                                    174 ; genCall
+      00007F 5B 01            [ 2]  175 	addw	sp, #1
+      000081 CCr00r00         [ 2]  176 	jp	_CAN_SelectPage
+                                    177 ; genLabel
+      000084                        178 00104$:
+                                    179 ;	../SPLSPL/src/stm8s_can_CAN_TTComModeCmd.c: 71: }
+                                    180 ; genEndFunction
+      000084 84               [ 1]  181 	pop	a
+      000085 81               [ 4]  182 	ret
+                                    183 	.area CODE
+                                    184 	.area CONST
+                                    185 	.area INITIALIZER
+                                    186 	.area CABS (ABS)

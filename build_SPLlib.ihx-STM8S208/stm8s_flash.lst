@@ -1,0 +1,409 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_flash
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _asm_val
+                                     12 	.globl _asm_addr
+                                     13 	.globl _FLASH_WaitForLastOperation
+                                     14 	.globl _FLASH_EraseBlock
+                                     15 	.globl _FLASH_ProgramBlock
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area DATA
+      000000                         20 _asm_addr::
+      000000                         21 	.ds 4
+      000004                         22 _asm_val::
+      000004                         23 	.ds 1
+                                     24 ;--------------------------------------------------------
+                                     25 ; ram data
+                                     26 ;--------------------------------------------------------
+                                     27 	.area INITIALIZED
+                                     28 ;--------------------------------------------------------
+                                     29 ; absolute external ram data
+                                     30 ;--------------------------------------------------------
+                                     31 	.area DABS (ABS)
+                                     32 
+                                     33 ; default segment ordering for linker
+                                     34 	.area HOME
+                                     35 	.area GSINIT
+                                     36 	.area GSFINAL
+                                     37 	.area CONST
+                                     38 	.area INITIALIZER
+                                     39 	.area CODE
+                                     40 
+                                     41 ;--------------------------------------------------------
+                                     42 ; global & static initialisations
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area GSINIT
+                                     46 	.area GSFINAL
+                                     47 	.area GSINIT
+                                     48 ;--------------------------------------------------------
+                                     49 ; Home
+                                     50 ;--------------------------------------------------------
+                                     51 	.area HOME
+                                     52 	.area HOME
+                                     53 ;--------------------------------------------------------
+                                     54 ; code
+                                     55 ;--------------------------------------------------------
+                                     56 	.area CODE
+                                     57 ;	../SPLSPL/src/stm8s_flash.c: 193: IN_RAM(FLASH_Status_TypeDef FLASH_WaitForLastOperation(FLASH_MemType_TypeDef FLASH_MemType)) 
+                                     58 ; genLabel
+                                     59 ;	-----------------------------------------
+                                     60 ;	 function FLASH_WaitForLastOperation
+                                     61 ;	-----------------------------------------
+                                     62 ;	Register assignment might be sub-optimal.
+                                     63 ;	Stack space usage: 0 bytes.
+      000000                         64 _FLASH_WaitForLastOperation:
+                                     65 ; genReceive
+      000000 97               [ 1]   66 	ld	xl, a
+                                     67 ;	../SPLSPL/src/stm8s_flash.c: 195: uint8_t flagstatus = 0x00;
+                                     68 ; genAssign
+      000001 4F               [ 1]   69 	clr	a
+                                     70 ;	../SPLSPL/src/stm8s_flash.c: 201: if(FLASH_MemType == FLASH_MEMTYPE_PROG)
+                                     71 ; genCmpEQorNE
+      000002 88               [ 1]   72 	push	a
+      000003 9F               [ 1]   73 	ld	a, xl
+      000004 A1 FD            [ 1]   74 	cp	a, #0xfd
+      000006 84               [ 1]   75 	pop	a
+      000007 26 03            [ 1]   76 	jrne	00174$
+      000009 CCr00r0F         [ 2]   77 	jp	00175$
+      00000C                         78 00174$:
+      00000C CCr00r26         [ 2]   79 	jp	00121$
+      00000F                         80 00175$:
+                                     81 ; skipping generated iCode
+                                     82 ;	../SPLSPL/src/stm8s_flash.c: 203: while((flagstatus == 0x00) && (timeout != 0x00))
+                                     83 ; genAssign
+      00000F 5F               [ 1]   84 	clrw	x
+      000010 5A               [ 2]   85 	decw	x
+                                     86 ; genLabel
+      000011                         87 00102$:
+                                     88 ; genIfx
+      000011 4D               [ 1]   89 	tnz	a
+      000012 27 03            [ 1]   90 	jreq	00176$
+      000014 CCr00r3D         [ 2]   91 	jp	00123$
+      000017                         92 00176$:
+                                     93 ; genIfx
+      000017 5D               [ 2]   94 	tnzw	x
+      000018 26 03            [ 1]   95 	jrne	00177$
+      00001A CCr00r3D         [ 2]   96 	jp	00123$
+      00001D                         97 00177$:
+                                     98 ;	../SPLSPL/src/stm8s_flash.c: 205: flagstatus = (uint8_t)(FLASH->IAPSR & (uint8_t)(FLASH_IAPSR_EOP |
+                                     99 ; genPointerGet
+      00001D C6 50 5F         [ 1]  100 	ld	a, 0x505f
+                                    101 ; genAnd
+      000020 A4 05            [ 1]  102 	and	a, #0x05
+                                    103 ;	../SPLSPL/src/stm8s_flash.c: 207: timeout--;
+                                    104 ; genMinus
+      000022 5A               [ 2]  105 	decw	x
+                                    106 ; genGoto
+      000023 CCr00r11         [ 2]  107 	jp	00102$
+                                    108 ;	../SPLSPL/src/stm8s_flash.c: 212: while((flagstatus == 0x00) && (timeout != 0x00))
+                                    109 ; genLabel
+      000026                        110 00121$:
+                                    111 ; genAssign
+      000026 5F               [ 1]  112 	clrw	x
+      000027 5A               [ 2]  113 	decw	x
+                                    114 ; genLabel
+      000028                        115 00106$:
+                                    116 ; genIfx
+      000028 4D               [ 1]  117 	tnz	a
+      000029 27 03            [ 1]  118 	jreq	00178$
+      00002B CCr00r40         [ 2]  119 	jp	00124$
+      00002E                        120 00178$:
+                                    121 ; genIfx
+      00002E 5D               [ 2]  122 	tnzw	x
+      00002F 26 03            [ 1]  123 	jrne	00179$
+      000031 CCr00r40         [ 2]  124 	jp	00124$
+      000034                        125 00179$:
+                                    126 ;	../SPLSPL/src/stm8s_flash.c: 214: flagstatus = (uint8_t)(FLASH->IAPSR & (uint8_t)(FLASH_IAPSR_HVOFF |
+                                    127 ; genPointerGet
+      000034 C6 50 5F         [ 1]  128 	ld	a, 0x505f
+                                    129 ; genAnd
+      000037 A4 41            [ 1]  130 	and	a, #0x41
+                                    131 ;	../SPLSPL/src/stm8s_flash.c: 216: timeout--;
+                                    132 ; genMinus
+      000039 5A               [ 2]  133 	decw	x
+                                    134 ; genGoto
+      00003A CCr00r28         [ 2]  135 	jp	00106$
+                                    136 ; genLabel
+      00003D                        137 00123$:
+                                    138 ; genAssign
+                                    139 ;	../SPLSPL/src/stm8s_flash.c: 233: return((FLASH_Status_TypeDef)flagstatus);
+                                    140 ; genGoto
+      00003D CCr00r40         [ 2]  141 	jp	00111$
+                                    142 ;	../SPLSPL/src/stm8s_flash.c: 216: timeout--;
+                                    143 ; genLabel
+      000040                        144 00124$:
+                                    145 ; genAssign
+                                    146 ; genLabel
+      000040                        147 00111$:
+                                    148 ;	../SPLSPL/src/stm8s_flash.c: 228: if(timeout == 0x00 )
+                                    149 ; genIfx
+      000040 5D               [ 2]  150 	tnzw	x
+      000041 27 03            [ 1]  151 	jreq	00180$
+      000043 CCr00r48         [ 2]  152 	jp	00113$
+      000046                        153 00180$:
+                                    154 ;	../SPLSPL/src/stm8s_flash.c: 230: flagstatus = FLASH_STATUS_TIMEOUT;
+                                    155 ; genAssign
+      000046 A6 02            [ 1]  156 	ld	a, #0x02
+                                    157 ; genLabel
+      000048                        158 00113$:
+                                    159 ;	../SPLSPL/src/stm8s_flash.c: 233: return((FLASH_Status_TypeDef)flagstatus);
+                                    160 ; genReturn
+                                    161 ; genLabel
+      000048                        162 00114$:
+                                    163 ;	../SPLSPL/src/stm8s_flash.c: 234: }
+                                    164 ; genEndFunction
+      000048 81               [ 4]  165 	ret
+                                    166 ;	../SPLSPL/src/stm8s_flash.c: 243: IN_RAM(void FLASH_EraseBlock(uint16_t BlockNum, FLASH_MemType_TypeDef FLASH_MemType))
+                                    167 ; genLabel
+                                    168 ;	-----------------------------------------
+                                    169 ;	 function FLASH_EraseBlock
+                                    170 ;	-----------------------------------------
+                                    171 ;	Register assignment might be sub-optimal.
+                                    172 ;	Stack space usage: 2 bytes.
+      000049                        173 _FLASH_EraseBlock:
+      000049 89               [ 2]  174 	pushw	x
+                                    175 ; genReceive
+                                    176 ; genReceive
+                                    177 ;	../SPLSPL/src/stm8s_flash.c: 256: if(FLASH_MemType == FLASH_MEMTYPE_PROG)
+                                    178 ; genCmpEQorNE
+      00004A A1 FD            [ 1]  179 	cp	a, #0xfd
+      00004C 26 03            [ 1]  180 	jrne	00114$
+      00004E CCr00r54         [ 2]  181 	jp	00115$
+      000051                        182 00114$:
+      000051 CCr00r5B         [ 2]  183 	jp	00102$
+      000054                        184 00115$:
+                                    185 ; skipping generated iCode
+                                    186 ;	../SPLSPL/src/stm8s_flash.c: 259: startaddress = FLASH_PROG_START_PHYSICAL_ADDRESS;
+                                    187 ; genAssign
+      000054 0F 02            [ 1]  188 	clr	(0x02, sp)
+      000056 A6 80            [ 1]  189 	ld	a, #0x80
+                                    190 ; genGoto
+      000058 CCr00r5F         [ 2]  191 	jp	00103$
+                                    192 ; genLabel
+      00005B                        193 00102$:
+                                    194 ;	../SPLSPL/src/stm8s_flash.c: 264: startaddress = FLASH_DATA_START_PHYSICAL_ADDRESS;
+                                    195 ; genAssign
+      00005B 0F 02            [ 1]  196 	clr	(0x02, sp)
+      00005D A6 40            [ 1]  197 	ld	a, #0x40
+                                    198 ; genLabel
+      00005F                        199 00103$:
+                                    200 ;	../SPLSPL/src/stm8s_flash.c: 269: pwFlash = (PointerAttr uint8_t *)(MemoryAddressCast)(startaddress + ((uint32_t)BlockNum * FLASH_BLOCK_SIZE));
+                                    201 ; genCast
+                                    202 ; genAssign
+                                    203 ; genLeftShiftLiteral
+      00005F 58               [ 2]  204 	sllw	x
+      000060 58               [ 2]  205 	sllw	x
+      000061 58               [ 2]  206 	sllw	x
+      000062 58               [ 2]  207 	sllw	x
+      000063 58               [ 2]  208 	sllw	x
+      000064 58               [ 2]  209 	sllw	x
+      000065 58               [ 2]  210 	sllw	x
+      000066 51               [ 1]  211 	exgw	x, y
+                                    212 ; genCast
+                                    213 ; genAssign
+      000067 6B 01            [ 1]  214 	ld	(0x01, sp), a
+                                    215 ; genPlus
+      000069 72 F9 01         [ 2]  216 	addw	y, (0x01, sp)
+                                    217 ; genAssign
+                                    218 ;	../SPLSPL/src/stm8s_flash.c: 276: FLASH->CR2 |= FLASH_CR2_ERASE;
+                                    219 ; genPointerGet
+      00006C C6 50 5B         [ 1]  220 	ld	a, 0x505b
+                                    221 ; genOr
+      00006F AA 20            [ 1]  222 	or	a, #0x20
+                                    223 ; genPointerSet
+      000071 C7 50 5B         [ 1]  224 	ld	0x505b, a
+                                    225 ;	../SPLSPL/src/stm8s_flash.c: 277: FLASH->NCR2 &= (uint8_t)(~FLASH_NCR2_NERASE);
+                                    226 ; genPointerGet
+      000074 C6 50 5C         [ 1]  227 	ld	a, 0x505c
+                                    228 ; genAnd
+      000077 A4 DF            [ 1]  229 	and	a, #0xdf
+                                    230 ; genPointerSet
+      000079 C7 50 5C         [ 1]  231 	ld	0x505c, a
+                                    232 ;	../SPLSPL/src/stm8s_flash.c: 284: *pwFlash = (uint8_t)0;
+                                    233 ; genPointerSet
+      00007C 90 7F            [ 1]  234 	clr	(y)
+                                    235 ;	../SPLSPL/src/stm8s_flash.c: 285: *(pwFlash + 1) = (uint8_t)0;
+                                    236 ; genPlus
+      00007E 93               [ 1]  237 	ldw	x, y
+      00007F 5C               [ 1]  238 	incw	x
+                                    239 ; genPointerSet
+      000080 7F               [ 1]  240 	clr	(x)
+                                    241 ;	../SPLSPL/src/stm8s_flash.c: 286: *(pwFlash + 2) = (uint8_t)0;
+                                    242 ; genPlus
+      000081 93               [ 1]  243 	ldw	x, y
+      000082 5C               [ 1]  244 	incw	x
+      000083 5C               [ 1]  245 	incw	x
+                                    246 ; genPointerSet
+      000084 7F               [ 1]  247 	clr	(x)
+                                    248 ;	../SPLSPL/src/stm8s_flash.c: 287: *(pwFlash + 3) = (uint8_t)0;    
+                                    249 ; genPlus
+      000085 93               [ 1]  250 	ldw	x, y
+      000086 1C 00 03         [ 2]  251 	addw	x, #0x0003
+                                    252 ; genPointerSet
+      000089 7F               [ 1]  253 	clr	(x)
+                                    254 ; genLabel
+      00008A                        255 00104$:
+                                    256 ;	../SPLSPL/src/stm8s_flash.c: 289: }
+                                    257 ; genEndFunction
+      00008A 85               [ 2]  258 	popw	x
+      00008B 81               [ 4]  259 	ret
+                                    260 ;	../SPLSPL/src/stm8s_flash.c: 300: IN_RAM(void FLASH_ProgramBlock(uint16_t BlockNum, FLASH_MemType_TypeDef FLASH_MemType, 
+                                    261 ; genLabel
+                                    262 ;	-----------------------------------------
+                                    263 ;	 function FLASH_ProgramBlock
+                                    264 ;	-----------------------------------------
+                                    265 ;	Register assignment might be sub-optimal.
+                                    266 ;	Stack space usage: 12 bytes.
+      00008C                        267 _FLASH_ProgramBlock:
+      00008C 52 0C            [ 2]  268 	sub	sp, #12
+                                    269 ; genReceive
+      00008E 51               [ 1]  270 	exgw	x, y
+                                    271 ; genReceive
+                                    272 ;	../SPLSPL/src/stm8s_flash.c: 309: if(FLASH_MemType == FLASH_MEMTYPE_PROG)
+                                    273 ; genCmpEQorNE
+      00008F A1 FD            [ 1]  274 	cp	a, #0xfd
+      000091 26 03            [ 1]  275 	jrne	00135$
+      000093 CCr00r99         [ 2]  276 	jp	00136$
+      000096                        277 00135$:
+      000096 CCr00rA3         [ 2]  278 	jp	00102$
+      000099                        279 00136$:
+                                    280 ; skipping generated iCode
+                                    281 ;	../SPLSPL/src/stm8s_flash.c: 312: startaddress = FLASH_PROG_START_PHYSICAL_ADDRESS;
+                                    282 ; genAssign
+      000099 0F 04            [ 1]  283 	clr	(0x04, sp)
+      00009B A6 80            [ 1]  284 	ld	a, #0x80
+      00009D 5F               [ 1]  285 	clrw	x
+      00009E 1F 01            [ 2]  286 	ldw	(0x01, sp), x
+                                    287 ; genGoto
+      0000A0 CCr00rAA         [ 2]  288 	jp	00103$
+                                    289 ; genLabel
+      0000A3                        290 00102$:
+                                    291 ;	../SPLSPL/src/stm8s_flash.c: 317: startaddress = FLASH_DATA_START_PHYSICAL_ADDRESS;
+                                    292 ; genAssign
+      0000A3 0F 04            [ 1]  293 	clr	(0x04, sp)
+      0000A5 A6 40            [ 1]  294 	ld	a, #0x40
+      0000A7 5F               [ 1]  295 	clrw	x
+      0000A8 1F 01            [ 2]  296 	ldw	(0x01, sp), x
+                                    297 ; genLabel
+      0000AA                        298 00103$:
+                                    299 ;	../SPLSPL/src/stm8s_flash.c: 321: startaddress = startaddress + ((uint32_t)BlockNum * FLASH_BLOCK_SIZE);
+                                    300 ; genCast
+                                    301 ; genAssign
+      0000AA 5F               [ 1]  302 	clrw	x
+                                    303 ; genLeftShift
+      0000AB 88               [ 1]  304 	push	a
+      0000AC A6 07            [ 1]  305 	ld	a, #0x07
+      0000AE                        306 00137$:
+      0000AE 90 58            [ 2]  307 	sllw	y
+      0000B0 59               [ 2]  308 	rlcw	x
+      0000B1 4A               [ 1]  309 	dec	a
+      0000B2 26 FA            [ 1]  310 	jrne	00137$
+      0000B4                        311 00138$:
+      0000B4 17 0C            [ 2]  312 	ldw	(0x0c, sp), y
+      0000B6 84               [ 1]  313 	pop	a
+                                    314 ; genPlus
+      0000B7 88               [ 1]  315 	push	a
+      0000B8 7B 05            [ 1]  316 	ld	a, (0x05, sp)
+      0000BA 1B 0D            [ 1]  317 	add	a, (0x0d, sp)
+      0000BC 6B 09            [ 1]  318 	ld	(0x09, sp), a
+      0000BE 84               [ 1]  319 	pop	a
+      0000BF 19 0B            [ 1]  320 	adc	a, (0x0b, sp)
+      0000C1 6B 07            [ 1]  321 	ld	(0x07, sp), a
+      0000C3 9F               [ 1]  322 	ld	a, xl
+      0000C4 19 02            [ 1]  323 	adc	a, (0x02, sp)
+      0000C6 6B 06            [ 1]  324 	ld	(0x06, sp), a
+      0000C8 9E               [ 1]  325 	ld	a, xh
+      0000C9 19 01            [ 1]  326 	adc	a, (0x01, sp)
+      0000CB 6B 05            [ 1]  327 	ld	(0x05, sp), a
+                                    328 ;	../SPLSPL/src/stm8s_flash.c: 327: FLASH->CR2 |= FLASH_CR2_PRG;
+                                    329 ; genPointerGet
+      0000CD C6 50 5B         [ 1]  330 	ld	a, 0x505b
+                                    331 ;	../SPLSPL/src/stm8s_flash.c: 324: if(FLASH_ProgMode == FLASH_PROGRAMMODE_STANDARD)
+                                    332 ; genIfx
+      0000D0 0D 0F            [ 1]  333 	tnz	(0x0f, sp)
+      0000D2 27 03            [ 1]  334 	jreq	00139$
+      0000D4 CCr00rE7         [ 2]  335 	jp	00105$
+      0000D7                        336 00139$:
+                                    337 ;	../SPLSPL/src/stm8s_flash.c: 327: FLASH->CR2 |= FLASH_CR2_PRG;
+                                    338 ; genOr
+      0000D7 AA 01            [ 1]  339 	or	a, #0x01
+                                    340 ; genPointerSet
+      0000D9 C7 50 5B         [ 1]  341 	ld	0x505b, a
+                                    342 ;	../SPLSPL/src/stm8s_flash.c: 328: FLASH->NCR2 &= (uint8_t)(~FLASH_NCR2_NPRG);
+                                    343 ; genPointerGet
+      0000DC C6 50 5C         [ 1]  344 	ld	a, 0x505c
+                                    345 ; genAnd
+      0000DF A4 FE            [ 1]  346 	and	a, #0xfe
+                                    347 ; genPointerSet
+      0000E1 C7 50 5C         [ 1]  348 	ld	0x505c, a
+                                    349 ; genGoto
+      0000E4 CCr00rF4         [ 2]  350 	jp	00106$
+                                    351 ; genLabel
+      0000E7                        352 00105$:
+                                    353 ;	../SPLSPL/src/stm8s_flash.c: 333: FLASH->CR2 |= FLASH_CR2_FPRG;
+                                    354 ; genOr
+      0000E7 AA 10            [ 1]  355 	or	a, #0x10
+                                    356 ; genPointerSet
+      0000E9 C7 50 5B         [ 1]  357 	ld	0x505b, a
+                                    358 ;	../SPLSPL/src/stm8s_flash.c: 334: FLASH->NCR2 &= (uint8_t)(~FLASH_NCR2_NFPRG);
+                                    359 ; genPointerGet
+      0000EC C6 50 5C         [ 1]  360 	ld	a, 0x505c
+                                    361 ; genAnd
+      0000EF A4 EF            [ 1]  362 	and	a, #0xef
+                                    363 ; genPointerSet
+      0000F1 C7 50 5C         [ 1]  364 	ld	0x505c, a
+                                    365 ; genLabel
+      0000F4                        366 00106$:
+                                    367 ;	../SPLSPL/src/stm8s_flash.c: 338: for(Count = 0; Count < FLASH_BLOCK_SIZE; Count++)
+                                    368 ; genAssign
+      0000F4 90 5F            [ 1]  369 	clrw	y
+                                    370 ; genLabel
+      0000F6                        371 00108$:
+                                    372 ;	../SPLSPL/src/stm8s_flash.c: 340: *((PointerAttr uint8_t*) (MemoryAddressCast)startaddress + Count) = ((uint8_t)(Buffer[Count]));
+                                    373 ; genCast
+                                    374 ; genAssign
+      0000F6 1E 07            [ 2]  375 	ldw	x, (0x07, sp)
+      0000F8 1F 09            [ 2]  376 	ldw	(0x09, sp), x
+                                    377 ; genPlus
+      0000FA 93               [ 1]  378 	ldw	x, y
+      0000FB 72 FB 09         [ 2]  379 	addw	x, (0x09, sp)
+      0000FE 1F 0B            [ 2]  380 	ldw	(0x0b, sp), x
+                                    381 ; genPlus
+      000100 93               [ 1]  382 	ldw	x, y
+      000101 72 FB 10         [ 2]  383 	addw	x, (0x10, sp)
+                                    384 ; genPointerGet
+      000104 F6               [ 1]  385 	ld	a, (x)
+                                    386 ; genPointerSet
+      000105 1E 0B            [ 2]  387 	ldw	x, (0x0b, sp)
+      000107 F7               [ 1]  388 	ld	(x), a
+                                    389 ;	../SPLSPL/src/stm8s_flash.c: 338: for(Count = 0; Count < FLASH_BLOCK_SIZE; Count++)
+                                    390 ; genPlus
+      000108 90 5C            [ 1]  391 	incw	y
+                                    392 ; genCmp
+                                    393 ; genCmpTnz
+      00010A 90 A3 00 80      [ 2]  394 	cpw	y, #0x0080
+      00010E 24 03            [ 1]  395 	jrnc	00140$
+      000110 CCr00rF6         [ 2]  396 	jp	00108$
+      000113                        397 00140$:
+                                    398 ; skipping generated iCode
+                                    399 ; genLabel
+      000113                        400 00110$:
+                                    401 ;	../SPLSPL/src/stm8s_flash.c: 342: }
+                                    402 ; genEndFunction
+      000113 1E 0D            [ 2]  403 	ldw	x, (13, sp)
+      000115 5B 11            [ 2]  404 	addw	sp, #17
+      000117 FC               [ 2]  405 	jp	(x)
+                                    406 	.area CODE
+                                    407 	.area CONST
+                                    408 	.area INITIALIZER
+                                    409 	.area CABS (ABS)

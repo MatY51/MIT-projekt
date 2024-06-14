@@ -1,0 +1,27 @@
+XH3
+H B areas 2 global symbols
+M stm8s_spi_SPI_DeInit
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 15 flags 0 addr 0
+S _SPI_DeInit Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 35 00 52 00 35 00 52 01 35 00 52 02 35
+R 00 00 00 09
+T 00 00 0D 02 52 03 35 07 52 05
+R 00 00 00 09
+T 00 00 14
+R 00 00 00 09
+T 00 00 14 81
+R 00 00 00 09

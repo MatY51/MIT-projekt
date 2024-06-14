@@ -1,0 +1,27 @@
+XH3
+H B areas 2 global symbols
+M stm8s_tim2_TIM2_GetCapture2
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 11 flags 0 addr 0
+S _TIM2_GetCapture2 Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 89 C6 53 11 95 C6 53 12 97 90 5F 4F 0F
+R 00 00 00 09
+T 00 00 0D 02
+R 00 00 00 09
+T 00 00 0E
+R 00 00 00 09
+T 00 00 0E 5B 02 81
+R 00 00 00 09

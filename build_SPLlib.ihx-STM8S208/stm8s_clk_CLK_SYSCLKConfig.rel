@@ -1,0 +1,37 @@
+XH3
+H B areas 2 global symbols
+M stm8s_clk_CLK_SYSCLKConfig
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 34 flags 0 addr 0
+S _CLK_SYSCLKConfig Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 88 95 C6 50 C6 5D 2A 03 CC 00 20
+R 00 00 00 09 00 0C 00 09
+T 00 00 0B
+R 00 00 00 09
+T 00 00 0B A4 E7 C7 50 C6 C6 50 C6 6B 01 9E A4 18
+R 00 00 00 09
+T 00 00 18 1A 01 C7 50 C6 CC 00 32
+R 00 00 00 09 00 09 00 09
+T 00 00 20
+R 00 00 00 09
+T 00 00 20 A4 F8 C7 50 C6 C6 50 C6 6B 01 9E A4 07
+R 00 00 00 09
+T 00 00 2D 1A 01 C7 50 C6
+R 00 00 00 09
+T 00 00 32
+R 00 00 00 09
+T 00 00 32 84 81
+R 00 00 00 09

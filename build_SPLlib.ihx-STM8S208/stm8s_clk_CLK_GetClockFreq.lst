@@ -1,0 +1,147 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_clk_CLK_GetClockFreq
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CLK_GetClockFreq
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_clk_CLK_GetClockFreq.c: 37: uint32_t CLK_GetClockFreq(void)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function CLK_GetClockFreq
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 4 bytes.
+      000000                         56 _CLK_GetClockFreq:
+      000000 52 04            [ 2]   57 	sub	sp, #4
+                                     58 ;	../SPLSPL/src/stm8s_clk_CLK_GetClockFreq.c: 44: clocksource = (CLK_Source_TypeDef)CLK->CMSR;
+                                     59 ; genPointerGet
+      000002 C6 50 C3         [ 1]   60 	ld	a, 0x50c3
+      000005 6B 04            [ 1]   61 	ld	(0x04, sp), a
+                                     62 ;	../SPLSPL/src/stm8s_clk_CLK_GetClockFreq.c: 46: if (clocksource == CLK_SOURCE_HSI)
+                                     63 ; genCmpEQorNE
+      000007 7B 04            [ 1]   64 	ld	a, (0x04, sp)
+      000009 A1 E1            [ 1]   65 	cp	a, #0xe1
+      00000B 26 03            [ 1]   66 	jrne	00124$
+      00000D CCr00r13         [ 2]   67 	jp	00125$
+      000010                         68 00124$:
+      000010 CCr00r38         [ 2]   69 	jp	00105$
+      000013                         70 00125$:
+                                     71 ; skipping generated iCode
+                                     72 ;	../SPLSPL/src/stm8s_clk_CLK_GetClockFreq.c: 48: tmp = (uint8_t)(CLK->CKDIVR & CLK_CKDIVR_HSIDIV);
+                                     73 ; genPointerGet
+      000013 C6 50 C6         [ 1]   74 	ld	a, 0x50c6
+                                     75 ; genAnd
+      000016 A4 18            [ 1]   76 	and	a, #0x18
+                                     77 ;	../SPLSPL/src/stm8s_clk_CLK_GetClockFreq.c: 49: tmp = (uint8_t)(tmp >> 3);
+                                     78 ; genRightShiftLiteral
+      000018 44               [ 1]   79 	srl	a
+      000019 44               [ 1]   80 	srl	a
+      00001A 44               [ 1]   81 	srl	a
+                                     82 ;	../SPLSPL/src/stm8s_clk_CLK_GetClockFreq.c: 50: presc = HSIDivFactor[tmp];
+                                     83 ; skipping iCode since result will be rematerialized
+                                     84 ; genPlus
+      00001B 5F               [ 1]   85 	clrw	x
+      00001C 97               [ 1]   86 	ld	xl, a
+      00001D 1Cr00r00         [ 2]   87 	addw	x, #(_HSIDivFactor+0)
+                                     88 ; genPointerGet
+      000020 F6               [ 1]   89 	ld	a, (x)
+                                     90 ;	../SPLSPL/src/stm8s_clk_CLK_GetClockFreq.c: 51: clockfrequency = HSI_VALUE / presc;
+                                     91 ; genCast
+                                     92 ; genAssign
+      000021 5F               [ 1]   93 	clrw	x
+      000022 0F 01            [ 1]   94 	clr	(0x01, sp)
+                                     95 ; genIPush
+      000024 88               [ 1]   96 	push	a
+      000025 89               [ 2]   97 	pushw	x
+      000026 4F               [ 1]   98 	clr	a
+      000027 88               [ 1]   99 	push	a
+                                    100 ; genIPush
+      000028 4B 00            [ 1]  101 	push	#0x00
+      00002A 4B 24            [ 1]  102 	push	#0x24
+      00002C 4B F4            [ 1]  103 	push	#0xf4
+      00002E 4B 00            [ 1]  104 	push	#0x00
+                                    105 ; genCall
+      000030 CDr00r00         [ 4]  106 	call	__divulong
+      000033 5B 08            [ 2]  107 	addw	sp, #8
+                                    108 ; genGoto
+      000035 CCr00r55         [ 2]  109 	jp	00106$
+                                    110 ; genLabel
+      000038                        111 00105$:
+                                    112 ;	../SPLSPL/src/stm8s_clk_CLK_GetClockFreq.c: 53: else if ( clocksource == CLK_SOURCE_LSI)
+                                    113 ; genCmpEQorNE
+      000038 7B 04            [ 1]  114 	ld	a, (0x04, sp)
+      00003A A1 D2            [ 1]  115 	cp	a, #0xd2
+      00003C 26 03            [ 1]  116 	jrne	00127$
+      00003E CCr00r44         [ 2]  117 	jp	00128$
+      000041                        118 00127$:
+      000041 CCr00r4E         [ 2]  119 	jp	00102$
+      000044                        120 00128$:
+                                    121 ; skipping generated iCode
+                                    122 ;	../SPLSPL/src/stm8s_clk_CLK_GetClockFreq.c: 55: clockfrequency = LSI_VALUE;
+                                    123 ; genAssign
+      000044 AE F4 00         [ 2]  124 	ldw	x, #0xf400
+      000047 90 AE 00 01      [ 2]  125 	ldw	y, #0x0001
+                                    126 ; genGoto
+      00004B CCr00r55         [ 2]  127 	jp	00106$
+                                    128 ; genLabel
+      00004E                        129 00102$:
+                                    130 ;	../SPLSPL/src/stm8s_clk_CLK_GetClockFreq.c: 59: clockfrequency = HSE_VALUE;
+                                    131 ; genAssign
+      00004E AE 36 00         [ 2]  132 	ldw	x, #0x3600
+      000051 90 AE 01 6E      [ 2]  133 	ldw	y, #0x016e
+                                    134 ; genLabel
+      000055                        135 00106$:
+                                    136 ;	../SPLSPL/src/stm8s_clk_CLK_GetClockFreq.c: 62: return((uint32_t)clockfrequency);
+                                    137 ; genReturn
+                                    138 ; genLabel
+      000055                        139 00107$:
+                                    140 ;	../SPLSPL/src/stm8s_clk_CLK_GetClockFreq.c: 63: }
+                                    141 ; genEndFunction
+      000055 5B 04            [ 2]  142 	addw	sp, #4
+      000057 81               [ 4]  143 	ret
+                                    144 	.area CODE
+                                    145 	.area CONST
+                                    146 	.area INITIALIZER
+                                    147 	.area CABS (ABS)

@@ -1,0 +1,154 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_can_CAN_DeInit
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CAN_OperatingModeRequest
+                                     12 	.globl _CAN_DeInit
+                                     13 ;--------------------------------------------------------
+                                     14 ; ram data
+                                     15 ;--------------------------------------------------------
+                                     16 	.area DATA
+                                     17 ;--------------------------------------------------------
+                                     18 ; ram data
+                                     19 ;--------------------------------------------------------
+                                     20 	.area INITIALIZED
+                                     21 ;--------------------------------------------------------
+                                     22 ; absolute external ram data
+                                     23 ;--------------------------------------------------------
+                                     24 	.area DABS (ABS)
+                                     25 
+                                     26 ; default segment ordering for linker
+                                     27 	.area HOME
+                                     28 	.area GSINIT
+                                     29 	.area GSFINAL
+                                     30 	.area CONST
+                                     31 	.area INITIALIZER
+                                     32 	.area CODE
+                                     33 
+                                     34 ;--------------------------------------------------------
+                                     35 ; global & static initialisations
+                                     36 ;--------------------------------------------------------
+                                     37 	.area HOME
+                                     38 	.area GSINIT
+                                     39 	.area GSFINAL
+                                     40 	.area GSINIT
+                                     41 ;--------------------------------------------------------
+                                     42 ; Home
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area HOME
+                                     46 ;--------------------------------------------------------
+                                     47 ; code
+                                     48 ;--------------------------------------------------------
+                                     49 	.area CODE
+                                     50 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 36: void CAN_DeInit(void)
+                                     51 ; genLabel
+                                     52 ;	-----------------------------------------
+                                     53 ;	 function CAN_DeInit
+                                     54 ;	-----------------------------------------
+                                     55 ;	Register assignment is optimal.
+                                     56 ;	Stack space usage: 0 bytes.
+      000000                         57 _CAN_DeInit:
+                                     58 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 39: CAN->MCR = CAN_MCR_INRQ;
+                                     59 ; genPointerSet
+      000000 35 01 54 20      [ 1]   60 	mov	0x5420+0, #0x01
+                                     61 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 40: CAN->PSR = CAN_Page_Config;
+                                     62 ; genPointerSet
+      000004 35 06 54 27      [ 1]   63 	mov	0x5427+0, #0x06
+                                     64 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 41: CAN_OperatingModeRequest(CAN_OperatingMode_Initialization);
+                                     65 ; genSend
+      000008 4F               [ 1]   66 	clr	a
+                                     67 ; genCall
+      000009 CDr00r00         [ 4]   68 	call	_CAN_OperatingModeRequest
+                                     69 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 42: CAN->Page.Config.ESR = CAN_ESR_RESET_VALUE;
+                                     70 ; genPointerSet
+      00000C 35 00 54 28      [ 1]   71 	mov	0x5428+0, #0x00
+                                     72 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 43: CAN->Page.Config.EIER = CAN_EIER_RESET_VALUE;
+                                     73 ; genPointerSet
+      000010 35 00 54 29      [ 1]   74 	mov	0x5429+0, #0x00
+                                     75 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 44: CAN->Page.Config.BTR1 = CAN_BTR1_RESET_VALUE;
+                                     76 ; genPointerSet
+      000014 35 40 54 2C      [ 1]   77 	mov	0x542c+0, #0x40
+                                     78 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 45: CAN->Page.Config.BTR2 = CAN_BTR2_RESET_VALUE;
+                                     79 ; genPointerSet
+      000018 35 23 54 2D      [ 1]   80 	mov	0x542d+0, #0x23
+                                     81 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 46: CAN->Page.Config.FMR1 = CAN_FMR1_RESET_VALUE;
+                                     82 ; genPointerSet
+      00001C 35 00 54 30      [ 1]   83 	mov	0x5430+0, #0x00
+                                     84 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 47: CAN->Page.Config.FMR2 = CAN_FMR2_RESET_VALUE;
+                                     85 ; genPointerSet
+      000020 35 00 54 31      [ 1]   86 	mov	0x5431+0, #0x00
+                                     87 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 48: CAN->Page.Config.FCR1 = CAN_FCR_RESET_VALUE;
+                                     88 ; genPointerSet
+      000024 35 00 54 32      [ 1]   89 	mov	0x5432+0, #0x00
+                                     90 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 49: CAN->Page.Config.FCR2 = CAN_FCR_RESET_VALUE;
+                                     91 ; genPointerSet
+      000028 35 00 54 33      [ 1]   92 	mov	0x5433+0, #0x00
+                                     93 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 50: CAN->Page.Config.FCR3 = CAN_FCR_RESET_VALUE;
+                                     94 ; genPointerSet
+      00002C 35 00 54 34      [ 1]   95 	mov	0x5434+0, #0x00
+                                     96 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 51: CAN_OperatingModeRequest(CAN_OperatingMode_Normal);
+                                     97 ; genSend
+      000030 A6 01            [ 1]   98 	ld	a, #0x01
+                                     99 ; genCall
+      000032 CDr00r00         [ 4]  100 	call	_CAN_OperatingModeRequest
+                                    101 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 52: CAN->PSR = CAN_Page_RxFifo;
+                                    102 ; genPointerSet
+      000035 35 07 54 27      [ 1]  103 	mov	0x5427+0, #0x07
+                                    104 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 53: CAN->Page.RxFIFO.MDLCR = CAN_MDLC_RESET_VALUE;
+                                    105 ; genPointerSet
+      000039 35 00 54 29      [ 1]  106 	mov	0x5429+0, #0x00
+                                    107 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 54: CAN->PSR = CAN_Page_TxMailBox0;
+                                    108 ; genPointerSet
+      00003D 35 00 54 27      [ 1]  109 	mov	0x5427+0, #0x00
+                                    110 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 55: CAN->Page.TxMailbox.MDLCR = CAN_MDLC_RESET_VALUE;
+                                    111 ; genPointerSet
+      000041 35 00 54 29      [ 1]  112 	mov	0x5429+0, #0x00
+                                    113 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 56: CAN->PSR = CAN_Page_TxMailBox1;
+                                    114 ; genPointerSet
+      000045 35 01 54 27      [ 1]  115 	mov	0x5427+0, #0x01
+                                    116 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 57: CAN->Page.TxMailbox.MDLCR = CAN_MDLC_RESET_VALUE;
+                                    117 ; genPointerSet
+      000049 35 00 54 29      [ 1]  118 	mov	0x5429+0, #0x00
+                                    119 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 58: CAN->PSR = CAN_Page_TxMailBox2;
+                                    120 ; genPointerSet
+      00004D 35 05 54 27      [ 1]  121 	mov	0x5427+0, #0x05
+                                    122 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 59: CAN->Page.TxMailbox.MDLCR = CAN_MDLC_RESET_VALUE;
+                                    123 ; genPointerSet
+      000051 35 00 54 29      [ 1]  124 	mov	0x5429+0, #0x00
+                                    125 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 61: CAN->MCR = CAN_MCR_RESET_VALUE;
+                                    126 ; genPointerSet
+      000055 35 02 54 20      [ 1]  127 	mov	0x5420+0, #0x02
+                                    128 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 62: CAN->MSR = (uint8_t)(~CAN_MSR_RESET_VALUE);/* rc_w1 */
+                                    129 ; genPointerSet
+      000059 35 FD 54 21      [ 1]  130 	mov	0x5421+0, #0xfd
+                                    131 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 63: CAN->TSR = (uint8_t)(~CAN_TSR_RESET_VALUE);/* rc_w1 */
+                                    132 ; genPointerSet
+      00005D 35 FF 54 22      [ 1]  133 	mov	0x5422+0, #0xff
+                                    134 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 64: CAN->RFR = (uint8_t)(~CAN_RFR_RESET_VALUE);/* rc_w1 */
+                                    135 ; genPointerSet
+      000061 35 FF 54 24      [ 1]  136 	mov	0x5424+0, #0xff
+                                    137 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 65: CAN->IER = CAN_IER_RESET_VALUE;
+                                    138 ; genPointerSet
+      000065 35 00 54 25      [ 1]  139 	mov	0x5425+0, #0x00
+                                    140 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 66: CAN->DGR = CAN_DGR_RESET_VALUE;
+                                    141 ; genPointerSet
+      000069 35 0C 54 26      [ 1]  142 	mov	0x5426+0, #0x0c
+                                    143 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 67: CAN->PSR = CAN_PSR_RESET_VALUE;
+                                    144 ; genPointerSet
+      00006D 35 00 54 27      [ 1]  145 	mov	0x5427+0, #0x00
+                                    146 ; genLabel
+      000071                        147 00101$:
+                                    148 ;	../SPLSPL/src/stm8s_can_CAN_DeInit.c: 68: }
+                                    149 ; genEndFunction
+      000071 81               [ 4]  150 	ret
+                                    151 	.area CODE
+                                    152 	.area CONST
+                                    153 	.area INITIALIZER
+                                    154 	.area CABS (ABS)

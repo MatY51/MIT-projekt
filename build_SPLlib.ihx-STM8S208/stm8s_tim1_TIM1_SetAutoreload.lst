@@ -1,0 +1,103 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_tim1_TIM1_SetAutoreload
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TIM1_SetAutoreload
+                                     12 	.globl _TIM1_SetCompare1
+                                     13 ;--------------------------------------------------------
+                                     14 ; ram data
+                                     15 ;--------------------------------------------------------
+                                     16 	.area DATA
+                                     17 ;--------------------------------------------------------
+                                     18 ; ram data
+                                     19 ;--------------------------------------------------------
+                                     20 	.area INITIALIZED
+                                     21 ;--------------------------------------------------------
+                                     22 ; absolute external ram data
+                                     23 ;--------------------------------------------------------
+                                     24 	.area DABS (ABS)
+                                     25 
+                                     26 ; default segment ordering for linker
+                                     27 	.area HOME
+                                     28 	.area GSINIT
+                                     29 	.area GSFINAL
+                                     30 	.area CONST
+                                     31 	.area INITIALIZER
+                                     32 	.area CODE
+                                     33 
+                                     34 ;--------------------------------------------------------
+                                     35 ; global & static initialisations
+                                     36 ;--------------------------------------------------------
+                                     37 	.area HOME
+                                     38 	.area GSINIT
+                                     39 	.area GSFINAL
+                                     40 	.area GSINIT
+                                     41 ;--------------------------------------------------------
+                                     42 ; Home
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area HOME
+                                     46 ;--------------------------------------------------------
+                                     47 ; code
+                                     48 ;--------------------------------------------------------
+                                     49 	.area CODE
+                                     50 ;	../SPLSPL/src/stm8s_tim1_TIM1_SetAutoreload.c: 37: void TIM1_SetAutoreload(uint16_t Autoreload)
+                                     51 ; genLabel
+                                     52 ;	-----------------------------------------
+                                     53 ;	 function TIM1_SetAutoreload
+                                     54 ;	-----------------------------------------
+                                     55 ;	Register assignment is optimal.
+                                     56 ;	Stack space usage: 0 bytes.
+      000000                         57 _TIM1_SetAutoreload:
+                                     58 ; genReceive
+                                     59 ;	../SPLSPL/src/stm8s_tim1_TIM1_SetAutoreload.c: 40: TIM1->ARRH = (uint8_t)(Autoreload >> 8);
+                                     60 ; genGetByte
+      000000 9E               [ 1]   61 	ld	a, xh
+                                     62 ; genPointerSet
+      000001 C7 52 62         [ 1]   63 	ld	0x5262, a
+                                     64 ;	../SPLSPL/src/stm8s_tim1_TIM1_SetAutoreload.c: 41: TIM1->ARRL = (uint8_t)(Autoreload);
+                                     65 ; genCast
+                                     66 ; genAssign
+      000004 9F               [ 1]   67 	ld	a, xl
+                                     68 ; genPointerSet
+      000005 C7 52 63         [ 1]   69 	ld	0x5263, a
+                                     70 ; genLabel
+      000008                         71 00101$:
+                                     72 ;	../SPLSPL/src/stm8s_tim1_TIM1_SetAutoreload.c: 42: }
+                                     73 ; genEndFunction
+      000008 81               [ 4]   74 	ret
+                                     75 ;	../SPLSPL/src/stm8s_tim1_TIM1_SetAutoreload.c: 50: void TIM1_SetCompare1(uint16_t Compare1)
+                                     76 ; genLabel
+                                     77 ;	-----------------------------------------
+                                     78 ;	 function TIM1_SetCompare1
+                                     79 ;	-----------------------------------------
+                                     80 ;	Register assignment is optimal.
+                                     81 ;	Stack space usage: 0 bytes.
+      000009                         82 _TIM1_SetCompare1:
+                                     83 ; genReceive
+                                     84 ;	../SPLSPL/src/stm8s_tim1_TIM1_SetAutoreload.c: 53: TIM1->CCR1H = (uint8_t)(Compare1 >> 8);
+                                     85 ; genGetByte
+      000009 9E               [ 1]   86 	ld	a, xh
+                                     87 ; genPointerSet
+      00000A C7 52 65         [ 1]   88 	ld	0x5265, a
+                                     89 ;	../SPLSPL/src/stm8s_tim1_TIM1_SetAutoreload.c: 54: TIM1->CCR1L = (uint8_t)(Compare1);
+                                     90 ; genCast
+                                     91 ; genAssign
+      00000D 9F               [ 1]   92 	ld	a, xl
+                                     93 ; genPointerSet
+      00000E C7 52 66         [ 1]   94 	ld	0x5266, a
+                                     95 ; genLabel
+      000011                         96 00101$:
+                                     97 ;	../SPLSPL/src/stm8s_tim1_TIM1_SetAutoreload.c: 55: }
+                                     98 ; genEndFunction
+      000011 81               [ 4]   99 	ret
+                                    100 	.area CODE
+                                    101 	.area CONST
+                                    102 	.area INITIALIZER
+                                    103 	.area CABS (ABS)

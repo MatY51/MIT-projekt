@@ -1,0 +1,27 @@
+XH3
+H B areas 2 global symbols
+M stm8s_tim1_TIM1_BDTRConfig
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 1D flags 0 addr 0
+S _TIM1_BDTRConfig Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 88 AE 52 6E 88 7B 06 F7 84 1A 04 6B 01
+R 00 00 00 09
+T 00 00 0D 7B 06 1A 07 1A 08 1A 01 C7 52 6D
+R 00 00 00 09
+T 00 00 18
+R 00 00 00 09
+T 00 00 18 1E 02 5B 08 FC
+R 00 00 00 09

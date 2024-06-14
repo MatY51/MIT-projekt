@@ -1,0 +1,210 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_adc2_ADC2_SchmittTriggerConfig
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _ADC2_SchmittTriggerConfig
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 39: void ADC2_SchmittTriggerConfig(ADC2_SchmittTrigg_TypeDef ADC2_SchmittTriggerChannel, FunctionalState NewState)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function ADC2_SchmittTriggerConfig
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 1 bytes.
+      000000                         56 _ADC2_SchmittTriggerConfig:
+      000000 88               [ 1]   57 	push	a
+                                     58 ; genReceive
+      000001 97               [ 1]   59 	ld	xl, a
+                                     60 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 45: if (ADC2_SchmittTriggerChannel == ADC2_SCHMITTTRIG_ALL)
+                                     61 ; genCmpEQorNE
+      000002 9F               [ 1]   62 	ld	a, xl
+      000003 A1 1F            [ 1]   63 	cp	a, #0x1f
+      000005 26 03            [ 1]   64 	jrne	00154$
+      000007 CCr00r0D         [ 2]   65 	jp	00155$
+      00000A                         66 00154$:
+      00000A CCr00r33         [ 2]   67 	jp	00114$
+      00000D                         68 00155$:
+                                     69 ; skipping generated iCode
+                                     70 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 49: ADC2->TDRL &= (uint8_t)0x0;
+                                     71 ; genPointerGet
+                                     72 ; Dummy read
+      00000D C6 54 07         [ 1]   73 	ld	a, 0x5407
+                                     74 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 47: if (NewState != DISABLE)
+                                     75 ; genIfx
+      000010 0D 04            [ 1]   76 	tnz	(0x04, sp)
+      000012 26 03            [ 1]   77 	jrne	00156$
+      000014 CCr00r25         [ 2]   78 	jp	00102$
+      000017                         79 00156$:
+                                     80 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 49: ADC2->TDRL &= (uint8_t)0x0;
+                                     81 ; genPointerSet
+      000017 35 00 54 07      [ 1]   82 	mov	0x5407+0, #0x00
+                                     83 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 50: ADC2->TDRH &= (uint8_t)0x0;
+                                     84 ; genPointerGet
+                                     85 ; Dummy read
+      00001B C6 54 06         [ 1]   86 	ld	a, 0x5406
+                                     87 ; genPointerSet
+      00001E 35 00 54 06      [ 1]   88 	mov	0x5406+0, #0x00
+                                     89 ; genGoto
+      000022 CCr00r8F         [ 2]   90 	jp	00116$
+                                     91 ; genLabel
+      000025                         92 00102$:
+                                     93 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 54: ADC2->TDRL |= (uint8_t)0xFF;
+                                     94 ; genPointerSet
+      000025 35 FF 54 07      [ 1]   95 	mov	0x5407+0, #0xff
+                                     96 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 55: ADC2->TDRH |= (uint8_t)0xFF;
+                                     97 ; genPointerGet
+                                     98 ; Dummy read
+      000029 C6 54 06         [ 1]   99 	ld	a, 0x5406
+                                    100 ; genPointerSet
+      00002C 35 FF 54 06      [ 1]  101 	mov	0x5406+0, #0xff
+                                    102 ; genGoto
+      000030 CCr00r8F         [ 2]  103 	jp	00116$
+                                    104 ; genLabel
+      000033                        105 00114$:
+                                    106 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 58: else if (ADC2_SchmittTriggerChannel < ADC2_SCHMITTTRIG_CHANNEL8)
+                                    107 ; genCmp
+                                    108 ; genCmpTnz
+      000033 9F               [ 1]  109 	ld	a, xl
+      000034 A1 08            [ 1]  110 	cp	a, #0x08
+      000036 25 03            [ 1]  111 	jrc	00157$
+      000038 CCr00r65         [ 2]  112 	jp	00111$
+      00003B                        113 00157$:
+                                    114 ; skipping generated iCode
+                                    115 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 49: ADC2->TDRL &= (uint8_t)0x0;
+                                    116 ; genPointerGet
+      00003B C6 54 07         [ 1]  117 	ld	a, 0x5407
+      00003E 6B 01            [ 1]  118 	ld	(0x01, sp), a
+                                    119 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 62: ADC2->TDRL &= (uint8_t)(~(uint8_t)((uint8_t)0x01 << (uint8_t)ADC2_SchmittTriggerChannel));
+                                    120 ; genLeftShift
+      000040 A6 01            [ 1]  121 	ld	a, #0x01
+      000042 88               [ 1]  122 	push	a
+      000043 9F               [ 1]  123 	ld	a, xl
+      000044 4D               [ 1]  124 	tnz	a
+      000045 27 05            [ 1]  125 	jreq	00159$
+      000047                        126 00158$:
+      000047 08 01            [ 1]  127 	sll	(1, sp)
+      000049 4A               [ 1]  128 	dec	a
+      00004A 26 FB            [ 1]  129 	jrne	00158$
+      00004C                        130 00159$:
+      00004C 84               [ 1]  131 	pop	a
+                                    132 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 60: if (NewState != DISABLE)
+                                    133 ; genIfx
+      00004D 0D 04            [ 1]  134 	tnz	(0x04, sp)
+      00004F 26 03            [ 1]  135 	jrne	00160$
+      000051 CCr00r5D         [ 2]  136 	jp	00105$
+      000054                        137 00160$:
+                                    138 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 62: ADC2->TDRL &= (uint8_t)(~(uint8_t)((uint8_t)0x01 << (uint8_t)ADC2_SchmittTriggerChannel));
+                                    139 ; genCpl
+      000054 43               [ 1]  140 	cpl	a
+                                    141 ; genAnd
+      000055 14 01            [ 1]  142 	and	a, (0x01, sp)
+                                    143 ; genPointerSet
+      000057 C7 54 07         [ 1]  144 	ld	0x5407, a
+                                    145 ; genGoto
+      00005A CCr00r8F         [ 2]  146 	jp	00116$
+                                    147 ; genLabel
+      00005D                        148 00105$:
+                                    149 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 66: ADC2->TDRL |= (uint8_t)((uint8_t)0x01 << (uint8_t)ADC2_SchmittTriggerChannel);
+                                    150 ; genOr
+      00005D 1A 01            [ 1]  151 	or	a, (0x01, sp)
+                                    152 ; genPointerSet
+      00005F C7 54 07         [ 1]  153 	ld	0x5407, a
+                                    154 ; genGoto
+      000062 CCr00r8F         [ 2]  155 	jp	00116$
+                                    156 ; genLabel
+      000065                        157 00111$:
+                                    158 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 50: ADC2->TDRH &= (uint8_t)0x0;
+                                    159 ; genPointerGet
+      000065 C6 54 06         [ 1]  160 	ld	a, 0x5406
+      000068 6B 01            [ 1]  161 	ld	(0x01, sp), a
+                                    162 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 73: ADC2->TDRH &= (uint8_t)(~(uint8_t)((uint8_t)0x01 << ((uint8_t)ADC2_SchmittTriggerChannel - (uint8_t)8)));
+                                    163 ; genMinus
+      00006A 1D 00 08         [ 2]  164 	subw	x, #8
+                                    165 ; genLeftShift
+      00006D A6 01            [ 1]  166 	ld	a, #0x01
+      00006F 88               [ 1]  167 	push	a
+      000070 9F               [ 1]  168 	ld	a, xl
+      000071 4D               [ 1]  169 	tnz	a
+      000072 27 05            [ 1]  170 	jreq	00162$
+      000074                        171 00161$:
+      000074 08 01            [ 1]  172 	sll	(1, sp)
+      000076 4A               [ 1]  173 	dec	a
+      000077 26 FB            [ 1]  174 	jrne	00161$
+      000079                        175 00162$:
+      000079 84               [ 1]  176 	pop	a
+                                    177 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 71: if (NewState != DISABLE)
+                                    178 ; genIfx
+      00007A 0D 04            [ 1]  179 	tnz	(0x04, sp)
+      00007C 26 03            [ 1]  180 	jrne	00163$
+      00007E CCr00r8A         [ 2]  181 	jp	00108$
+      000081                        182 00163$:
+                                    183 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 73: ADC2->TDRH &= (uint8_t)(~(uint8_t)((uint8_t)0x01 << ((uint8_t)ADC2_SchmittTriggerChannel - (uint8_t)8)));
+                                    184 ; genCpl
+      000081 43               [ 1]  185 	cpl	a
+                                    186 ; genAnd
+      000082 14 01            [ 1]  187 	and	a, (0x01, sp)
+                                    188 ; genPointerSet
+      000084 C7 54 06         [ 1]  189 	ld	0x5406, a
+                                    190 ; genGoto
+      000087 CCr00r8F         [ 2]  191 	jp	00116$
+                                    192 ; genLabel
+      00008A                        193 00108$:
+                                    194 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 77: ADC2->TDRH |= (uint8_t)((uint8_t)0x01 << ((uint8_t)ADC2_SchmittTriggerChannel - (uint8_t)8));
+                                    195 ; genOr
+      00008A 1A 01            [ 1]  196 	or	a, (0x01, sp)
+                                    197 ; genPointerSet
+      00008C C7 54 06         [ 1]  198 	ld	0x5406, a
+                                    199 ; genLabel
+      00008F                        200 00116$:
+                                    201 ;	../SPLSPL/src/stm8s_adc2_ADC2_SchmittTriggerConfig.c: 80: }
+                                    202 ; genEndFunction
+      00008F 84               [ 1]  203 	pop	a
+      000090 85               [ 2]  204 	popw	x
+      000091 84               [ 1]  205 	pop	a
+      000092 FC               [ 2]  206 	jp	(x)
+                                    207 	.area CODE
+                                    208 	.area CONST
+                                    209 	.area INITIALIZER
+                                    210 	.area CABS (ABS)

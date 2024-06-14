@@ -1,0 +1,297 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_can_CAN_Receive
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CAN_SelectPage
+                                     12 	.globl _CAN_GetSelectedPage
+                                     13 	.globl _CAN_FIFORelease
+                                     14 	.globl _CAN_Receive
+                                     15 ;--------------------------------------------------------
+                                     16 ; ram data
+                                     17 ;--------------------------------------------------------
+                                     18 	.area DATA
+                                     19 ;--------------------------------------------------------
+                                     20 ; ram data
+                                     21 ;--------------------------------------------------------
+                                     22 	.area INITIALIZED
+                                     23 ;--------------------------------------------------------
+                                     24 ; absolute external ram data
+                                     25 ;--------------------------------------------------------
+                                     26 	.area DABS (ABS)
+                                     27 
+                                     28 ; default segment ordering for linker
+                                     29 	.area HOME
+                                     30 	.area GSINIT
+                                     31 	.area GSFINAL
+                                     32 	.area CONST
+                                     33 	.area INITIALIZER
+                                     34 	.area CODE
+                                     35 
+                                     36 ;--------------------------------------------------------
+                                     37 ; global & static initialisations
+                                     38 ;--------------------------------------------------------
+                                     39 	.area HOME
+                                     40 	.area GSINIT
+                                     41 	.area GSFINAL
+                                     42 	.area GSINIT
+                                     43 ;--------------------------------------------------------
+                                     44 ; Home
+                                     45 ;--------------------------------------------------------
+                                     46 	.area HOME
+                                     47 	.area HOME
+                                     48 ;--------------------------------------------------------
+                                     49 ; code
+                                     50 ;--------------------------------------------------------
+                                     51 	.area CODE
+                                     52 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 40: void CAN_Receive(void)
+                                     53 ; genLabel
+                                     54 ;	-----------------------------------------
+                                     55 ;	 function CAN_Receive
+                                     56 ;	-----------------------------------------
+                                     57 ;	Register assignment might be sub-optimal.
+                                     58 ;	Stack space usage: 20 bytes.
+      000000                         59 _CAN_Receive:
+      000000 52 14            [ 2]   60 	sub	sp, #20
+                                     61 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 42: CAN_Page_TypeDef can_page = CAN_GetSelectedPage();
+                                     62 ; genCall
+      000002 CDr00r00         [ 4]   63 	call	_CAN_GetSelectedPage
+      000005 97               [ 1]   64 	ld	xl, a
+                                     65 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 46: CAN->PSR = CAN_Page_RxFifo;
+                                     66 ; genPointerSet
+      000006 35 07 54 27      [ 1]   67 	mov	0x5427+0, #0x07
+                                     68 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 49: _IDE = (uint8_t)(CAN->Page.RxFIFO.MIDR1 & CAN_Id_Extended);
+                                     69 ; genPointerGet
+      00000A C6 54 2A         [ 1]   70 	ld	a, 0x542a
+                                     71 ; genAnd
+      00000D A4 40            [ 1]   72 	and	a, #0x40
+      00000F C7u00u00         [ 1]   73 	ld	__IDE+0, a
+                                     74 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 50: if (_IDE != CAN_Id_Standard)
+                                     75 ; genIfx
+      000012 72 5Du00u00      [ 1]   76 	tnz	__IDE+0
+      000016 26 03            [ 1]   77 	jrne	00113$
+      000018 CCr00r73         [ 2]   78 	jp	00102$
+      00001B                         79 00113$:
+                                     80 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 52: temp1 = ((uint32_t)((uint32_t)CAN->Page.RxFIFO.MIDR3) << 8);
+                                     81 ; genPointerGet
+      00001B C6 54 2C         [ 1]   82 	ld	a, 0x542c
+                                     83 ; genCast
+                                     84 ; genAssign
+      00001E 90 5F            [ 1]   85 	clrw	y
+      000020 0F 11            [ 1]   86 	clr	(0x11, sp)
+                                     87 ; genLeftShiftLiteral
+      000022 6B 03            [ 1]   88 	ld	(0x03, sp), a
+      000024 17 01            [ 2]   89 	ldw	(0x01, sp), y
+      000026 0F 04            [ 1]   90 	clr	(0x04, sp)
+                                     91 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 53: temp2 = ((uint32_t)((uint32_t)CAN->Page.RxFIFO.MIDR2) << 16);  
+                                     92 ; genPointerGet
+      000028 C6 54 2B         [ 1]   93 	ld	a, 0x542b
+                                     94 ; genCast
+                                     95 ; genAssign
+      00002B 0F 13            [ 1]   96 	clr	(0x13, sp)
+      00002D 90 5F            [ 1]   97 	clrw	y
+                                     98 ; genLeftShiftLiteral
+      00002F 6B 06            [ 1]   99 	ld	(0x06, sp), a
+      000031 0F 05            [ 1]  100 	clr	(0x05, sp)
+      000033 0F 08            [ 1]  101 	clr	(0x08, sp)
+      000035 0F 07            [ 1]  102 	clr	(0x07, sp)
+                                    103 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 54: temp3 = ((uint32_t)((uint32_t)CAN->Page.RxFIFO.MIDR1 & 0x1F) << 24);
+                                    104 ; genPointerGet
+      000037 C6 54 2A         [ 1]  105 	ld	a, 0x542a
+                                    106 ; genCast
+                                    107 ; genAssign
+      00003A 0F 13            [ 1]  108 	clr	(0x13, sp)
+      00003C 90 5F            [ 1]  109 	clrw	y
+                                    110 ; genAnd
+      00003E A4 1F            [ 1]  111 	and	a, #0x1f
+      000040 95               [ 1]  112 	ld	xh, a
+      000041 4F               [ 1]  113 	clr	a
+      000042 90 5F            [ 1]  114 	clrw	y
+                                    115 ; genLeftShiftLiteral
+      000044 0F 0C            [ 1]  116 	clr	(0x0c, sp)
+      000046 0F 0B            [ 1]  117 	clr	(0x0b, sp)
+      000048 0F 0A            [ 1]  118 	clr	(0x0a, sp)
+                                    119 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 56: _Id = (uint32_t)CAN_EXTID_SIZE & ((CAN->Page.RxFIFO.MIDR4) | temp1 | temp2 | temp3 );
+                                    120 ; genPointerGet
+      00004A C6 54 2D         [ 1]  121 	ld	a, 0x542d
+                                    122 ; genCast
+                                    123 ; genAssign
+      00004D 90 5F            [ 1]  124 	clrw	y
+      00004F 17 0D            [ 2]  125 	ldw	(0x0d, sp), y
+                                    126 ; genOr
+      000051 90 97            [ 1]  127 	ld	yl, a
+      000053 0F 11            [ 1]  128 	clr	(0x11, sp)
+      000055 0F 12            [ 1]  129 	clr	(0x12, sp)
+      000057 7B 03            [ 1]  130 	ld	a, (0x03, sp)
+                                    131 ; genOr
+      000059 90 95            [ 1]  132 	ld	yh, a
+      00005B 0F 0D            [ 1]  133 	clr	(0x0d, sp)
+      00005D 7B 06            [ 1]  134 	ld	a, (0x06, sp)
+                                    135 ; genOr
+                                    136 ; genAnd
+      00005F 88               [ 1]  137 	push	a
+      000060 9E               [ 1]  138 	ld	a, xh
+      000061 A4 1F            [ 1]  139 	and	a, #0x1f
+      000063 95               [ 1]  140 	ld	xh, a
+      000064 84               [ 1]  141 	pop	a
+                                    142 ; genAssign
+      000065 90 CFu00u02      [ 2]  143 	ldw	__Id+2, y
+      000069 C7u00u01         [ 1]  144 	ld	__Id+1, a
+      00006C 9E               [ 1]  145 	ld	a, xh
+      00006D C7u00u00         [ 1]  146 	ld	__Id+0, a
+                                    147 ; genGoto
+      000070 CCr00rBC         [ 2]  148 	jp	00103$
+                                    149 ; genLabel
+      000073                        150 00102$:
+                                    151 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 60: temp1 = (uint16_t)((uint16_t)((uint16_t)((uint16_t)CAN->Page.RxFIFO.MIDR1 & 0x1F) << 6));
+                                    152 ; genPointerGet
+      000073 C6 54 2A         [ 1]  153 	ld	a, 0x542a
+                                    154 ; genCast
+                                    155 ; genAssign
+                                    156 ; genAnd
+      000076 A4 1F            [ 1]  157 	and	a, #0x1f
+                                    158 ; genCast
+                                    159 ; genAssign
+      000078 90 5F            [ 1]  160 	clrw	y
+      00007A 90 97            [ 1]  161 	ld	yl, a
+                                    162 ; genLeftShiftLiteral
+      00007C 90 58            [ 2]  163 	sllw	y
+      00007E 90 58            [ 2]  164 	sllw	y
+      000080 90 58            [ 2]  165 	sllw	y
+      000082 90 58            [ 2]  166 	sllw	y
+      000084 90 58            [ 2]  167 	sllw	y
+      000086 90 58            [ 2]  168 	sllw	y
+                                    169 ; genCast
+                                    170 ; genAssign
+      000088 17 0B            [ 2]  171 	ldw	(0x0b, sp), y
+      00008A 0F 0A            [ 1]  172 	clr	(0x0a, sp)
+      00008C 4F               [ 1]  173 	clr	a
+      00008D 95               [ 1]  174 	ld	xh, a
+                                    175 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 61: temp2 = (uint16_t)((uint16_t)((uint16_t)CAN->Page.RxFIFO.MIDR2 >> 2)&0x3F);
+                                    176 ; genPointerGet
+      00008E C6 54 2B         [ 1]  177 	ld	a, 0x542b
+                                    178 ; genCast
+                                    179 ; genAssign
+      000091 90 5F            [ 1]  180 	clrw	y
+      000093 90 97            [ 1]  181 	ld	yl, a
+                                    182 ; genRightShiftLiteral
+      000095 90 54            [ 2]  183 	srlw	y
+      000097 90 54            [ 2]  184 	srlw	y
+                                    185 ; genCast
+                                    186 ; genAssign
+      000099 90 9F            [ 1]  187 	ld	a, yl
+                                    188 ; genAnd
+      00009B A4 3F            [ 1]  189 	and	a, #0x3f
+                                    190 ; genCast
+                                    191 ; genAssign
+      00009D 90 5F            [ 1]  192 	clrw	y
+      00009F 17 0D            [ 2]  193 	ldw	(0x0d, sp), y
+                                    194 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 63: _Id = (uint16_t)CAN_STDID_SIZE & (temp1 | temp2 );
+                                    195 ; genOr
+      0000A1 1A 0C            [ 1]  196 	or	a, (0x0c, sp)
+      0000A3 90 97            [ 1]  197 	ld	yl, a
+      0000A5 0F 12            [ 1]  198 	clr	(0x12, sp)
+      0000A7 7B 0B            [ 1]  199 	ld	a, (0x0b, sp)
+                                    200 ; genAnd
+      0000A9 A4 07            [ 1]  201 	and	a, #0x07
+      0000AB 90 95            [ 1]  202 	ld	yh, a
+      0000AD 4F               [ 1]  203 	clr	a
+      0000AE 0F 0D            [ 1]  204 	clr	(0x0d, sp)
+                                    205 ; genAssign
+      0000B0 90 CFu00u02      [ 2]  206 	ldw	__Id+2, y
+      0000B4 72 5Fu00u01      [ 1]  207 	clr	__Id+1
+      0000B8 72 5Fu00u00      [ 1]  208 	clr	__Id+0
+                                    209 ; genLabel
+      0000BC                        210 00103$:
+                                    211 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 66: _RTR = (uint8_t)((uint8_t)0x20 & CAN->Page.RxFIFO.MIDR1);
+                                    212 ; genPointerGet
+      0000BC C6 54 2A         [ 1]  213 	ld	a, 0x542a
+                                    214 ; genAnd
+      0000BF A4 20            [ 1]  215 	and	a, #0x20
+      0000C1 C7u00u00         [ 1]  216 	ld	__RTR+0, a
+                                    217 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 69: _DLC = (uint8_t)(CAN->Page.RxFIFO.MDLCR & (uint8_t)0x0F);
+                                    218 ; genPointerGet
+      0000C4 C6 54 29         [ 1]  219 	ld	a, 0x5429
+                                    220 ; genAnd
+      0000C7 A4 0F            [ 1]  221 	and	a, #0x0f
+      0000C9 C7u00u00         [ 1]  222 	ld	__DLC+0, a
+                                    223 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 72: _FMI = CAN->Page.RxFIFO.MFMI;
+                                    224 ; genPointerGet
+      0000CC 55 54 28u00u00   [ 1]  225 	mov	__FMI+0, 0x5428
+                                    226 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 75: _Data[0] = CAN->Page.RxFIFO.MDAR1;
+                                    227 ; skipping iCode since result will be rematerialized
+                                    228 ; genPointerGet
+      0000D1 C6 54 2E         [ 1]  229 	ld	a, 0x542e
+                                    230 ; genPointerSet
+      0000D4 C7u00u00         [ 1]  231 	ld	__Data+0, a
+                                    232 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 76: _Data[1] = CAN->Page.RxFIFO.MDAR2;
+                                    233 ; skipping iCode since result will be rematerialized
+                                    234 ; genPointerGet
+      0000D7 C6 54 2F         [ 1]  235 	ld	a, 0x542f
+                                    236 ; genPointerSet
+      0000DA C7u00u01         [ 1]  237 	ld	__Data+1, a
+                                    238 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 77: _Data[2] = CAN->Page.RxFIFO.MDAR3;
+                                    239 ; skipping iCode since result will be rematerialized
+                                    240 ; genPointerGet
+      0000DD C6 54 30         [ 1]  241 	ld	a, 0x5430
+                                    242 ; genPointerSet
+      0000E0 C7u00u02         [ 1]  243 	ld	__Data+2, a
+                                    244 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 78: _Data[3] = CAN->Page.RxFIFO.MDAR4;
+                                    245 ; skipping iCode since result will be rematerialized
+                                    246 ; genPointerGet
+      0000E3 C6 54 31         [ 1]  247 	ld	a, 0x5431
+                                    248 ; genPointerSet
+      0000E6 C7u00u03         [ 1]  249 	ld	__Data+3, a
+                                    250 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 79: _Data[4] = CAN->Page.RxFIFO.MDAR5;
+                                    251 ; skipping iCode since result will be rematerialized
+                                    252 ; genPointerGet
+      0000E9 C6 54 32         [ 1]  253 	ld	a, 0x5432
+                                    254 ; genPointerSet
+      0000EC C7u00u04         [ 1]  255 	ld	__Data+4, a
+                                    256 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 80: _Data[5] = CAN->Page.RxFIFO.MDAR6;
+                                    257 ; skipping iCode since result will be rematerialized
+                                    258 ; genPointerGet
+      0000EF C6 54 33         [ 1]  259 	ld	a, 0x5433
+                                    260 ; genPointerSet
+      0000F2 C7u00u05         [ 1]  261 	ld	__Data+5, a
+                                    262 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 81: _Data[6] = CAN->Page.RxFIFO.MDAR7;
+                                    263 ; skipping iCode since result will be rematerialized
+                                    264 ; genPointerGet
+      0000F5 C6 54 34         [ 1]  265 	ld	a, 0x5434
+                                    266 ; genPointerSet
+      0000F8 C7u00u06         [ 1]  267 	ld	__Data+6, a
+                                    268 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 82: _Data[7] = CAN->Page.RxFIFO.MDAR8;
+                                    269 ; skipping iCode since result will be rematerialized
+                                    270 ; genPointerGet
+      0000FB C6 54 35         [ 1]  271 	ld	a, 0x5435
+                                    272 ; genPointerSet
+      0000FE C7u00u07         [ 1]  273 	ld	__Data+7, a
+                                    274 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 85: CAN_FIFORelease();
+                                    275 ; genCall
+      000101 89               [ 2]  276 	pushw	x
+      000102 CDr00r00         [ 4]  277 	call	_CAN_FIFORelease
+      000105 5B 01            [ 2]  278 	addw	sp, #1
+      000107 41               [ 1]  279 	exg	a, xl
+      000108 84               [ 1]  280 	pop	a
+      000109 41               [ 1]  281 	exg	a, xl
+                                    282 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 87: CAN_SelectPage(can_page);
+                                    283 ; genSend
+      00010A 9F               [ 1]  284 	ld	a, xl
+                                    285 ; genCall
+      00010B 5B 14            [ 2]  286 	addw	sp, #20
+      00010D CCr00r00         [ 2]  287 	jp	_CAN_SelectPage
+                                    288 ; genLabel
+      000110                        289 00104$:
+                                    290 ;	../SPLSPL/src/stm8s_can_CAN_Receive.c: 88: }
+                                    291 ; genEndFunction
+      000110 5B 14            [ 2]  292 	addw	sp, #20
+      000112 81               [ 4]  293 	ret
+                                    294 	.area CODE
+                                    295 	.area CONST
+                                    296 	.area INITIALIZER
+                                    297 	.area CABS (ABS)

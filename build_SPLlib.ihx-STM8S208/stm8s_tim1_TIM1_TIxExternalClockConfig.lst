@@ -1,0 +1,126 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_tim1_TIM1_TIxExternalClockConfig
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TIM1_TI2_Config
+                                     12 	.globl _TIM1_TI1_Config
+                                     13 	.globl _TIM1_SelectInputTrigger
+                                     14 	.globl _TIM1_TIxExternalClockConfig
+                                     15 ;--------------------------------------------------------
+                                     16 ; ram data
+                                     17 ;--------------------------------------------------------
+                                     18 	.area DATA
+                                     19 ;--------------------------------------------------------
+                                     20 ; ram data
+                                     21 ;--------------------------------------------------------
+                                     22 	.area INITIALIZED
+                                     23 ;--------------------------------------------------------
+                                     24 ; absolute external ram data
+                                     25 ;--------------------------------------------------------
+                                     26 	.area DABS (ABS)
+                                     27 
+                                     28 ; default segment ordering for linker
+                                     29 	.area HOME
+                                     30 	.area GSINIT
+                                     31 	.area GSFINAL
+                                     32 	.area CONST
+                                     33 	.area INITIALIZER
+                                     34 	.area CODE
+                                     35 
+                                     36 ;--------------------------------------------------------
+                                     37 ; global & static initialisations
+                                     38 ;--------------------------------------------------------
+                                     39 	.area HOME
+                                     40 	.area GSINIT
+                                     41 	.area GSFINAL
+                                     42 	.area GSINIT
+                                     43 ;--------------------------------------------------------
+                                     44 ; Home
+                                     45 ;--------------------------------------------------------
+                                     46 	.area HOME
+                                     47 	.area HOME
+                                     48 ;--------------------------------------------------------
+                                     49 ; code
+                                     50 ;--------------------------------------------------------
+                                     51 	.area CODE
+                                     52 ;	../SPLSPL/src/stm8s_tim1_TIM1_TIxExternalClockConfig.c: 47: void TIM1_TIxExternalClockConfig(TIM1_TIxExternalCLK1Source_TypeDef TIM1_TIxExternalCLKSource,
+                                     53 ; genLabel
+                                     54 ;	-----------------------------------------
+                                     55 ;	 function TIM1_TIxExternalClockConfig
+                                     56 ;	-----------------------------------------
+                                     57 ;	Register assignment is optimal.
+                                     58 ;	Stack space usage: 1 bytes.
+      000000                         59 _TIM1_TIxExternalClockConfig:
+      000000 88               [ 1]   60 	push	a
+                                     61 ; genReceive
+      000001 6B 01            [ 1]   62 	ld	(0x01, sp), a
+                                     63 ;	../SPLSPL/src/stm8s_tim1_TIM1_TIxExternalClockConfig.c: 59: TIM1_TI2_Config((uint8_t)TIM1_ICPolarity, (uint8_t)TIM1_ICSELECTION_DIRECTTI, (uint8_t)ICFilter);
+                                     64 ; genCast
+                                     65 ; genAssign
+      000003 7B 04            [ 1]   66 	ld	a, (0x04, sp)
+      000005 97               [ 1]   67 	ld	xl, a
+                                     68 ;	../SPLSPL/src/stm8s_tim1_TIM1_TIxExternalClockConfig.c: 57: if (TIM1_TIxExternalCLKSource == TIM1_TIXEXTERNALCLK1SOURCE_TI2)
+                                     69 ; genCmpEQorNE
+      000006 7B 01            [ 1]   70 	ld	a, (0x01, sp)
+      000008 A1 60            [ 1]   71 	cp	a, #0x60
+      00000A 26 03            [ 1]   72 	jrne	00114$
+      00000C CCr00r12         [ 2]   73 	jp	00115$
+      00000F                         74 00114$:
+      00000F CCr00r1E         [ 2]   75 	jp	00102$
+      000012                         76 00115$:
+                                     77 ; skipping generated iCode
+                                     78 ;	../SPLSPL/src/stm8s_tim1_TIM1_TIxExternalClockConfig.c: 59: TIM1_TI2_Config((uint8_t)TIM1_ICPolarity, (uint8_t)TIM1_ICSELECTION_DIRECTTI, (uint8_t)ICFilter);
+                                     79 ; genIPush
+      000012 7B 05            [ 1]   80 	ld	a, (0x05, sp)
+      000014 88               [ 1]   81 	push	a
+                                     82 ; genIPush
+      000015 4B 01            [ 1]   83 	push	#0x01
+                                     84 ; genSend
+      000017 9F               [ 1]   85 	ld	a, xl
+                                     86 ; genCall
+      000018 CDr00r00         [ 4]   87 	call	_TIM1_TI2_Config
+                                     88 ; genGoto
+      00001B CCr00r27         [ 2]   89 	jp	00103$
+                                     90 ; genLabel
+      00001E                         91 00102$:
+                                     92 ;	../SPLSPL/src/stm8s_tim1_TIM1_TIxExternalClockConfig.c: 63: TIM1_TI1_Config((uint8_t)TIM1_ICPolarity, (uint8_t)TIM1_ICSELECTION_DIRECTTI, (uint8_t)ICFilter);
+                                     93 ; genIPush
+      00001E 7B 05            [ 1]   94 	ld	a, (0x05, sp)
+      000020 88               [ 1]   95 	push	a
+                                     96 ; genIPush
+      000021 4B 01            [ 1]   97 	push	#0x01
+                                     98 ; genSend
+      000023 9F               [ 1]   99 	ld	a, xl
+                                    100 ; genCall
+      000024 CDr00r00         [ 4]  101 	call	_TIM1_TI1_Config
+                                    102 ; genLabel
+      000027                        103 00103$:
+                                    104 ;	../SPLSPL/src/stm8s_tim1_TIM1_TIxExternalClockConfig.c: 67: TIM1_SelectInputTrigger((TIM1_TS_TypeDef)TIM1_TIxExternalCLKSource);
+                                    105 ; genSend
+      000027 7B 01            [ 1]  106 	ld	a, (0x01, sp)
+                                    107 ; genCall
+      000029 CDr00r00         [ 4]  108 	call	_TIM1_SelectInputTrigger
+                                    109 ;	../SPLSPL/src/stm8s_tim1_TIM1_TIxExternalClockConfig.c: 70: TIM1->SMCR |= (uint8_t)(TIM1_SLAVEMODE_EXTERNAL1);
+                                    110 ; genPointerGet
+      00002C C6 52 52         [ 1]  111 	ld	a, 0x5252
+                                    112 ; genOr
+      00002F AA 07            [ 1]  113 	or	a, #0x07
+                                    114 ; genPointerSet
+      000031 C7 52 52         [ 1]  115 	ld	0x5252, a
+                                    116 ; genLabel
+      000034                        117 00104$:
+                                    118 ;	../SPLSPL/src/stm8s_tim1_TIM1_TIxExternalClockConfig.c: 71: }
+                                    119 ; genEndFunction
+      000034 1E 02            [ 2]  120 	ldw	x, (2, sp)
+      000036 5B 05            [ 2]  121 	addw	sp, #5
+      000038 FC               [ 2]  122 	jp	(x)
+                                    123 	.area CODE
+                                    124 	.area CONST
+                                    125 	.area INITIALIZER
+                                    126 	.area CABS (ABS)

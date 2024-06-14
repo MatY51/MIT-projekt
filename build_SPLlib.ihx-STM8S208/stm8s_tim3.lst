@@ -1,0 +1,208 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_tim3
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TIM3_TI1_Config
+                                     12 	.globl _TIM3_TI2_Config
+                                     13 ;--------------------------------------------------------
+                                     14 ; ram data
+                                     15 ;--------------------------------------------------------
+                                     16 	.area DATA
+                                     17 ;--------------------------------------------------------
+                                     18 ; ram data
+                                     19 ;--------------------------------------------------------
+                                     20 	.area INITIALIZED
+                                     21 ;--------------------------------------------------------
+                                     22 ; absolute external ram data
+                                     23 ;--------------------------------------------------------
+                                     24 	.area DABS (ABS)
+                                     25 
+                                     26 ; default segment ordering for linker
+                                     27 	.area HOME
+                                     28 	.area GSINIT
+                                     29 	.area GSFINAL
+                                     30 	.area CONST
+                                     31 	.area INITIALIZER
+                                     32 	.area CODE
+                                     33 
+                                     34 ;--------------------------------------------------------
+                                     35 ; global & static initialisations
+                                     36 ;--------------------------------------------------------
+                                     37 	.area HOME
+                                     38 	.area GSINIT
+                                     39 	.area GSFINAL
+                                     40 	.area GSINIT
+                                     41 ;--------------------------------------------------------
+                                     42 ; Home
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area HOME
+                                     46 ;--------------------------------------------------------
+                                     47 ; code
+                                     48 ;--------------------------------------------------------
+                                     49 	.area CODE
+                                     50 ;	../SPLSPL/src/stm8s_tim3.c: 58: void TIM3_TI1_Config(uint8_t TIM3_ICPolarity,
+                                     51 ; genLabel
+                                     52 ;	-----------------------------------------
+                                     53 ;	 function TIM3_TI1_Config
+                                     54 ;	-----------------------------------------
+                                     55 ;	Register assignment might be sub-optimal.
+                                     56 ;	Stack space usage: 2 bytes.
+      000000                         57 _TIM3_TI1_Config:
+      000000 89               [ 2]   58 	pushw	x
+                                     59 ; genReceive
+      000001 6B 02            [ 1]   60 	ld	(0x02, sp), a
+                                     61 ;	../SPLSPL/src/stm8s_tim3.c: 63: TIM3->CCER1 &= (uint8_t)(~TIM3_CCER1_CC1E);
+                                     62 ; genPointerGet
+      000003 C6 53 27         [ 1]   63 	ld	a, 0x5327
+                                     64 ; genAnd
+      000006 A4 FE            [ 1]   65 	and	a, #0xfe
+                                     66 ; genPointerSet
+      000008 C7 53 27         [ 1]   67 	ld	0x5327, a
+                                     68 ;	../SPLSPL/src/stm8s_tim3.c: 66: TIM3->CCMR1 = (uint8_t)((uint8_t)(TIM3->CCMR1 & (uint8_t)(~( TIM3_CCMR_CCxS | TIM3_CCMR_ICxF))) | (uint8_t)(( (TIM3_ICSelection)) | ((uint8_t)( TIM3_ICFilter << 4))));
+                                     69 ; genPointerGet
+      00000B C6 53 25         [ 1]   70 	ld	a, 0x5325
+                                     71 ; genAnd
+      00000E A4 0C            [ 1]   72 	and	a, #0x0c
+      000010 6B 01            [ 1]   73 	ld	(0x01, sp), a
+                                     74 ; genCast
+                                     75 ; genAssign
+      000012 7B 06            [ 1]   76 	ld	a, (0x06, sp)
+                                     77 ; genLeftShiftLiteral
+      000014 4E               [ 1]   78 	swap	a
+      000015 A4 F0            [ 1]   79 	and	a, #0xf0
+                                     80 ; genCast
+                                     81 ; genAssign
+                                     82 ; genOr
+      000017 1A 05            [ 1]   83 	or	a, (0x05, sp)
+                                     84 ; genOr
+      000019 1A 01            [ 1]   85 	or	a, (0x01, sp)
+                                     86 ; genPointerSet
+      00001B C7 53 25         [ 1]   87 	ld	0x5325, a
+                                     88 ;	../SPLSPL/src/stm8s_tim3.c: 63: TIM3->CCER1 &= (uint8_t)(~TIM3_CCER1_CC1E);
+                                     89 ; genPointerGet
+      00001E C6 53 27         [ 1]   90 	ld	a, 0x5327
+                                     91 ;	../SPLSPL/src/stm8s_tim3.c: 69: if (TIM3_ICPolarity != TIM3_ICPOLARITY_RISING)
+                                     92 ; genIfx
+      000021 0D 02            [ 1]   93 	tnz	(0x02, sp)
+      000023 26 03            [ 1]   94 	jrne	00113$
+      000025 CCr00r30         [ 2]   95 	jp	00102$
+      000028                         96 00113$:
+                                     97 ;	../SPLSPL/src/stm8s_tim3.c: 71: TIM3->CCER1 |= TIM3_CCER1_CC1P;
+                                     98 ; genOr
+      000028 AA 02            [ 1]   99 	or	a, #0x02
+                                    100 ; genPointerSet
+      00002A C7 53 27         [ 1]  101 	ld	0x5327, a
+                                    102 ; genGoto
+      00002D CCr00r35         [ 2]  103 	jp	00103$
+                                    104 ; genLabel
+      000030                        105 00102$:
+                                    106 ;	../SPLSPL/src/stm8s_tim3.c: 75: TIM3->CCER1 &= (uint8_t)(~TIM3_CCER1_CC1P);
+                                    107 ; genAnd
+      000030 A4 FD            [ 1]  108 	and	a, #0xfd
+                                    109 ; genPointerSet
+      000032 C7 53 27         [ 1]  110 	ld	0x5327, a
+                                    111 ; genLabel
+      000035                        112 00103$:
+                                    113 ;	../SPLSPL/src/stm8s_tim3.c: 78: TIM3->CCER1 |= TIM3_CCER1_CC1E;
+                                    114 ; genPointerGet
+      000035 C6 53 27         [ 1]  115 	ld	a, 0x5327
+                                    116 ; genOr
+      000038 AA 01            [ 1]  117 	or	a, #0x01
+                                    118 ; genPointerSet
+      00003A C7 53 27         [ 1]  119 	ld	0x5327, a
+                                    120 ; genLabel
+      00003D                        121 00104$:
+                                    122 ;	../SPLSPL/src/stm8s_tim3.c: 79: }
+                                    123 ; genEndFunction
+      00003D 1E 03            [ 2]  124 	ldw	x, (3, sp)
+      00003F 5B 06            [ 2]  125 	addw	sp, #6
+      000041 FC               [ 2]  126 	jp	(x)
+                                    127 ;	../SPLSPL/src/stm8s_tim3.c: 97: void TIM3_TI2_Config(uint8_t TIM3_ICPolarity,
+                                    128 ; genLabel
+                                    129 ;	-----------------------------------------
+                                    130 ;	 function TIM3_TI2_Config
+                                    131 ;	-----------------------------------------
+                                    132 ;	Register assignment might be sub-optimal.
+                                    133 ;	Stack space usage: 2 bytes.
+      000042                        134 _TIM3_TI2_Config:
+      000042 89               [ 2]  135 	pushw	x
+                                    136 ; genReceive
+      000043 6B 02            [ 1]  137 	ld	(0x02, sp), a
+                                    138 ;	../SPLSPL/src/stm8s_tim3.c: 102: TIM3->CCER1 &=  (uint8_t)(~TIM3_CCER1_CC2E);
+                                    139 ; genPointerGet
+      000045 C6 53 27         [ 1]  140 	ld	a, 0x5327
+                                    141 ; genAnd
+      000048 A4 EF            [ 1]  142 	and	a, #0xef
+                                    143 ; genPointerSet
+      00004A C7 53 27         [ 1]  144 	ld	0x5327, a
+                                    145 ;	../SPLSPL/src/stm8s_tim3.c: 105: TIM3->CCMR2 = (uint8_t)((uint8_t)(TIM3->CCMR2 & (uint8_t)(~( TIM3_CCMR_CCxS |
+                                    146 ; genPointerGet
+      00004D C6 53 26         [ 1]  147 	ld	a, 0x5326
+                                    148 ; genAnd
+      000050 A4 0C            [ 1]  149 	and	a, #0x0c
+      000052 6B 01            [ 1]  150 	ld	(0x01, sp), a
+                                    151 ;	../SPLSPL/src/stm8s_tim3.c: 107: ((uint8_t)( TIM3_ICFilter << 4))));
+                                    152 ; genCast
+                                    153 ; genAssign
+      000054 7B 06            [ 1]  154 	ld	a, (0x06, sp)
+                                    155 ; genLeftShiftLiteral
+      000056 4E               [ 1]  156 	swap	a
+      000057 A4 F0            [ 1]  157 	and	a, #0xf0
+                                    158 ; genCast
+                                    159 ; genAssign
+                                    160 ; genOr
+      000059 1A 05            [ 1]  161 	or	a, (0x05, sp)
+                                    162 ; genOr
+      00005B 1A 01            [ 1]  163 	or	a, (0x01, sp)
+                                    164 ; genPointerSet
+      00005D C7 53 26         [ 1]  165 	ld	0x5326, a
+                                    166 ;	../SPLSPL/src/stm8s_tim3.c: 102: TIM3->CCER1 &=  (uint8_t)(~TIM3_CCER1_CC2E);
+                                    167 ; genPointerGet
+      000060 C6 53 27         [ 1]  168 	ld	a, 0x5327
+                                    169 ;	../SPLSPL/src/stm8s_tim3.c: 110: if (TIM3_ICPolarity != TIM3_ICPOLARITY_RISING)
+                                    170 ; genIfx
+      000063 0D 02            [ 1]  171 	tnz	(0x02, sp)
+      000065 26 03            [ 1]  172 	jrne	00113$
+      000067 CCr00r72         [ 2]  173 	jp	00102$
+      00006A                        174 00113$:
+                                    175 ;	../SPLSPL/src/stm8s_tim3.c: 112: TIM3->CCER1 |= TIM3_CCER1_CC2P;
+                                    176 ; genOr
+      00006A AA 20            [ 1]  177 	or	a, #0x20
+                                    178 ; genPointerSet
+      00006C C7 53 27         [ 1]  179 	ld	0x5327, a
+                                    180 ; genGoto
+      00006F CCr00r77         [ 2]  181 	jp	00103$
+                                    182 ; genLabel
+      000072                        183 00102$:
+                                    184 ;	../SPLSPL/src/stm8s_tim3.c: 116: TIM3->CCER1 &= (uint8_t)(~TIM3_CCER1_CC2P);
+                                    185 ; genAnd
+      000072 A4 DF            [ 1]  186 	and	a, #0xdf
+                                    187 ; genPointerSet
+      000074 C7 53 27         [ 1]  188 	ld	0x5327, a
+                                    189 ; genLabel
+      000077                        190 00103$:
+                                    191 ;	../SPLSPL/src/stm8s_tim3.c: 120: TIM3->CCER1 |= TIM3_CCER1_CC2E;
+                                    192 ; genPointerGet
+      000077 C6 53 27         [ 1]  193 	ld	a, 0x5327
+                                    194 ; genOr
+      00007A AA 10            [ 1]  195 	or	a, #0x10
+                                    196 ; genPointerSet
+      00007C C7 53 27         [ 1]  197 	ld	0x5327, a
+                                    198 ; genLabel
+      00007F                        199 00104$:
+                                    200 ;	../SPLSPL/src/stm8s_tim3.c: 121: }
+                                    201 ; genEndFunction
+      00007F 1E 03            [ 2]  202 	ldw	x, (3, sp)
+      000081 5B 06            [ 2]  203 	addw	sp, #6
+      000083 FC               [ 2]  204 	jp	(x)
+                                    205 	.area CODE
+                                    206 	.area CONST
+                                    207 	.area INITIALIZER
+                                    208 	.area CABS (ABS)

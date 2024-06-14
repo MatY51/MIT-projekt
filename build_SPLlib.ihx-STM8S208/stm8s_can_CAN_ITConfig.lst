@@ -1,0 +1,161 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_can_CAN_ITConfig
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CAN_SelectPage
+                                     12 	.globl _CAN_GetSelectedPage
+                                     13 	.globl _CAN_ITConfig
+                                     14 ;--------------------------------------------------------
+                                     15 ; ram data
+                                     16 ;--------------------------------------------------------
+                                     17 	.area DATA
+                                     18 ;--------------------------------------------------------
+                                     19 ; ram data
+                                     20 ;--------------------------------------------------------
+                                     21 	.area INITIALIZED
+                                     22 ;--------------------------------------------------------
+                                     23 ; absolute external ram data
+                                     24 ;--------------------------------------------------------
+                                     25 	.area DABS (ABS)
+                                     26 
+                                     27 ; default segment ordering for linker
+                                     28 	.area HOME
+                                     29 	.area GSINIT
+                                     30 	.area GSFINAL
+                                     31 	.area CONST
+                                     32 	.area INITIALIZER
+                                     33 	.area CODE
+                                     34 
+                                     35 ;--------------------------------------------------------
+                                     36 ; global & static initialisations
+                                     37 ;--------------------------------------------------------
+                                     38 	.area HOME
+                                     39 	.area GSINIT
+                                     40 	.area GSFINAL
+                                     41 	.area GSINIT
+                                     42 ;--------------------------------------------------------
+                                     43 ; Home
+                                     44 ;--------------------------------------------------------
+                                     45 	.area HOME
+                                     46 	.area HOME
+                                     47 ;--------------------------------------------------------
+                                     48 ; code
+                                     49 ;--------------------------------------------------------
+                                     50 	.area CODE
+                                     51 ;	../SPLSPL/src/stm8s_can_CAN_ITConfig.c: 37: void CAN_ITConfig(CAN_IT_TypeDef CAN_IT, FunctionalState NewState)
+                                     52 ; genLabel
+                                     53 ;	-----------------------------------------
+                                     54 ;	 function CAN_ITConfig
+                                     55 ;	-----------------------------------------
+                                     56 ;	Register assignment might be sub-optimal.
+                                     57 ;	Stack space usage: 5 bytes.
+      000000                         58 _CAN_ITConfig:
+      000000 52 05            [ 2]   59 	sub	sp, #5
+                                     60 ; genReceive
+      000002 1F 04            [ 2]   61 	ldw	(0x04, sp), x
+                                     62 ; genReceive
+      000004 6B 03            [ 1]   63 	ld	(0x03, sp), a
+                                     64 ;	../SPLSPL/src/stm8s_can_CAN_ITConfig.c: 40: CAN_Page_TypeDef can_page = CAN_GetSelectedPage();
+                                     65 ; genCall
+      000006 CDr00r00         [ 4]   66 	call	_CAN_GetSelectedPage
+      000009 90 97            [ 1]   67 	ld	yl, a
+                                     68 ;	../SPLSPL/src/stm8s_can_CAN_ITConfig.c: 47: tmperrorinterrupt = (uint8_t)(((uint16_t)CAN_IT) >>7);
+                                     69 ; genCast
+                                     70 ; genAssign
+      00000B 1E 04            [ 2]   71 	ldw	x, (0x04, sp)
+                                     72 ; genRightShiftLiteral
+      00000D A6 80            [ 1]   73 	ld	a, #0x80
+      00000F 62               [ 2]   74 	div	x, a
+                                     75 ; genCast
+                                     76 ; genAssign
+                                     77 ;	../SPLSPL/src/stm8s_can_CAN_ITConfig.c: 48: tmperrorinterrupt = (uint8_t)((uint8_t)((uint16_t)tmperrorinterrupt & 0xF0) | 
+                                     78 ; genAnd
+      000010 9F               [ 1]   79 	ld	a, xl
+      000011 A4 F0            [ 1]   80 	and	a, #0xf0
+      000013 6B 02            [ 1]   81 	ld	(0x02, sp), a
+                                     82 ;	../SPLSPL/src/stm8s_can_CAN_ITConfig.c: 49: (uint8_t)((uint8_t)((uint16_t)tmperrorinterrupt & 0x0F) >>1));
+                                     83 ; genAnd
+      000015 9F               [ 1]   84 	ld	a, xl
+      000016 A4 0F            [ 1]   85 	and	a, #0x0f
+                                     86 ; genRightShiftLiteral
+      000018 44               [ 1]   87 	srl	a
+                                     88 ; genOr
+      000019 1A 02            [ 1]   89 	or	a, (0x02, sp)
+      00001B 6B 01            [ 1]   90 	ld	(0x01, sp), a
+                                     91 ;	../SPLSPL/src/stm8s_can_CAN_ITConfig.c: 51: CAN->PSR = CAN_Page_Config;
+                                     92 ; genPointerSet
+      00001D 35 06 54 27      [ 1]   93 	mov	0x5427+0, #0x06
+                                     94 ;	../SPLSPL/src/stm8s_can_CAN_ITConfig.c: 55: CAN->IER |= (uint8_t)(CAN_IT);
+                                     95 ; genPointerGet
+      000021 C6 54 25         [ 1]   96 	ld	a, 0x5425
+      000024 6B 02            [ 1]   97 	ld	(0x02, sp), a
+                                     98 ;	../SPLSPL/src/stm8s_can_CAN_ITConfig.c: 52: if (NewState != DISABLE)
+                                     99 ; genIfx
+      000026 0D 03            [ 1]  100 	tnz	(0x03, sp)
+      000028 26 03            [ 1]  101 	jrne	00113$
+      00002A CCr00r3F         [ 2]  102 	jp	00102$
+      00002D                        103 00113$:
+                                    104 ;	../SPLSPL/src/stm8s_can_CAN_ITConfig.c: 55: CAN->IER |= (uint8_t)(CAN_IT);
+                                    105 ; genCast
+                                    106 ; genAssign
+      00002D 7B 05            [ 1]  107 	ld	a, (0x05, sp)
+                                    108 ; genOr
+      00002F 1A 02            [ 1]  109 	or	a, (0x02, sp)
+                                    110 ; genPointerSet
+      000031 C7 54 25         [ 1]  111 	ld	0x5425, a
+                                    112 ;	../SPLSPL/src/stm8s_can_CAN_ITConfig.c: 56: CAN->Page.Config.EIER |= (uint8_t)(tmperrorinterrupt);
+                                    113 ; genPointerGet
+      000034 C6 54 29         [ 1]  114 	ld	a, 0x5429
+                                    115 ; genOr
+      000037 1A 01            [ 1]  116 	or	a, (0x01, sp)
+                                    117 ; genPointerSet
+      000039 C7 54 29         [ 1]  118 	ld	0x5429, a
+                                    119 ; genGoto
+      00003C CCr00r54         [ 2]  120 	jp	00103$
+                                    121 ; genLabel
+      00003F                        122 00102$:
+                                    123 ;	../SPLSPL/src/stm8s_can_CAN_ITConfig.c: 61: CAN->IER &= (uint8_t)~(uint8_t)((uint16_t)CAN_IT);
+                                    124 ; genCast
+                                    125 ; genAssign
+      00003F 7B 05            [ 1]  126 	ld	a, (0x05, sp)
+                                    127 ; genCpl
+      000041 43               [ 1]  128 	cpl	a
+                                    129 ; genAnd
+      000042 14 02            [ 1]  130 	and	a, (0x02, sp)
+                                    131 ; genPointerSet
+      000044 C7 54 25         [ 1]  132 	ld	0x5425, a
+                                    133 ;	../SPLSPL/src/stm8s_can_CAN_ITConfig.c: 62: CAN->Page.Config.EIER &= (uint8_t)~(tmperrorinterrupt);
+                                    134 ; genPointerGet
+      000047 C6 54 29         [ 1]  135 	ld	a, 0x5429
+      00004A 6B 02            [ 1]  136 	ld	(0x02, sp), a
+                                    137 ; genCpl
+      00004C 7B 01            [ 1]  138 	ld	a, (0x01, sp)
+      00004E 43               [ 1]  139 	cpl	a
+                                    140 ; genAnd
+      00004F 14 02            [ 1]  141 	and	a, (0x02, sp)
+                                    142 ; genPointerSet
+      000051 C7 54 29         [ 1]  143 	ld	0x5429, a
+                                    144 ; genLabel
+      000054                        145 00103$:
+                                    146 ;	../SPLSPL/src/stm8s_can_CAN_ITConfig.c: 65: CAN_SelectPage(can_page);
+                                    147 ; genSend
+      000054 90 9F            [ 1]  148 	ld	a, yl
+                                    149 ; genCall
+      000056 5B 05            [ 2]  150 	addw	sp, #5
+      000058 CCr00r00         [ 2]  151 	jp	_CAN_SelectPage
+                                    152 ; genLabel
+      00005B                        153 00104$:
+                                    154 ;	../SPLSPL/src/stm8s_can_CAN_ITConfig.c: 66: }
+                                    155 ; genEndFunction
+      00005B 5B 05            [ 2]  156 	addw	sp, #5
+      00005D 81               [ 4]  157 	ret
+                                    158 	.area CODE
+                                    159 	.area CONST
+                                    160 	.area INITIALIZER
+                                    161 	.area CABS (ABS)

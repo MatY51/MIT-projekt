@@ -1,0 +1,100 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_uart1_UART1_DeInit
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _UART1_DeInit
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_uart1_UART1_DeInit.c: 36: void UART1_DeInit(void)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function UART1_DeInit
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment is optimal.
+                                     55 ;	Stack space usage: 0 bytes.
+      000000                         56 _UART1_DeInit:
+                                     57 ;	../SPLSPL/src/stm8s_uart1_UART1_DeInit.c: 40: (void)UART1->SR;
+                                     58 ; genPointerGet
+                                     59 ; Dummy read
+      000000 C6 52 30         [ 1]   60 	ld	a, 0x5230
+                                     61 ;	../SPLSPL/src/stm8s_uart1_UART1_DeInit.c: 41: (void)UART1->DR;
+                                     62 ; genPointerGet
+                                     63 ; Dummy read
+      000003 C6 52 31         [ 1]   64 	ld	a, 0x5231
+                                     65 ;	../SPLSPL/src/stm8s_uart1_UART1_DeInit.c: 43: UART1->BRR2 = UART1_BRR2_RESET_VALUE;  /* Set UART1_BRR2 to reset value 0x00 */
+                                     66 ; genPointerSet
+      000006 35 00 52 33      [ 1]   67 	mov	0x5233+0, #0x00
+                                     68 ;	../SPLSPL/src/stm8s_uart1_UART1_DeInit.c: 44: UART1->BRR1 = UART1_BRR1_RESET_VALUE;  /* Set UART1_BRR1 to reset value 0x00 */
+                                     69 ; genPointerSet
+      00000A 35 00 52 32      [ 1]   70 	mov	0x5232+0, #0x00
+                                     71 ;	../SPLSPL/src/stm8s_uart1_UART1_DeInit.c: 46: UART1->CR1 = UART1_CR1_RESET_VALUE;  /* Set UART1_CR1 to reset value 0x00 */
+                                     72 ; genPointerSet
+      00000E 35 00 52 34      [ 1]   73 	mov	0x5234+0, #0x00
+                                     74 ;	../SPLSPL/src/stm8s_uart1_UART1_DeInit.c: 47: UART1->CR2 = UART1_CR2_RESET_VALUE;  /* Set UART1_CR2 to reset value 0x00 */
+                                     75 ; genPointerSet
+      000012 35 00 52 35      [ 1]   76 	mov	0x5235+0, #0x00
+                                     77 ;	../SPLSPL/src/stm8s_uart1_UART1_DeInit.c: 48: UART1->CR3 = UART1_CR3_RESET_VALUE;  /* Set UART1_CR3 to reset value 0x00 */
+                                     78 ; genPointerSet
+      000016 35 00 52 36      [ 1]   79 	mov	0x5236+0, #0x00
+                                     80 ;	../SPLSPL/src/stm8s_uart1_UART1_DeInit.c: 49: UART1->CR4 = UART1_CR4_RESET_VALUE;  /* Set UART1_CR4 to reset value 0x00 */
+                                     81 ; genPointerSet
+      00001A 35 00 52 37      [ 1]   82 	mov	0x5237+0, #0x00
+                                     83 ;	../SPLSPL/src/stm8s_uart1_UART1_DeInit.c: 50: UART1->CR5 = UART1_CR5_RESET_VALUE;  /* Set UART1_CR5 to reset value 0x00 */
+                                     84 ; genPointerSet
+      00001E 35 00 52 38      [ 1]   85 	mov	0x5238+0, #0x00
+                                     86 ;	../SPLSPL/src/stm8s_uart1_UART1_DeInit.c: 52: UART1->GTR = UART1_GTR_RESET_VALUE;
+                                     87 ; genPointerSet
+      000022 35 00 52 39      [ 1]   88 	mov	0x5239+0, #0x00
+                                     89 ;	../SPLSPL/src/stm8s_uart1_UART1_DeInit.c: 53: UART1->PSCR = UART1_PSCR_RESET_VALUE;
+                                     90 ; genPointerSet
+      000026 35 00 52 3A      [ 1]   91 	mov	0x523a+0, #0x00
+                                     92 ; genLabel
+      00002A                         93 00101$:
+                                     94 ;	../SPLSPL/src/stm8s_uart1_UART1_DeInit.c: 54: }
+                                     95 ; genEndFunction
+      00002A 81               [ 4]   96 	ret
+                                     97 	.area CODE
+                                     98 	.area CONST
+                                     99 	.area INITIALIZER
+                                    100 	.area CABS (ABS)

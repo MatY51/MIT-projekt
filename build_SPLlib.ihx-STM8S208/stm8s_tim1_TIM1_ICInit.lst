@@ -1,0 +1,182 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_tim1_TIM1_ICInit
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TIM1_TI4_Config
+                                     12 	.globl _TIM1_TI3_Config
+                                     13 	.globl _TIM1_TI2_Config
+                                     14 	.globl _TIM1_TI1_Config
+                                     15 	.globl _TIM1_SetIC4Prescaler
+                                     16 	.globl _TIM1_SetIC3Prescaler
+                                     17 	.globl _TIM1_SetIC2Prescaler
+                                     18 	.globl _TIM1_SetIC1Prescaler
+                                     19 	.globl _TIM1_ICInit
+                                     20 ;--------------------------------------------------------
+                                     21 ; ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DATA
+                                     24 ;--------------------------------------------------------
+                                     25 ; ram data
+                                     26 ;--------------------------------------------------------
+                                     27 	.area INITIALIZED
+                                     28 ;--------------------------------------------------------
+                                     29 ; absolute external ram data
+                                     30 ;--------------------------------------------------------
+                                     31 	.area DABS (ABS)
+                                     32 
+                                     33 ; default segment ordering for linker
+                                     34 	.area HOME
+                                     35 	.area GSINIT
+                                     36 	.area GSFINAL
+                                     37 	.area CONST
+                                     38 	.area INITIALIZER
+                                     39 	.area CODE
+                                     40 
+                                     41 ;--------------------------------------------------------
+                                     42 ; global & static initialisations
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area GSINIT
+                                     46 	.area GSFINAL
+                                     47 	.area GSINIT
+                                     48 ;--------------------------------------------------------
+                                     49 ; Home
+                                     50 ;--------------------------------------------------------
+                                     51 	.area HOME
+                                     52 	.area HOME
+                                     53 ;--------------------------------------------------------
+                                     54 ; code
+                                     55 ;--------------------------------------------------------
+                                     56 	.area CODE
+                                     57 ;	../SPLSPL/src/stm8s_tim1_TIM1_ICInit.c: 44: void TIM1_ICInit(TIM1_Channel_TypeDef TIM1_Channel,
+                                     58 ; genLabel
+                                     59 ;	-----------------------------------------
+                                     60 ;	 function TIM1_ICInit
+                                     61 ;	-----------------------------------------
+                                     62 ;	Register assignment is optimal.
+                                     63 ;	Stack space usage: 0 bytes.
+      000000                         64 _TIM1_ICInit:
+                                     65 ; genReceive
+                                     66 ;	../SPLSPL/src/stm8s_tim1_TIM1_ICInit.c: 60: TIM1_TI1_Config((uint8_t)TIM1_ICPolarity,
+                                     67 ; genCast
+                                     68 ; genAssign
+      000000 41               [ 1]   69 	exg	a, xl
+      000001 7B 03            [ 1]   70 	ld	a, (0x03, sp)
+      000003 41               [ 1]   71 	exg	a, xl
+                                     72 ;	../SPLSPL/src/stm8s_tim1_TIM1_ICInit.c: 57: if (TIM1_Channel == TIM1_CHANNEL_1)
+                                     73 ; genIfx
+      000004 4D               [ 1]   74 	tnz	a
+      000005 27 03            [ 1]   75 	jreq	00133$
+      000007 CCr00r1C         [ 2]   76 	jp	00108$
+      00000A                         77 00133$:
+                                     78 ;	../SPLSPL/src/stm8s_tim1_TIM1_ICInit.c: 60: TIM1_TI1_Config((uint8_t)TIM1_ICPolarity,
+                                     79 ; genIPush
+      00000A 7B 06            [ 1]   80 	ld	a, (0x06, sp)
+      00000C 88               [ 1]   81 	push	a
+                                     82 ; genIPush
+      00000D 7B 05            [ 1]   83 	ld	a, (0x05, sp)
+      00000F 88               [ 1]   84 	push	a
+                                     85 ; genSend
+      000010 9F               [ 1]   86 	ld	a, xl
+                                     87 ; genCall
+      000011 CDr00r00         [ 4]   88 	call	_TIM1_TI1_Config
+                                     89 ;	../SPLSPL/src/stm8s_tim1_TIM1_ICInit.c: 64: TIM1_SetIC1Prescaler(TIM1_ICPrescaler);
+                                     90 ; genSend
+      000014 7B 05            [ 1]   91 	ld	a, (0x05, sp)
+                                     92 ; genCall
+      000016 CDr00r00         [ 4]   93 	call	_TIM1_SetIC1Prescaler
+                                     94 ; genGoto
+      000019 CCr00r63         [ 2]   95 	jp	00110$
+                                     96 ; genLabel
+      00001C                         97 00108$:
+                                     98 ;	../SPLSPL/src/stm8s_tim1_TIM1_ICInit.c: 66: else if (TIM1_Channel == TIM1_CHANNEL_2)
+                                     99 ; genCmpEQorNE
+      00001C A1 01            [ 1]  100 	cp	a, #0x01
+      00001E 26 03            [ 1]  101 	jrne	00135$
+      000020 CCr00r26         [ 2]  102 	jp	00136$
+      000023                        103 00135$:
+      000023 CCr00r38         [ 2]  104 	jp	00105$
+      000026                        105 00136$:
+                                    106 ; skipping generated iCode
+                                    107 ;	../SPLSPL/src/stm8s_tim1_TIM1_ICInit.c: 69: TIM1_TI2_Config((uint8_t)TIM1_ICPolarity,
+                                    108 ; genIPush
+      000026 7B 06            [ 1]  109 	ld	a, (0x06, sp)
+      000028 88               [ 1]  110 	push	a
+                                    111 ; genIPush
+      000029 7B 05            [ 1]  112 	ld	a, (0x05, sp)
+      00002B 88               [ 1]  113 	push	a
+                                    114 ; genSend
+      00002C 9F               [ 1]  115 	ld	a, xl
+                                    116 ; genCall
+      00002D CDr00r00         [ 4]  117 	call	_TIM1_TI2_Config
+                                    118 ;	../SPLSPL/src/stm8s_tim1_TIM1_ICInit.c: 73: TIM1_SetIC2Prescaler(TIM1_ICPrescaler);
+                                    119 ; genSend
+      000030 7B 05            [ 1]  120 	ld	a, (0x05, sp)
+                                    121 ; genCall
+      000032 CDr00r00         [ 4]  122 	call	_TIM1_SetIC2Prescaler
+                                    123 ; genGoto
+      000035 CCr00r63         [ 2]  124 	jp	00110$
+                                    125 ; genLabel
+      000038                        126 00105$:
+                                    127 ;	../SPLSPL/src/stm8s_tim1_TIM1_ICInit.c: 75: else if (TIM1_Channel == TIM1_CHANNEL_3)
+                                    128 ; genCmpEQorNE
+      000038 A1 02            [ 1]  129 	cp	a, #0x02
+      00003A 26 03            [ 1]  130 	jrne	00138$
+      00003C CCr00r42         [ 2]  131 	jp	00139$
+      00003F                        132 00138$:
+      00003F CCr00r54         [ 2]  133 	jp	00102$
+      000042                        134 00139$:
+                                    135 ; skipping generated iCode
+                                    136 ;	../SPLSPL/src/stm8s_tim1_TIM1_ICInit.c: 78: TIM1_TI3_Config((uint8_t)TIM1_ICPolarity,
+                                    137 ; genIPush
+      000042 7B 06            [ 1]  138 	ld	a, (0x06, sp)
+      000044 88               [ 1]  139 	push	a
+                                    140 ; genIPush
+      000045 7B 05            [ 1]  141 	ld	a, (0x05, sp)
+      000047 88               [ 1]  142 	push	a
+                                    143 ; genSend
+      000048 9F               [ 1]  144 	ld	a, xl
+                                    145 ; genCall
+      000049 CDr00r00         [ 4]  146 	call	_TIM1_TI3_Config
+                                    147 ;	../SPLSPL/src/stm8s_tim1_TIM1_ICInit.c: 82: TIM1_SetIC3Prescaler(TIM1_ICPrescaler);
+                                    148 ; genSend
+      00004C 7B 05            [ 1]  149 	ld	a, (0x05, sp)
+                                    150 ; genCall
+      00004E CDr00r00         [ 4]  151 	call	_TIM1_SetIC3Prescaler
+                                    152 ; genGoto
+      000051 CCr00r63         [ 2]  153 	jp	00110$
+                                    154 ; genLabel
+      000054                        155 00102$:
+                                    156 ;	../SPLSPL/src/stm8s_tim1_TIM1_ICInit.c: 87: TIM1_TI4_Config((uint8_t)TIM1_ICPolarity,
+                                    157 ; genIPush
+      000054 7B 06            [ 1]  158 	ld	a, (0x06, sp)
+      000056 88               [ 1]  159 	push	a
+                                    160 ; genIPush
+      000057 7B 05            [ 1]  161 	ld	a, (0x05, sp)
+      000059 88               [ 1]  162 	push	a
+                                    163 ; genSend
+      00005A 9F               [ 1]  164 	ld	a, xl
+                                    165 ; genCall
+      00005B CDr00r00         [ 4]  166 	call	_TIM1_TI4_Config
+                                    167 ;	../SPLSPL/src/stm8s_tim1_TIM1_ICInit.c: 91: TIM1_SetIC4Prescaler(TIM1_ICPrescaler);
+                                    168 ; genSend
+      00005E 7B 05            [ 1]  169 	ld	a, (0x05, sp)
+                                    170 ; genCall
+      000060 CDr00r00         [ 4]  171 	call	_TIM1_SetIC4Prescaler
+                                    172 ; genLabel
+      000063                        173 00110$:
+                                    174 ;	../SPLSPL/src/stm8s_tim1_TIM1_ICInit.c: 93: }
+                                    175 ; genEndFunction
+      000063 1E 01            [ 2]  176 	ldw	x, (1, sp)
+      000065 5B 06            [ 2]  177 	addw	sp, #6
+      000067 FC               [ 2]  178 	jp	(x)
+                                    179 	.area CODE
+                                    180 	.area CONST
+                                    181 	.area INITIALIZER
+                                    182 	.area CABS (ABS)

@@ -1,0 +1,165 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_flash_FLASH_ProgramWord
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _write_byte_address
+                                     12 	.globl _FLASH_ProgramWord
+                                     13 ;--------------------------------------------------------
+                                     14 ; ram data
+                                     15 ;--------------------------------------------------------
+                                     16 	.area DATA
+                                     17 ;--------------------------------------------------------
+                                     18 ; ram data
+                                     19 ;--------------------------------------------------------
+                                     20 	.area INITIALIZED
+                                     21 ;--------------------------------------------------------
+                                     22 ; absolute external ram data
+                                     23 ;--------------------------------------------------------
+                                     24 	.area DABS (ABS)
+                                     25 
+                                     26 ; default segment ordering for linker
+                                     27 	.area HOME
+                                     28 	.area GSINIT
+                                     29 	.area GSFINAL
+                                     30 	.area CONST
+                                     31 	.area INITIALIZER
+                                     32 	.area CODE
+                                     33 
+                                     34 ;--------------------------------------------------------
+                                     35 ; global & static initialisations
+                                     36 ;--------------------------------------------------------
+                                     37 	.area HOME
+                                     38 	.area GSINIT
+                                     39 	.area GSFINAL
+                                     40 	.area GSINIT
+                                     41 ;--------------------------------------------------------
+                                     42 ; Home
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area HOME
+                                     46 ;--------------------------------------------------------
+                                     47 ; code
+                                     48 ;--------------------------------------------------------
+                                     49 	.area CODE
+                                     50 ;	../SPLSPL/src/stm8s_flash_FLASH_ProgramWord.c: 40: void FLASH_ProgramWord(uint32_t Address, uint32_t Data)
+                                     51 ; genLabel
+                                     52 ;	-----------------------------------------
+                                     53 ;	 function FLASH_ProgramWord
+                                     54 ;	-----------------------------------------
+                                     55 ;	Register assignment might be sub-optimal.
+                                     56 ;	Stack space usage: 0 bytes.
+      000000                         57 _FLASH_ProgramWord:
+                                     58 ;	../SPLSPL/src/stm8s_flash_FLASH_ProgramWord.c: 46: FLASH->CR2 |= FLASH_CR2_WPRG;
+                                     59 ; genPointerGet
+      000000 C6 50 5B         [ 1]   60 	ld	a, 0x505b
+                                     61 ; genOr
+      000003 AA 40            [ 1]   62 	or	a, #0x40
+                                     63 ; genPointerSet
+      000005 C7 50 5B         [ 1]   64 	ld	0x505b, a
+                                     65 ;	../SPLSPL/src/stm8s_flash_FLASH_ProgramWord.c: 47: FLASH->NCR2 &= (uint8_t)(~FLASH_NCR2_NWPRG);
+                                     66 ; genPointerGet
+      000008 C6 50 5C         [ 1]   67 	ld	a, 0x505c
+                                     68 ; genAnd
+      00000B A4 BF            [ 1]   69 	and	a, #0xbf
+                                     70 ; genPointerSet
+      00000D C7 50 5C         [ 1]   71 	ld	0x505c, a
+                                     72 ;	../SPLSPL/src/stm8s_flash_FLASH_ProgramWord.c: 60: write_byte_address((MemoryAddressCast) (Address    ), *((uint8_t*)(&Data)));
+                                     73 ; skipping iCode since result will be rematerialized
+                                     74 ; genCast
+                                     75 ; genAssign
+      000010 96               [ 1]   76 	ldw	x, sp
+      000011 1C 00 07         [ 2]   77 	addw	x, #7
+                                     78 ; genPointerGet
+      000014 F6               [ 1]   79 	ld	a, (x)
+                                     80 ; genIPush
+      000015 88               [ 1]   81 	push	a
+                                     82 ; genIPush
+      000016 1E 06            [ 2]   83 	ldw	x, (0x06, sp)
+      000018 89               [ 2]   84 	pushw	x
+      000019 1E 06            [ 2]   85 	ldw	x, (0x06, sp)
+      00001B 89               [ 2]   86 	pushw	x
+                                     87 ; genCall
+      00001C CDr00r00         [ 4]   88 	call	_write_byte_address
+                                     89 ;	../SPLSPL/src/stm8s_flash_FLASH_ProgramWord.c: 61: write_byte_address((MemoryAddressCast) (Address + 1), *((uint8_t*)(&Data)+1));
+                                     90 ; genAssign
+      00001F 96               [ 1]   91 	ldw	x, sp
+      000020 1C 00 07         [ 2]   92 	addw	x, #7
+                                     93 ; genCast
+                                     94 ; genAssign
+                                     95 ; genPointerGet
+      000023 E6 01            [ 1]   96 	ld	a, (0x1, x)
+                                     97 ; genPlus
+      000025 1E 05            [ 2]   98 	ldw	x, (0x05, sp)
+      000027 1C 00 01         [ 2]   99 	addw	x, #0x0001
+      00002A 16 03            [ 2]  100 	ldw	y, (0x03, sp)
+      00002C 24 02            [ 1]  101 	jrnc	00103$
+      00002E 90 5C            [ 1]  102 	incw	y
+      000030                        103 00103$:
+                                    104 ; genIPush
+      000030 88               [ 1]  105 	push	a
+                                    106 ; genIPush
+      000031 89               [ 2]  107 	pushw	x
+      000032 90 89            [ 2]  108 	pushw	y
+                                    109 ; genCall
+      000034 CDr00r00         [ 4]  110 	call	_write_byte_address
+                                    111 ;	../SPLSPL/src/stm8s_flash_FLASH_ProgramWord.c: 62: write_byte_address((MemoryAddressCast) (Address + 2), *((uint8_t*)(&Data)+2));
+                                    112 ; genAssign
+      000037 96               [ 1]  113 	ldw	x, sp
+      000038 1C 00 07         [ 2]  114 	addw	x, #7
+                                    115 ; genCast
+                                    116 ; genAssign
+                                    117 ; genPointerGet
+      00003B E6 02            [ 1]  118 	ld	a, (0x2, x)
+                                    119 ; genPlus
+      00003D 1E 05            [ 2]  120 	ldw	x, (0x05, sp)
+      00003F 1C 00 02         [ 2]  121 	addw	x, #0x0002
+      000042 16 03            [ 2]  122 	ldw	y, (0x03, sp)
+      000044 24 02            [ 1]  123 	jrnc	00104$
+      000046 90 5C            [ 1]  124 	incw	y
+      000048                        125 00104$:
+                                    126 ; genIPush
+      000048 88               [ 1]  127 	push	a
+                                    128 ; genIPush
+      000049 89               [ 2]  129 	pushw	x
+      00004A 90 89            [ 2]  130 	pushw	y
+                                    131 ; genCall
+      00004C CDr00r00         [ 4]  132 	call	_write_byte_address
+                                    133 ;	../SPLSPL/src/stm8s_flash_FLASH_ProgramWord.c: 63: write_byte_address((MemoryAddressCast) (Address + 3), *((uint8_t*)(&Data)+3));
+                                    134 ; genAssign
+      00004F 96               [ 1]  135 	ldw	x, sp
+      000050 1C 00 07         [ 2]  136 	addw	x, #7
+                                    137 ; genCast
+                                    138 ; genAssign
+                                    139 ; genPointerGet
+      000053 E6 03            [ 1]  140 	ld	a, (0x3, x)
+                                    141 ; genPlus
+      000055 1E 05            [ 2]  142 	ldw	x, (0x05, sp)
+      000057 1C 00 03         [ 2]  143 	addw	x, #0x0003
+      00005A 16 03            [ 2]  144 	ldw	y, (0x03, sp)
+      00005C 24 02            [ 1]  145 	jrnc	00105$
+      00005E 90 5C            [ 1]  146 	incw	y
+      000060                        147 00105$:
+                                    148 ; genIPush
+      000060 88               [ 1]  149 	push	a
+                                    150 ; genIPush
+      000061 89               [ 2]  151 	pushw	x
+      000062 90 89            [ 2]  152 	pushw	y
+                                    153 ; genCall
+      000064 CDr00r00         [ 4]  154 	call	_write_byte_address
+                                    155 ; genLabel
+      000067                        156 00101$:
+                                    157 ;	../SPLSPL/src/stm8s_flash_FLASH_ProgramWord.c: 65: }
+                                    158 ; genEndFunction
+      000067 1E 01            [ 2]  159 	ldw	x, (1, sp)
+      000069 5B 0A            [ 2]  160 	addw	sp, #10
+      00006B FC               [ 2]  161 	jp	(x)
+                                    162 	.area CODE
+                                    163 	.area CONST
+                                    164 	.area INITIALIZER
+                                    165 	.area CABS (ABS)

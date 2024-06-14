@@ -1,0 +1,35 @@
+XH3
+H B areas 2 global symbols
+M stm8s_spi_SPI_GetCRC
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 10 flags 0 addr 0
+S _SPI_GetCRC Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 4D 26 03 CC 00 0C
+R 00 00 00 09 00 07 00 09
+T 00 00 06
+R 00 00 00 09
+T 00 00 06 C6 52 07 CC 00 0F
+R 00 00 00 09 00 07 00 09
+T 00 00 0C
+R 00 00 00 09
+T 00 00 0C C6 52 06
+R 00 00 00 09
+T 00 00 0F
+R 00 00 00 09
+T 00 00 0F
+R 00 00 00 09
+T 00 00 0F 81
+R 00 00 00 09

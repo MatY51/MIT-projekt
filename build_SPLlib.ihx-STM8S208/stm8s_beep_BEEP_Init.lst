@@ -1,0 +1,112 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_beep_BEEP_Init
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _BEEP_Init
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_beep_BEEP_Init.c: 39: void BEEP_Init(BEEP_Frequency_TypeDef BEEP_Frequency)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function BEEP_Init
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment is optimal.
+                                     55 ;	Stack space usage: 1 bytes.
+      000000                         56 _BEEP_Init:
+      000000 88               [ 1]   57 	push	a
+                                     58 ; genReceive
+      000001 6B 01            [ 1]   59 	ld	(0x01, sp), a
+                                     60 ;	../SPLSPL/src/stm8s_beep_BEEP_Init.c: 45: if ((BEEP->CSR & BEEP_CSR_BEEPDIV) == BEEP_CSR_BEEPDIV)
+                                     61 ; genPointerGet
+      000003 C6 50 F3         [ 1]   62 	ld	a, 0x50f3
+                                     63 ; genAnd
+      000006 A4 1F            [ 1]   64 	and	a, #0x1f
+                                     65 ; genCmpEQorNE
+      000008 A1 1F            [ 1]   66 	cp	a, #0x1f
+      00000A 26 03            [ 1]   67 	jrne	00113$
+      00000C CCr00r12         [ 2]   68 	jp	00114$
+      00000F                         69 00113$:
+      00000F CCr00r22         [ 2]   70 	jp	00102$
+      000012                         71 00114$:
+                                     72 ; skipping generated iCode
+                                     73 ;	../SPLSPL/src/stm8s_beep_BEEP_Init.c: 47: BEEP->CSR &= (uint8_t)(~BEEP_CSR_BEEPDIV); /* Clear bits */
+                                     74 ; genPointerGet
+      000012 C6 50 F3         [ 1]   75 	ld	a, 0x50f3
+                                     76 ; genAnd
+      000015 A4 E0            [ 1]   77 	and	a, #0xe0
+                                     78 ; genPointerSet
+      000017 C7 50 F3         [ 1]   79 	ld	0x50f3, a
+                                     80 ;	../SPLSPL/src/stm8s_beep_BEEP_Init.c: 48: BEEP->CSR |= BEEP_CALIBRATION_DEFAULT;
+                                     81 ; genPointerGet
+      00001A C6 50 F3         [ 1]   82 	ld	a, 0x50f3
+                                     83 ; genOr
+      00001D AA 0B            [ 1]   84 	or	a, #0x0b
+                                     85 ; genPointerSet
+      00001F C7 50 F3         [ 1]   86 	ld	0x50f3, a
+                                     87 ; genLabel
+      000022                         88 00102$:
+                                     89 ;	../SPLSPL/src/stm8s_beep_BEEP_Init.c: 52: BEEP->CSR &= (uint8_t)(~BEEP_CSR_BEEPSEL);
+                                     90 ; genPointerGet
+      000022 C6 50 F3         [ 1]   91 	ld	a, 0x50f3
+                                     92 ; genAnd
+      000025 A4 3F            [ 1]   93 	and	a, #0x3f
+                                     94 ; genPointerSet
+      000027 C7 50 F3         [ 1]   95 	ld	0x50f3, a
+                                     96 ;	../SPLSPL/src/stm8s_beep_BEEP_Init.c: 53: BEEP->CSR |= (uint8_t)(BEEP_Frequency);
+                                     97 ; genPointerGet
+      00002A C6 50 F3         [ 1]   98 	ld	a, 0x50f3
+                                     99 ; genOr
+      00002D 1A 01            [ 1]  100 	or	a, (0x01, sp)
+                                    101 ; genPointerSet
+      00002F C7 50 F3         [ 1]  102 	ld	0x50f3, a
+                                    103 ; genLabel
+      000032                        104 00103$:
+                                    105 ;	../SPLSPL/src/stm8s_beep_BEEP_Init.c: 54: }
+                                    106 ; genEndFunction
+      000032 84               [ 1]  107 	pop	a
+      000033 81               [ 4]  108 	ret
+                                    109 	.area CODE
+                                    110 	.area CONST
+                                    111 	.area INITIALIZER
+                                    112 	.area CABS (ABS)

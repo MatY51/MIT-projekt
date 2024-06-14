@@ -1,0 +1,46 @@
+XH3
+H B areas 5 global symbols
+M stm8s_tim1_TIM1_TIxExternalClockConfig
+O -mstm8
+S _TIM1_TI1_Config Ref000000
+S _TIM1_SelectInputTrigger Ref000000
+S _TIM1_TI2_Config Ref000000
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 39 flags 0 addr 0
+S _TIM1_TIxExternalClockConfig Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 88 6B 01 7B 04 97 7B 01 A1 60 26 03 CC
+R 00 00 00 09
+T 00 00 0D 00 12
+R 00 00 00 09 00 03 00 09
+T 00 00 0F
+R 00 00 00 09
+T 00 00 0F CC 00 1E
+R 00 00 00 09 00 04 00 09
+T 00 00 12
+R 00 00 00 09
+T 00 00 12 7B 05 88 4B 01 9F CD 00 00 CC 00 27
+R 00 00 00 09 02 0A 00 02 00 0D 00 09
+T 00 00 1E
+R 00 00 00 09
+T 00 00 1E 7B 05 88 4B 01 9F CD 00 00
+R 00 00 00 09 02 0A 00 00
+T 00 00 27
+R 00 00 00 09
+T 00 00 27 7B 01 CD 00 00 C6 52 52 AA 07 C7 52 52
+R 00 00 00 09 02 06 00 01
+T 00 00 34
+R 00 00 00 09
+T 00 00 34 1E 02 5B 05 FC
+R 00 00 00 09

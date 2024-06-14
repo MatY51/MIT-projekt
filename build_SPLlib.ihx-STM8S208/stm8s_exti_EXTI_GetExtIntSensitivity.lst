@@ -1,0 +1,161 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_exti_EXTI_GetExtIntSensitivity
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _EXTI_GetExtIntSensitivity
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 36: EXTI_Sensitivity_TypeDef EXTI_GetExtIntSensitivity(EXTI_Port_TypeDef Port)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function EXTI_GetExtIntSensitivity
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment is optimal.
+                                     55 ;	Stack space usage: 0 bytes.
+      000000                         56 _EXTI_GetExtIntSensitivity:
+                                     57 ; genReceive
+      000000 97               [ 1]   58 	ld	xl, a
+                                     59 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 38: uint8_t value = 0;
+                                     60 ; genAssign
+      000001 4F               [ 1]   61 	clr	a
+                                     62 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 43: switch (Port)
+                                     63 ; genCmp
+                                     64 ; genCmpTnz
+      000002 88               [ 1]   65 	push	a
+      000003 9F               [ 1]   66 	ld	a, xl
+      000004 A1 04            [ 1]   67 	cp	a, #0x04
+      000006 84               [ 1]   68 	pop	a
+      000007 23 03            [ 2]   69 	jrule	00117$
+      000009 CCr00r4C         [ 2]   70 	jp	00107$
+      00000C                         71 00117$:
+                                     72 ; skipping generated iCode
+                                     73 ; genJumpTab
+      00000C 4F               [ 1]   74 	clr	a
+      00000D 95               [ 1]   75 	ld	xh, a
+      00000E 58               [ 2]   76 	sllw	x
+      00000F DEu00u13         [ 2]   77 	ldw	x, (#00118$, x)
+      000012 FC               [ 2]   78 	jp	(x)
+      000013                         79 00118$:
+      000013r00r1D                   80 	.dw	#00101$
+      000015r00r25                   81 	.dw	#00102$
+      000017r00r2F                   82 	.dw	#00103$
+      000019r00r3A                   83 	.dw	#00104$
+      00001Br00r47                   84 	.dw	#00105$
+                                     85 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 45: case EXTI_PORT_GPIOA:
+                                     86 ; genLabel
+      00001D                         87 00101$:
+                                     88 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 46: value = (uint8_t)(EXTI->CR1 & EXTI_CR1_PAIS);
+                                     89 ; genPointerGet
+      00001D C6 50 A0         [ 1]   90 	ld	a, 0x50a0
+                                     91 ; genAnd
+      000020 A4 03            [ 1]   92 	and	a, #0x03
+                                     93 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 47: break;
+                                     94 ; genGoto
+      000022 CCr00r4C         [ 2]   95 	jp	00107$
+                                     96 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 48: case EXTI_PORT_GPIOB:
+                                     97 ; genLabel
+      000025                         98 00102$:
+                                     99 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 49: value = (uint8_t)((uint8_t)(EXTI->CR1 & EXTI_CR1_PBIS) >> 2);
+                                    100 ; genPointerGet
+      000025 C6 50 A0         [ 1]  101 	ld	a, 0x50a0
+                                    102 ; genAnd
+      000028 A4 0C            [ 1]  103 	and	a, #0x0c
+                                    104 ; genRightShiftLiteral
+      00002A 44               [ 1]  105 	srl	a
+      00002B 44               [ 1]  106 	srl	a
+                                    107 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 50: break;
+                                    108 ; genGoto
+      00002C CCr00r4C         [ 2]  109 	jp	00107$
+                                    110 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 51: case EXTI_PORT_GPIOC:
+                                    111 ; genLabel
+      00002F                        112 00103$:
+                                    113 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 52: value = (uint8_t)((uint8_t)(EXTI->CR1 & EXTI_CR1_PCIS) >> 4);
+                                    114 ; genPointerGet
+      00002F C6 50 A0         [ 1]  115 	ld	a, 0x50a0
+                                    116 ; genAnd
+      000032 A4 30            [ 1]  117 	and	a, #0x30
+                                    118 ; genRightShiftLiteral
+      000034 4E               [ 1]  119 	swap	a
+      000035 A4 0F            [ 1]  120 	and	a, #0x0f
+                                    121 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 53: break;
+                                    122 ; genGoto
+      000037 CCr00r4C         [ 2]  123 	jp	00107$
+                                    124 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 54: case EXTI_PORT_GPIOD:
+                                    125 ; genLabel
+      00003A                        126 00104$:
+                                    127 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 55: value = (uint8_t)((uint8_t)(EXTI->CR1 & EXTI_CR1_PDIS) >> 6);
+                                    128 ; genPointerGet
+      00003A C6 50 A0         [ 1]  129 	ld	a, 0x50a0
+                                    130 ; genAnd
+      00003D A4 C0            [ 1]  131 	and	a, #0xc0
+                                    132 ; genRightShiftLiteral
+      00003F 4E               [ 1]  133 	swap	a
+      000040 A4 0F            [ 1]  134 	and	a, #0x0f
+      000042 44               [ 1]  135 	srl	a
+      000043 44               [ 1]  136 	srl	a
+                                    137 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 56: break;
+                                    138 ; genGoto
+      000044 CCr00r4C         [ 2]  139 	jp	00107$
+                                    140 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 57: case EXTI_PORT_GPIOE:
+                                    141 ; genLabel
+      000047                        142 00105$:
+                                    143 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 58: value = (uint8_t)(EXTI->CR2 & EXTI_CR2_PEIS);
+                                    144 ; genPointerGet
+      000047 C6 50 A1         [ 1]  145 	ld	a, 0x50a1
+                                    146 ; genAnd
+      00004A A4 03            [ 1]  147 	and	a, #0x03
+                                    148 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 62: }
+                                    149 ; genLabel
+      00004C                        150 00107$:
+                                    151 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 64: return((EXTI_Sensitivity_TypeDef)value);
+                                    152 ; genReturn
+                                    153 ; genLabel
+      00004C                        154 00108$:
+                                    155 ;	../SPLSPL/src/stm8s_exti_EXTI_GetExtIntSensitivity.c: 65: }
+                                    156 ; genEndFunction
+      00004C 81               [ 4]  157 	ret
+                                    158 	.area CODE
+                                    159 	.area CONST
+                                    160 	.area INITIALIZER
+                                    161 	.area CABS (ABS)

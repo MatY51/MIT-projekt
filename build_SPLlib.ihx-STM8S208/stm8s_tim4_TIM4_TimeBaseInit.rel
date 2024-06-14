@@ -1,0 +1,25 @@
+XH3
+H B areas 2 global symbols
+M stm8s_tim4_TIM4_TimeBaseInit
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size C flags 0 addr 0
+S _TIM4_TimeBaseInit Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 C7 53 45 AE 53 46 7B 03 F7
+R 00 00 00 09
+T 00 00 09
+R 00 00 00 09
+T 00 00 09 85 84 FC
+R 00 00 00 09

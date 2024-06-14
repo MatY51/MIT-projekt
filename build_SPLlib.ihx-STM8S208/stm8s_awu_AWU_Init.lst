@@ -1,0 +1,122 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_awu_AWU_Init
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _AWU_Init
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_awu_AWU_Init.c: 40: void AWU_Init(AWU_Timebase_TypeDef AWU_TimeBase)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function AWU_Init
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 1 bytes.
+      000000                         56 _AWU_Init:
+      000000 88               [ 1]   57 	push	a
+                                     58 ; genReceive
+      000001 97               [ 1]   59 	ld	xl, a
+                                     60 ;	../SPLSPL/src/stm8s_awu_AWU_Init.c: 46: AWU->CSR |= AWU_CSR_AWUEN;
+                                     61 ; genPointerGet
+      000002 C6 50 F0         [ 1]   62 	ld	a, 0x50f0
+                                     63 ; genOr
+      000005 AA 10            [ 1]   64 	or	a, #0x10
+                                     65 ; genPointerSet
+      000007 C7 50 F0         [ 1]   66 	ld	0x50f0, a
+                                     67 ;	../SPLSPL/src/stm8s_awu_AWU_Init.c: 49: AWU->TBR &= (uint8_t)(~AWU_TBR_AWUTB);
+                                     68 ; genPointerGet
+      00000A C6 50 F2         [ 1]   69 	ld	a, 0x50f2
+                                     70 ; genAnd
+      00000D A4 F0            [ 1]   71 	and	a, #0xf0
+                                     72 ; genPointerSet
+      00000F C7 50 F2         [ 1]   73 	ld	0x50f2, a
+                                     74 ;	../SPLSPL/src/stm8s_awu_AWU_Init.c: 50: AWU->TBR |= TBR_Array[(uint8_t)AWU_TimeBase];
+                                     75 ; genPointerGet
+      000012 C6 50 F2         [ 1]   76 	ld	a, 0x50f2
+      000015 6B 01            [ 1]   77 	ld	(0x01, sp), a
+                                     78 ; skipping iCode since result will be rematerialized
+                                     79 ; genPlus
+      000017 90 5F            [ 1]   80 	clrw	y
+      000019 61               [ 1]   81 	exg	a, yl
+      00001A 9F               [ 1]   82 	ld	a, xl
+      00001B 61               [ 1]   83 	exg	a, yl
+      00001C 72 A9r00r00      [ 2]   84 	addw	y, #(_TBR_Array+0)
+                                     85 ; genPointerGet
+      000020 90 F6            [ 1]   86 	ld	a, (y)
+                                     87 ; genOr
+      000022 1A 01            [ 1]   88 	or	a, (0x01, sp)
+                                     89 ; genPointerSet
+      000024 C7 50 F2         [ 1]   90 	ld	0x50f2, a
+                                     91 ;	../SPLSPL/src/stm8s_awu_AWU_Init.c: 53: AWU->APR &= (uint8_t)(~AWU_APR_APR);
+                                     92 ; genPointerGet
+      000027 C6 50 F1         [ 1]   93 	ld	a, 0x50f1
+                                     94 ; genAnd
+      00002A A4 C0            [ 1]   95 	and	a, #0xc0
+                                     96 ; genPointerSet
+      00002C C7 50 F1         [ 1]   97 	ld	0x50f1, a
+                                     98 ;	../SPLSPL/src/stm8s_awu_AWU_Init.c: 54: AWU->APR |= APR_Array[(uint8_t)AWU_TimeBase];
+                                     99 ; genPointerGet
+      00002F C6 50 F1         [ 1]  100 	ld	a, 0x50f1
+      000032 6B 01            [ 1]  101 	ld	(0x01, sp), a
+                                    102 ; skipping iCode since result will be rematerialized
+                                    103 ; genPlus
+      000034 4F               [ 1]  104 	clr	a
+      000035 95               [ 1]  105 	ld	xh, a
+      000036 1Cr00r00         [ 2]  106 	addw	x, #(_APR_Array+0)
+                                    107 ; genPointerGet
+      000039 F6               [ 1]  108 	ld	a, (x)
+                                    109 ; genOr
+      00003A 1A 01            [ 1]  110 	or	a, (0x01, sp)
+                                    111 ; genPointerSet
+      00003C C7 50 F1         [ 1]  112 	ld	0x50f1, a
+                                    113 ; genLabel
+      00003F                        114 00101$:
+                                    115 ;	../SPLSPL/src/stm8s_awu_AWU_Init.c: 55: }
+                                    116 ; genEndFunction
+      00003F 84               [ 1]  117 	pop	a
+      000040 81               [ 4]  118 	ret
+                                    119 	.area CODE
+                                    120 	.area CONST
+                                    121 	.area INITIALIZER
+                                    122 	.area CABS (ABS)

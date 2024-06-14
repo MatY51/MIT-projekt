@@ -1,0 +1,102 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_can_CAN_GetMessageTimeStamp
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CAN_SelectPage
+                                     12 	.globl _CAN_GetSelectedPage
+                                     13 	.globl _CAN_GetMessageTimeStamp
+                                     14 ;--------------------------------------------------------
+                                     15 ; ram data
+                                     16 ;--------------------------------------------------------
+                                     17 	.area DATA
+                                     18 ;--------------------------------------------------------
+                                     19 ; ram data
+                                     20 ;--------------------------------------------------------
+                                     21 	.area INITIALIZED
+                                     22 ;--------------------------------------------------------
+                                     23 ; absolute external ram data
+                                     24 ;--------------------------------------------------------
+                                     25 	.area DABS (ABS)
+                                     26 
+                                     27 ; default segment ordering for linker
+                                     28 	.area HOME
+                                     29 	.area GSINIT
+                                     30 	.area GSFINAL
+                                     31 	.area CONST
+                                     32 	.area INITIALIZER
+                                     33 	.area CODE
+                                     34 
+                                     35 ;--------------------------------------------------------
+                                     36 ; global & static initialisations
+                                     37 ;--------------------------------------------------------
+                                     38 	.area HOME
+                                     39 	.area GSINIT
+                                     40 	.area GSFINAL
+                                     41 	.area GSINIT
+                                     42 ;--------------------------------------------------------
+                                     43 ; Home
+                                     44 ;--------------------------------------------------------
+                                     45 	.area HOME
+                                     46 	.area HOME
+                                     47 ;--------------------------------------------------------
+                                     48 ; code
+                                     49 ;--------------------------------------------------------
+                                     50 	.area CODE
+                                     51 ;	../SPLSPL/src/stm8s_can_CAN_GetMessageTimeStamp.c: 36: uint16_t CAN_GetMessageTimeStamp(void)
+                                     52 ; genLabel
+                                     53 ;	-----------------------------------------
+                                     54 ;	 function CAN_GetMessageTimeStamp
+                                     55 ;	-----------------------------------------
+                                     56 ;	Register assignment might be sub-optimal.
+                                     57 ;	Stack space usage: 6 bytes.
+      000000                         58 _CAN_GetMessageTimeStamp:
+      000000 52 06            [ 2]   59 	sub	sp, #6
+                                     60 ;	../SPLSPL/src/stm8s_can_CAN_GetMessageTimeStamp.c: 39: CAN_Page_TypeDef can_page = CAN_GetSelectedPage();
+                                     61 ; genCall
+      000002 CDr00r00         [ 4]   62 	call	_CAN_GetSelectedPage
+      000005 90 97            [ 1]   63 	ld	yl, a
+                                     64 ;	../SPLSPL/src/stm8s_can_CAN_GetMessageTimeStamp.c: 42: CAN->PSR = CAN_Page_RxFifo;
+                                     65 ; genPointerSet
+      000007 35 07 54 27      [ 1]   66 	mov	0x5427+0, #0x07
+                                     67 ;	../SPLSPL/src/stm8s_can_CAN_GetMessageTimeStamp.c: 44: timestamp = CAN->Page.RxFIFO.MTSRL;
+                                     68 ; genPointerGet
+      00000B C6 54 36         [ 1]   69 	ld	a, 0x5436
+                                     70 ; genCast
+                                     71 ; genAssign
+      00000E 97               [ 1]   72 	ld	xl, a
+      00000F 0F 01            [ 1]   73 	clr	(0x01, sp)
+                                     74 ;	../SPLSPL/src/stm8s_can_CAN_GetMessageTimeStamp.c: 45: timestamp |= (uint16_t)(((uint16_t)CAN->Page.RxFIFO.MTSRH)<<8);
+                                     75 ; genPointerGet
+      000011 C6 54 37         [ 1]   76 	ld	a, 0x5437
+                                     77 ; genCast
+                                     78 ; genAssign
+      000014 0F 03            [ 1]   79 	clr	(0x03, sp)
+                                     80 ; genLeftShiftLiteral
+      000016 0F 06            [ 1]   81 	clr	(0x06, sp)
+                                     82 ; genOr
+      000018 95               [ 1]   83 	ld	xh, a
+                                     84 ;	../SPLSPL/src/stm8s_can_CAN_GetMessageTimeStamp.c: 48: CAN_SelectPage(can_page);
+                                     85 ; genSend
+      000019 89               [ 2]   86 	pushw	x
+      00001A 90 9F            [ 1]   87 	ld	a, yl
+                                     88 ; genCall
+      00001C CDr00r00         [ 4]   89 	call	_CAN_SelectPage
+      00001F 85               [ 2]   90 	popw	x
+                                     91 ;	../SPLSPL/src/stm8s_can_CAN_GetMessageTimeStamp.c: 50: return (uint16_t)(timestamp);
+                                     92 ; genReturn
+                                     93 ; genLabel
+      000020                         94 00101$:
+                                     95 ;	../SPLSPL/src/stm8s_can_CAN_GetMessageTimeStamp.c: 51: }
+                                     96 ; genEndFunction
+      000020 5B 06            [ 2]   97 	addw	sp, #6
+      000022 81               [ 4]   98 	ret
+                                     99 	.area CODE
+                                    100 	.area CONST
+                                    101 	.area INITIALIZER
+                                    102 	.area CABS (ABS)

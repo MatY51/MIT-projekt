@@ -1,0 +1,41 @@
+XH3
+H B areas 2 global symbols
+M stm8s_i2c_I2C_GetLastEvent
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 2B flags 0 addr 0
+S _I2C_GetLastEvent Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 52 04 5F 1F 01 C6 52 18 A5 04 26 03 CC
+R 00 00 00 09
+T 00 00 0D 00 17
+R 00 00 00 09 00 03 00 09
+T 00 00 0F
+R 00 00 00 09
+T 00 00 0F AE 00 04 1F 01 CC 00 26
+R 00 00 00 09 00 09 00 09
+T 00 00 17
+R 00 00 00 09
+T 00 00 17 C6 52 17 97 90 5F C6 52 19 95 4F 0F 04
+R 00 00 00 09
+T 00 00 24 1F 01
+R 00 00 00 09
+T 00 00 26
+R 00 00 00 09
+T 00 00 26 1E 01
+R 00 00 00 09
+T 00 00 28
+R 00 00 00 09
+T 00 00 28 5B 04 81
+R 00 00 00 09

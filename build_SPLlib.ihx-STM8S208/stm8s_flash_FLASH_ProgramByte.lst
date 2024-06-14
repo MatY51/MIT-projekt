@@ -1,0 +1,79 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_flash_FLASH_ProgramByte
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _write_byte_address
+                                     12 	.globl _FLASH_ProgramByte
+                                     13 ;--------------------------------------------------------
+                                     14 ; ram data
+                                     15 ;--------------------------------------------------------
+                                     16 	.area DATA
+                                     17 ;--------------------------------------------------------
+                                     18 ; ram data
+                                     19 ;--------------------------------------------------------
+                                     20 	.area INITIALIZED
+                                     21 ;--------------------------------------------------------
+                                     22 ; absolute external ram data
+                                     23 ;--------------------------------------------------------
+                                     24 	.area DABS (ABS)
+                                     25 
+                                     26 ; default segment ordering for linker
+                                     27 	.area HOME
+                                     28 	.area GSINIT
+                                     29 	.area GSFINAL
+                                     30 	.area CONST
+                                     31 	.area INITIALIZER
+                                     32 	.area CODE
+                                     33 
+                                     34 ;--------------------------------------------------------
+                                     35 ; global & static initialisations
+                                     36 ;--------------------------------------------------------
+                                     37 	.area HOME
+                                     38 	.area GSINIT
+                                     39 	.area GSFINAL
+                                     40 	.area GSINIT
+                                     41 ;--------------------------------------------------------
+                                     42 ; Home
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area HOME
+                                     46 ;--------------------------------------------------------
+                                     47 ; code
+                                     48 ;--------------------------------------------------------
+                                     49 	.area CODE
+                                     50 ;	../SPLSPL/src/stm8s_flash_FLASH_ProgramByte.c: 40: void FLASH_ProgramByte(uint32_t Address, uint8_t Data)
+                                     51 ; genLabel
+                                     52 ;	-----------------------------------------
+                                     53 ;	 function FLASH_ProgramByte
+                                     54 ;	-----------------------------------------
+                                     55 ;	Register assignment is optimal.
+                                     56 ;	Stack space usage: 0 bytes.
+      000000                         57 _FLASH_ProgramByte:
+                                     58 ;	../SPLSPL/src/stm8s_flash_FLASH_ProgramByte.c: 50: write_byte_address((MemoryAddressCast) Address, Data);
+                                     59 ; genIPush
+      000000 7B 07            [ 1]   60 	ld	a, (0x07, sp)
+      000002 88               [ 1]   61 	push	a
+                                     62 ; genIPush
+      000003 1E 06            [ 2]   63 	ldw	x, (0x06, sp)
+      000005 89               [ 2]   64 	pushw	x
+      000006 1E 06            [ 2]   65 	ldw	x, (0x06, sp)
+      000008 89               [ 2]   66 	pushw	x
+                                     67 ; genCall
+      000009 CDr00r00         [ 4]   68 	call	_write_byte_address
+                                     69 ; genLabel
+      00000C                         70 00101$:
+                                     71 ;	../SPLSPL/src/stm8s_flash_FLASH_ProgramByte.c: 52: }
+                                     72 ; genEndFunction
+      00000C 1E 01            [ 2]   73 	ldw	x, (1, sp)
+      00000E 5B 07            [ 2]   74 	addw	sp, #7
+      000010 FC               [ 2]   75 	jp	(x)
+                                     76 	.area CODE
+                                     77 	.area CONST
+                                     78 	.area INITIALIZER
+                                     79 	.area CABS (ABS)

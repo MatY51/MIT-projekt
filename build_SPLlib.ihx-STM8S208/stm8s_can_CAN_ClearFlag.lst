@@ -1,0 +1,147 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_can_CAN_ClearFlag
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CAN_SelectPage
+                                     12 	.globl _CAN_GetSelectedPage
+                                     13 	.globl _CAN_ClearFlag
+                                     14 ;--------------------------------------------------------
+                                     15 ; ram data
+                                     16 ;--------------------------------------------------------
+                                     17 	.area DATA
+                                     18 ;--------------------------------------------------------
+                                     19 ; ram data
+                                     20 ;--------------------------------------------------------
+                                     21 	.area INITIALIZED
+                                     22 ;--------------------------------------------------------
+                                     23 ; absolute external ram data
+                                     24 ;--------------------------------------------------------
+                                     25 	.area DABS (ABS)
+                                     26 
+                                     27 ; default segment ordering for linker
+                                     28 	.area HOME
+                                     29 	.area GSINIT
+                                     30 	.area GSFINAL
+                                     31 	.area CONST
+                                     32 	.area INITIALIZER
+                                     33 	.area CODE
+                                     34 
+                                     35 ;--------------------------------------------------------
+                                     36 ; global & static initialisations
+                                     37 ;--------------------------------------------------------
+                                     38 	.area HOME
+                                     39 	.area GSINIT
+                                     40 	.area GSFINAL
+                                     41 	.area GSINIT
+                                     42 ;--------------------------------------------------------
+                                     43 ; Home
+                                     44 ;--------------------------------------------------------
+                                     45 	.area HOME
+                                     46 	.area HOME
+                                     47 ;--------------------------------------------------------
+                                     48 ; code
+                                     49 ;--------------------------------------------------------
+                                     50 	.area CODE
+                                     51 ;	../SPLSPL/src/stm8s_can_CAN_ClearFlag.c: 43: void CAN_ClearFlag(CAN_FLAG_TypeDef CAN_Flag)
+                                     52 ; genLabel
+                                     53 ;	-----------------------------------------
+                                     54 ;	 function CAN_ClearFlag
+                                     55 ;	-----------------------------------------
+                                     56 ;	Register assignment might be sub-optimal.
+                                     57 ;	Stack space usage: 2 bytes.
+      000000                         58 _CAN_ClearFlag:
+      000000 89               [ 2]   59 	pushw	x
+                                     60 ; genReceive
+                                     61 ;	../SPLSPL/src/stm8s_can_CAN_ClearFlag.c: 48: if (((uint16_t)CAN_Flag & 0x0700)!= RESET)
+                                     62 ; genAnd
+      000001 9E               [ 1]   63 	ld	a, xh
+      000002 A5 07            [ 1]   64 	bcp	a, #0x07
+      000004 26 03            [ 1]   65 	jrne	00133$
+      000006 CCr00r3F         [ 2]   66 	jp	00108$
+      000009                         67 00133$:
+                                     68 ; skipping generated iCode
+                                     69 ;	../SPLSPL/src/stm8s_can_CAN_ClearFlag.c: 53: CAN->RFR = (uint8_t)(CAN_Flag);
+                                     70 ; genCast
+                                     71 ; genAssign
+      000009 9F               [ 1]   72 	ld	a, xl
+                                     73 ;	../SPLSPL/src/stm8s_can_CAN_ClearFlag.c: 50: if (((uint16_t)CAN_Flag & 0x020B)!= RESET)
+                                     74 ; genAnd
+      00000A 88               [ 1]   75 	push	a
+      00000B 9F               [ 1]   76 	ld	a, xl
+      00000C A4 0B            [ 1]   77 	and	a, #0x0b
+      00000E 6B 03            [ 1]   78 	ld	(0x03, sp), a
+      000010 9E               [ 1]   79 	ld	a, xh
+      000011 A4 02            [ 1]   80 	and	a, #0x02
+      000013 6B 02            [ 1]   81 	ld	(0x02, sp), a
+      000015 84               [ 1]   82 	pop	a
+                                     83 ; genIfx
+      000016 16 01            [ 2]   84 	ldw	y, (0x01, sp)
+      000018 26 03            [ 1]   85 	jrne	00134$
+      00001A CCr00r23         [ 2]   86 	jp	00105$
+      00001D                         87 00134$:
+                                     88 ;	../SPLSPL/src/stm8s_can_CAN_ClearFlag.c: 53: CAN->RFR = (uint8_t)(CAN_Flag);
+                                     89 ; genPointerSet
+      00001D C7 54 24         [ 1]   90 	ld	0x5424, a
+                                     91 ; genGoto
+      000020 CCr00r4E         [ 2]   92 	jp	00110$
+                                     93 ; genLabel
+      000023                         94 00105$:
+                                     95 ;	../SPLSPL/src/stm8s_can_CAN_ClearFlag.c: 55: else if (((uint16_t)CAN_Flag & 0x0403)!= RESET)
+                                     96 ; genAnd
+      000023 88               [ 1]   97 	push	a
+      000024 9F               [ 1]   98 	ld	a, xl
+      000025 A4 03            [ 1]   99 	and	a, #0x03
+      000027 97               [ 1]  100 	ld	xl, a
+      000028 9E               [ 1]  101 	ld	a, xh
+      000029 A4 04            [ 1]  102 	and	a, #0x04
+      00002B 95               [ 1]  103 	ld	xh, a
+      00002C 84               [ 1]  104 	pop	a
+                                    105 ; genIfx
+      00002D 5D               [ 2]  106 	tnzw	x
+      00002E 26 03            [ 1]  107 	jrne	00135$
+      000030 CCr00r39         [ 2]  108 	jp	00102$
+      000033                        109 00135$:
+                                    110 ;	../SPLSPL/src/stm8s_can_CAN_ClearFlag.c: 58: CAN->TSR = (uint8_t)(CAN_Flag);
+                                    111 ; genPointerSet
+      000033 C7 54 22         [ 1]  112 	ld	0x5422, a
+                                    113 ; genGoto
+      000036 CCr00r4E         [ 2]  114 	jp	00110$
+                                    115 ; genLabel
+      000039                        116 00102$:
+                                    117 ;	../SPLSPL/src/stm8s_can_CAN_ClearFlag.c: 63: CAN->MSR = (uint8_t)(CAN_Flag);
+                                    118 ; genPointerSet
+      000039 C7 54 21         [ 1]  119 	ld	0x5421, a
+                                    120 ; genGoto
+      00003C CCr00r4E         [ 2]  121 	jp	00110$
+                                    122 ; genLabel
+      00003F                        123 00108$:
+                                    124 ;	../SPLSPL/src/stm8s_can_CAN_ClearFlag.c: 69: can_page = CAN_GetSelectedPage();
+                                    125 ; genCall
+      00003F CDr00r00         [ 4]  126 	call	_CAN_GetSelectedPage
+                                    127 ;	../SPLSPL/src/stm8s_can_CAN_ClearFlag.c: 72: CAN->PSR = CAN_Page_Config;
+                                    128 ; genPointerSet
+      000042 35 06 54 27      [ 1]  129 	mov	0x5427+0, #0x06
+                                    130 ;	../SPLSPL/src/stm8s_can_CAN_ClearFlag.c: 73: CAN->Page.Config.ESR = (uint8_t)RESET;
+                                    131 ; genPointerSet
+      000046 35 00 54 28      [ 1]  132 	mov	0x5428+0, #0x00
+                                    133 ;	../SPLSPL/src/stm8s_can_CAN_ClearFlag.c: 76: CAN_SelectPage(can_page);
+                                    134 ; genSend
+                                    135 ; genCall
+      00004A 85               [ 2]  136 	popw	x
+      00004B CCr00r00         [ 2]  137 	jp	_CAN_SelectPage
+                                    138 ; genLabel
+      00004E                        139 00110$:
+                                    140 ;	../SPLSPL/src/stm8s_can_CAN_ClearFlag.c: 78: }
+                                    141 ; genEndFunction
+      00004E 85               [ 2]  142 	popw	x
+      00004F 81               [ 4]  143 	ret
+                                    144 	.area CODE
+                                    145 	.area CONST
+                                    146 	.area INITIALIZER
+                                    147 	.area CABS (ABS)

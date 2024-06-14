@@ -1,0 +1,29 @@
+XH3
+H B areas 4 global symbols
+M stm8s_can_CAN_CancelTransmit
+O -mstm8
+S _CAN_GetSelectedPage Ref000000
+S .__.ABS. Def000000
+S _CAN_SelectPage Ref000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 16 flags 0 addr 0
+S _CAN_CancelTransmit Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 88 CD 00 00 97 84 C7 54 27 C6 54 28 AA
+R 00 00 00 09 02 05 00 00
+T 00 00 0D 02 C7 54 28 9F CC 00 00
+R 00 00 00 09 02 09 00 02
+T 00 00 15
+R 00 00 00 09
+T 00 00 15 81
+R 00 00 00 09

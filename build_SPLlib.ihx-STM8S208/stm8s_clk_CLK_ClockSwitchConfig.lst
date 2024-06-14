@@ -1,0 +1,331 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_clk_CLK_ClockSwitchConfig
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CLK_ClockSwitchConfig
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 43: ErrorStatus CLK_ClockSwitchConfig(CLK_SwitchMode_TypeDef CLK_SwitchMode, CLK_Source_TypeDef CLK_NewClock, FunctionalState ITState, CLK_CurrentClockState_TypeDef CLK_CurrentClockState)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function CLK_ClockSwitchConfig
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 1 bytes.
+      000000                         56 _CLK_ClockSwitchConfig:
+      000000 88               [ 1]   57 	push	a
+                                     58 ; genReceive
+      000001 6B 01            [ 1]   59 	ld	(0x01, sp), a
+                                     60 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 56: clock_master = (CLK_Source_TypeDef)CLK->CMSR;
+                                     61 ; genPointerGet
+      000003 C6 50 C3         [ 1]   62 	ld	a, 0x50c3
+      000006 90 97            [ 1]   63 	ld	yl, a
+                                     64 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 62: CLK->SWCR |= CLK_SWCR_SWEN;
+                                     65 ; genPointerGet
+      000008 C6 50 C5         [ 1]   66 	ld	a, 0x50c5
+                                     67 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 59: if (CLK_SwitchMode == CLK_SWITCHMODE_AUTO)
+                                     68 ; genIfx
+      00000B 0D 01            [ 1]   69 	tnz	(0x01, sp)
+      00000D 26 03            [ 1]   70 	jrne	00267$
+      00000F CCr00r59         [ 2]   71 	jp	00122$
+      000012                         72 00267$:
+                                     73 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 62: CLK->SWCR |= CLK_SWCR_SWEN;
+                                     74 ; genOr
+      000012 AA 02            [ 1]   75 	or	a, #0x02
+                                     76 ; genPointerSet
+      000014 C7 50 C5         [ 1]   77 	ld	0x50c5, a
+                                     78 ; genPointerGet
+      000017 C6 50 C5         [ 1]   79 	ld	a, 0x50c5
+                                     80 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 65: if (ITState != DISABLE)
+                                     81 ; genIfx
+      00001A 0D 05            [ 1]   82 	tnz	(0x05, sp)
+      00001C 26 03            [ 1]   83 	jrne	00268$
+      00001E CCr00r29         [ 2]   84 	jp	00102$
+      000021                         85 00268$:
+                                     86 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 67: CLK->SWCR |= CLK_SWCR_SWIEN;
+                                     87 ; genOr
+      000021 AA 04            [ 1]   88 	or	a, #0x04
+                                     89 ; genPointerSet
+      000023 C7 50 C5         [ 1]   90 	ld	0x50c5, a
+                                     91 ; genGoto
+      000026 CCr00r2E         [ 2]   92 	jp	00103$
+                                     93 ; genLabel
+      000029                         94 00102$:
+                                     95 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 71: CLK->SWCR &= (uint8_t)(~CLK_SWCR_SWIEN);
+                                     96 ; genAnd
+      000029 A4 FB            [ 1]   97 	and	a, #0xfb
+                                     98 ; genPointerSet
+      00002B C7 50 C5         [ 1]   99 	ld	0x50c5, a
+                                    100 ; genLabel
+      00002E                        101 00103$:
+                                    102 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 75: CLK->SWR = (uint8_t)CLK_NewClock;
+                                    103 ; genPointerSet
+      00002E AE 50 C4         [ 2]  104 	ldw	x, #0x50c4
+      000031 7B 04            [ 1]  105 	ld	a, (0x04, sp)
+      000033 F7               [ 1]  106 	ld	(x), a
+                                    107 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 78: while((((CLK->SWCR & CLK_SWCR_SWBSY) != 0 )&& (DownCounter != 0)))
+                                    108 ; genAssign
+      000034 5F               [ 1]  109 	clrw	x
+      000035 5A               [ 2]  110 	decw	x
+                                    111 ; genLabel
+      000036                        112 00105$:
+                                    113 ; genPointerGet
+      000036 C6 50 C5         [ 1]  114 	ld	a, 0x50c5
+                                    115 ; genAnd
+      000039 44               [ 1]  116 	srl	a
+      00003A 25 03            [ 1]  117 	jrc	00269$
+      00003C CCr00r49         [ 2]  118 	jp	00157$
+      00003F                        119 00269$:
+                                    120 ; skipping generated iCode
+                                    121 ; genIfx
+      00003F 5D               [ 2]  122 	tnzw	x
+      000040 26 03            [ 1]  123 	jrne	00270$
+      000042 CCr00r49         [ 2]  124 	jp	00157$
+      000045                        125 00270$:
+                                    126 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 80: DownCounter--;
+                                    127 ; genMinus
+      000045 5A               [ 2]  128 	decw	x
+                                    129 ; genGoto
+      000046 CCr00r36         [ 2]  130 	jp	00105$
+                                    131 ; genLabel
+      000049                        132 00157$:
+                                    133 ; genAssign
+                                    134 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 83: if(DownCounter != 0)
+                                    135 ; genIfx
+      000049 5D               [ 2]  136 	tnzw	x
+      00004A 26 03            [ 1]  137 	jrne	00271$
+      00004C CCr00r55         [ 2]  138 	jp	00109$
+      00004F                        139 00271$:
+                                    140 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 85: Swif = SUCCESS;
+                                    141 ; genAssign
+      00004F A6 01            [ 1]  142 	ld	a, #0x01
+      000051 97               [ 1]  143 	ld	xl, a
+                                    144 ; genGoto
+      000052 CCr00r9E         [ 2]  145 	jp	00123$
+                                    146 ; genLabel
+      000055                        147 00109$:
+                                    148 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 89: Swif = ERROR;
+                                    149 ; genAssign
+      000055 5F               [ 1]  150 	clrw	x
+                                    151 ; genGoto
+      000056 CCr00r9E         [ 2]  152 	jp	00123$
+                                    153 ; genLabel
+      000059                        154 00122$:
+                                    155 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 95: if (ITState != DISABLE)
+                                    156 ; genIfx
+      000059 0D 05            [ 1]  157 	tnz	(0x05, sp)
+      00005B 26 03            [ 1]  158 	jrne	00272$
+      00005D CCr00r68         [ 2]  159 	jp	00112$
+      000060                        160 00272$:
+                                    161 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 97: CLK->SWCR |= CLK_SWCR_SWIEN;
+                                    162 ; genOr
+      000060 AA 04            [ 1]  163 	or	a, #0x04
+                                    164 ; genPointerSet
+      000062 C7 50 C5         [ 1]  165 	ld	0x50c5, a
+                                    166 ; genGoto
+      000065 CCr00r6D         [ 2]  167 	jp	00113$
+                                    168 ; genLabel
+      000068                        169 00112$:
+                                    170 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 101: CLK->SWCR &= (uint8_t)(~CLK_SWCR_SWIEN);
+                                    171 ; genAnd
+      000068 A4 FB            [ 1]  172 	and	a, #0xfb
+                                    173 ; genPointerSet
+      00006A C7 50 C5         [ 1]  174 	ld	0x50c5, a
+                                    175 ; genLabel
+      00006D                        176 00113$:
+                                    177 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 105: CLK->SWR = (uint8_t)CLK_NewClock;
+                                    178 ; genPointerSet
+      00006D AE 50 C4         [ 2]  179 	ldw	x, #0x50c4
+      000070 7B 04            [ 1]  180 	ld	a, (0x04, sp)
+      000072 F7               [ 1]  181 	ld	(x), a
+                                    182 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 108: while((((CLK->SWCR & CLK_SWCR_SWIF) != 0 ) && (DownCounter != 0)))
+                                    183 ; genAssign
+      000073 5F               [ 1]  184 	clrw	x
+      000074 5A               [ 2]  185 	decw	x
+                                    186 ; genLabel
+      000075                        187 00115$:
+                                    188 ; genPointerGet
+      000075 C6 50 C5         [ 1]  189 	ld	a, 0x50c5
+                                    190 ; genAnd
+      000078 A5 08            [ 1]  191 	bcp	a, #0x08
+      00007A 26 03            [ 1]  192 	jrne	00273$
+      00007C CCr00r89         [ 2]  193 	jp	00158$
+      00007F                        194 00273$:
+                                    195 ; skipping generated iCode
+                                    196 ; genIfx
+      00007F 5D               [ 2]  197 	tnzw	x
+      000080 26 03            [ 1]  198 	jrne	00274$
+      000082 CCr00r89         [ 2]  199 	jp	00158$
+      000085                        200 00274$:
+                                    201 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 110: DownCounter--;
+                                    202 ; genMinus
+      000085 5A               [ 2]  203 	decw	x
+                                    204 ; genGoto
+      000086 CCr00r75         [ 2]  205 	jp	00115$
+                                    206 ; genLabel
+      000089                        207 00158$:
+                                    208 ; genAssign
+                                    209 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 113: if(DownCounter != 0)
+                                    210 ; genIfx
+      000089 5D               [ 2]  211 	tnzw	x
+      00008A 26 03            [ 1]  212 	jrne	00275$
+      00008C CCr00r9D         [ 2]  213 	jp	00119$
+      00008F                        214 00275$:
+                                    215 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 116: CLK->SWCR |= CLK_SWCR_SWEN;
+                                    216 ; genPointerGet
+      00008F C6 50 C5         [ 1]  217 	ld	a, 0x50c5
+                                    218 ; genOr
+      000092 AA 02            [ 1]  219 	or	a, #0x02
+                                    220 ; genPointerSet
+      000094 C7 50 C5         [ 1]  221 	ld	0x50c5, a
+                                    222 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 117: Swif = SUCCESS;
+                                    223 ; genAssign
+      000097 A6 01            [ 1]  224 	ld	a, #0x01
+      000099 97               [ 1]  225 	ld	xl, a
+                                    226 ; genGoto
+      00009A CCr00r9E         [ 2]  227 	jp	00123$
+                                    228 ; genLabel
+      00009D                        229 00119$:
+                                    230 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 121: Swif = ERROR;
+                                    231 ; genAssign
+      00009D 5F               [ 1]  232 	clrw	x
+                                    233 ; genLabel
+      00009E                        234 00123$:
+                                    235 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 124: if(Swif != ERROR)
+                                    236 ; genIfx
+      00009E 9F               [ 1]  237 	ld	a, xl
+      00009F 4D               [ 1]  238 	tnz	a
+      0000A0 26 03            [ 1]  239 	jrne	00276$
+      0000A2 CCr00rFC         [ 2]  240 	jp	00136$
+      0000A5                        241 00276$:
+                                    242 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 127: if((CLK_CurrentClockState == CLK_CURRENTCLOCKSTATE_DISABLE) && ( clock_master == CLK_SOURCE_HSI))
+                                    243 ; genIfx
+      0000A5 0D 06            [ 1]  244 	tnz	(0x06, sp)
+      0000A7 27 03            [ 1]  245 	jreq	00277$
+      0000A9 CCr00rC3         [ 2]  246 	jp	00132$
+      0000AC                        247 00277$:
+                                    248 ; genCmpEQorNE
+      0000AC 90 9F            [ 1]  249 	ld	a, yl
+      0000AE A1 E1            [ 1]  250 	cp	a, #0xe1
+      0000B0 26 03            [ 1]  251 	jrne	00279$
+      0000B2 CCr00rB8         [ 2]  252 	jp	00280$
+      0000B5                        253 00279$:
+      0000B5 CCr00rC3         [ 2]  254 	jp	00132$
+      0000B8                        255 00280$:
+                                    256 ; skipping generated iCode
+                                    257 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 129: CLK->ICKR &= (uint8_t)(~CLK_ICKR_HSIEN);
+                                    258 ; genPointerGet
+      0000B8 C6 50 C0         [ 1]  259 	ld	a, 0x50c0
+                                    260 ; genAnd
+      0000BB A4 FE            [ 1]  261 	and	a, #0xfe
+                                    262 ; genPointerSet
+      0000BD C7 50 C0         [ 1]  263 	ld	0x50c0, a
+                                    264 ; genGoto
+      0000C0 CCr00rFC         [ 2]  265 	jp	00136$
+                                    266 ; genLabel
+      0000C3                        267 00132$:
+                                    268 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 131: else if((CLK_CurrentClockState == CLK_CURRENTCLOCKSTATE_DISABLE) && ( clock_master == CLK_SOURCE_LSI))
+                                    269 ; genIfx
+      0000C3 0D 06            [ 1]  270 	tnz	(0x06, sp)
+      0000C5 27 03            [ 1]  271 	jreq	00281$
+      0000C7 CCr00rE1         [ 2]  272 	jp	00128$
+      0000CA                        273 00281$:
+                                    274 ; genCmpEQorNE
+      0000CA 90 9F            [ 1]  275 	ld	a, yl
+      0000CC A1 D2            [ 1]  276 	cp	a, #0xd2
+      0000CE 26 03            [ 1]  277 	jrne	00283$
+      0000D0 CCr00rD6         [ 2]  278 	jp	00284$
+      0000D3                        279 00283$:
+      0000D3 CCr00rE1         [ 2]  280 	jp	00128$
+      0000D6                        281 00284$:
+                                    282 ; skipping generated iCode
+                                    283 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 133: CLK->ICKR &= (uint8_t)(~CLK_ICKR_LSIEN);
+                                    284 ; genPointerGet
+      0000D6 C6 50 C0         [ 1]  285 	ld	a, 0x50c0
+                                    286 ; genAnd
+      0000D9 A4 F7            [ 1]  287 	and	a, #0xf7
+                                    288 ; genPointerSet
+      0000DB C7 50 C0         [ 1]  289 	ld	0x50c0, a
+                                    290 ; genGoto
+      0000DE CCr00rFC         [ 2]  291 	jp	00136$
+                                    292 ; genLabel
+      0000E1                        293 00128$:
+                                    294 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 135: else if ((CLK_CurrentClockState == CLK_CURRENTCLOCKSTATE_DISABLE) && ( clock_master == CLK_SOURCE_HSE))
+                                    295 ; genIfx
+      0000E1 0D 06            [ 1]  296 	tnz	(0x06, sp)
+      0000E3 27 03            [ 1]  297 	jreq	00285$
+      0000E5 CCr00rFC         [ 2]  298 	jp	00136$
+      0000E8                        299 00285$:
+                                    300 ; genCmpEQorNE
+      0000E8 90 9F            [ 1]  301 	ld	a, yl
+      0000EA A1 B4            [ 1]  302 	cp	a, #0xb4
+      0000EC 26 03            [ 1]  303 	jrne	00287$
+      0000EE CCr00rF4         [ 2]  304 	jp	00288$
+      0000F1                        305 00287$:
+      0000F1 CCr00rFC         [ 2]  306 	jp	00136$
+      0000F4                        307 00288$:
+                                    308 ; skipping generated iCode
+                                    309 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 137: CLK->ECKR &= (uint8_t)(~CLK_ECKR_HSEEN);
+                                    310 ; genPointerGet
+      0000F4 C6 50 C1         [ 1]  311 	ld	a, 0x50c1
+                                    312 ; genAnd
+      0000F7 A4 FE            [ 1]  313 	and	a, #0xfe
+                                    314 ; genPointerSet
+      0000F9 C7 50 C1         [ 1]  315 	ld	0x50c1, a
+                                    316 ; genLabel
+      0000FC                        317 00136$:
+                                    318 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 140: return(Swif);
+                                    319 ; genReturn
+      0000FC 9F               [ 1]  320 	ld	a, xl
+                                    321 ; genLabel
+      0000FD                        322 00137$:
+                                    323 ;	../SPLSPL/src/stm8s_clk_CLK_ClockSwitchConfig.c: 141: }
+                                    324 ; genEndFunction
+      0000FD 1E 02            [ 2]  325 	ldw	x, (2, sp)
+      0000FF 5B 06            [ 2]  326 	addw	sp, #6
+      000101 FC               [ 2]  327 	jp	(x)
+                                    328 	.area CODE
+                                    329 	.area CONST
+                                    330 	.area INITIALIZER
+                                    331 	.area CABS (ABS)

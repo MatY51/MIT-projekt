@@ -1,0 +1,393 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_uart1_UART1_Init
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CLK_GetClockFreq
+                                     12 	.globl _UART1_Init
+                                     13 ;--------------------------------------------------------
+                                     14 ; ram data
+                                     15 ;--------------------------------------------------------
+                                     16 	.area DATA
+                                     17 ;--------------------------------------------------------
+                                     18 ; ram data
+                                     19 ;--------------------------------------------------------
+                                     20 	.area INITIALIZED
+                                     21 ;--------------------------------------------------------
+                                     22 ; absolute external ram data
+                                     23 ;--------------------------------------------------------
+                                     24 	.area DABS (ABS)
+                                     25 
+                                     26 ; default segment ordering for linker
+                                     27 	.area HOME
+                                     28 	.area GSINIT
+                                     29 	.area GSFINAL
+                                     30 	.area CONST
+                                     31 	.area INITIALIZER
+                                     32 	.area CODE
+                                     33 
+                                     34 ;--------------------------------------------------------
+                                     35 ; global & static initialisations
+                                     36 ;--------------------------------------------------------
+                                     37 	.area HOME
+                                     38 	.area GSINIT
+                                     39 	.area GSFINAL
+                                     40 	.area GSINIT
+                                     41 ;--------------------------------------------------------
+                                     42 ; Home
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area HOME
+                                     46 ;--------------------------------------------------------
+                                     47 ; code
+                                     48 ;--------------------------------------------------------
+                                     49 	.area CODE
+                                     50 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 48: void UART1_Init(uint32_t BaudRate, UART1_WordLength_TypeDef WordLength, 
+                                     51 ; genLabel
+                                     52 ;	-----------------------------------------
+                                     53 ;	 function UART1_Init
+                                     54 ;	-----------------------------------------
+                                     55 ;	Register assignment might be sub-optimal.
+                                     56 ;	Stack space usage: 17 bytes.
+      000000                         57 _UART1_Init:
+      000000 52 11            [ 2]   58 	sub	sp, #17
+                                     59 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 63: UART1->CR1 &= (uint8_t)(~UART1_CR1_M);  
+                                     60 ; genPointerGet
+      000002 C6 52 34         [ 1]   61 	ld	a, 0x5234
+                                     62 ; genAnd
+      000005 A4 EF            [ 1]   63 	and	a, #0xef
+                                     64 ; genPointerSet
+      000007 C7 52 34         [ 1]   65 	ld	0x5234, a
+                                     66 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 66: UART1->CR1 |= (uint8_t)WordLength;
+                                     67 ; genPointerGet
+      00000A C6 52 34         [ 1]   68 	ld	a, 0x5234
+                                     69 ; genOr
+      00000D 1A 18            [ 1]   70 	or	a, (0x18, sp)
+                                     71 ; genPointerSet
+      00000F C7 52 34         [ 1]   72 	ld	0x5234, a
+                                     73 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 69: UART1->CR3 &= (uint8_t)(~UART1_CR3_STOP);  
+                                     74 ; genPointerGet
+      000012 C6 52 36         [ 1]   75 	ld	a, 0x5236
+                                     76 ; genAnd
+      000015 A4 CF            [ 1]   77 	and	a, #0xcf
+                                     78 ; genPointerSet
+      000017 C7 52 36         [ 1]   79 	ld	0x5236, a
+                                     80 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 71: UART1->CR3 |= (uint8_t)StopBits;  
+                                     81 ; genPointerGet
+      00001A C6 52 36         [ 1]   82 	ld	a, 0x5236
+                                     83 ; genOr
+      00001D 1A 19            [ 1]   84 	or	a, (0x19, sp)
+                                     85 ; genPointerSet
+      00001F C7 52 36         [ 1]   86 	ld	0x5236, a
+                                     87 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 74: UART1->CR1 &= (uint8_t)(~(UART1_CR1_PCEN | UART1_CR1_PS  ));  
+                                     88 ; genPointerGet
+      000022 C6 52 34         [ 1]   89 	ld	a, 0x5234
+                                     90 ; genAnd
+      000025 A4 F9            [ 1]   91 	and	a, #0xf9
+                                     92 ; genPointerSet
+      000027 C7 52 34         [ 1]   93 	ld	0x5234, a
+                                     94 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 76: UART1->CR1 |= (uint8_t)Parity;  
+                                     95 ; genPointerGet
+      00002A C6 52 34         [ 1]   96 	ld	a, 0x5234
+                                     97 ; genOr
+      00002D 1A 1A            [ 1]   98 	or	a, (0x1a, sp)
+                                     99 ; genPointerSet
+      00002F C7 52 34         [ 1]  100 	ld	0x5234, a
+                                    101 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 79: UART1->BRR1 &= (uint8_t)(~UART1_BRR1_DIVM);  
+                                    102 ; genPointerGet
+                                    103 ; Dummy read
+      000032 C6 52 32         [ 1]  104 	ld	a, 0x5232
+                                    105 ; genPointerSet
+      000035 35 00 52 32      [ 1]  106 	mov	0x5232+0, #0x00
+                                    107 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 81: UART1->BRR2 &= (uint8_t)(~UART1_BRR2_DIVM);  
+                                    108 ; genPointerGet
+      000039 C6 52 33         [ 1]  109 	ld	a, 0x5233
+                                    110 ; genAnd
+      00003C A4 0F            [ 1]  111 	and	a, #0x0f
+                                    112 ; genPointerSet
+      00003E C7 52 33         [ 1]  113 	ld	0x5233, a
+                                    114 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 83: UART1->BRR2 &= (uint8_t)(~UART1_BRR2_DIVF);  
+                                    115 ; genPointerGet
+      000041 C6 52 33         [ 1]  116 	ld	a, 0x5233
+                                    117 ; genAnd
+      000044 A4 F0            [ 1]  118 	and	a, #0xf0
+                                    119 ; genPointerSet
+      000046 C7 52 33         [ 1]  120 	ld	0x5233, a
+                                    121 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 86: BaudRate_Mantissa    = ((uint32_t)CLK_GetClockFreq() / (BaudRate << 4));
+                                    122 ; genCall
+      000049 CDr00r00         [ 4]  123 	call	_CLK_GetClockFreq
+      00004C 1F 10            [ 2]  124 	ldw	(0x10, sp), x
+                                    125 ; genLeftShift
+      00004E 1E 14            [ 2]  126 	ldw	x, (0x14, sp)
+      000050 1F 0A            [ 2]  127 	ldw	(0x0a, sp), x
+      000052 1E 16            [ 2]  128 	ldw	x, (0x16, sp)
+      000054 A6 04            [ 1]  129 	ld	a, #0x04
+      000056                        130 00133$:
+      000056 58               [ 2]  131 	sllw	x
+      000057 09 0B            [ 1]  132 	rlc	(0x0b, sp)
+      000059 09 0A            [ 1]  133 	rlc	(0x0a, sp)
+      00005B 4A               [ 1]  134 	dec	a
+      00005C 26 F8            [ 1]  135 	jrne	00133$
+      00005E                        136 00134$:
+      00005E 1F 0C            [ 2]  137 	ldw	(0x0c, sp), x
+                                    138 ; genIPush
+      000060 1E 0C            [ 2]  139 	ldw	x, (0x0c, sp)
+      000062 89               [ 2]  140 	pushw	x
+      000063 1E 0C            [ 2]  141 	ldw	x, (0x0c, sp)
+      000065 89               [ 2]  142 	pushw	x
+                                    143 ; genIPush
+      000066 1E 14            [ 2]  144 	ldw	x, (0x14, sp)
+      000068 89               [ 2]  145 	pushw	x
+      000069 90 89            [ 2]  146 	pushw	y
+                                    147 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 87: BaudRate_Mantissa100 = (((uint32_t)CLK_GetClockFreq() * 100) / (BaudRate << 4));
+                                    148 ; genCall
+      00006B CDr00r00         [ 4]  149 	call	__divulong
+      00006E 5B 08            [ 2]  150 	addw	sp, #8
+      000070 1F 03            [ 2]  151 	ldw	(0x03, sp), x
+      000072 17 01            [ 2]  152 	ldw	(0x01, sp), y
+                                    153 ; genCall
+      000074 CDr00r00         [ 4]  154 	call	_CLK_GetClockFreq
+                                    155 ; genIPush
+      000077 89               [ 2]  156 	pushw	x
+      000078 90 89            [ 2]  157 	pushw	y
+                                    158 ; genIPush
+      00007A 4B 64            [ 1]  159 	push	#0x64
+      00007C 5F               [ 1]  160 	clrw	x
+      00007D 89               [ 2]  161 	pushw	x
+      00007E 4B 00            [ 1]  162 	push	#0x00
+                                    163 ; genCall
+      000080 CDr00r00         [ 4]  164 	call	__mullong
+      000083 5B 08            [ 2]  165 	addw	sp, #8
+      000085 1F 10            [ 2]  166 	ldw	(0x10, sp), x
+                                    167 ; genIPush
+      000087 1E 0C            [ 2]  168 	ldw	x, (0x0c, sp)
+      000089 89               [ 2]  169 	pushw	x
+      00008A 1E 0C            [ 2]  170 	ldw	x, (0x0c, sp)
+      00008C 89               [ 2]  171 	pushw	x
+                                    172 ; genIPush
+      00008D 1E 14            [ 2]  173 	ldw	x, (0x14, sp)
+      00008F 89               [ 2]  174 	pushw	x
+      000090 90 89            [ 2]  175 	pushw	y
+                                    176 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 89: UART1->BRR2 |= (uint8_t)((uint8_t)(((BaudRate_Mantissa100 - (BaudRate_Mantissa * 100)) << 4) / 100) & (uint8_t)0x0F); 
+                                    177 ; genCall
+      000092 CDr00r00         [ 4]  178 	call	__divulong
+      000095 5B 08            [ 2]  179 	addw	sp, #8
+      000097 1F 07            [ 2]  180 	ldw	(0x07, sp), x
+      000099 17 05            [ 2]  181 	ldw	(0x05, sp), y
+                                    182 ; genPointerGet
+      00009B C6 52 33         [ 1]  183 	ld	a, 0x5233
+      00009E 6B 09            [ 1]  184 	ld	(0x09, sp), a
+                                    185 ; genIPush
+      0000A0 1E 03            [ 2]  186 	ldw	x, (0x03, sp)
+      0000A2 89               [ 2]  187 	pushw	x
+      0000A3 1E 03            [ 2]  188 	ldw	x, (0x03, sp)
+      0000A5 89               [ 2]  189 	pushw	x
+                                    190 ; genIPush
+      0000A6 4B 64            [ 1]  191 	push	#0x64
+      0000A8 5F               [ 1]  192 	clrw	x
+      0000A9 89               [ 2]  193 	pushw	x
+      0000AA 4B 00            [ 1]  194 	push	#0x00
+                                    195 ; genCall
+      0000AC CDr00r00         [ 4]  196 	call	__mullong
+      0000AF 5B 08            [ 2]  197 	addw	sp, #8
+      0000B1 1F 0C            [ 2]  198 	ldw	(0x0c, sp), x
+      0000B3 17 0A            [ 2]  199 	ldw	(0x0a, sp), y
+                                    200 ; genMinus
+      0000B5 1E 07            [ 2]  201 	ldw	x, (0x07, sp)
+      0000B7 72 F0 0C         [ 2]  202 	subw	x, (0x0c, sp)
+      0000BA 1F 10            [ 2]  203 	ldw	(0x10, sp), x
+      0000BC 7B 06            [ 1]  204 	ld	a, (0x06, sp)
+      0000BE 12 0B            [ 1]  205 	sbc	a, (0x0b, sp)
+      0000C0 6B 0F            [ 1]  206 	ld	(0x0f, sp), a
+      0000C2 7B 05            [ 1]  207 	ld	a, (0x05, sp)
+      0000C4 12 0A            [ 1]  208 	sbc	a, (0x0a, sp)
+      0000C6 6B 0E            [ 1]  209 	ld	(0x0e, sp), a
+                                    210 ; genLeftShift
+      0000C8 1E 10            [ 2]  211 	ldw	x, (0x10, sp)
+      0000CA 16 0E            [ 2]  212 	ldw	y, (0x0e, sp)
+      0000CC A6 04            [ 1]  213 	ld	a, #0x04
+      0000CE                        214 00135$:
+      0000CE 58               [ 2]  215 	sllw	x
+      0000CF 90 59            [ 2]  216 	rlcw	y
+      0000D1 4A               [ 1]  217 	dec	a
+      0000D2 26 FA            [ 1]  218 	jrne	00135$
+      0000D4                        219 00136$:
+                                    220 ; genIPush
+      0000D4 4B 64            [ 1]  221 	push	#0x64
+      0000D6 4B 00            [ 1]  222 	push	#0x00
+      0000D8 4B 00            [ 1]  223 	push	#0x00
+      0000DA 4B 00            [ 1]  224 	push	#0x00
+                                    225 ; genIPush
+      0000DC 89               [ 2]  226 	pushw	x
+      0000DD 90 89            [ 2]  227 	pushw	y
+                                    228 ; genCall
+      0000DF CDr00r00         [ 4]  229 	call	__divulong
+      0000E2 5B 08            [ 2]  230 	addw	sp, #8
+      0000E4 9F               [ 1]  231 	ld	a, xl
+                                    232 ; genCast
+                                    233 ; genAssign
+                                    234 ; genAnd
+      0000E5 A4 0F            [ 1]  235 	and	a, #0x0f
+                                    236 ; genOr
+      0000E7 1A 09            [ 1]  237 	or	a, (0x09, sp)
+                                    238 ; genPointerSet
+      0000E9 C7 52 33         [ 1]  239 	ld	0x5233, a
+                                    240 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 91: UART1->BRR2 |= (uint8_t)((BaudRate_Mantissa >> 4) & (uint8_t)0xF0); 
+                                    241 ; genPointerGet
+      0000EC C6 52 33         [ 1]  242 	ld	a, 0x5233
+      0000EF 6B 11            [ 1]  243 	ld	(0x11, sp), a
+                                    244 ; genCast
+                                    245 ; genAssign
+      0000F1 1E 03            [ 2]  246 	ldw	x, (0x03, sp)
+                                    247 ; genRightShiftLiteral
+      0000F3 A6 10            [ 1]  248 	ld	a, #0x10
+      0000F5 62               [ 2]  249 	div	x, a
+                                    250 ; genCast
+                                    251 ; genAssign
+      0000F6 9F               [ 1]  252 	ld	a, xl
+                                    253 ; genAnd
+      0000F7 A4 F0            [ 1]  254 	and	a, #0xf0
+                                    255 ; genOr
+      0000F9 1A 11            [ 1]  256 	or	a, (0x11, sp)
+                                    257 ; genPointerSet
+      0000FB C7 52 33         [ 1]  258 	ld	0x5233, a
+                                    259 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 93: UART1->BRR1 |= (uint8_t)BaudRate_Mantissa;           
+                                    260 ; genPointerGet
+      0000FE C6 52 32         [ 1]  261 	ld	a, 0x5232
+      000101 6B 11            [ 1]  262 	ld	(0x11, sp), a
+                                    263 ; genCast
+                                    264 ; genAssign
+      000103 7B 04            [ 1]  265 	ld	a, (0x04, sp)
+                                    266 ; genOr
+      000105 1A 11            [ 1]  267 	or	a, (0x11, sp)
+                                    268 ; genPointerSet
+      000107 C7 52 32         [ 1]  269 	ld	0x5232, a
+                                    270 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 96: UART1->CR2 &= (uint8_t)~(UART1_CR2_TEN | UART1_CR2_REN); 
+                                    271 ; genPointerGet
+      00010A C6 52 35         [ 1]  272 	ld	a, 0x5235
+                                    273 ; genAnd
+      00010D A4 F3            [ 1]  274 	and	a, #0xf3
+                                    275 ; genPointerSet
+      00010F C7 52 35         [ 1]  276 	ld	0x5235, a
+                                    277 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 98: UART1->CR3 &= (uint8_t)~(UART1_CR3_CPOL | UART1_CR3_CPHA | UART1_CR3_LBCL); 
+                                    278 ; genPointerGet
+      000112 C6 52 36         [ 1]  279 	ld	a, 0x5236
+                                    280 ; genAnd
+      000115 A4 F8            [ 1]  281 	and	a, #0xf8
+                                    282 ; genPointerSet
+      000117 C7 52 36         [ 1]  283 	ld	0x5236, a
+                                    284 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 100: UART1->CR3 |= (uint8_t)((uint8_t)SyncMode & (uint8_t)(UART1_CR3_CPOL | 
+                                    285 ; genPointerGet
+      00011A C6 52 36         [ 1]  286 	ld	a, 0x5236
+      00011D 6B 11            [ 1]  287 	ld	(0x11, sp), a
+                                    288 ; genAnd
+      00011F 7B 1B            [ 1]  289 	ld	a, (0x1b, sp)
+      000121 A4 07            [ 1]  290 	and	a, #0x07
+                                    291 ; genOr
+      000123 1A 11            [ 1]  292 	or	a, (0x11, sp)
+                                    293 ; genPointerSet
+      000125 C7 52 36         [ 1]  294 	ld	0x5236, a
+                                    295 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 96: UART1->CR2 &= (uint8_t)~(UART1_CR2_TEN | UART1_CR2_REN); 
+                                    296 ; genPointerGet
+      000128 C6 52 35         [ 1]  297 	ld	a, 0x5235
+                                    298 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 103: if ((uint8_t)(Mode & UART1_MODE_TX_ENABLE))
+                                    299 ; genAnd
+      00012B 88               [ 1]  300 	push	a
+      00012C 7B 1D            [ 1]  301 	ld	a, (0x1d, sp)
+      00012E A5 04            [ 1]  302 	bcp	a, #0x04
+      000130 84               [ 1]  303 	pop	a
+      000131 26 03            [ 1]  304 	jrne	00137$
+      000133 CCr01r3E         [ 2]  305 	jp	00102$
+      000136                        306 00137$:
+                                    307 ; skipping generated iCode
+                                    308 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 106: UART1->CR2 |= (uint8_t)UART1_CR2_TEN;  
+                                    309 ; genOr
+      000136 AA 08            [ 1]  310 	or	a, #0x08
+                                    311 ; genPointerSet
+      000138 C7 52 35         [ 1]  312 	ld	0x5235, a
+                                    313 ; genGoto
+      00013B CCr01r43         [ 2]  314 	jp	00103$
+                                    315 ; genLabel
+      00013E                        316 00102$:
+                                    317 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 111: UART1->CR2 &= (uint8_t)(~UART1_CR2_TEN);  
+                                    318 ; genAnd
+      00013E A4 F7            [ 1]  319 	and	a, #0xf7
+                                    320 ; genPointerSet
+      000140 C7 52 35         [ 1]  321 	ld	0x5235, a
+                                    322 ; genLabel
+      000143                        323 00103$:
+                                    324 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 96: UART1->CR2 &= (uint8_t)~(UART1_CR2_TEN | UART1_CR2_REN); 
+                                    325 ; genPointerGet
+      000143 C6 52 35         [ 1]  326 	ld	a, 0x5235
+                                    327 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 113: if ((uint8_t)(Mode & UART1_MODE_RX_ENABLE))
+                                    328 ; genAnd
+      000146 88               [ 1]  329 	push	a
+      000147 7B 1D            [ 1]  330 	ld	a, (0x1d, sp)
+      000149 A5 08            [ 1]  331 	bcp	a, #0x08
+      00014B 84               [ 1]  332 	pop	a
+      00014C 26 03            [ 1]  333 	jrne	00138$
+      00014E CCr01r59         [ 2]  334 	jp	00105$
+      000151                        335 00138$:
+                                    336 ; skipping generated iCode
+                                    337 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 116: UART1->CR2 |= (uint8_t)UART1_CR2_REN;  
+                                    338 ; genOr
+      000151 AA 04            [ 1]  339 	or	a, #0x04
+                                    340 ; genPointerSet
+      000153 C7 52 35         [ 1]  341 	ld	0x5235, a
+                                    342 ; genGoto
+      000156 CCr01r5E         [ 2]  343 	jp	00106$
+                                    344 ; genLabel
+      000159                        345 00105$:
+                                    346 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 121: UART1->CR2 &= (uint8_t)(~UART1_CR2_REN);  
+                                    347 ; genAnd
+      000159 A4 FB            [ 1]  348 	and	a, #0xfb
+                                    349 ; genPointerSet
+      00015B C7 52 35         [ 1]  350 	ld	0x5235, a
+                                    351 ; genLabel
+      00015E                        352 00106$:
+                                    353 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 69: UART1->CR3 &= (uint8_t)(~UART1_CR3_STOP);  
+                                    354 ; genPointerGet
+      00015E C6 52 36         [ 1]  355 	ld	a, 0x5236
+                                    356 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 125: if ((uint8_t)(SyncMode & UART1_SYNCMODE_CLOCK_DISABLE))
+                                    357 ; genAnd
+      000161 0D 1B            [ 1]  358 	tnz	(0x1b, sp)
+      000163 2B 03            [ 1]  359 	jrmi	00139$
+      000165 CCr01r70         [ 2]  360 	jp	00108$
+      000168                        361 00139$:
+                                    362 ; skipping generated iCode
+                                    363 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 128: UART1->CR3 &= (uint8_t)(~UART1_CR3_CKEN); 
+                                    364 ; genAnd
+      000168 A4 F7            [ 1]  365 	and	a, #0xf7
+                                    366 ; genPointerSet
+      00016A C7 52 36         [ 1]  367 	ld	0x5236, a
+                                    368 ; genGoto
+      00016D CCr01r7D         [ 2]  369 	jp	00110$
+                                    370 ; genLabel
+      000170                        371 00108$:
+                                    372 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 132: UART1->CR3 |= (uint8_t)((uint8_t)SyncMode & UART1_CR3_CKEN);
+                                    373 ; genAnd
+      000170 88               [ 1]  374 	push	a
+      000171 7B 1C            [ 1]  375 	ld	a, (0x1c, sp)
+      000173 A4 08            [ 1]  376 	and	a, #0x08
+      000175 6B 12            [ 1]  377 	ld	(0x12, sp), a
+      000177 84               [ 1]  378 	pop	a
+                                    379 ; genOr
+      000178 1A 11            [ 1]  380 	or	a, (0x11, sp)
+                                    381 ; genPointerSet
+      00017A C7 52 36         [ 1]  382 	ld	0x5236, a
+                                    383 ; genLabel
+      00017D                        384 00110$:
+                                    385 ;	../SPLSPL/src/stm8s_uart1_UART1_Init.c: 134: }
+                                    386 ; genEndFunction
+      00017D 1E 12            [ 2]  387 	ldw	x, (18, sp)
+      00017F 5B 1C            [ 2]  388 	addw	sp, #28
+      000181 FC               [ 2]  389 	jp	(x)
+                                    390 	.area CODE
+                                    391 	.area CONST
+                                    392 	.area INITIALIZER
+                                    393 	.area CABS (ABS)

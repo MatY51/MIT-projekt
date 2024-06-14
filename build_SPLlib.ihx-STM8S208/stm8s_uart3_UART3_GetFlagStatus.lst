@@ -1,0 +1,213 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_uart3_UART3_GetFlagStatus
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _UART3_GetFlagStatus
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 37: FlagStatus UART3_GetFlagStatus(UART3_Flag_TypeDef UART3_FLAG)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function UART3_GetFlagStatus
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 3 bytes.
+      000000                         56 _UART3_GetFlagStatus:
+      000000 52 03            [ 2]   57 	sub	sp, #3
+                                     58 ; genReceive
+                                     59 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 45: if (UART3_FLAG == UART3_FLAG_LBDF)
+                                     60 ; genCast
+                                     61 ; genAssign
+      000002 1F 01            [ 2]   62 	ldw	(0x01, sp), x
+                                     63 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 47: if ((UART3->CR4 & (uint8_t)UART3_FLAG) != (uint8_t)0x00)
+                                     64 ; genCast
+                                     65 ; genAssign
+      000004 41               [ 1]   66 	exg	a, xl
+      000005 6B 03            [ 1]   67 	ld	(0x03, sp), a
+      000007 41               [ 1]   68 	exg	a, xl
+                                     69 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 45: if (UART3_FLAG == UART3_FLAG_LBDF)
+                                     70 ; genCmpEQorNE
+      000008 1E 01            [ 2]   71 	ldw	x, (0x01, sp)
+      00000A A3 02 10         [ 2]   72 	cpw	x, #0x0210
+      00000D 26 03            [ 1]   73 	jrne	00175$
+      00000F CCr00r15         [ 2]   74 	jp	00176$
+      000012                         75 00175$:
+      000012 CCr00r29         [ 2]   76 	jp	00121$
+      000015                         77 00176$:
+                                     78 ; skipping generated iCode
+                                     79 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 47: if ((UART3->CR4 & (uint8_t)UART3_FLAG) != (uint8_t)0x00)
+                                     80 ; genPointerGet
+      000015 C6 52 47         [ 1]   81 	ld	a, 0x5247
+                                     82 ; genAnd
+      000018 14 03            [ 1]   83 	and	a, (0x03, sp)
+                                     84 ; genIfx
+      00001A 4D               [ 1]   85 	tnz	a
+      00001B 26 03            [ 1]   86 	jrne	00177$
+      00001D CCr00r25         [ 2]   87 	jp	00102$
+      000020                         88 00177$:
+                                     89 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 50: status = SET;
+                                     90 ; genAssign
+      000020 A6 01            [ 1]   91 	ld	a, #0x01
+                                     92 ; genGoto
+      000022 CCr00r86         [ 2]   93 	jp	00122$
+                                     94 ; genLabel
+      000025                         95 00102$:
+                                     96 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 55: status = RESET;
+                                     97 ; genAssign
+      000025 4F               [ 1]   98 	clr	a
+                                     99 ; genGoto
+      000026 CCr00r86         [ 2]  100 	jp	00122$
+                                    101 ; genLabel
+      000029                        102 00121$:
+                                    103 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 58: else if (UART3_FLAG == UART3_FLAG_SBK)
+                                    104 ; genCmpEQorNE
+      000029 1E 01            [ 2]  105 	ldw	x, (0x01, sp)
+      00002B A3 01 01         [ 2]  106 	cpw	x, #0x0101
+      00002E 26 03            [ 1]  107 	jrne	00179$
+      000030 CCr00r36         [ 2]  108 	jp	00180$
+      000033                        109 00179$:
+      000033 CCr00r4A         [ 2]  110 	jp	00118$
+      000036                        111 00180$:
+                                    112 ; skipping generated iCode
+                                    113 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 60: if ((UART3->CR2 & (uint8_t)UART3_FLAG) != (uint8_t)0x00)
+                                    114 ; genPointerGet
+      000036 C6 52 45         [ 1]  115 	ld	a, 0x5245
+                                    116 ; genAnd
+      000039 14 03            [ 1]  117 	and	a, (0x03, sp)
+                                    118 ; genIfx
+      00003B 4D               [ 1]  119 	tnz	a
+      00003C 26 03            [ 1]  120 	jrne	00181$
+      00003E CCr00r46         [ 2]  121 	jp	00105$
+      000041                        122 00181$:
+                                    123 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 63: status = SET;
+                                    124 ; genAssign
+      000041 A6 01            [ 1]  125 	ld	a, #0x01
+                                    126 ; genGoto
+      000043 CCr00r86         [ 2]  127 	jp	00122$
+                                    128 ; genLabel
+      000046                        129 00105$:
+                                    130 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 68: status = RESET;
+                                    131 ; genAssign
+      000046 4F               [ 1]  132 	clr	a
+                                    133 ; genGoto
+      000047 CCr00r86         [ 2]  134 	jp	00122$
+                                    135 ; genLabel
+      00004A                        136 00118$:
+                                    137 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 71: else if ((UART3_FLAG == UART3_FLAG_LHDF) || (UART3_FLAG == UART3_FLAG_LSF))
+                                    138 ; genCmpEQorNE
+      00004A 1E 01            [ 2]  139 	ldw	x, (0x01, sp)
+      00004C A3 03 02         [ 2]  140 	cpw	x, #0x0302
+      00004F 26 03            [ 1]  141 	jrne	00183$
+      000051 CCr00r61         [ 2]  142 	jp	00113$
+      000054                        143 00183$:
+                                    144 ; skipping generated iCode
+                                    145 ; genCmpEQorNE
+      000054 1E 01            [ 2]  146 	ldw	x, (0x01, sp)
+      000056 A3 03 01         [ 2]  147 	cpw	x, #0x0301
+      000059 26 03            [ 1]  148 	jrne	00186$
+      00005B CCr00r61         [ 2]  149 	jp	00187$
+      00005E                        150 00186$:
+      00005E CCr00r75         [ 2]  151 	jp	00114$
+      000061                        152 00187$:
+                                    153 ; skipping generated iCode
+                                    154 ; genLabel
+      000061                        155 00113$:
+                                    156 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 73: if ((UART3->CR6 & (uint8_t)UART3_FLAG) != (uint8_t)0x00)
+                                    157 ; genPointerGet
+      000061 C6 52 49         [ 1]  158 	ld	a, 0x5249
+                                    159 ; genAnd
+      000064 14 03            [ 1]  160 	and	a, (0x03, sp)
+                                    161 ; genIfx
+      000066 4D               [ 1]  162 	tnz	a
+      000067 26 03            [ 1]  163 	jrne	00188$
+      000069 CCr00r71         [ 2]  164 	jp	00108$
+      00006C                        165 00188$:
+                                    166 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 76: status = SET;
+                                    167 ; genAssign
+      00006C A6 01            [ 1]  168 	ld	a, #0x01
+                                    169 ; genGoto
+      00006E CCr00r86         [ 2]  170 	jp	00122$
+                                    171 ; genLabel
+      000071                        172 00108$:
+                                    173 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 81: status = RESET;
+                                    174 ; genAssign
+      000071 4F               [ 1]  175 	clr	a
+                                    176 ; genGoto
+      000072 CCr00r86         [ 2]  177 	jp	00122$
+                                    178 ; genLabel
+      000075                        179 00114$:
+                                    180 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 86: if ((UART3->SR & (uint8_t)UART3_FLAG) != (uint8_t)0x00)
+                                    181 ; genPointerGet
+      000075 C6 52 40         [ 1]  182 	ld	a, 0x5240
+                                    183 ; genAnd
+      000078 14 03            [ 1]  184 	and	a, (0x03, sp)
+                                    185 ; genIfx
+      00007A 4D               [ 1]  186 	tnz	a
+      00007B 26 03            [ 1]  187 	jrne	00189$
+      00007D CCr00r85         [ 2]  188 	jp	00111$
+      000080                        189 00189$:
+                                    190 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 89: status = SET;
+                                    191 ; genAssign
+      000080 A6 01            [ 1]  192 	ld	a, #0x01
+                                    193 ; genGoto
+      000082 CCr00r86         [ 2]  194 	jp	00122$
+                                    195 ; genLabel
+      000085                        196 00111$:
+                                    197 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 94: status = RESET;
+                                    198 ; genAssign
+      000085 4F               [ 1]  199 	clr	a
+                                    200 ; genLabel
+      000086                        201 00122$:
+                                    202 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 99: return  status;
+                                    203 ; genReturn
+                                    204 ; genLabel
+      000086                        205 00123$:
+                                    206 ;	../SPLSPL/src/stm8s_uart3_UART3_GetFlagStatus.c: 100: }
+                                    207 ; genEndFunction
+      000086 5B 03            [ 2]  208 	addw	sp, #3
+      000088 81               [ 4]  209 	ret
+                                    210 	.area CODE
+                                    211 	.area CONST
+                                    212 	.area INITIALIZER
+                                    213 	.area CABS (ABS)

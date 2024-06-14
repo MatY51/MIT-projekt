@@ -1,0 +1,33 @@
+XH3
+H B areas 2 global symbols
+M stm8s_spi_SPI_ClearITPendingBit
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 18 flags 0 addr 0
+S _SPI_ClearITPendingBit Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 A4 F0 4E A4 0F 97 A6 01 88 9F 4D 27 05
+R 00 00 00 09
+T 00 00 0D
+R 00 00 00 09
+T 00 00 0D 08 01 4A 26 FB
+R 00 00 00 09
+T 00 00 12
+R 00 00 00 09
+T 00 00 12 84 43 C7 52 03
+R 00 00 00 09
+T 00 00 17
+R 00 00 00 09
+T 00 00 17 81
+R 00 00 00 09

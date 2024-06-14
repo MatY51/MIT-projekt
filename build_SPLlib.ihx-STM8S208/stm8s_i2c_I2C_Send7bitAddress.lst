@@ -1,0 +1,82 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_i2c_I2C_Send7bitAddress
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _I2C_Send7bitAddress
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_i2c_I2C_Send7bitAddress.c: 38: void I2C_Send7bitAddress(uint8_t Address, I2C_Direction_TypeDef Direction)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function I2C_Send7bitAddress
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment is optimal.
+                                     55 ;	Stack space usage: 1 bytes.
+      000000                         56 _I2C_Send7bitAddress:
+      000000 88               [ 1]   57 	push	a
+                                     58 ; genReceive
+                                     59 ;	../SPLSPL/src/stm8s_i2c_I2C_Send7bitAddress.c: 45: Address &= (uint8_t)0xFE;
+                                     60 ; genAnd
+      000001 A4 FE            [ 1]   61 	and	a, #0xfe
+      000003 6B 01            [ 1]   62 	ld	(0x01, sp), a
+                                     63 ;	../SPLSPL/src/stm8s_i2c_I2C_Send7bitAddress.c: 48: I2C->DR = (uint8_t)(Address | (uint8_t)Direction);
+                                     64 ; genCast
+                                     65 ; genAssign
+      000005 7B 04            [ 1]   66 	ld	a, (0x04, sp)
+                                     67 ; genOr
+      000007 1A 01            [ 1]   68 	or	a, (0x01, sp)
+                                     69 ; genPointerSet
+      000009 C7 52 16         [ 1]   70 	ld	0x5216, a
+                                     71 ; genLabel
+      00000C                         72 00101$:
+                                     73 ;	../SPLSPL/src/stm8s_i2c_I2C_Send7bitAddress.c: 49: }
+                                     74 ; genEndFunction
+      00000C 84               [ 1]   75 	pop	a
+      00000D 85               [ 2]   76 	popw	x
+      00000E 84               [ 1]   77 	pop	a
+      00000F FC               [ 2]   78 	jp	(x)
+                                     79 	.area CODE
+                                     80 	.area CONST
+                                     81 	.area INITIALIZER
+                                     82 	.area CABS (ABS)

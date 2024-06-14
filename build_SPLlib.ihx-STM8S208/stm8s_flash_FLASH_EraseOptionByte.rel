@@ -1,0 +1,48 @@
+XH3
+H B areas 3 global symbols
+M stm8s_flash_FLASH_EraseOptionByte
+O -mstm8
+S .__.ABS. Def000000
+S _FLASH_WaitForLastOperation Ref000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 45 flags 0 addr 0
+S _FLASH_EraseOptionByte Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 89 51 C6 50 5B AA 80 C7 50 5B C6 50 5C
+R 00 00 00 09
+T 00 00 0D A4 7F C7 50 5C 93 17 01 A3 48 00 26 03
+R 00 00 00 09
+T 00 00 1A CC 00 20
+R 00 00 00 09 00 04 00 09
+T 00 00 1D
+R 00 00 00 09
+T 00 00 1D CC 00 26
+R 00 00 00 09 00 04 00 09
+T 00 00 20
+R 00 00 00 09
+T 00 00 20 1E 01 7F CC 00 2E
+R 00 00 00 09 00 07 00 09
+T 00 00 26
+R 00 00 00 09
+T 00 00 26 1E 01 7F 93 5C A6 FF F7
+R 00 00 00 09
+T 00 00 2E
+R 00 00 00 09
+T 00 00 2E A6 FD CD 00 00 C6 50 5B A4 7F C7 50 5B
+R 00 00 00 09 02 06 00 01
+T 00 00 3B C6 50 5C AA 80 C7 50 5C
+R 00 00 00 09
+T 00 00 43
+R 00 00 00 09
+T 00 00 43 85 81
+R 00 00 00 09

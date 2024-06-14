@@ -1,0 +1,88 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_can_CAN_GetLastErrorCode
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CAN_SelectPage
+                                     12 	.globl _CAN_GetSelectedPage
+                                     13 	.globl _CAN_GetLastErrorCode
+                                     14 ;--------------------------------------------------------
+                                     15 ; ram data
+                                     16 ;--------------------------------------------------------
+                                     17 	.area DATA
+                                     18 ;--------------------------------------------------------
+                                     19 ; ram data
+                                     20 ;--------------------------------------------------------
+                                     21 	.area INITIALIZED
+                                     22 ;--------------------------------------------------------
+                                     23 ; absolute external ram data
+                                     24 ;--------------------------------------------------------
+                                     25 	.area DABS (ABS)
+                                     26 
+                                     27 ; default segment ordering for linker
+                                     28 	.area HOME
+                                     29 	.area GSINIT
+                                     30 	.area GSFINAL
+                                     31 	.area CONST
+                                     32 	.area INITIALIZER
+                                     33 	.area CODE
+                                     34 
+                                     35 ;--------------------------------------------------------
+                                     36 ; global & static initialisations
+                                     37 ;--------------------------------------------------------
+                                     38 	.area HOME
+                                     39 	.area GSINIT
+                                     40 	.area GSFINAL
+                                     41 	.area GSINIT
+                                     42 ;--------------------------------------------------------
+                                     43 ; Home
+                                     44 ;--------------------------------------------------------
+                                     45 	.area HOME
+                                     46 	.area HOME
+                                     47 ;--------------------------------------------------------
+                                     48 ; code
+                                     49 ;--------------------------------------------------------
+                                     50 	.area CODE
+                                     51 ;	../SPLSPL/src/stm8s_can_CAN_GetLastErrorCode.c: 36: CAN_ErrorCode_TypeDef CAN_GetLastErrorCode(void)
+                                     52 ; genLabel
+                                     53 ;	-----------------------------------------
+                                     54 ;	 function CAN_GetLastErrorCode
+                                     55 ;	-----------------------------------------
+                                     56 ;	Register assignment is optimal.
+                                     57 ;	Stack space usage: 0 bytes.
+      000000                         58 _CAN_GetLastErrorCode:
+                                     59 ;	../SPLSPL/src/stm8s_can_CAN_GetLastErrorCode.c: 39: CAN_Page_TypeDef can_page = CAN_GetSelectedPage();
+                                     60 ; genCall
+      000000 CDr00r00         [ 4]   61 	call	_CAN_GetSelectedPage
+      000003 97               [ 1]   62 	ld	xl, a
+                                     63 ;	../SPLSPL/src/stm8s_can_CAN_GetLastErrorCode.c: 41: CAN->PSR = CAN_Page_Config;
+                                     64 ; genPointerSet
+      000004 35 06 54 27      [ 1]   65 	mov	0x5427+0, #0x06
+                                     66 ;	../SPLSPL/src/stm8s_can_CAN_GetLastErrorCode.c: 42: errcode = (CAN_ErrorCode_TypeDef)((CAN->Page.Config.ESR) & (CAN_ESR_LEC));
+                                     67 ; genPointerGet
+      000008 C6 54 28         [ 1]   68 	ld	a, 0x5428
+                                     69 ; genAnd
+      00000B A4 70            [ 1]   70 	and	a, #0x70
+                                     71 ;	../SPLSPL/src/stm8s_can_CAN_GetLastErrorCode.c: 45: CAN_SelectPage(can_page);
+                                     72 ; genSend
+      00000D 88               [ 1]   73 	push	a
+      00000E 9F               [ 1]   74 	ld	a, xl
+                                     75 ; genCall
+      00000F CDr00r00         [ 4]   76 	call	_CAN_SelectPage
+      000012 84               [ 1]   77 	pop	a
+                                     78 ;	../SPLSPL/src/stm8s_can_CAN_GetLastErrorCode.c: 47: return (CAN_ErrorCode_TypeDef)(errcode);
+                                     79 ; genReturn
+                                     80 ; genLabel
+      000013                         81 00101$:
+                                     82 ;	../SPLSPL/src/stm8s_can_CAN_GetLastErrorCode.c: 48: }
+                                     83 ; genEndFunction
+      000013 81               [ 4]   84 	ret
+                                     85 	.area CODE
+                                     86 	.area CONST
+                                     87 	.area INITIALIZER
+                                     88 	.area CABS (ABS)

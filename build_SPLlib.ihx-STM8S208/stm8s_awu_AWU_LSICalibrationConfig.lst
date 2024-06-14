@@ -1,0 +1,144 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_awu_AWU_LSICalibrationConfig
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _AWU_LSICalibrationConfig
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_awu_AWU_LSICalibrationConfig.c: 44: void AWU_LSICalibrationConfig(uint32_t LSIFreqHz)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function AWU_LSICalibrationConfig
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 6 bytes.
+      000000                         56 _AWU_LSICalibrationConfig:
+      000000 52 06            [ 2]   57 	sub	sp, #6
+                                     58 ;	../SPLSPL/src/stm8s_awu_AWU_LSICalibrationConfig.c: 52: lsifreqkhz = (uint16_t)(LSIFreqHz / 1000); /* Converts value in kHz */
+                                     59 ; genIPush
+      000002 4B E8            [ 1]   60 	push	#0xe8
+      000004 4B 03            [ 1]   61 	push	#0x03
+      000006 5F               [ 1]   62 	clrw	x
+      000007 89               [ 2]   63 	pushw	x
+                                     64 ; genIPush
+      000008 1E 0F            [ 2]   65 	ldw	x, (0x0f, sp)
+      00000A 89               [ 2]   66 	pushw	x
+      00000B 1E 0F            [ 2]   67 	ldw	x, (0x0f, sp)
+      00000D 89               [ 2]   68 	pushw	x
+                                     69 ; genCall
+      00000E CDr00r00         [ 4]   70 	call	__divulong
+      000011 5B 08            [ 2]   71 	addw	sp, #8
+                                     72 ; genCast
+                                     73 ; genAssign
+      000013 1F 05            [ 2]   74 	ldw	(0x05, sp), x
+                                     75 ;	../SPLSPL/src/stm8s_awu_AWU_LSICalibrationConfig.c: 56: A = (uint16_t)(lsifreqkhz >> 2U); /* Division by 4, keep integer part only */
+                                     76 ; genRightShiftLiteral
+      000015 1E 05            [ 2]   77 	ldw	x, (0x05, sp)
+      000017 54               [ 2]   78 	srlw	x
+      000018 54               [ 2]   79 	srlw	x
+      000019 1F 01            [ 2]   80 	ldw	(0x01, sp), x
+                                     81 ;	../SPLSPL/src/stm8s_awu_AWU_LSICalibrationConfig.c: 58: if ((4U * A) >= ((lsifreqkhz - (4U * A)) * (1U + (2U * A))))
+                                     82 ; genCast
+                                     83 ; genAssign
+      00001B 1E 01            [ 2]   84 	ldw	x, (0x01, sp)
+                                     85 ; genLeftShiftLiteral
+      00001D 1F 03            [ 2]   86 	ldw	(0x03, sp), x
+      00001F 08 04            [ 1]   87 	sll	(0x04, sp)
+      000021 09 03            [ 1]   88 	rlc	(0x03, sp)
+      000023 08 04            [ 1]   89 	sll	(0x04, sp)
+      000025 09 03            [ 1]   90 	rlc	(0x03, sp)
+                                     91 ; genCast
+                                     92 ; genAssign
+      000027 16 05            [ 2]   93 	ldw	y, (0x05, sp)
+                                     94 ; genMinus
+      000029 72 F2 03         [ 2]   95 	subw	y, (0x03, sp)
+                                     96 ; genLeftShiftLiteral
+      00002C 58               [ 2]   97 	sllw	x
+                                     98 ; genPlus
+      00002D 5C               [ 1]   99 	incw	x
+                                    100 ; genIPush
+      00002E 89               [ 2]  101 	pushw	x
+                                    102 ; genSend
+      00002F 93               [ 1]  103 	ldw	x, y
+                                    104 ;	../SPLSPL/src/stm8s_awu_AWU_LSICalibrationConfig.c: 60: AWU->APR = (uint8_t)(A - 2U);
+                                    105 ; genCall
+      000030 CDr00r00         [ 4]  106 	call	__mulint
+      000033 1F 05            [ 2]  107 	ldw	(0x05, sp), x
+                                    108 ; genCast
+                                    109 ; genAssign
+      000035 7B 02            [ 1]  110 	ld	a, (0x02, sp)
+                                    111 ;	../SPLSPL/src/stm8s_awu_AWU_LSICalibrationConfig.c: 58: if ((4U * A) >= ((lsifreqkhz - (4U * A)) * (1U + (2U * A))))
+                                    112 ; genCmp
+                                    113 ; genCmpTnz
+      000037 1E 03            [ 2]  114 	ldw	x, (0x03, sp)
+      000039 13 05            [ 2]  115 	cpw	x, (0x05, sp)
+      00003B 24 03            [ 1]  116 	jrnc	00113$
+      00003D CCr00r48         [ 2]  117 	jp	00102$
+      000040                        118 00113$:
+                                    119 ; skipping generated iCode
+                                    120 ;	../SPLSPL/src/stm8s_awu_AWU_LSICalibrationConfig.c: 60: AWU->APR = (uint8_t)(A - 2U);
+                                    121 ; genMinus
+      000040 A0 02            [ 1]  122 	sub	a, #0x02
+                                    123 ; genPointerSet
+      000042 C7 50 F1         [ 1]  124 	ld	0x50f1, a
+                                    125 ; genGoto
+      000045 CCr00r4C         [ 2]  126 	jp	00104$
+                                    127 ; genLabel
+      000048                        128 00102$:
+                                    129 ;	../SPLSPL/src/stm8s_awu_AWU_LSICalibrationConfig.c: 64: AWU->APR = (uint8_t)(A - 1U);
+                                    130 ; genMinus
+      000048 4A               [ 1]  131 	dec	a
+                                    132 ; genPointerSet
+      000049 C7 50 F1         [ 1]  133 	ld	0x50f1, a
+                                    134 ; genLabel
+      00004C                        135 00104$:
+                                    136 ;	../SPLSPL/src/stm8s_awu_AWU_LSICalibrationConfig.c: 66: }
+                                    137 ; genEndFunction
+      00004C 1E 07            [ 2]  138 	ldw	x, (7, sp)
+      00004E 5B 0C            [ 2]  139 	addw	sp, #12
+      000050 FC               [ 2]  140 	jp	(x)
+                                    141 	.area CODE
+                                    142 	.area CONST
+                                    143 	.area INITIALIZER
+                                    144 	.area CABS (ABS)

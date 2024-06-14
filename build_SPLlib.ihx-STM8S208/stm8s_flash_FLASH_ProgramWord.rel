@@ -1,0 +1,48 @@
+XH3
+H B areas 3 global symbols
+M stm8s_flash_FLASH_ProgramWord
+O -mstm8
+S .__.ABS. Def000000
+S _write_byte_address Ref000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 6C flags 0 addr 0
+S _FLASH_ProgramWord Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 C6 50 5B AA 40 C7 50 5B C6 50 5C A4 BF
+R 00 00 00 09
+T 00 00 0D C7 50 5C 96 1C 00 07 F6 88 1E 06 89 1E
+R 00 00 00 09
+T 00 00 1A 06 89 CD 00 00 96 1C 00 07 E6 01 1E 05
+R 00 00 00 09 02 06 00 01
+T 00 00 27 1C 00 01 16 03 24 02 90 5C
+R 00 00 00 09
+T 00 00 30
+R 00 00 00 09
+T 00 00 30 88 89 90 89 CD 00 00 96 1C 00 07 E6 02
+R 00 00 00 09 02 08 00 01
+T 00 00 3D 1E 05 1C 00 02 16 03 24 02 90 5C
+R 00 00 00 09
+T 00 00 48
+R 00 00 00 09
+T 00 00 48 88 89 90 89 CD 00 00 96 1C 00 07 E6 03
+R 00 00 00 09 02 08 00 01
+T 00 00 55 1E 05 1C 00 03 16 03 24 02 90 5C
+R 00 00 00 09
+T 00 00 60
+R 00 00 00 09
+T 00 00 60 88 89 90 89 CD 00 00
+R 00 00 00 09 02 08 00 01
+T 00 00 67
+R 00 00 00 09
+T 00 00 67 1E 01 5B 0A FC
+R 00 00 00 09

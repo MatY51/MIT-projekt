@@ -1,0 +1,78 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_flash_FLASH_EraseByte
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _write_byte_address
+                                     12 	.globl _FLASH_EraseByte
+                                     13 ;--------------------------------------------------------
+                                     14 ; ram data
+                                     15 ;--------------------------------------------------------
+                                     16 	.area DATA
+                                     17 ;--------------------------------------------------------
+                                     18 ; ram data
+                                     19 ;--------------------------------------------------------
+                                     20 	.area INITIALIZED
+                                     21 ;--------------------------------------------------------
+                                     22 ; absolute external ram data
+                                     23 ;--------------------------------------------------------
+                                     24 	.area DABS (ABS)
+                                     25 
+                                     26 ; default segment ordering for linker
+                                     27 	.area HOME
+                                     28 	.area GSINIT
+                                     29 	.area GSFINAL
+                                     30 	.area CONST
+                                     31 	.area INITIALIZER
+                                     32 	.area CODE
+                                     33 
+                                     34 ;--------------------------------------------------------
+                                     35 ; global & static initialisations
+                                     36 ;--------------------------------------------------------
+                                     37 	.area HOME
+                                     38 	.area GSINIT
+                                     39 	.area GSFINAL
+                                     40 	.area GSINIT
+                                     41 ;--------------------------------------------------------
+                                     42 ; Home
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area HOME
+                                     46 ;--------------------------------------------------------
+                                     47 ; code
+                                     48 ;--------------------------------------------------------
+                                     49 	.area CODE
+                                     50 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseByte.c: 39: void FLASH_EraseByte(uint32_t Address)
+                                     51 ; genLabel
+                                     52 ;	-----------------------------------------
+                                     53 ;	 function FLASH_EraseByte
+                                     54 ;	-----------------------------------------
+                                     55 ;	Register assignment is optimal.
+                                     56 ;	Stack space usage: 0 bytes.
+      000000                         57 _FLASH_EraseByte:
+                                     58 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseByte.c: 49: write_byte_address((MemoryAddressCast) Address, FLASH_CLEAR_BYTE);
+                                     59 ; genIPush
+      000000 4B 00            [ 1]   60 	push	#0x00
+                                     61 ; genIPush
+      000002 1E 06            [ 2]   62 	ldw	x, (0x06, sp)
+      000004 89               [ 2]   63 	pushw	x
+      000005 1E 06            [ 2]   64 	ldw	x, (0x06, sp)
+      000007 89               [ 2]   65 	pushw	x
+                                     66 ; genCall
+      000008 CDr00r00         [ 4]   67 	call	_write_byte_address
+                                     68 ; genLabel
+      00000B                         69 00101$:
+                                     70 ;	../SPLSPL/src/stm8s_flash_FLASH_EraseByte.c: 51: }
+                                     71 ; genEndFunction
+      00000B 1E 01            [ 2]   72 	ldw	x, (1, sp)
+      00000D 5B 06            [ 2]   73 	addw	sp, #6
+      00000F FC               [ 2]   74 	jp	(x)
+                                     75 	.area CODE
+                                     76 	.area CONST
+                                     77 	.area INITIALIZER
+                                     78 	.area CABS (ABS)

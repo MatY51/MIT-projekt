@@ -1,0 +1,110 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_tim3_TIM3_GetFlagStatus
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TIM3_GetFlagStatus
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_tim3_TIM3_GetFlagStatus.c: 42: FlagStatus TIM3_GetFlagStatus(TIM3_FLAG_TypeDef TIM3_FLAG)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function TIM3_GetFlagStatus
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 1 bytes.
+      000000                         56 _TIM3_GetFlagStatus:
+      000000 88               [ 1]   57 	push	a
+                                     58 ; genReceive
+                                     59 ;	../SPLSPL/src/stm8s_tim3_TIM3_GetFlagStatus.c: 50: tim3_flag_l = (uint8_t)(TIM3->SR1 & (uint8_t)TIM3_FLAG);
+                                     60 ; genPointerGet
+      000001 C6 53 22         [ 1]   61 	ld	a, 0x5322
+      000004 6B 01            [ 1]   62 	ld	(0x01, sp), a
+                                     63 ; genCast
+                                     64 ; genAssign
+      000006 9F               [ 1]   65 	ld	a, xl
+                                     66 ; genAnd
+      000007 14 01            [ 1]   67 	and	a, (0x01, sp)
+      000009 6B 01            [ 1]   68 	ld	(0x01, sp), a
+                                     69 ;	../SPLSPL/src/stm8s_tim3_TIM3_GetFlagStatus.c: 51: tim3_flag_h = (uint8_t)((uint16_t)TIM3_FLAG >> 8);
+                                     70 ; genCast
+                                     71 ; genAssign
+                                     72 ; genGetByte
+                                     73 ;	../SPLSPL/src/stm8s_tim3_TIM3_GetFlagStatus.c: 53: if (((tim3_flag_l) | (uint8_t)(TIM3->SR2 & tim3_flag_h)) != (uint8_t)RESET )
+                                     74 ; genPointerGet
+      00000B C6 53 23         [ 1]   75 	ld	a, 0x5323
+                                     76 ; genAnd
+      00000E 89               [ 2]   77 	pushw	x
+      00000F 14 01            [ 1]   78 	and	a, (1, sp)
+      000011 85               [ 2]   79 	popw	x
+                                     80 ; genOr
+      000012 1A 01            [ 1]   81 	or	a, (0x01, sp)
+                                     82 ; genIfx
+      000014 4D               [ 1]   83 	tnz	a
+      000015 26 03            [ 1]   84 	jrne	00113$
+      000017 CCr00r1F         [ 2]   85 	jp	00102$
+      00001A                         86 00113$:
+                                     87 ;	../SPLSPL/src/stm8s_tim3_TIM3_GetFlagStatus.c: 55: bitstatus = SET;
+                                     88 ; genAssign
+      00001A A6 01            [ 1]   89 	ld	a, #0x01
+                                     90 ; genGoto
+      00001C CCr00r20         [ 2]   91 	jp	00103$
+                                     92 ; genLabel
+      00001F                         93 00102$:
+                                     94 ;	../SPLSPL/src/stm8s_tim3_TIM3_GetFlagStatus.c: 59: bitstatus = RESET;
+                                     95 ; genAssign
+      00001F 4F               [ 1]   96 	clr	a
+                                     97 ; genLabel
+      000020                         98 00103$:
+                                     99 ;	../SPLSPL/src/stm8s_tim3_TIM3_GetFlagStatus.c: 61: return (FlagStatus)bitstatus;
+                                    100 ; genReturn
+                                    101 ; genLabel
+      000020                        102 00104$:
+                                    103 ;	../SPLSPL/src/stm8s_tim3_TIM3_GetFlagStatus.c: 62: }
+                                    104 ; genEndFunction
+      000020 5B 01            [ 2]  105 	addw	sp, #1
+      000022 81               [ 4]  106 	ret
+                                    107 	.area CODE
+                                    108 	.area CONST
+                                    109 	.area INITIALIZER
+                                    110 	.area CABS (ABS)

@@ -1,0 +1,53 @@
+XH3
+H B areas 2 global symbols
+M stm8s_tim1_TIM1_EncoderInterfaceConfig
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 54 flags 0 addr 0
+S _TIM1_EncoderInterfaceConfig Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 88 6B 01 C6 52 5C 0D 04 26 03 CC 00 15
+R 00 00 00 09 00 0E 00 09
+T 00 00 0D
+R 00 00 00 09
+T 00 00 0D AA 02 C7 52 5C CC 00 1A
+R 00 00 00 09 00 09 00 09
+T 00 00 15
+R 00 00 00 09
+T 00 00 15 A4 FD C7 52 5C
+R 00 00 00 09
+T 00 00 1A
+R 00 00 00 09
+T 00 00 1A C6 52 5C 0D 05 26 03 CC 00 2C
+R 00 00 00 09 00 0B 00 09
+T 00 00 24
+R 00 00 00 09
+T 00 00 24 AA 20 C7 52 5C CC 00 31
+R 00 00 00 09 00 09 00 09
+T 00 00 2C
+R 00 00 00 09
+T 00 00 2C A4 DF C7 52 5C
+R 00 00 00 09
+T 00 00 31
+R 00 00 00 09
+T 00 00 31 C6 52 52 A4 F0 1A 01 C7 52 52 C6 52 58
+R 00 00 00 09
+T 00 00 3E A4 FC AA 01 C7 52 58 C6 52 59 A4 FC AA
+R 00 00 00 09
+T 00 00 4B 01 C7 52 59
+R 00 00 00 09
+T 00 00 4F
+R 00 00 00 09
+T 00 00 4F 1E 02 5B 05 FC
+R 00 00 00 09

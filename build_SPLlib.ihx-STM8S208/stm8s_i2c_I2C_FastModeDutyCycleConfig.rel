@@ -1,0 +1,39 @@
+XH3
+H B areas 2 global symbols
+M stm8s_i2c_I2C_FastModeDutyCycleConfig
+O -mstm8
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A INITIALIZED size 0 flags 0 addr 0
+A DABS size 0 flags 8 addr 0
+A HOME size 0 flags 0 addr 0
+A GSINIT size 0 flags 0 addr 0
+A GSFINAL size 0 flags 0 addr 0
+A CONST size 0 flags 0 addr 0
+A INITIALIZER size 0 flags 0 addr 0
+A CODE size 1F flags 0 addr 0
+S _I2C_FastModeDutyCycleConfig Def000000
+A CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 09
+T 00 00 00 97 C6 52 1C 88 9F A1 40 84 26 03 CC
+R 00 00 00 09
+T 00 00 0C 00 11
+R 00 00 00 09 00 03 00 09
+T 00 00 0E
+R 00 00 00 09
+T 00 00 0E CC 00 19
+R 00 00 00 09 00 04 00 09
+T 00 00 11
+R 00 00 00 09
+T 00 00 11 AA 40 C7 52 1C CC 00 1E
+R 00 00 00 09 00 09 00 09
+T 00 00 19
+R 00 00 00 09
+T 00 00 19 A4 BF C7 52 1C
+R 00 00 00 09
+T 00 00 1E
+R 00 00 00 09
+T 00 00 1E 81
+R 00 00 00 09

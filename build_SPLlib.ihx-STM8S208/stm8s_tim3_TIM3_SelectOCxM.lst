@@ -1,0 +1,112 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_tim3_TIM3_SelectOCxM
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TIM3_SelectOCxM
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_tim3_TIM3_SelectOCxM.c: 50: void TIM3_SelectOCxM(TIM3_Channel_TypeDef TIM3_Channel, TIM3_OCMode_TypeDef TIM3_OCMode)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function TIM3_SelectOCxM
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment might be sub-optimal.
+                                     55 ;	Stack space usage: 1 bytes.
+      000000                         56 _TIM3_SelectOCxM:
+      000000 88               [ 1]   57 	push	a
+                                     58 ; genReceive
+      000001 6B 01            [ 1]   59 	ld	(0x01, sp), a
+                                     60 ;	../SPLSPL/src/stm8s_tim3_TIM3_SelectOCxM.c: 59: TIM3->CCER1 &= (uint8_t)(~TIM3_CCER1_CC1E);
+                                     61 ; genPointerGet
+      000003 C6 53 27         [ 1]   62 	ld	a, 0x5327
+                                     63 ;	../SPLSPL/src/stm8s_tim3_TIM3_SelectOCxM.c: 56: if (TIM3_Channel == TIM3_CHANNEL_1)
+                                     64 ; genIfx
+      000006 0D 01            [ 1]   65 	tnz	(0x01, sp)
+      000008 27 03            [ 1]   66 	jreq	00113$
+      00000A CCr00r1F         [ 2]   67 	jp	00102$
+      00000D                         68 00113$:
+                                     69 ;	../SPLSPL/src/stm8s_tim3_TIM3_SelectOCxM.c: 59: TIM3->CCER1 &= (uint8_t)(~TIM3_CCER1_CC1E);
+                                     70 ; genAnd
+      00000D A4 FE            [ 1]   71 	and	a, #0xfe
+                                     72 ; genPointerSet
+      00000F C7 53 27         [ 1]   73 	ld	0x5327, a
+                                     74 ;	../SPLSPL/src/stm8s_tim3_TIM3_SelectOCxM.c: 62: TIM3->CCMR1 = (uint8_t)((uint8_t)(TIM3->CCMR1 & (uint8_t)(~TIM3_CCMR_OCM)) | (uint8_t)TIM3_OCMode);
+                                     75 ; genPointerGet
+      000012 C6 53 25         [ 1]   76 	ld	a, 0x5325
+                                     77 ; genAnd
+      000015 A4 8F            [ 1]   78 	and	a, #0x8f
+                                     79 ; genOr
+      000017 1A 04            [ 1]   80 	or	a, (0x04, sp)
+                                     81 ; genPointerSet
+      000019 C7 53 25         [ 1]   82 	ld	0x5325, a
+                                     83 ; genGoto
+      00001C CCr00r2E         [ 2]   84 	jp	00104$
+                                     85 ; genLabel
+      00001F                         86 00102$:
+                                     87 ;	../SPLSPL/src/stm8s_tim3_TIM3_SelectOCxM.c: 67: TIM3->CCER1 &= (uint8_t)(~TIM3_CCER1_CC2E);
+                                     88 ; genAnd
+      00001F A4 EF            [ 1]   89 	and	a, #0xef
+                                     90 ; genPointerSet
+      000021 C7 53 27         [ 1]   91 	ld	0x5327, a
+                                     92 ;	../SPLSPL/src/stm8s_tim3_TIM3_SelectOCxM.c: 70: TIM3->CCMR2 = (uint8_t)((uint8_t)(TIM3->CCMR2 & (uint8_t)(~TIM3_CCMR_OCM)) | (uint8_t)TIM3_OCMode);
+                                     93 ; genPointerGet
+      000024 C6 53 26         [ 1]   94 	ld	a, 0x5326
+                                     95 ; genAnd
+      000027 A4 8F            [ 1]   96 	and	a, #0x8f
+                                     97 ; genOr
+      000029 1A 04            [ 1]   98 	or	a, (0x04, sp)
+                                     99 ; genPointerSet
+      00002B C7 53 26         [ 1]  100 	ld	0x5326, a
+                                    101 ; genLabel
+      00002E                        102 00104$:
+                                    103 ;	../SPLSPL/src/stm8s_tim3_TIM3_SelectOCxM.c: 72: }
+                                    104 ; genEndFunction
+      00002E 84               [ 1]  105 	pop	a
+      00002F 85               [ 2]  106 	popw	x
+      000030 84               [ 1]  107 	pop	a
+      000031 FC               [ 2]  108 	jp	(x)
+                                    109 	.area CODE
+                                    110 	.area CONST
+                                    111 	.area INITIALIZER
+                                    112 	.area CABS (ABS)

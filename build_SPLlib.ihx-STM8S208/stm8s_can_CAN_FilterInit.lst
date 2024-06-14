@@ -1,0 +1,1030 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_can_CAN_FilterInit
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _CAN_SelectPage
+                                     12 	.globl _CAN_GetSelectedPage
+                                     13 	.globl _CAN_OperatingModeRequest
+                                     14 	.globl _CAN_FilterInit
+                                     15 ;--------------------------------------------------------
+                                     16 ; ram data
+                                     17 ;--------------------------------------------------------
+                                     18 	.area DATA
+                                     19 ;--------------------------------------------------------
+                                     20 ; ram data
+                                     21 ;--------------------------------------------------------
+                                     22 	.area INITIALIZED
+                                     23 ;--------------------------------------------------------
+                                     24 ; absolute external ram data
+                                     25 ;--------------------------------------------------------
+                                     26 	.area DABS (ABS)
+                                     27 
+                                     28 ; default segment ordering for linker
+                                     29 	.area HOME
+                                     30 	.area GSINIT
+                                     31 	.area GSFINAL
+                                     32 	.area CONST
+                                     33 	.area INITIALIZER
+                                     34 	.area CODE
+                                     35 
+                                     36 ;--------------------------------------------------------
+                                     37 ; global & static initialisations
+                                     38 ;--------------------------------------------------------
+                                     39 	.area HOME
+                                     40 	.area GSINIT
+                                     41 	.area GSFINAL
+                                     42 	.area GSINIT
+                                     43 ;--------------------------------------------------------
+                                     44 ; Home
+                                     45 ;--------------------------------------------------------
+                                     46 	.area HOME
+                                     47 	.area HOME
+                                     48 ;--------------------------------------------------------
+                                     49 ; code
+                                     50 ;--------------------------------------------------------
+                                     51 	.area CODE
+                                     52 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 48: void CAN_FilterInit(CAN_FilterNumber_TypeDef CAN_FilterNumber,
+                                     53 ; genLabel
+                                     54 ;	-----------------------------------------
+                                     55 ;	 function CAN_FilterInit
+                                     56 ;	-----------------------------------------
+                                     57 ;	Register assignment might be sub-optimal.
+                                     58 ;	Stack space usage: 12 bytes.
+      000000                         59 _CAN_FilterInit:
+      000000 52 0C            [ 2]   60 	sub	sp, #12
+                                     61 ; genReceive
+      000002 6B 0C            [ 1]   62 	ld	(0x0c, sp), a
+                                     63 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 66: CAN_Page_TypeDef can_page = CAN_GetSelectedPage();
+                                     64 ; genCall
+      000004 CDr00r00         [ 4]   65 	call	_CAN_GetSelectedPage
+      000007 6B 01            [ 1]   66 	ld	(0x01, sp), a
+                                     67 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 75: if (CAN_FilterNumber == CAN_FilterNumber_0)
+                                     68 ; genIfx
+      000009 0D 0C            [ 1]   69 	tnz	(0x0c, sp)
+      00000B 27 03            [ 1]   70 	jreq	00360$
+      00000D CCr00r21         [ 2]   71 	jp	00114$
+      000010                         72 00360$:
+                                     73 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 77: fact = 0x01;
+                                     74 ; genAssign
+      000010 A6 01            [ 1]   75 	ld	a, #0x01
+      000012 6B 02            [ 1]   76 	ld	(0x02, sp), a
+                                     77 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 78: fsc  = 0x00;
+                                     78 ; genAssign
+      000014 0F 03            [ 1]   79 	clr	(0x03, sp)
+                                     80 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 79: fmhl = 0x03;
+                                     81 ; genAssign
+      000016 A6 03            [ 1]   82 	ld	a, #0x03
+      000018 6B 04            [ 1]   83 	ld	(0x04, sp), a
+                                     84 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 81: can_page_filter = CAN_Page_Filter01;
+                                     85 ; genAssign
+      00001A A6 02            [ 1]   86 	ld	a, #0x02
+      00001C 6B 05            [ 1]   87 	ld	(0x05, sp), a
+                                     88 ; genGoto
+      00001E CCr00rA8         [ 2]   89 	jp	00115$
+                                     90 ; genLabel
+      000021                         91 00114$:
+                                     92 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 83: else if (CAN_FilterNumber == CAN_FilterNumber_1)
+                                     93 ; genCmpEQorNE
+      000021 7B 0C            [ 1]   94 	ld	a, (0x0c, sp)
+      000023 4A               [ 1]   95 	dec	a
+      000024 26 03            [ 1]   96 	jrne	00362$
+      000026 CCr00r2C         [ 2]   97 	jp	00363$
+      000029                         98 00362$:
+      000029 CCr00r3F         [ 2]   99 	jp	00111$
+      00002C                        100 00363$:
+                                    101 ; skipping generated iCode
+                                    102 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 85: fact = 0x10;
+                                    103 ; genAssign
+      00002C A6 10            [ 1]  104 	ld	a, #0x10
+      00002E 6B 02            [ 1]  105 	ld	(0x02, sp), a
+                                    106 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 86: fsc  = 0x04;
+                                    107 ; genAssign
+      000030 A6 04            [ 1]  108 	ld	a, #0x04
+      000032 6B 03            [ 1]  109 	ld	(0x03, sp), a
+                                    110 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 87: fmhl = 0x0C;
+                                    111 ; genAssign
+      000034 A6 0C            [ 1]  112 	ld	a, #0x0c
+      000036 6B 04            [ 1]  113 	ld	(0x04, sp), a
+                                    114 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 89: can_page_filter = CAN_Page_Filter01;
+                                    115 ; genAssign
+      000038 A6 02            [ 1]  116 	ld	a, #0x02
+      00003A 6B 05            [ 1]  117 	ld	(0x05, sp), a
+                                    118 ; genGoto
+      00003C CCr00rA8         [ 2]  119 	jp	00115$
+                                    120 ; genLabel
+      00003F                        121 00111$:
+                                    122 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 91: else if (CAN_FilterNumber == CAN_FilterNumber_2)
+                                    123 ; genCmpEQorNE
+      00003F 7B 0C            [ 1]  124 	ld	a, (0x0c, sp)
+      000041 A1 02            [ 1]  125 	cp	a, #0x02
+      000043 26 03            [ 1]  126 	jrne	00365$
+      000045 CCr00r4B         [ 2]  127 	jp	00366$
+      000048                        128 00365$:
+      000048 CCr00r5C         [ 2]  129 	jp	00108$
+      00004B                        130 00366$:
+                                    131 ; skipping generated iCode
+                                    132 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 93: fact = 0x01;
+                                    133 ; genAssign
+      00004B A6 01            [ 1]  134 	ld	a, #0x01
+      00004D 6B 02            [ 1]  135 	ld	(0x02, sp), a
+                                    136 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 94: fsc  = 0x00;
+                                    137 ; genAssign
+      00004F 0F 03            [ 1]  138 	clr	(0x03, sp)
+                                    139 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 95: fmhl = 0x30;
+                                    140 ; genAssign
+      000051 A6 30            [ 1]  141 	ld	a, #0x30
+      000053 6B 04            [ 1]  142 	ld	(0x04, sp), a
+                                    143 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 97: can_page_filter = CAN_Page_Filter23;
+                                    144 ; genAssign
+      000055 A6 03            [ 1]  145 	ld	a, #0x03
+      000057 6B 05            [ 1]  146 	ld	(0x05, sp), a
+                                    147 ; genGoto
+      000059 CCr00rA8         [ 2]  148 	jp	00115$
+                                    149 ; genLabel
+      00005C                        150 00108$:
+                                    151 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 99: else if (CAN_FilterNumber == CAN_FilterNumber_3)
+                                    152 ; genCmpEQorNE
+      00005C 7B 0C            [ 1]  153 	ld	a, (0x0c, sp)
+      00005E A1 03            [ 1]  154 	cp	a, #0x03
+      000060 26 03            [ 1]  155 	jrne	00368$
+      000062 CCr00r68         [ 2]  156 	jp	00369$
+      000065                        157 00368$:
+      000065 CCr00r7B         [ 2]  158 	jp	00105$
+      000068                        159 00369$:
+                                    160 ; skipping generated iCode
+                                    161 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 101: fact = 0x10;
+                                    162 ; genAssign
+      000068 A6 10            [ 1]  163 	ld	a, #0x10
+      00006A 6B 02            [ 1]  164 	ld	(0x02, sp), a
+                                    165 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 102: fsc  = 0x04;
+                                    166 ; genAssign
+      00006C A6 04            [ 1]  167 	ld	a, #0x04
+      00006E 6B 03            [ 1]  168 	ld	(0x03, sp), a
+                                    169 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 103: fmhl = 0xC0;
+                                    170 ; genAssign
+      000070 A6 C0            [ 1]  171 	ld	a, #0xc0
+      000072 6B 04            [ 1]  172 	ld	(0x04, sp), a
+                                    173 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 105: can_page_filter = CAN_Page_Filter23;
+                                    174 ; genAssign
+      000074 A6 03            [ 1]  175 	ld	a, #0x03
+      000076 6B 05            [ 1]  176 	ld	(0x05, sp), a
+                                    177 ; genGoto
+      000078 CCr00rA8         [ 2]  178 	jp	00115$
+                                    179 ; genLabel
+      00007B                        180 00105$:
+                                    181 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 107: else if (CAN_FilterNumber == CAN_FilterNumber_4)
+                                    182 ; genCmpEQorNE
+      00007B 7B 0C            [ 1]  183 	ld	a, (0x0c, sp)
+      00007D A1 04            [ 1]  184 	cp	a, #0x04
+      00007F 26 03            [ 1]  185 	jrne	00371$
+      000081 CCr00r87         [ 2]  186 	jp	00372$
+      000084                        187 00371$:
+      000084 CCr00r98         [ 2]  188 	jp	00102$
+      000087                        189 00372$:
+                                    190 ; skipping generated iCode
+                                    191 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 109: fact = 0x01;
+                                    192 ; genAssign
+      000087 A6 01            [ 1]  193 	ld	a, #0x01
+      000089 6B 02            [ 1]  194 	ld	(0x02, sp), a
+                                    195 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 110: fsc  = 0x00;
+                                    196 ; genAssign
+      00008B 0F 03            [ 1]  197 	clr	(0x03, sp)
+                                    198 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 111: fmhl = 0x03;
+                                    199 ; genAssign
+      00008D A6 03            [ 1]  200 	ld	a, #0x03
+      00008F 6B 04            [ 1]  201 	ld	(0x04, sp), a
+                                    202 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 113: can_page_filter = CAN_Page_Filter45;
+                                    203 ; genAssign
+      000091 A6 04            [ 1]  204 	ld	a, #0x04
+      000093 6B 05            [ 1]  205 	ld	(0x05, sp), a
+                                    206 ; genGoto
+      000095 CCr00rA8         [ 2]  207 	jp	00115$
+                                    208 ; genLabel
+      000098                        209 00102$:
+                                    210 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 117: fact = 0x10;
+                                    211 ; genAssign
+      000098 A6 10            [ 1]  212 	ld	a, #0x10
+      00009A 6B 02            [ 1]  213 	ld	(0x02, sp), a
+                                    214 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 118: fsc  = 0x04;
+                                    215 ; genAssign
+      00009C A6 04            [ 1]  216 	ld	a, #0x04
+      00009E 6B 03            [ 1]  217 	ld	(0x03, sp), a
+                                    218 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 119: fmhl = 0x0C;
+                                    219 ; genAssign
+      0000A0 A6 0C            [ 1]  220 	ld	a, #0x0c
+      0000A2 6B 04            [ 1]  221 	ld	(0x04, sp), a
+                                    222 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 121: can_page_filter = CAN_Page_Filter45;
+                                    223 ; genAssign
+      0000A4 A6 04            [ 1]  224 	ld	a, #0x04
+      0000A6 6B 05            [ 1]  225 	ld	(0x05, sp), a
+                                    226 ; genLabel
+      0000A8                        227 00115$:
+                                    228 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 125: CAN_OperatingModeRequest(CAN_OperatingMode_Initialization);
+                                    229 ; genSend
+      0000A8 4F               [ 1]  230 	clr	a
+                                    231 ; genCall
+      0000A9 CDr00r00         [ 4]  232 	call	_CAN_OperatingModeRequest
+                                    233 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 127: CAN->PSR = CAN_Page_Config;
+                                    234 ; genPointerSet
+      0000AC 35 06 54 27      [ 1]  235 	mov	0x5427+0, #0x06
+                                    236 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 135: CAN->Page.Config.FCR1 &= (uint8_t)(~(uint8_t)(fact | (uint8_t)((uint8_t)(CAN_FCR1_FSC00|CAN_FCR1_FSC01) << fsc )));
+                                    237 ; genLeftShift
+      0000B0 A6 06            [ 1]  238 	ld	a, #0x06
+      0000B2 6B 0B            [ 1]  239 	ld	(0x0b, sp), a
+      0000B4 7B 03            [ 1]  240 	ld	a, (0x03, sp)
+      0000B6 27 05            [ 1]  241 	jreq	00374$
+      0000B8                        242 00373$:
+      0000B8 08 0B            [ 1]  243 	sll	(0x0b, sp)
+      0000BA 4A               [ 1]  244 	dec	a
+      0000BB 26 FB            [ 1]  245 	jrne	00373$
+      0000BD                        246 00374$:
+                                    247 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 137: CAN->Page.Config.FCR1 |= (uint8_t)(CAN_FilterScale << fsc);
+                                    248 ; genLeftShift
+      0000BD 7B 11            [ 1]  249 	ld	a, (0x11, sp)
+      0000BF 88               [ 1]  250 	push	a
+      0000C0 7B 04            [ 1]  251 	ld	a, (0x04, sp)
+      0000C2 27 05            [ 1]  252 	jreq	00376$
+      0000C4                        253 00375$:
+      0000C4 08 01            [ 1]  254 	sll	(1, sp)
+      0000C6 4A               [ 1]  255 	dec	a
+      0000C7 26 FB            [ 1]  256 	jrne	00375$
+      0000C9                        257 00376$:
+      0000C9 84               [ 1]  258 	pop	a
+      0000CA 6B 09            [ 1]  259 	ld	(0x09, sp), a
+                                    260 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 135: CAN->Page.Config.FCR1 &= (uint8_t)(~(uint8_t)(fact | (uint8_t)((uint8_t)(CAN_FCR1_FSC00|CAN_FCR1_FSC01) << fsc )));
+                                    261 ; genOr
+      0000CC 7B 02            [ 1]  262 	ld	a, (0x02, sp)
+      0000CE 1A 0B            [ 1]  263 	or	a, (0x0b, sp)
+      0000D0 6B 0B            [ 1]  264 	ld	(0x0b, sp), a
+                                    265 ; genCpl
+      0000D2 7B 0B            [ 1]  266 	ld	a, (0x0b, sp)
+      0000D4 43               [ 1]  267 	cpl	a
+      0000D5 6B 0A            [ 1]  268 	ld	(0x0a, sp), a
+                                    269 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 132: if (can_page_filter == CAN_Page_Filter01) /* FCR1 */
+                                    270 ; genCmpEQorNE
+      0000D7 7B 05            [ 1]  271 	ld	a, (0x05, sp)
+      0000D9 A1 02            [ 1]  272 	cp	a, #0x02
+      0000DB 26 03            [ 1]  273 	jrne	00378$
+      0000DD CCr00rE3         [ 2]  274 	jp	00379$
+      0000E0                        275 00378$:
+      0000E0 CCr00rFE         [ 2]  276 	jp	00120$
+      0000E3                        277 00379$:
+                                    278 ; skipping generated iCode
+                                    279 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 135: CAN->Page.Config.FCR1 &= (uint8_t)(~(uint8_t)(fact | (uint8_t)((uint8_t)(CAN_FCR1_FSC00|CAN_FCR1_FSC01) << fsc )));
+                                    280 ; genPointerGet
+      0000E3 C6 54 32         [ 1]  281 	ld	a, 0x5432
+      0000E6 6B 0B            [ 1]  282 	ld	(0x0b, sp), a
+                                    283 ; genAnd
+      0000E8 7B 0B            [ 1]  284 	ld	a, (0x0b, sp)
+      0000EA 14 0A            [ 1]  285 	and	a, (0x0a, sp)
+                                    286 ; genPointerSet
+      0000EC C7 54 32         [ 1]  287 	ld	0x5432, a
+                                    288 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 137: CAN->Page.Config.FCR1 |= (uint8_t)(CAN_FilterScale << fsc);
+                                    289 ; genPointerGet
+      0000EF C6 54 32         [ 1]  290 	ld	a, 0x5432
+      0000F2 6B 0B            [ 1]  291 	ld	(0x0b, sp), a
+                                    292 ; genOr
+      0000F4 7B 0B            [ 1]  293 	ld	a, (0x0b, sp)
+      0000F6 1A 09            [ 1]  294 	or	a, (0x09, sp)
+                                    295 ; genPointerSet
+      0000F8 C7 54 32         [ 1]  296 	ld	0x5432, a
+                                    297 ; genGoto
+      0000FB CCr01r2D         [ 2]  298 	jp	00121$
+                                    299 ; genLabel
+      0000FE                        300 00120$:
+                                    301 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 139: else if (can_page_filter == CAN_Page_Filter23) /* FCR2*/
+                                    302 ; genCmpEQorNE
+      0000FE 7B 05            [ 1]  303 	ld	a, (0x05, sp)
+      000100 A1 03            [ 1]  304 	cp	a, #0x03
+      000102 26 03            [ 1]  305 	jrne	00381$
+      000104 CCr01r0A         [ 2]  306 	jp	00382$
+      000107                        307 00381$:
+      000107 CCr01r1D         [ 2]  308 	jp	00117$
+      00010A                        309 00382$:
+                                    310 ; skipping generated iCode
+                                    311 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 142: CAN->Page.Config.FCR2 &= (uint8_t)~(uint8_t)( fact | (uint8_t)((uint8_t)(CAN_FCR1_FSC00|CAN_FCR1_FSC01) << fsc ));
+                                    312 ; genPointerGet
+      00010A C6 54 33         [ 1]  313 	ld	a, 0x5433
+                                    314 ; genAnd
+      00010D 14 0A            [ 1]  315 	and	a, (0x0a, sp)
+                                    316 ; genPointerSet
+      00010F C7 54 33         [ 1]  317 	ld	0x5433, a
+                                    318 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 145: CAN->Page.Config.FCR2 |= (uint8_t)(CAN_FilterScale << fsc);
+                                    319 ; genPointerGet
+      000112 C6 54 33         [ 1]  320 	ld	a, 0x5433
+                                    321 ; genOr
+      000115 1A 09            [ 1]  322 	or	a, (0x09, sp)
+                                    323 ; genPointerSet
+      000117 C7 54 33         [ 1]  324 	ld	0x5433, a
+                                    325 ; genGoto
+      00011A CCr01r2D         [ 2]  326 	jp	00121$
+                                    327 ; genLabel
+      00011D                        328 00117$:
+                                    329 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 151: CAN->Page.Config.FCR3 &= (uint8_t)~(uint8_t)( fact | (uint8_t)((uint8_t)(CAN_FCR1_FSC00|CAN_FCR1_FSC01) << fsc ));
+                                    330 ; genPointerGet
+      00011D C6 54 34         [ 1]  331 	ld	a, 0x5434
+                                    332 ; genAnd
+      000120 14 0A            [ 1]  333 	and	a, (0x0a, sp)
+                                    334 ; genPointerSet
+      000122 C7 54 34         [ 1]  335 	ld	0x5434, a
+                                    336 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 154: CAN->Page.Config.FCR3 |= (uint8_t)(CAN_FilterScale << fsc);
+                                    337 ; genPointerGet
+      000125 C6 54 34         [ 1]  338 	ld	a, 0x5434
+                                    339 ; genOr
+      000128 1A 09            [ 1]  340 	or	a, (0x09, sp)
+                                    341 ; genPointerSet
+      00012A C7 54 34         [ 1]  342 	ld	0x5434, a
+                                    343 ; genLabel
+      00012D                        344 00121$:
+                                    345 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 166: CAN->Page.Config.FMR1 &= (uint8_t)~(fmhl);
+                                    346 ; genCpl
+      00012D 7B 04            [ 1]  347 	ld	a, (0x04, sp)
+      00012F 43               [ 1]  348 	cpl	a
+      000130 6B 06            [ 1]  349 	ld	(0x06, sp), a
+                                    350 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 168: else if ( CAN_FilterMode == CAN_FilterMode_IdList)
+                                    351 ; genCmpEQorNE
+      000132 7B 10            [ 1]  352 	ld	a, (0x10, sp)
+      000134 4A               [ 1]  353 	dec	a
+      000135 26 07            [ 1]  354 	jrne	00384$
+      000137 A6 01            [ 1]  355 	ld	a, #0x01
+      000139 6B 07            [ 1]  356 	ld	(0x07, sp), a
+      00013B CCr01r40         [ 2]  357 	jp	00385$
+      00013E                        358 00384$:
+      00013E 0F 07            [ 1]  359 	clr	(0x07, sp)
+      000140                        360 00385$:
+                                    361 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 173: else if ( CAN_FilterMode == CAN_FilterMode_IdList_IdMask)
+                                    362 ; genCmpEQorNE
+      000140 7B 10            [ 1]  363 	ld	a, (0x10, sp)
+      000142 A1 11            [ 1]  364 	cp	a, #0x11
+      000144 26 07            [ 1]  365 	jrne	00387$
+      000146 A6 01            [ 1]  366 	ld	a, #0x01
+      000148 6B 08            [ 1]  367 	ld	(0x08, sp), a
+      00014A CCr01r4F         [ 2]  368 	jp	00388$
+      00014D                        369 00387$:
+      00014D 0F 08            [ 1]  370 	clr	(0x08, sp)
+      00014F                        371 00388$:
+                                    372 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 176: CAN->Page.Config.FMR1 |= (uint8_t)(fmhl & CAN_IDLIST_IDMASK_MASK);
+                                    373 ; genAnd
+      00014F 7B 04            [ 1]  374 	ld	a, (0x04, sp)
+      000151 A4 55            [ 1]  375 	and	a, #0x55
+      000153 6B 09            [ 1]  376 	ld	(0x09, sp), a
+                                    377 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 181: CAN->Page.Config.FMR1 |= (uint8_t)(fmhl & CAN_IDMASK_IDLIST_MASK);
+                                    378 ; genAnd
+      000155 7B 04            [ 1]  379 	ld	a, (0x04, sp)
+      000157 A4 AA            [ 1]  380 	and	a, #0xaa
+      000159 6B 0A            [ 1]  381 	ld	(0x0a, sp), a
+                                    382 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 160: if (can_page_filter != CAN_Page_Filter45) /* FMR1*/
+                                    383 ; genCmpEQorNE
+      00015B 7B 05            [ 1]  384 	ld	a, (0x05, sp)
+      00015D A1 04            [ 1]  385 	cp	a, #0x04
+      00015F 26 03            [ 1]  386 	jrne	00390$
+      000161 CCr01rA6         [ 2]  387 	jp	00141$
+      000164                        388 00390$:
+                                    389 ; skipping generated iCode
+                                    390 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 166: CAN->Page.Config.FMR1 &= (uint8_t)~(fmhl);
+                                    391 ; genPointerGet
+      000164 C6 54 30         [ 1]  392 	ld	a, 0x5430
+      000167 6B 0B            [ 1]  393 	ld	(0x0b, sp), a
+                                    394 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 163: if (CAN_FilterMode == CAN_FilterMode_IdMask)
+                                    395 ; genIfx
+      000169 0D 10            [ 1]  396 	tnz	(0x10, sp)
+      00016B 27 03            [ 1]  397 	jreq	00392$
+      00016D CCr01r7A         [ 2]  398 	jp	00129$
+      000170                        399 00392$:
+                                    400 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 166: CAN->Page.Config.FMR1 &= (uint8_t)~(fmhl);
+                                    401 ; genAnd
+      000170 7B 0B            [ 1]  402 	ld	a, (0x0b, sp)
+      000172 14 06            [ 1]  403 	and	a, (0x06, sp)
+                                    404 ; genPointerSet
+      000174 C7 54 30         [ 1]  405 	ld	0x5430, a
+                                    406 ; genGoto
+      000177 CCr01rDB         [ 2]  407 	jp	00142$
+                                    408 ; genLabel
+      00017A                        409 00129$:
+                                    410 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 168: else if ( CAN_FilterMode == CAN_FilterMode_IdList)
+                                    411 ; genIfx
+      00017A 0D 07            [ 1]  412 	tnz	(0x07, sp)
+      00017C 26 03            [ 1]  413 	jrne	00393$
+      00017E CCr01r8B         [ 2]  414 	jp	00126$
+      000181                        415 00393$:
+                                    416 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 171: CAN->Page.Config.FMR1 |= (uint8_t)(fmhl);
+                                    417 ; genOr
+      000181 7B 0B            [ 1]  418 	ld	a, (0x0b, sp)
+      000183 1A 04            [ 1]  419 	or	a, (0x04, sp)
+                                    420 ; genPointerSet
+      000185 C7 54 30         [ 1]  421 	ld	0x5430, a
+                                    422 ; genGoto
+      000188 CCr01rDB         [ 2]  423 	jp	00142$
+                                    424 ; genLabel
+      00018B                        425 00126$:
+                                    426 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 173: else if ( CAN_FilterMode == CAN_FilterMode_IdList_IdMask)
+                                    427 ; genIfx
+      00018B 0D 08            [ 1]  428 	tnz	(0x08, sp)
+      00018D 26 03            [ 1]  429 	jrne	00394$
+      00018F CCr01r9C         [ 2]  430 	jp	00123$
+      000192                        431 00394$:
+                                    432 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 176: CAN->Page.Config.FMR1 |= (uint8_t)(fmhl & CAN_IDLIST_IDMASK_MASK);
+                                    433 ; genOr
+      000192 7B 0B            [ 1]  434 	ld	a, (0x0b, sp)
+      000194 1A 09            [ 1]  435 	or	a, (0x09, sp)
+                                    436 ; genPointerSet
+      000196 C7 54 30         [ 1]  437 	ld	0x5430, a
+                                    438 ; genGoto
+      000199 CCr01rDB         [ 2]  439 	jp	00142$
+                                    440 ; genLabel
+      00019C                        441 00123$:
+                                    442 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 181: CAN->Page.Config.FMR1 |= (uint8_t)(fmhl & CAN_IDMASK_IDLIST_MASK);
+                                    443 ; genOr
+      00019C 7B 0B            [ 1]  444 	ld	a, (0x0b, sp)
+      00019E 1A 0A            [ 1]  445 	or	a, (0x0a, sp)
+                                    446 ; genPointerSet
+      0001A0 C7 54 30         [ 1]  447 	ld	0x5430, a
+                                    448 ; genGoto
+      0001A3 CCr01rDB         [ 2]  449 	jp	00142$
+                                    450 ; genLabel
+      0001A6                        451 00141$:
+                                    452 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 193: CAN->Page.Config.FMR2 &= (uint8_t)~(fmhl);
+                                    453 ; genPointerGet
+      0001A6 C6 54 31         [ 1]  454 	ld	a, 0x5431
+                                    455 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 190: if (CAN_FilterMode == CAN_FilterMode_IdMask)
+                                    456 ; genIfx
+      0001A9 0D 10            [ 1]  457 	tnz	(0x10, sp)
+      0001AB 27 03            [ 1]  458 	jreq	00395$
+      0001AD CCr01rB8         [ 2]  459 	jp	00138$
+      0001B0                        460 00395$:
+                                    461 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 193: CAN->Page.Config.FMR2 &= (uint8_t)~(fmhl);
+                                    462 ; genAnd
+      0001B0 14 06            [ 1]  463 	and	a, (0x06, sp)
+                                    464 ; genPointerSet
+      0001B2 C7 54 31         [ 1]  465 	ld	0x5431, a
+                                    466 ; genGoto
+      0001B5 CCr01rDB         [ 2]  467 	jp	00142$
+                                    468 ; genLabel
+      0001B8                        469 00138$:
+                                    470 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 195: else if ( CAN_FilterMode == CAN_FilterMode_IdList)
+                                    471 ; genIfx
+      0001B8 0D 07            [ 1]  472 	tnz	(0x07, sp)
+      0001BA 26 03            [ 1]  473 	jrne	00396$
+      0001BC CCr01rC7         [ 2]  474 	jp	00135$
+      0001BF                        475 00396$:
+                                    476 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 198: CAN->Page.Config.FMR2 |= (uint8_t)(fmhl);
+                                    477 ; genOr
+      0001BF 1A 04            [ 1]  478 	or	a, (0x04, sp)
+                                    479 ; genPointerSet
+      0001C1 C7 54 31         [ 1]  480 	ld	0x5431, a
+                                    481 ; genGoto
+      0001C4 CCr01rDB         [ 2]  482 	jp	00142$
+                                    483 ; genLabel
+      0001C7                        484 00135$:
+                                    485 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 200: else if ( CAN_FilterMode == CAN_FilterMode_IdList_IdMask)
+                                    486 ; genIfx
+      0001C7 0D 08            [ 1]  487 	tnz	(0x08, sp)
+      0001C9 26 03            [ 1]  488 	jrne	00397$
+      0001CB CCr01rD6         [ 2]  489 	jp	00132$
+      0001CE                        490 00397$:
+                                    491 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 203: CAN->Page.Config.FMR2 |= (uint8_t)(fmhl & CAN_IDLIST_IDMASK_MASK);
+                                    492 ; genOr
+      0001CE 1A 09            [ 1]  493 	or	a, (0x09, sp)
+                                    494 ; genPointerSet
+      0001D0 C7 54 31         [ 1]  495 	ld	0x5431, a
+                                    496 ; genGoto
+      0001D3 CCr01rDB         [ 2]  497 	jp	00142$
+                                    498 ; genLabel
+      0001D6                        499 00132$:
+                                    500 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 208: CAN->Page.Config.FMR2 |= (uint8_t)(fmhl & CAN_IDMASK_IDLIST_MASK);
+                                    501 ; genOr
+      0001D6 1A 0A            [ 1]  502 	or	a, (0x0a, sp)
+                                    503 ; genPointerSet
+      0001D8 C7 54 31         [ 1]  504 	ld	0x5431, a
+                                    505 ; genLabel
+      0001DB                        506 00142$:
+                                    507 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 214: CAN->PSR = (uint8_t)can_page_filter;
+                                    508 ; genPointerSet
+      0001DB AE 54 27         [ 2]  509 	ldw	x, #0x5427
+      0001DE 7B 05            [ 1]  510 	ld	a, (0x05, sp)
+      0001E0 F7               [ 1]  511 	ld	(x), a
+                                    512 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 229: else if (CAN_FilterScale == CAN_FilterScale_16_8Bit)
+                                    513 ; genCmpEQorNE
+      0001E1 7B 11            [ 1]  514 	ld	a, (0x11, sp)
+      0001E3 A1 02            [ 1]  515 	cp	a, #0x02
+      0001E5 26 07            [ 1]  516 	jrne	00399$
+      0001E7 A6 01            [ 1]  517 	ld	a, #0x01
+      0001E9 6B 0A            [ 1]  518 	ld	(0x0a, sp), a
+      0001EB CCr01rF0         [ 2]  519 	jp	00400$
+      0001EE                        520 00399$:
+      0001EE 0F 0A            [ 1]  521 	clr	(0x0a, sp)
+      0001F0                        522 00400$:
+                                    523 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 240: else if (CAN_FilterScale == CAN_FilterScale_16Bit)
+                                    524 ; genCmpEQorNE
+      0001F0 7B 11            [ 1]  525 	ld	a, (0x11, sp)
+      0001F2 A1 04            [ 1]  526 	cp	a, #0x04
+      0001F4 26 07            [ 1]  527 	jrne	00402$
+      0001F6 A6 01            [ 1]  528 	ld	a, #0x01
+      0001F8 6B 0B            [ 1]  529 	ld	(0x0b, sp), a
+      0001FA CCr01rFF         [ 2]  530 	jp	00403$
+      0001FD                        531 00402$:
+      0001FD 0F 0B            [ 1]  532 	clr	(0x0b, sp)
+      0001FF                        533 00403$:
+                                    534 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 251: else if (CAN_FilterScale == CAN_FilterScale_32Bit)
+                                    535 ; genCmpEQorNE
+      0001FF 7B 11            [ 1]  536 	ld	a, (0x11, sp)
+      000201 A1 06            [ 1]  537 	cp	a, #0x06
+      000203 26 05            [ 1]  538 	jrne	00405$
+      000205 A6 01            [ 1]  539 	ld	a, #0x01
+      000207 CCr02r0B         [ 2]  540 	jp	00406$
+      00020A                        541 00405$:
+      00020A 4F               [ 1]  542 	clr	a
+      00020B                        543 00406$:
+                                    544 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 215: if (fsc != 0)
+                                    545 ; genIfx
+      00020B 0D 03            [ 1]  546 	tnz	(0x03, sp)
+      00020D 26 03            [ 1]  547 	jrne	00407$
+      00020F CCr02rF9         [ 2]  548 	jp	00166$
+      000212                        549 00407$:
+                                    550 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 218: if (CAN_FilterScale == CAN_FilterScale_8Bit)
+                                    551 ; genIfx
+      000212 0D 11            [ 1]  552 	tnz	(0x11, sp)
+      000214 27 03            [ 1]  553 	jreq	00408$
+      000216 CCr02r4C         [ 2]  554 	jp	00152$
+      000219                        555 00408$:
+                                    556 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 220: CAN->Page.Filter.FR09 = CAN_FilterID1;
+                                    557 ; genPointerSet
+      000219 AE 54 30         [ 2]  558 	ldw	x, #0x5430
+      00021C 7B 12            [ 1]  559 	ld	a, (0x12, sp)
+      00021E F7               [ 1]  560 	ld	(x), a
+                                    561 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 221: CAN->Page.Filter.FR10 = CAN_FilterIDMask1;
+                                    562 ; genPointerSet
+      00021F AE 54 31         [ 2]  563 	ldw	x, #0x5431
+      000222 7B 16            [ 1]  564 	ld	a, (0x16, sp)
+      000224 F7               [ 1]  565 	ld	(x), a
+                                    566 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 222: CAN->Page.Filter.FR11 = CAN_FilterID2;
+                                    567 ; genPointerSet
+      000225 AE 54 32         [ 2]  568 	ldw	x, #0x5432
+      000228 7B 13            [ 1]  569 	ld	a, (0x13, sp)
+      00022A F7               [ 1]  570 	ld	(x), a
+                                    571 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 223: CAN->Page.Filter.FR12 = CAN_FilterIDMask2;
+                                    572 ; genPointerSet
+      00022B AE 54 33         [ 2]  573 	ldw	x, #0x5433
+      00022E 7B 17            [ 1]  574 	ld	a, (0x17, sp)
+      000230 F7               [ 1]  575 	ld	(x), a
+                                    576 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 224: CAN->Page.Filter.FR13 = CAN_FilterID3;
+                                    577 ; genPointerSet
+      000231 AE 54 34         [ 2]  578 	ldw	x, #0x5434
+      000234 7B 14            [ 1]  579 	ld	a, (0x14, sp)
+      000236 F7               [ 1]  580 	ld	(x), a
+                                    581 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 225: CAN->Page.Filter.FR14 = CAN_FilterIDMask3;
+                                    582 ; genPointerSet
+      000237 AE 54 35         [ 2]  583 	ldw	x, #0x5435
+      00023A 7B 18            [ 1]  584 	ld	a, (0x18, sp)
+      00023C F7               [ 1]  585 	ld	(x), a
+                                    586 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 226: CAN->Page.Filter.FR15 = CAN_FilterID4;
+                                    587 ; genPointerSet
+      00023D AE 54 36         [ 2]  588 	ldw	x, #0x5436
+      000240 7B 15            [ 1]  589 	ld	a, (0x15, sp)
+      000242 F7               [ 1]  590 	ld	(x), a
+                                    591 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 227: CAN->Page.Filter.FR16 = CAN_FilterIDMask4;
+                                    592 ; genPointerSet
+      000243 AE 54 37         [ 2]  593 	ldw	x, #0x5437
+      000246 7B 19            [ 1]  594 	ld	a, (0x19, sp)
+      000248 F7               [ 1]  595 	ld	(x), a
+                                    596 ; genGoto
+      000249 CCr03rDD         [ 2]  597 	jp	00167$
+                                    598 ; genLabel
+      00024C                        599 00152$:
+                                    600 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 229: else if (CAN_FilterScale == CAN_FilterScale_16_8Bit)
+                                    601 ; genIfx
+      00024C 0D 0A            [ 1]  602 	tnz	(0x0a, sp)
+      00024E 26 03            [ 1]  603 	jrne	00409$
+      000250 CCr02r86         [ 2]  604 	jp	00149$
+      000253                        605 00409$:
+                                    606 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 231: CAN->Page.Filter.FR09 = CAN_FilterID1;
+                                    607 ; genPointerSet
+      000253 AE 54 30         [ 2]  608 	ldw	x, #0x5430
+      000256 7B 12            [ 1]  609 	ld	a, (0x12, sp)
+      000258 F7               [ 1]  610 	ld	(x), a
+                                    611 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 232: CAN->Page.Filter.FR10 = CAN_FilterID2;
+                                    612 ; genPointerSet
+      000259 AE 54 31         [ 2]  613 	ldw	x, #0x5431
+      00025C 7B 13            [ 1]  614 	ld	a, (0x13, sp)
+      00025E F7               [ 1]  615 	ld	(x), a
+                                    616 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 233: CAN->Page.Filter.FR11 = CAN_FilterIDMask1;
+                                    617 ; genPointerSet
+      00025F AE 54 32         [ 2]  618 	ldw	x, #0x5432
+      000262 7B 16            [ 1]  619 	ld	a, (0x16, sp)
+      000264 F7               [ 1]  620 	ld	(x), a
+                                    621 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 234: CAN->Page.Filter.FR12 = CAN_FilterIDMask2;
+                                    622 ; genPointerSet
+      000265 AE 54 33         [ 2]  623 	ldw	x, #0x5433
+      000268 7B 17            [ 1]  624 	ld	a, (0x17, sp)
+      00026A F7               [ 1]  625 	ld	(x), a
+                                    626 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 235: CAN->Page.Filter.FR13 = CAN_FilterID3;
+                                    627 ; genPointerSet
+      00026B AE 54 34         [ 2]  628 	ldw	x, #0x5434
+      00026E 7B 14            [ 1]  629 	ld	a, (0x14, sp)
+      000270 F7               [ 1]  630 	ld	(x), a
+                                    631 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 236: CAN->Page.Filter.FR14 = CAN_FilterIDMask3;
+                                    632 ; genPointerSet
+      000271 AE 54 35         [ 2]  633 	ldw	x, #0x5435
+      000274 7B 18            [ 1]  634 	ld	a, (0x18, sp)
+      000276 F7               [ 1]  635 	ld	(x), a
+                                    636 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 237: CAN->Page.Filter.FR15 = CAN_FilterID4;
+                                    637 ; genPointerSet
+      000277 AE 54 36         [ 2]  638 	ldw	x, #0x5436
+      00027A 7B 15            [ 1]  639 	ld	a, (0x15, sp)
+      00027C F7               [ 1]  640 	ld	(x), a
+                                    641 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 238: CAN->Page.Filter.FR16 = CAN_FilterIDMask4;
+                                    642 ; genPointerSet
+      00027D AE 54 37         [ 2]  643 	ldw	x, #0x5437
+      000280 7B 19            [ 1]  644 	ld	a, (0x19, sp)
+      000282 F7               [ 1]  645 	ld	(x), a
+                                    646 ; genGoto
+      000283 CCr03rDD         [ 2]  647 	jp	00167$
+                                    648 ; genLabel
+      000286                        649 00149$:
+                                    650 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 240: else if (CAN_FilterScale == CAN_FilterScale_16Bit)
+                                    651 ; genIfx
+      000286 0D 0B            [ 1]  652 	tnz	(0x0b, sp)
+      000288 26 03            [ 1]  653 	jrne	00410$
+      00028A CCr02rC0         [ 2]  654 	jp	00146$
+      00028D                        655 00410$:
+                                    656 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 242: CAN->Page.Filter.FR09 = CAN_FilterID1;
+                                    657 ; genPointerSet
+      00028D AE 54 30         [ 2]  658 	ldw	x, #0x5430
+      000290 7B 12            [ 1]  659 	ld	a, (0x12, sp)
+      000292 F7               [ 1]  660 	ld	(x), a
+                                    661 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 243: CAN->Page.Filter.FR10 = CAN_FilterID2;
+                                    662 ; genPointerSet
+      000293 AE 54 31         [ 2]  663 	ldw	x, #0x5431
+      000296 7B 13            [ 1]  664 	ld	a, (0x13, sp)
+      000298 F7               [ 1]  665 	ld	(x), a
+                                    666 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 244: CAN->Page.Filter.FR11 = CAN_FilterIDMask1;
+                                    667 ; genPointerSet
+      000299 AE 54 32         [ 2]  668 	ldw	x, #0x5432
+      00029C 7B 16            [ 1]  669 	ld	a, (0x16, sp)
+      00029E F7               [ 1]  670 	ld	(x), a
+                                    671 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 245: CAN->Page.Filter.FR12 = CAN_FilterIDMask2;
+                                    672 ; genPointerSet
+      00029F AE 54 33         [ 2]  673 	ldw	x, #0x5433
+      0002A2 7B 17            [ 1]  674 	ld	a, (0x17, sp)
+      0002A4 F7               [ 1]  675 	ld	(x), a
+                                    676 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 246: CAN->Page.Filter.FR13 = CAN_FilterID3;
+                                    677 ; genPointerSet
+      0002A5 AE 54 34         [ 2]  678 	ldw	x, #0x5434
+      0002A8 7B 14            [ 1]  679 	ld	a, (0x14, sp)
+      0002AA F7               [ 1]  680 	ld	(x), a
+                                    681 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 247: CAN->Page.Filter.FR14 = CAN_FilterID4;
+                                    682 ; genPointerSet
+      0002AB AE 54 35         [ 2]  683 	ldw	x, #0x5435
+      0002AE 7B 15            [ 1]  684 	ld	a, (0x15, sp)
+      0002B0 F7               [ 1]  685 	ld	(x), a
+                                    686 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 248: CAN->Page.Filter.FR15 = CAN_FilterIDMask3;
+                                    687 ; genPointerSet
+      0002B1 AE 54 36         [ 2]  688 	ldw	x, #0x5436
+      0002B4 7B 18            [ 1]  689 	ld	a, (0x18, sp)
+      0002B6 F7               [ 1]  690 	ld	(x), a
+                                    691 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 249: CAN->Page.Filter.FR16 = CAN_FilterIDMask4;
+                                    692 ; genPointerSet
+      0002B7 AE 54 37         [ 2]  693 	ldw	x, #0x5437
+      0002BA 7B 19            [ 1]  694 	ld	a, (0x19, sp)
+      0002BC F7               [ 1]  695 	ld	(x), a
+                                    696 ; genGoto
+      0002BD CCr03rDD         [ 2]  697 	jp	00167$
+                                    698 ; genLabel
+      0002C0                        699 00146$:
+                                    700 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 251: else if (CAN_FilterScale == CAN_FilterScale_32Bit)
+                                    701 ; genIfx
+      0002C0 4D               [ 1]  702 	tnz	a
+      0002C1 26 03            [ 1]  703 	jrne	00411$
+      0002C3 CCr03rDD         [ 2]  704 	jp	00167$
+      0002C6                        705 00411$:
+                                    706 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 253: CAN->Page.Filter.FR09 = CAN_FilterID1;
+                                    707 ; genPointerSet
+      0002C6 AE 54 30         [ 2]  708 	ldw	x, #0x5430
+      0002C9 7B 12            [ 1]  709 	ld	a, (0x12, sp)
+      0002CB F7               [ 1]  710 	ld	(x), a
+                                    711 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 254: CAN->Page.Filter.FR10 = CAN_FilterID2;
+                                    712 ; genPointerSet
+      0002CC AE 54 31         [ 2]  713 	ldw	x, #0x5431
+      0002CF 7B 13            [ 1]  714 	ld	a, (0x13, sp)
+      0002D1 F7               [ 1]  715 	ld	(x), a
+                                    716 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 255: CAN->Page.Filter.FR11 = CAN_FilterID3;
+                                    717 ; genPointerSet
+      0002D2 AE 54 32         [ 2]  718 	ldw	x, #0x5432
+      0002D5 7B 14            [ 1]  719 	ld	a, (0x14, sp)
+      0002D7 F7               [ 1]  720 	ld	(x), a
+                                    721 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 256: CAN->Page.Filter.FR12 = CAN_FilterID4;
+                                    722 ; genPointerSet
+      0002D8 AE 54 33         [ 2]  723 	ldw	x, #0x5433
+      0002DB 7B 15            [ 1]  724 	ld	a, (0x15, sp)
+      0002DD F7               [ 1]  725 	ld	(x), a
+                                    726 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 257: CAN->Page.Filter.FR13 = CAN_FilterIDMask1;
+                                    727 ; genPointerSet
+      0002DE AE 54 34         [ 2]  728 	ldw	x, #0x5434
+      0002E1 7B 16            [ 1]  729 	ld	a, (0x16, sp)
+      0002E3 F7               [ 1]  730 	ld	(x), a
+                                    731 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 258: CAN->Page.Filter.FR14 = CAN_FilterIDMask2;
+                                    732 ; genPointerSet
+      0002E4 AE 54 35         [ 2]  733 	ldw	x, #0x5435
+      0002E7 7B 17            [ 1]  734 	ld	a, (0x17, sp)
+      0002E9 F7               [ 1]  735 	ld	(x), a
+                                    736 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 259: CAN->Page.Filter.FR15 = CAN_FilterIDMask3;
+                                    737 ; genPointerSet
+      0002EA AE 54 36         [ 2]  738 	ldw	x, #0x5436
+      0002ED 7B 18            [ 1]  739 	ld	a, (0x18, sp)
+      0002EF F7               [ 1]  740 	ld	(x), a
+                                    741 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 260: CAN->Page.Filter.FR16 = CAN_FilterIDMask4;
+                                    742 ; genPointerSet
+      0002F0 AE 54 37         [ 2]  743 	ldw	x, #0x5437
+      0002F3 7B 19            [ 1]  744 	ld	a, (0x19, sp)
+      0002F5 F7               [ 1]  745 	ld	(x), a
+                                    746 ; genGoto
+      0002F6 CCr03rDD         [ 2]  747 	jp	00167$
+                                    748 ; genLabel
+      0002F9                        749 00166$:
+                                    750 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 266: if (CAN_FilterScale == CAN_FilterScale_8Bit)
+                                    751 ; genIfx
+      0002F9 0D 11            [ 1]  752 	tnz	(0x11, sp)
+      0002FB 27 03            [ 1]  753 	jreq	00412$
+      0002FD CCr03r33         [ 2]  754 	jp	00163$
+      000300                        755 00412$:
+                                    756 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 268: CAN->Page.Filter.FR01 = CAN_FilterID1;
+                                    757 ; genPointerSet
+      000300 AE 54 28         [ 2]  758 	ldw	x, #0x5428
+      000303 7B 12            [ 1]  759 	ld	a, (0x12, sp)
+      000305 F7               [ 1]  760 	ld	(x), a
+                                    761 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 269: CAN->Page.Filter.FR02 = CAN_FilterIDMask1;
+                                    762 ; genPointerSet
+      000306 AE 54 29         [ 2]  763 	ldw	x, #0x5429
+      000309 7B 16            [ 1]  764 	ld	a, (0x16, sp)
+      00030B F7               [ 1]  765 	ld	(x), a
+                                    766 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 270: CAN->Page.Filter.FR03 = CAN_FilterID2;
+                                    767 ; genPointerSet
+      00030C AE 54 2A         [ 2]  768 	ldw	x, #0x542a
+      00030F 7B 13            [ 1]  769 	ld	a, (0x13, sp)
+      000311 F7               [ 1]  770 	ld	(x), a
+                                    771 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 271: CAN->Page.Filter.FR04 = CAN_FilterIDMask2;
+                                    772 ; genPointerSet
+      000312 AE 54 2B         [ 2]  773 	ldw	x, #0x542b
+      000315 7B 17            [ 1]  774 	ld	a, (0x17, sp)
+      000317 F7               [ 1]  775 	ld	(x), a
+                                    776 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 272: CAN->Page.Filter.FR05 = CAN_FilterID3;
+                                    777 ; genPointerSet
+      000318 AE 54 2C         [ 2]  778 	ldw	x, #0x542c
+      00031B 7B 14            [ 1]  779 	ld	a, (0x14, sp)
+      00031D F7               [ 1]  780 	ld	(x), a
+                                    781 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 273: CAN->Page.Filter.FR06 = CAN_FilterIDMask3;
+                                    782 ; genPointerSet
+      00031E AE 54 2D         [ 2]  783 	ldw	x, #0x542d
+      000321 7B 18            [ 1]  784 	ld	a, (0x18, sp)
+      000323 F7               [ 1]  785 	ld	(x), a
+                                    786 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 274: CAN->Page.Filter.FR07 = CAN_FilterID4;
+                                    787 ; genPointerSet
+      000324 AE 54 2E         [ 2]  788 	ldw	x, #0x542e
+      000327 7B 15            [ 1]  789 	ld	a, (0x15, sp)
+      000329 F7               [ 1]  790 	ld	(x), a
+                                    791 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 275: CAN->Page.Filter.FR08 = CAN_FilterIDMask4;
+                                    792 ; genPointerSet
+      00032A AE 54 2F         [ 2]  793 	ldw	x, #0x542f
+      00032D 7B 19            [ 1]  794 	ld	a, (0x19, sp)
+      00032F F7               [ 1]  795 	ld	(x), a
+                                    796 ; genGoto
+      000330 CCr03rDD         [ 2]  797 	jp	00167$
+                                    798 ; genLabel
+      000333                        799 00163$:
+                                    800 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 277: else if (CAN_FilterScale == CAN_FilterScale_16_8Bit)
+                                    801 ; genIfx
+      000333 0D 0A            [ 1]  802 	tnz	(0x0a, sp)
+      000335 26 03            [ 1]  803 	jrne	00413$
+      000337 CCr03r6D         [ 2]  804 	jp	00160$
+      00033A                        805 00413$:
+                                    806 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 279: CAN->Page.Filter.FR01 = CAN_FilterID1;
+                                    807 ; genPointerSet
+      00033A AE 54 28         [ 2]  808 	ldw	x, #0x5428
+      00033D 7B 12            [ 1]  809 	ld	a, (0x12, sp)
+      00033F F7               [ 1]  810 	ld	(x), a
+                                    811 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 280: CAN->Page.Filter.FR02 = CAN_FilterID2;
+                                    812 ; genPointerSet
+      000340 AE 54 29         [ 2]  813 	ldw	x, #0x5429
+      000343 7B 13            [ 1]  814 	ld	a, (0x13, sp)
+      000345 F7               [ 1]  815 	ld	(x), a
+                                    816 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 281: CAN->Page.Filter.FR03 = CAN_FilterIDMask1;
+                                    817 ; genPointerSet
+      000346 AE 54 2A         [ 2]  818 	ldw	x, #0x542a
+      000349 7B 16            [ 1]  819 	ld	a, (0x16, sp)
+      00034B F7               [ 1]  820 	ld	(x), a
+                                    821 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 282: CAN->Page.Filter.FR04 = CAN_FilterIDMask2;
+                                    822 ; genPointerSet
+      00034C AE 54 2B         [ 2]  823 	ldw	x, #0x542b
+      00034F 7B 17            [ 1]  824 	ld	a, (0x17, sp)
+      000351 F7               [ 1]  825 	ld	(x), a
+                                    826 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 283: CAN->Page.Filter.FR05 = CAN_FilterID3;
+                                    827 ; genPointerSet
+      000352 AE 54 2C         [ 2]  828 	ldw	x, #0x542c
+      000355 7B 14            [ 1]  829 	ld	a, (0x14, sp)
+      000357 F7               [ 1]  830 	ld	(x), a
+                                    831 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 284: CAN->Page.Filter.FR06 = CAN_FilterIDMask3;
+                                    832 ; genPointerSet
+      000358 AE 54 2D         [ 2]  833 	ldw	x, #0x542d
+      00035B 7B 18            [ 1]  834 	ld	a, (0x18, sp)
+      00035D F7               [ 1]  835 	ld	(x), a
+                                    836 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 285: CAN->Page.Filter.FR07 = CAN_FilterID4;
+                                    837 ; genPointerSet
+      00035E AE 54 2E         [ 2]  838 	ldw	x, #0x542e
+      000361 7B 15            [ 1]  839 	ld	a, (0x15, sp)
+      000363 F7               [ 1]  840 	ld	(x), a
+                                    841 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 286: CAN->Page.Filter.FR08 = CAN_FilterIDMask4;
+                                    842 ; genPointerSet
+      000364 AE 54 2F         [ 2]  843 	ldw	x, #0x542f
+      000367 7B 19            [ 1]  844 	ld	a, (0x19, sp)
+      000369 F7               [ 1]  845 	ld	(x), a
+                                    846 ; genGoto
+      00036A CCr03rDD         [ 2]  847 	jp	00167$
+                                    848 ; genLabel
+      00036D                        849 00160$:
+                                    850 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 288: else if (CAN_FilterScale == CAN_FilterScale_16Bit)
+                                    851 ; genIfx
+      00036D 0D 0B            [ 1]  852 	tnz	(0x0b, sp)
+      00036F 26 03            [ 1]  853 	jrne	00414$
+      000371 CCr03rA7         [ 2]  854 	jp	00157$
+      000374                        855 00414$:
+                                    856 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 290: CAN->Page.Filter.FR01 = CAN_FilterID1;
+                                    857 ; genPointerSet
+      000374 AE 54 28         [ 2]  858 	ldw	x, #0x5428
+      000377 7B 12            [ 1]  859 	ld	a, (0x12, sp)
+      000379 F7               [ 1]  860 	ld	(x), a
+                                    861 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 291: CAN->Page.Filter.FR02 = CAN_FilterID2;
+                                    862 ; genPointerSet
+      00037A AE 54 29         [ 2]  863 	ldw	x, #0x5429
+      00037D 7B 13            [ 1]  864 	ld	a, (0x13, sp)
+      00037F F7               [ 1]  865 	ld	(x), a
+                                    866 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 292: CAN->Page.Filter.FR03 = CAN_FilterIDMask1;
+                                    867 ; genPointerSet
+      000380 AE 54 2A         [ 2]  868 	ldw	x, #0x542a
+      000383 7B 16            [ 1]  869 	ld	a, (0x16, sp)
+      000385 F7               [ 1]  870 	ld	(x), a
+                                    871 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 293: CAN->Page.Filter.FR04 = CAN_FilterIDMask2;
+                                    872 ; genPointerSet
+      000386 AE 54 2B         [ 2]  873 	ldw	x, #0x542b
+      000389 7B 17            [ 1]  874 	ld	a, (0x17, sp)
+      00038B F7               [ 1]  875 	ld	(x), a
+                                    876 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 294: CAN->Page.Filter.FR05 = CAN_FilterID3;
+                                    877 ; genPointerSet
+      00038C AE 54 2C         [ 2]  878 	ldw	x, #0x542c
+      00038F 7B 14            [ 1]  879 	ld	a, (0x14, sp)
+      000391 F7               [ 1]  880 	ld	(x), a
+                                    881 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 295: CAN->Page.Filter.FR06 = CAN_FilterID4;
+                                    882 ; genPointerSet
+      000392 AE 54 2D         [ 2]  883 	ldw	x, #0x542d
+      000395 7B 15            [ 1]  884 	ld	a, (0x15, sp)
+      000397 F7               [ 1]  885 	ld	(x), a
+                                    886 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 296: CAN->Page.Filter.FR07 = CAN_FilterIDMask3;
+                                    887 ; genPointerSet
+      000398 AE 54 2E         [ 2]  888 	ldw	x, #0x542e
+      00039B 7B 18            [ 1]  889 	ld	a, (0x18, sp)
+      00039D F7               [ 1]  890 	ld	(x), a
+                                    891 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 297: CAN->Page.Filter.FR08 = CAN_FilterIDMask4;
+                                    892 ; genPointerSet
+      00039E AE 54 2F         [ 2]  893 	ldw	x, #0x542f
+      0003A1 7B 19            [ 1]  894 	ld	a, (0x19, sp)
+      0003A3 F7               [ 1]  895 	ld	(x), a
+                                    896 ; genGoto
+      0003A4 CCr03rDD         [ 2]  897 	jp	00167$
+                                    898 ; genLabel
+      0003A7                        899 00157$:
+                                    900 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 299: else if (CAN_FilterScale == CAN_FilterScale_32Bit)
+                                    901 ; genIfx
+      0003A7 4D               [ 1]  902 	tnz	a
+      0003A8 26 03            [ 1]  903 	jrne	00415$
+      0003AA CCr03rDD         [ 2]  904 	jp	00167$
+      0003AD                        905 00415$:
+                                    906 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 301: CAN->Page.Filter.FR01 = CAN_FilterID1;
+                                    907 ; genPointerSet
+      0003AD AE 54 28         [ 2]  908 	ldw	x, #0x5428
+      0003B0 7B 12            [ 1]  909 	ld	a, (0x12, sp)
+      0003B2 F7               [ 1]  910 	ld	(x), a
+                                    911 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 302: CAN->Page.Filter.FR02 = CAN_FilterID2;
+                                    912 ; genPointerSet
+      0003B3 AE 54 29         [ 2]  913 	ldw	x, #0x5429
+      0003B6 7B 13            [ 1]  914 	ld	a, (0x13, sp)
+      0003B8 F7               [ 1]  915 	ld	(x), a
+                                    916 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 303: CAN->Page.Filter.FR03 = CAN_FilterID3;
+                                    917 ; genPointerSet
+      0003B9 AE 54 2A         [ 2]  918 	ldw	x, #0x542a
+      0003BC 7B 14            [ 1]  919 	ld	a, (0x14, sp)
+      0003BE F7               [ 1]  920 	ld	(x), a
+                                    921 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 304: CAN->Page.Filter.FR04 = CAN_FilterID4;
+                                    922 ; genPointerSet
+      0003BF AE 54 2B         [ 2]  923 	ldw	x, #0x542b
+      0003C2 7B 15            [ 1]  924 	ld	a, (0x15, sp)
+      0003C4 F7               [ 1]  925 	ld	(x), a
+                                    926 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 305: CAN->Page.Filter.FR05 = CAN_FilterIDMask1;
+                                    927 ; genPointerSet
+      0003C5 AE 54 2C         [ 2]  928 	ldw	x, #0x542c
+      0003C8 7B 16            [ 1]  929 	ld	a, (0x16, sp)
+      0003CA F7               [ 1]  930 	ld	(x), a
+                                    931 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 306: CAN->Page.Filter.FR06 = CAN_FilterIDMask2;
+                                    932 ; genPointerSet
+      0003CB AE 54 2D         [ 2]  933 	ldw	x, #0x542d
+      0003CE 7B 17            [ 1]  934 	ld	a, (0x17, sp)
+      0003D0 F7               [ 1]  935 	ld	(x), a
+                                    936 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 307: CAN->Page.Filter.FR07 = CAN_FilterIDMask3;
+                                    937 ; genPointerSet
+      0003D1 AE 54 2E         [ 2]  938 	ldw	x, #0x542e
+      0003D4 7B 18            [ 1]  939 	ld	a, (0x18, sp)
+      0003D6 F7               [ 1]  940 	ld	(x), a
+                                    941 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 308: CAN->Page.Filter.FR08 = CAN_FilterIDMask4;
+                                    942 ; genPointerSet
+      0003D7 AE 54 2F         [ 2]  943 	ldw	x, #0x542f
+      0003DA 7B 19            [ 1]  944 	ld	a, (0x19, sp)
+      0003DC F7               [ 1]  945 	ld	(x), a
+                                    946 ; genLabel
+      0003DD                        947 00167$:
+                                    948 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 317: CAN->PSR = CAN_Page_Config;
+                                    949 ; genPointerSet
+      0003DD 35 06 54 27      [ 1]  950 	mov	0x5427+0, #0x06
+                                    951 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 318: if (CAN_FilterActivation != DISABLE)
+                                    952 ; genIfx
+      0003E1 0D 0F            [ 1]  953 	tnz	(0x0f, sp)
+      0003E3 26 03            [ 1]  954 	jrne	00416$
+      0003E5 CCr04r1D         [ 2]  955 	jp	00175$
+      0003E8                        956 00416$:
+                                    957 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 320: if ((CAN_FilterNumber & 0x06) == 0x00) /* FCR1*/
+                                    958 ; genAnd
+      0003E8 7B 0C            [ 1]  959 	ld	a, (0x0c, sp)
+      0003EA A5 06            [ 1]  960 	bcp	a, #0x06
+      0003EC 27 03            [ 1]  961 	jreq	00417$
+      0003EE CCr03rFC         [ 2]  962 	jp	00172$
+      0003F1                        963 00417$:
+                                    964 ; skipping generated iCode
+                                    965 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 321: {   CAN->Page.Config.FCR1 |= (uint8_t)fact;
+                                    966 ; genPointerGet
+      0003F1 C6 54 32         [ 1]  967 	ld	a, 0x5432
+                                    968 ; genOr
+      0003F4 1A 02            [ 1]  969 	or	a, (0x02, sp)
+                                    970 ; genPointerSet
+      0003F6 C7 54 32         [ 1]  971 	ld	0x5432, a
+                                    972 ; genGoto
+      0003F9 CCr04r1D         [ 2]  973 	jp	00175$
+                                    974 ; genLabel
+      0003FC                        975 00172$:
+                                    976 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 323: else if ((CAN_FilterNumber & 0x06) == 0x02) /*FCR2*/
+                                    977 ; genCast
+                                    978 ; genAssign
+      0003FC 7B 0C            [ 1]  979 	ld	a, (0x0c, sp)
+                                    980 ; genAnd
+      0003FE A4 06            [ 1]  981 	and	a, #0x06
+                                    982 ; genCmpEQorNE
+      000400 A1 02            [ 1]  983 	cp	a, #0x02
+      000402 26 03            [ 1]  984 	jrne	00419$
+      000404 CCr04r0A         [ 2]  985 	jp	00420$
+      000407                        986 00419$:
+      000407 CCr04r15         [ 2]  987 	jp	00169$
+      00040A                        988 00420$:
+                                    989 ; skipping generated iCode
+                                    990 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 324: { CAN->Page.Config.FCR2 |= (uint8_t)fact;
+                                    991 ; genPointerGet
+      00040A C6 54 33         [ 1]  992 	ld	a, 0x5433
+                                    993 ; genOr
+      00040D 1A 02            [ 1]  994 	or	a, (0x02, sp)
+                                    995 ; genPointerSet
+      00040F C7 54 33         [ 1]  996 	ld	0x5433, a
+                                    997 ; genGoto
+      000412 CCr04r1D         [ 2]  998 	jp	00175$
+                                    999 ; genLabel
+      000415                       1000 00169$:
+                                   1001 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 327: { CAN->Page.Config.FCR3 |= (uint8_t)fact;
+                                   1002 ; genPointerGet
+      000415 C6 54 34         [ 1] 1003 	ld	a, 0x5434
+                                   1004 ; genOr
+      000418 1A 02            [ 1] 1005 	or	a, (0x02, sp)
+                                   1006 ; genPointerSet
+      00041A C7 54 34         [ 1] 1007 	ld	0x5434, a
+                                   1008 ; genLabel
+      00041D                       1009 00175$:
+                                   1010 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 330: CAN_OperatingModeRequest(CAN_OperatingMode_Normal);
+                                   1011 ; genSend
+      00041D A6 01            [ 1] 1012 	ld	a, #0x01
+                                   1013 ; genCall
+      00041F CDr00r00         [ 4] 1014 	call	_CAN_OperatingModeRequest
+                                   1015 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 332: CAN_SelectPage(can_page);
+                                   1016 ; genSend
+      000422 7B 01            [ 1] 1017 	ld	a, (0x01, sp)
+                                   1018 ; genCall
+      000424 CDr00r00         [ 4] 1019 	call	_CAN_SelectPage
+                                   1020 ; genLabel
+      000427                       1021 00176$:
+                                   1022 ;	../SPLSPL/src/stm8s_can_CAN_FilterInit.c: 333: }
+                                   1023 ; genEndFunction
+      000427 1E 0D            [ 2] 1024 	ldw	x, (13, sp)
+      000429 5B 19            [ 2] 1025 	addw	sp, #25
+      00042B FC               [ 2] 1026 	jp	(x)
+                                   1027 	.area CODE
+                                   1028 	.area CONST
+                                   1029 	.area INITIALIZER
+                                   1030 	.area CABS (ABS)

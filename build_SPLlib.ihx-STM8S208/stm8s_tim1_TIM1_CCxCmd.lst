@@ -1,0 +1,199 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14620 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_tim1_TIM1_CCxCmd
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TIM1_CCxCmd
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+                                     20 ;--------------------------------------------------------
+                                     21 ; absolute external ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DABS (ABS)
+                                     24 
+                                     25 ; default segment ordering for linker
+                                     26 	.area HOME
+                                     27 	.area GSINIT
+                                     28 	.area GSFINAL
+                                     29 	.area CONST
+                                     30 	.area INITIALIZER
+                                     31 	.area CODE
+                                     32 
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area HOME
+                                     37 	.area GSINIT
+                                     38 	.area GSFINAL
+                                     39 	.area GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area HOME
+                                     44 	.area HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area CODE
+                                     49 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 43: void TIM1_CCxCmd(TIM1_Channel_TypeDef TIM1_Channel, FunctionalState NewState)
+                                     50 ; genLabel
+                                     51 ;	-----------------------------------------
+                                     52 ;	 function TIM1_CCxCmd
+                                     53 ;	-----------------------------------------
+                                     54 ;	Register assignment is optimal.
+                                     55 ;	Stack space usage: 0 bytes.
+      000000                         56 _TIM1_CCxCmd:
+                                     57 ; genReceive
+      000000 97               [ 1]   58 	ld	xl, a
+                                     59 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 49: if (TIM1_Channel == TIM1_CHANNEL_1)
+                                     60 ; genIfx
+      000001 9F               [ 1]   61 	ld	a, xl
+      000002 4D               [ 1]   62 	tnz	a
+      000003 27 03            [ 1]   63 	jreq	00173$
+      000005 CCr00r22         [ 2]   64 	jp	00120$
+      000008                         65 00173$:
+                                     66 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 54: TIM1->CCER1 |= TIM1_CCER1_CC1E;
+                                     67 ; genPointerGet
+      000008 C6 52 5C         [ 1]   68 	ld	a, 0x525c
+                                     69 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 52: if (NewState != DISABLE)
+                                     70 ; genIfx
+      00000B 0D 03            [ 1]   71 	tnz	(0x03, sp)
+      00000D 26 03            [ 1]   72 	jrne	00174$
+      00000F CCr00r1A         [ 2]   73 	jp	00102$
+      000012                         74 00174$:
+                                     75 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 54: TIM1->CCER1 |= TIM1_CCER1_CC1E;
+                                     76 ; genOr
+      000012 AA 01            [ 1]   77 	or	a, #0x01
+                                     78 ; genPointerSet
+      000014 C7 52 5C         [ 1]   79 	ld	0x525c, a
+                                     80 ; genGoto
+      000017 CCr00r81         [ 2]   81 	jp	00122$
+                                     82 ; genLabel
+      00001A                         83 00102$:
+                                     84 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 58: TIM1->CCER1 &= (uint8_t)(~TIM1_CCER1_CC1E);
+                                     85 ; genAnd
+      00001A A4 FE            [ 1]   86 	and	a, #0xfe
+                                     87 ; genPointerSet
+      00001C C7 52 5C         [ 1]   88 	ld	0x525c, a
+                                     89 ; genGoto
+      00001F CCr00r81         [ 2]   90 	jp	00122$
+                                     91 ; genLabel
+      000022                         92 00120$:
+                                     93 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 62: else if (TIM1_Channel == TIM1_CHANNEL_2)
+                                     94 ; genCmpEQorNE
+      000022 9F               [ 1]   95 	ld	a, xl
+      000023 4A               [ 1]   96 	dec	a
+      000024 26 03            [ 1]   97 	jrne	00176$
+      000026 CCr00r2C         [ 2]   98 	jp	00177$
+      000029                         99 00176$:
+      000029 CCr00r46         [ 2]  100 	jp	00117$
+      00002C                        101 00177$:
+                                    102 ; skipping generated iCode
+                                    103 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 54: TIM1->CCER1 |= TIM1_CCER1_CC1E;
+                                    104 ; genPointerGet
+      00002C C6 52 5C         [ 1]  105 	ld	a, 0x525c
+                                    106 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 65: if (NewState != DISABLE)
+                                    107 ; genIfx
+      00002F 0D 03            [ 1]  108 	tnz	(0x03, sp)
+      000031 26 03            [ 1]  109 	jrne	00178$
+      000033 CCr00r3E         [ 2]  110 	jp	00105$
+      000036                        111 00178$:
+                                    112 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 67: TIM1->CCER1 |= TIM1_CCER1_CC2E;
+                                    113 ; genOr
+      000036 AA 10            [ 1]  114 	or	a, #0x10
+                                    115 ; genPointerSet
+      000038 C7 52 5C         [ 1]  116 	ld	0x525c, a
+                                    117 ; genGoto
+      00003B CCr00r81         [ 2]  118 	jp	00122$
+                                    119 ; genLabel
+      00003E                        120 00105$:
+                                    121 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 71: TIM1->CCER1 &= (uint8_t)(~TIM1_CCER1_CC2E);
+                                    122 ; genAnd
+      00003E A4 EF            [ 1]  123 	and	a, #0xef
+                                    124 ; genPointerSet
+      000040 C7 52 5C         [ 1]  125 	ld	0x525c, a
+                                    126 ; genGoto
+      000043 CCr00r81         [ 2]  127 	jp	00122$
+                                    128 ; genLabel
+      000046                        129 00117$:
+                                    130 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 79: TIM1->CCER2 |= TIM1_CCER2_CC3E;
+                                    131 ; genPointerGet
+      000046 C6 52 5D         [ 1]  132 	ld	a, 0x525d
+                                    133 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 74: else if (TIM1_Channel == TIM1_CHANNEL_3)
+                                    134 ; genCmpEQorNE
+      000049 88               [ 1]  135 	push	a
+      00004A 9F               [ 1]  136 	ld	a, xl
+      00004B A1 02            [ 1]  137 	cp	a, #0x02
+      00004D 84               [ 1]  138 	pop	a
+      00004E 26 03            [ 1]  139 	jrne	00180$
+      000050 CCr00r56         [ 2]  140 	jp	00181$
+      000053                        141 00180$:
+      000053 CCr00r6D         [ 2]  142 	jp	00114$
+      000056                        143 00181$:
+                                    144 ; skipping generated iCode
+                                    145 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 77: if (NewState != DISABLE)
+                                    146 ; genIfx
+      000056 0D 03            [ 1]  147 	tnz	(0x03, sp)
+      000058 26 03            [ 1]  148 	jrne	00182$
+      00005A CCr00r65         [ 2]  149 	jp	00108$
+      00005D                        150 00182$:
+                                    151 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 79: TIM1->CCER2 |= TIM1_CCER2_CC3E;
+                                    152 ; genOr
+      00005D AA 01            [ 1]  153 	or	a, #0x01
+                                    154 ; genPointerSet
+      00005F C7 52 5D         [ 1]  155 	ld	0x525d, a
+                                    156 ; genGoto
+      000062 CCr00r81         [ 2]  157 	jp	00122$
+                                    158 ; genLabel
+      000065                        159 00108$:
+                                    160 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 83: TIM1->CCER2 &= (uint8_t)(~TIM1_CCER2_CC3E);
+                                    161 ; genAnd
+      000065 A4 FE            [ 1]  162 	and	a, #0xfe
+                                    163 ; genPointerSet
+      000067 C7 52 5D         [ 1]  164 	ld	0x525d, a
+                                    165 ; genGoto
+      00006A CCr00r81         [ 2]  166 	jp	00122$
+                                    167 ; genLabel
+      00006D                        168 00114$:
+                                    169 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 89: if (NewState != DISABLE)
+                                    170 ; genIfx
+      00006D 0D 03            [ 1]  171 	tnz	(0x03, sp)
+      00006F 26 03            [ 1]  172 	jrne	00183$
+      000071 CCr00r7C         [ 2]  173 	jp	00111$
+      000074                        174 00183$:
+                                    175 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 91: TIM1->CCER2 |= TIM1_CCER2_CC4E;
+                                    176 ; genOr
+      000074 AA 10            [ 1]  177 	or	a, #0x10
+                                    178 ; genPointerSet
+      000076 C7 52 5D         [ 1]  179 	ld	0x525d, a
+                                    180 ; genGoto
+      000079 CCr00r81         [ 2]  181 	jp	00122$
+                                    182 ; genLabel
+      00007C                        183 00111$:
+                                    184 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 95: TIM1->CCER2 &= (uint8_t)(~TIM1_CCER2_CC4E);
+                                    185 ; genAnd
+      00007C A4 EF            [ 1]  186 	and	a, #0xef
+                                    187 ; genPointerSet
+      00007E C7 52 5D         [ 1]  188 	ld	0x525d, a
+                                    189 ; genLabel
+      000081                        190 00122$:
+                                    191 ;	../SPLSPL/src/stm8s_tim1_TIM1_CCxCmd.c: 98: }
+                                    192 ; genEndFunction
+      000081 85               [ 2]  193 	popw	x
+      000082 84               [ 1]  194 	pop	a
+      000083 FC               [ 2]  195 	jp	(x)
+                                    196 	.area CODE
+                                    197 	.area CONST
+                                    198 	.area INITIALIZER
+                                    199 	.area CABS (ABS)
